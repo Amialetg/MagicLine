@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline
 
+import android.app.Activity
 import android.content.Intent
 import android.net.wifi.hotspot2.pps.HomeSp
 import android.os.Bundle
@@ -10,7 +11,7 @@ import android.support.v7.app.AppCompatActivity
 /**
  * Created by hector on 26/06/18.
  */
-class SplashScreen : AppCompatActivity(){
+class SplashScreen : Activity(){
     private var handler: Handler? = null
     private val SPLASH_DELAY: Long = 3000
 
@@ -33,7 +34,7 @@ class SplashScreen : AppCompatActivity(){
         handler!!.postDelayed(mRunnable,SPLASH_DELAY)
     }
 
-    override fun onDestroy() {
+    public override fun onDestroy() {
 
         super.onDestroy()
 

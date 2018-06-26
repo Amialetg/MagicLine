@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    flavorDimensions "default"
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.voluntariat.android.magicline"
@@ -14,6 +15,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    productFlavors{
+        valencia{
+            applicationId "com.voluntariat.android.magicline.valencia"
+
+        }
+        mallorca{
+            applicationId "com.voluntariat.android.magicline.mallorca"
+
+        }
+        barcelona{
+            applicationId "com.voluntariat.android.magicline.barcelona"
+
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -21,6 +36,11 @@ android {
         }
     }
 }
+
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -31,3 +51,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+

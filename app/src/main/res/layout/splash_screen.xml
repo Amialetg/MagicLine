@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingRight="16dp"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    >
 
     <ImageView
 
@@ -11,13 +12,15 @@
         android:layout_height="154dp"
         android:layout_marginTop="28dp"
         android:layout_marginLeft="16dp"
-        android:src="@drawable/pantallasplash"/>
-
+        android:src="@drawable/pantallasplash"
+        android:id="@+id/imageView" />
+  
     <ImageView
         android:layout_width="375dp"
         android:layout_height="366dp"
         android:layout_marginTop="301dp"
         android:layout_marginLeft="0dp"
+        android:src="@drawable/splash2"
         />
 
 

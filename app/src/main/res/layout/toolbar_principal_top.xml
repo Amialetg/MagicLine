@@ -2,12 +2,12 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/principal_top_toolbar_height">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
         >
         <RelativeLayout

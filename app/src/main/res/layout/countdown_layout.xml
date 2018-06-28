@@ -10,8 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:paddingTop="80dp"
-
-
         >
 
         <GridLayout
@@ -71,7 +69,7 @@
                 android:textSize="11sp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
-                tools:text="DIES"
+                android:text="DIES"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
@@ -81,7 +79,7 @@
                 android:textSize="11sp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
-                tools:text="HORES"
+                android:text="HORES"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
@@ -91,7 +89,7 @@
                 android:textSize="11sp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
-                tools:text="MINUTS"
+                android:text="MINUTS"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
@@ -101,7 +99,7 @@
                 android:textSize="11sp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
-                tools:text="SEGONS"
+                android:text="SEGONS"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />

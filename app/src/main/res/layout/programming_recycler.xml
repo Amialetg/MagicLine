@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:textSize="16sp"
+            android:layout_marginTop="17dp"
             android:textColor="#4c4c4c"
             android:letterSpacing="0.13"
             android:text="PROGRAMACION"

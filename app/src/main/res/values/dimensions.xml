@@ -2,6 +2,9 @@
 <resources>
     <dimen name="countdown_timer_height">249dp</dimen>
     <dimen name="principal_top_toolbar_height">46dp</dimen>
+    <dimen name="principal_top_toolbar_txt_width">312dp</dimen>
+    <dimen name="principal_top_toolbar_txt_left_margin">22dp</dimen>
+
 
     <dimen name="padding_right_countdown">249dp</dimen>
 

@@ -11,16 +11,17 @@
         android:background="?attr/colorPrimary"
         >
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="@dimen/principal_top_toolbar_txt_width"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/principal_top_toolbar_txt_left_margin"
+
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/principal_top_toolbar"
-                android:textColor="@color/white"
-                android:layout_centerInParent="true"
-                android:textSize="25sp"
+                style="@style/TopToolbar"
                 />
 
         </RelativeLayout>

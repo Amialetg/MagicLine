@@ -23,9 +23,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="43.2sp"
-                android:textColor="#ffffff"
-                tools:text="54"
+                style="@style/CountDownNumbers"
+                tools:text="10"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginBottom="4dp"
@@ -35,28 +34,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="43.2sp"
-                android:textColor="#ffffff"
+                style="@style/CountDownNumbers"
                 tools:text="60"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 android:id="@+id/countdown_hores"
                 />
             <TextView
+                style="@style/CountDownNumbers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="43.2sp"
-                android:textColor="#ffffff"
                 tools:text="10"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 android:id="@+id/countdown_min"
                 />
             <TextView
+                style="@style/CountDownNumbers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="43.2sp"
-                android:textColor="#ffffff"
                 tools:text="02"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -64,40 +60,36 @@
                 />
 
             <TextView
+                style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:text="DIES"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
             <TextView
+                style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:text="HORES"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
             <TextView
+                style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:text="MINUTS"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 />
             <TextView
+                style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:text="SEGONS"
                 android:layout_marginRight="12dp"

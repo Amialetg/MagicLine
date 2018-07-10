@@ -2,4 +2,7 @@
     <string name="app_name">MagicLine</string>
     <string name="principal_top_toolbar">#MagicLine</string>
 
+    <!--Principal News-->
+    <string name="news_title">NOTICIAS</string>
+
 </resources>

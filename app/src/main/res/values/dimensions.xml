@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--CountDown-->
     <dimen name="countdown_timer_height">249dp</dimen>
+    <dimen name="padding_right_countdown">249dp</dimen>
+
+    <!--Top Toolbar-->
     <dimen name="principal_top_toolbar_height">46dp</dimen>
     <dimen name="principal_top_toolbar_txt_width">312dp</dimen>
     <dimen name="principal_top_toolbar_txt_left_margin">22dp</dimen>
 
+    <!--Principal News-->
+    <dimen name="news_height">170dp</dimen>
+    <dimen name="news_title_height">54dp</dimen>
+    <dimen name="news_arrow_width">30dp</dimen>
+    <dimen name="news_arrow_height">14dp</dimen>
+    <dimen name="news_arrow_box_width">40dp</dimen>
 
-    <dimen name="padding_right_countdown">249dp</dimen>
+    <dimen name="news_recycler_width">295dp</dimen>
+
+
+
+
+
+
 
 </resources>

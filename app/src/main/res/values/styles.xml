@@ -19,6 +19,8 @@
         <item name="android:layout_centerInParent">true</item>
     </style>
 
+
+    <!--Principal Countdown-->
     <style name="CountDownNumbers" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -39,5 +41,17 @@
         <item name="android:fontFamily">@font/lato_regular</item>
     </style>
 
+
+    <!--Principal News-->
+    <style name="NewsTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
 
 </resources>

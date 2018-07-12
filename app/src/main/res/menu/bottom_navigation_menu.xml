@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/MagicLineBar"
+        android:icon="@drawable/fill_69"
+        android:title="MagicLine" />
+    <item
+        android:id="@+id/ProgramacionBar"
+        android:icon="@drawable/fill_49"
+        android:title="Programación" />
+    <item
+        android:id="@+id/MapaBar"
+        android:icon="@drawable/fill_16"
+        android:title="Mapa" />
+    <item
+        android:id="@+id/DonativosBar"
+        android:icon="@drawable/fill_37"
+        android:title="Donativos" />
+    <item
+        android:id="@+id/MasInfoBar"
+        android:icon="@drawable/group_2"
+        android:title="Más info" />
+
+
+</menu>

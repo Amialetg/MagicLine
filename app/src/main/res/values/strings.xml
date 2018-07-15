@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MagicLine</string>
     <string name="principal_top_toolbar">#MagicLine</string>
+    <string name="OValues1">Utilización de envases ecologícos</string>
+    <string name="OValues2">Puntos de reciclaje</string>
+    <string name="OValues3">Respeto al medioambiente</string>
 
 </resources>

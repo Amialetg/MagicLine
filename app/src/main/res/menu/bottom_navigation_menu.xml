@@ -9,11 +9,10 @@
     <item
         android:id="@+id/ProgramacionBar"
         android:icon="@drawable/fill_49"
-        android:title="Programación" />
+        android:title="Programación"
+        />
     <item
-        android:id="@+id/MapaBar"
-        android:icon="@drawable/fill_16"
-        android:title="Mapa" />
+        android:title=""/>
     <item
         android:id="@+id/DonativosBar"
         android:icon="@drawable/fill_37"

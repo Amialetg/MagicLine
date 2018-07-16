@@ -16,6 +16,8 @@
 
         <include layout="@layout/countdown_layout"/>
 
+        <include layout="@layout/bottom_nav_layout"/>
+
     </LinearLayout>
 
 

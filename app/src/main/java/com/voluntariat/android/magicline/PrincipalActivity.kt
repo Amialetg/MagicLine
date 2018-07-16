@@ -21,6 +21,9 @@ class PrincipalActivity : AppCompatActivity() {
     lateinit var txtSeg: TextView
     private val dateCursaString: String = "24.02.2019, 10:00"
 
+    //Bottom Toolbar
+    lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,8 @@ class PrincipalActivity : AppCompatActivity() {
 
         initCountDown(counterTexts)
 
+        initBottomBar()
+
 
 
     }
@@ -41,6 +46,9 @@ class PrincipalActivity : AppCompatActivity() {
         txtHores=findViewById(R.id.countdown_hores)
         txtMin=findViewById(R.id.countdown_min)
         txtSeg=findViewById(R.id.countdown_seg)
+
+        //BottomBar
+        bottomBarView = findViewById(R.id.bottom_navigation)
 
         return arrayOf(txtDies, txtHores, txtMin, txtSeg)
     }
@@ -65,5 +73,12 @@ class PrincipalActivity : AppCompatActivity() {
 
         MyCounter(diff, 1000, txtDies).start()
 
+    }
+
+    private fun initBottomBar(){
+
+        bottomBarView.enableShiftingMode(false)
+        bottomBarView.enableItemShiftingMode(false)
+        bottomBarView.setTextSize(9.0f)
     }
 }

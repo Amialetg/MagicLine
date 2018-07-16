@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".TestToolbar"
+            android:name=".PrincipalActivity"
             >
 
             <intent-filter>
@@ -21,7 +21,7 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".PrincipalActivity"/>
+
     </application>
 
 </manifest>

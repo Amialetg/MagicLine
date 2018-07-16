@@ -5,4 +5,7 @@
     <!--Principal News-->
     <string name="news_title">NOTICIAS</string>
 
+    <!--Principal Programming-->
+    <string name="Programming_title">PROGRAMACIÓN</string>
+
 </resources>

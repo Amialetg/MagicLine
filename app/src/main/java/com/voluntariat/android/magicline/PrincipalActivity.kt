@@ -1,20 +1,16 @@
 package com.voluntariat.android.magicline
 
-import android.graphics.drawable.GradientDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
+
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.TextView
 import com.voluntariat.android.magicline.utils.MyCounter
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
-
-
+import android.widget.LinearLayout
 
 
 class PrincipalActivity : AppCompatActivity() {
@@ -27,6 +23,9 @@ class PrincipalActivity : AppCompatActivity() {
     lateinit var txtSeg: TextView
     private val dateCursaString: String = "24.02.2019, 10:00"
 
+    //Programming section widgets
+    lateinit var progRecyclerView: RecyclerView
+
     //News section widgets
     lateinit var newsRecyclerView: RecyclerView
 
@@ -36,11 +35,14 @@ class PrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
 
+
         //Init TextViews, etc
         var counterTexts = initWidgets()
 
 
         initCountDown(counterTexts)
+
+        initProgrammingCards()
 
         initNewsRecycler()
 
@@ -56,11 +58,30 @@ class PrincipalActivity : AppCompatActivity() {
         txtMin=findViewById(R.id.countdown_min)
         txtSeg=findViewById(R.id.countdown_seg)
 
+        //Programming cards
+        progRecyclerView= findViewById(R.id.rv)
+
         //News
         newsRecyclerView=findViewById(R.id.news_recycler)
 
 
         return arrayOf(txtDies, txtHores, txtMin, txtSeg)
+    }
+
+    private fun initProgrammingCards(){
+
+        //data Test
+        val events = ArrayList<ProgrammingModel>()
+        events.add(ProgrammingModel("TOT EL DIA","Museus Oberts"))
+        events.add(ProgrammingModel("10:30","Concert"))
+        events.add(ProgrammingModel("Avui","Dinar"))
+        events.add(ProgrammingModel("Avui","Dinar"))
+
+
+        //Setting up the adapter and the layout manager for the recycler view
+        progRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, false)
+        val adapter = ProgrammingAdapter(events)
+        progRecyclerView.adapter = adapter
     }
 
 
@@ -99,8 +120,6 @@ class PrincipalActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
 
         //Adding the page indicators
-
-
 
     }
 }

@@ -16,9 +16,13 @@
 
         <include layout="@layout/countdown_layout"/>
 
+
         <include layout="@layout/otros_valores"/>
 
         <include layout="@layout/layout_rrss"/>
+
+
+        <include layout="@layout/bottom_nav_layout"/>
 
 
     </LinearLayout>

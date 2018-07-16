@@ -11,7 +11,9 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".PrincipalActivity"
+
+            android:name=".SplashScreen"
+
             >
 
             <intent-filter>
@@ -21,7 +23,9 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclerTest"/>
+
+        <activity android:name=".PrincipalActivity"/>
+
     </application>
 
 </manifest>

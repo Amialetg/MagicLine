@@ -41,6 +41,12 @@
         <item name="android:fontFamily">@font/lato_regular</item>
     </style>
 
+    <style name="menu_text_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">7sp</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+
 
     <!--Principal News-->
     <style name="NewsTitle" parent="Theme.AppCompat.Light.NoActionBar">

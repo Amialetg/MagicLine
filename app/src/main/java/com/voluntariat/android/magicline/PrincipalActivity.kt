@@ -23,11 +23,16 @@ class PrincipalActivity : AppCompatActivity() {
     lateinit var txtSeg: TextView
     private val dateCursaString: String = "24.02.2019, 10:00"
 
+
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
 
     //News section widgets
     lateinit var newsRecyclerView: RecyclerView
+
+
+    //Bottom Toolbar
+    lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 
 
 
@@ -42,9 +47,13 @@ class PrincipalActivity : AppCompatActivity() {
 
         initCountDown(counterTexts)
 
+
         initProgrammingCards()
 
         initNewsRecycler()
+
+        initBottomBar()
+
 
 
 
@@ -58,11 +67,15 @@ class PrincipalActivity : AppCompatActivity() {
         txtMin=findViewById(R.id.countdown_min)
         txtSeg=findViewById(R.id.countdown_seg)
 
+
         //Programming cards
         progRecyclerView= findViewById(R.id.rv)
 
         //News
         newsRecyclerView=findViewById(R.id.news_recycler)
+
+        //BottomBar
+        bottomBarView = findViewById(R.id.bottom_navigation)
 
 
         return arrayOf(txtDies, txtHores, txtMin, txtSeg)
@@ -106,7 +119,8 @@ class PrincipalActivity : AppCompatActivity() {
 
     }
 
-    private fun initNewsRecycler(){
+
+    private fun initNewsRecycler() {
         val dataSet = arrayOf(NewsItem("Nou event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsItem("Segon event", "qewhvroeuyvfwouryvfowuer"))
 
         val myNewsManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -120,6 +134,13 @@ class PrincipalActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
 
         //Adding the page indicators
+    }
+
+    private fun initBottomBar(){
+
+        bottomBarView.enableShiftingMode(false)
+        bottomBarView.enableItemShiftingMode(false)
+        bottomBarView.setTextSize(9.0f)
 
     }
 }

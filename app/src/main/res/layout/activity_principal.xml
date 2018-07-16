@@ -19,6 +19,7 @@
 
         <include layout="@layout/principal_news_recycler_layout"/>
 
+
     </LinearLayout>
 
 

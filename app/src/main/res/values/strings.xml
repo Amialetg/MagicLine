@@ -5,6 +5,10 @@
     <string name="OValues2">Puntos de reciclaje</string>
     <string name="OValues3">Respeto al medioambiente</string>
 
+    <!--Principal Recaudats-->
+    <string name="btn_fer_donacio">Fer una donació</string>
+    <string name="recaudats_text">recaudats</string>
+
     <!--Principal News-->
     <string name="news_title">NOTICIAS</string>
 

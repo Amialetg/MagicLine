@@ -27,7 +27,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/countdown_layout" />
+                <android.support.v4.view.ViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/countdown_timer_height"
+                    android:id="@+id/principal_vp"
+                    >
+
+                </android.support.v4.view.ViewPager>
 
                 <include layout="@layout/principal_news_recycler_layout" />
 

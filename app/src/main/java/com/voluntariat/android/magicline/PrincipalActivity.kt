@@ -11,6 +11,7 @@ import com.voluntariat.android.magicline.utils.MyCounter
 import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 
 
 class PrincipalActivity : AppCompatActivity() {
@@ -29,6 +30,8 @@ class PrincipalActivity : AppCompatActivity() {
 
     //News section widgets
     lateinit var newsRecyclerView: RecyclerView
+    lateinit var leftArrowView: RelativeLayout
+    lateinit var rightArrowView: RelativeLayout
 
 
     //Bottom Toolbar
@@ -73,6 +76,8 @@ class PrincipalActivity : AppCompatActivity() {
 
         //News
         newsRecyclerView=findViewById(R.id.news_recycler)
+        leftArrowView=findViewById(R.id.left_arrow_relative)
+        rightArrowView=findViewById(R.id.right_arrow_relative)
 
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
@@ -121,7 +126,7 @@ class PrincipalActivity : AppCompatActivity() {
 
 
     private fun initNewsRecycler() {
-        val dataSet = arrayOf(NewsItem("Nou event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsItem("Segon event", "qewhvroeuyvfwouryvfowuer"))
+        val dataSet = arrayOf(NewsItem("Nou event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsItem("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsItem("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsItem("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
 
         val myNewsManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val myNewsAdapter = NewsAdapter(dataSet)
@@ -134,6 +139,35 @@ class PrincipalActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
 
         //Adding the page indicators
+
+        //Adding buttons listeners
+        initArrowsListeners(myNewsManager)
+    }
+
+    private fun initArrowsListeners(mLayoutManager: LinearLayoutManager){
+        
+        rightArrowView.setOnClickListener{
+            val totalItemCount= newsRecyclerView.adapter.itemCount
+
+            if(totalItemCount<0) return@setOnClickListener
+
+            val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
+
+            if(lastVisibleItemIndex>=totalItemCount) return@setOnClickListener
+
+            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex+1)
+        }
+        leftArrowView.setOnClickListener {
+            val totalItemCount= newsRecyclerView.adapter.itemCount
+
+            if(totalItemCount<0) return@setOnClickListener
+
+            val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
+
+            if(lastVisibleItemIndex<=0) return@setOnClickListener
+
+            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex-1)
+        }
     }
 
     private fun initBottomBar(){

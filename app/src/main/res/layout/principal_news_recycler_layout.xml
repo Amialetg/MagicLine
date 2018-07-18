@@ -35,6 +35,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:id="@+id/left_arrow_relative"
                 >
 
                 <ImageView
@@ -63,6 +64,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:id="@+id/right_arrow_relative"
                 >
 
                 <ImageView

@@ -15,12 +15,16 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.support.v4.view.ViewPager.OnPageChangeListener
+
+
 
 
 class PrincipalActivity : AppCompatActivity() {
 
     //Countdown - recaudats widgets
     lateinit var viewPager: ViewPager
+    lateinit var viewPagerIndicator: com.kingfisher.easyviewindicator.AnyViewIndicator
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
@@ -57,6 +61,7 @@ class PrincipalActivity : AppCompatActivity() {
     private fun initWidgets(){
         //Countdown - recaudats view pager
         viewPager = findViewById(R.id.principal_vp)
+        viewPagerIndicator=findViewById(R.id.view_pager_indicator)
 
         //Programming cards
         progRecyclerView= findViewById(R.id.rv)
@@ -78,9 +83,23 @@ class PrincipalActivity : AppCompatActivity() {
 
         viewPager.adapter=adapter
 
-        viewPager.setOnClickListener{
-            Log.d("PrincipalActivity", "${viewPager.currentItem}")
-        }
+        //Number of fragments to scroll
+        viewPagerIndicator.setItemCount(adapter.count)
+
+        //Where does it start
+        viewPagerIndicator.setCurrentPosition(0)
+
+        //Change when scroll
+        viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                viewPagerIndicator.setCurrentPosition(viewPager.currentItem)
+            }
+
+            override fun onPageSelected(position: Int) {
+                // Check if this is the page you want.
+            }
+        })
 
 
     }

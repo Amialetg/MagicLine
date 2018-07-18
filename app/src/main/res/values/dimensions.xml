@@ -11,6 +11,8 @@
     <dimen name="margin_top_btn_fer_donacio">17.5dp</dimen>
     <dimen name="btn_fer_donacio_width">135dp</dimen>
     <dimen name="btn_fer_donacio_height">38dp</dimen>
+        <!-- View Pager Indicator-->
+        <dimen name="margin_bottom_indicator">12dp</dimen>
 
 
 

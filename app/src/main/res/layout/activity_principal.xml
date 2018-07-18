@@ -8,44 +8,48 @@
     tools:context=".PrincipalActivity"
     >
 
-
-
     <LinearLayout
+        android:id="@+id/principal_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginBottom="50dp"
         >
 
-        <include layout="@layout/toolbar_principal_top"/>
+        <include layout="@layout/toolbar_principal_top" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
-                <include layout="@layout/countdown_layout"/>
+                <include layout="@layout/countdown_layout" />
 
-                <include layout="@layout/principal_news_recycler_layout"/>
+                <include layout="@layout/principal_news_recycler_layout" />
 
                 <include layout="@layout/programming_recycler" />
 
-                <include layout="@layout/otros_valores"/>
+                <include layout="@layout/otros_valores" />
 
-                <include layout="@layout/layout_rrss"/>
+                <include layout="@layout/layout_rrss" />
 
-                <include layout="@layout/bottom_nav_layout" />
             </LinearLayout>
 
         </ScrollView>
 
-
-
     </LinearLayout>
+
+    <include layout="@layout/bottom_nav_layout" />
+
+
+
+
+
+
 
 </android.support.constraint.ConstraintLayout>
 

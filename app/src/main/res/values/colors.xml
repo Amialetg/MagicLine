@@ -13,5 +13,8 @@
 
     <color name="grey">#4c4c4c</color>
 
+    <!-- Bottom toolbar background -->
+    <color name="bottom_toolbar_background">#fafafb</color>
+
 
 </resources>

@@ -17,12 +17,7 @@ import android.widget.RelativeLayout
 class PrincipalActivity : AppCompatActivity() {
 
 
-    //CountDown widgets
-    lateinit var txtDies: TextView
-    lateinit var txtHores: TextView
-    lateinit var txtMin: TextView
-    lateinit var txtSeg: TextView
-    private val dateCursaString: String = "24.02.2019, 10:00"
+
 
 
     //Programming section widgets
@@ -45,10 +40,7 @@ class PrincipalActivity : AppCompatActivity() {
 
 
         //Init TextViews, etc
-        var counterTexts = initWidgets()
-
-
-        initCountDown(counterTexts)
+        initWidgets()
 
 
         initProgrammingCards()
@@ -57,19 +49,9 @@ class PrincipalActivity : AppCompatActivity() {
 
         initBottomBar()
 
-
-
-
     }
 
-    private fun initWidgets(): Array<TextView>{
-
-        //Countdown
-        txtDies=findViewById(R.id.countdown_dies)
-        txtHores=findViewById(R.id.countdown_hores)
-        txtMin=findViewById(R.id.countdown_min)
-        txtSeg=findViewById(R.id.countdown_seg)
-
+    private fun initWidgets(){
 
         //Programming cards
         progRecyclerView= findViewById(R.id.rv)
@@ -83,8 +65,6 @@ class PrincipalActivity : AppCompatActivity() {
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
 
-
-        return arrayOf(txtDies, txtHores, txtMin, txtSeg)
     }
 
     private fun initProgrammingCards(){
@@ -104,26 +84,7 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
 
-    private fun initCountDown(txtDies: Array<TextView>){
 
-        //Utilitzem el formatter per aconseguir l'objecte Date
-        var formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
-
-        //Data actual y data de la cursa
-        var currentTime: Date = Calendar.getInstance().time
-        var dateCursa: Date = formatter.parse(dateCursaString)
-
-        //pasem a long les dates
-        var currentLong:Long=currentTime.time
-        var cursaLong:Long=dateCursa.time
-
-        //trobem el temps restant en long
-        var diff:Long=cursaLong-currentLong
-
-
-        MyCounter(diff, 1000, txtDies).start()
-
-    }
 
 
     private fun initNewsRecycler() {

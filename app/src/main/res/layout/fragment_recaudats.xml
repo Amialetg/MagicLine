@@ -35,6 +35,7 @@
         style="@style/btn_recaudats_text"
         android:layout_below="@id/recaudats_text"
         android:layout_marginTop="@dimen/margin_top_btn_fer_donacio"
+        android:elevation="0dp"
         />
 
 </RelativeLayout>

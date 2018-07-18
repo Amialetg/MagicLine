@@ -2,10 +2,13 @@ package com.voluntariat.android.magicline
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.ViewParent
 import android.widget.TextView
 import com.voluntariat.android.magicline.utils.MyCounter
 import java.text.SimpleDateFormat
@@ -16,9 +19,8 @@ import android.widget.RelativeLayout
 
 class PrincipalActivity : AppCompatActivity() {
 
-
-
-
+    //Countdown - recaudats widgets
+    lateinit var viewPager: ViewPager
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
@@ -42,6 +44,7 @@ class PrincipalActivity : AppCompatActivity() {
         //Init TextViews, etc
         initWidgets()
 
+        initCountdownPV(viewPager)
 
         initProgrammingCards()
 
@@ -52,6 +55,8 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
     private fun initWidgets(){
+        //Countdown - recaudats view pager
+        viewPager = findViewById(R.id.principal_vp)
 
         //Programming cards
         progRecyclerView= findViewById(R.id.rv)
@@ -64,6 +69,19 @@ class PrincipalActivity : AppCompatActivity() {
 
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
+
+    }
+
+    private fun initCountdownPV(viewPager: ViewPager){
+
+        val adapter = CountdownPagerAdapter(supportFragmentManager)
+
+        viewPager.adapter=adapter
+
+        viewPager.setOnClickListener{
+            Log.d("PrincipalActivity", "${viewPager.currentItem}")
+        }
+
 
     }
 

@@ -1,7 +1,7 @@
 package com.voluntariat.android.magicline
 
 import android.app.Activity
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,24 +18,28 @@ class CountdownFragment:Fragment(){
     lateinit var txtHores: TextView
     lateinit var txtMin: TextView
     lateinit var txtSeg: TextView
-    private val dateCursaString: String = getString(R.string.cursa_date)
+    private lateinit var dateCursaString: String
+
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater?.inflate(R.layout.fragment_countdown, container, false)!!
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val txtArray = initWidgets()
         initCountDown(txtArray)
     }
 
     private fun initWidgets():Array<TextView>{
         //Countdown
-        txtDies=view.findViewById(R.id.countdown_dies)
-        txtHores=view.findViewById(R.id.countdown_hores)
-        txtMin=view.findViewById(R.id.countdown_min)
-        txtSeg=view.findViewById(R.id.countdown_seg)
+        txtDies=view!!.findViewById(R.id.countdown_dies)
+        txtHores=view!!.findViewById(R.id.countdown_hores)
+        txtMin=view!!.findViewById(R.id.countdown_min)
+        txtSeg=view!!.findViewById(R.id.countdown_seg)
+
+        //cursa date
+        dateCursaString= getString(R.string.cursa_date)
 
         return arrayOf(txtDies, txtHores, txtMin, txtSeg)
     }

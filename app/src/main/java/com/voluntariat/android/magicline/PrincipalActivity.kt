@@ -32,7 +32,7 @@ class PrincipalActivity : AppCompatActivity() {
     lateinit var newsRecyclerView: RecyclerView
     lateinit var leftArrowView: RelativeLayout
     lateinit var rightArrowView: RelativeLayout
-
+    lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
 
     //Bottom Toolbar
     lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -78,6 +78,7 @@ class PrincipalActivity : AppCompatActivity() {
         newsRecyclerView=findViewById(R.id.news_recycler)
         leftArrowView=findViewById(R.id.left_arrow_relative)
         rightArrowView=findViewById(R.id.right_arrow_relative)
+        recyclerViewIndicator=findViewById(R.id.news_pager_indicator)
 
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
@@ -139,6 +140,7 @@ class PrincipalActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
 
         //Adding the page indicators
+        recyclerViewIndicator.setRecyclerView(newsRecyclerView)
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)

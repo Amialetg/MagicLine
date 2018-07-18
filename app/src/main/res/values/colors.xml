@@ -16,5 +16,9 @@
     <!-- Bottom toolbar background -->
     <color name="bottom_toolbar_background">#fafafb</color>
 
+    <!-- Pager indicators -->
+    <color name="selected_indicator_color">#4a4a4a</color>
+    <color name="unselected_indicator_color">#c5c5c5</color>
+
 
 </resources>

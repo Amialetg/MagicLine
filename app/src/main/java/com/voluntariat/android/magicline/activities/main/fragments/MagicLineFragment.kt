@@ -143,6 +143,7 @@ class MagicLineFragment : Fragment() {
 
         //Adding pager behaviour
         val snapHelper = PagerSnapHelper()
+        newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
 
         //Adding the page indicators

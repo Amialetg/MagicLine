@@ -3,10 +3,8 @@ package com.voluntariat.android.magicline.activities.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
-import android.support.annotation.NonNull
-import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*
@@ -16,6 +14,10 @@ class MainActivity: AppCompatActivity(){
 
     //Bottom Toolbar
     lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+    lateinit var bottomBarBtn: FloatingActionButton
+
+    //The app starts at the magic line fragment
+    private var currentFragment:Fragment = MagicLineFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class MainActivity: AppCompatActivity(){
     private fun initWidgets(){
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
+        bottomBarBtn = findViewById(R.id.fab)
     }
 
     private fun initBottomBar(){
@@ -43,40 +46,57 @@ class MainActivity: AppCompatActivity(){
 
     private fun initNavigation(){
 
-        //default item
-        selectFragment(bottomBarView.menu.getItem(0))
+        //First time we open the app
+        var trans = this.supportFragmentManager.beginTransaction()
+        trans.replace(R.id.frame_layout, MagicLineFragment())
+        trans.commit()
 
         //Behaviour when clicked
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             selectFragment(item) ;true
         }
-    }
-    private fun selectFragment(item:MenuItem){
+        bottomBarBtn.setOnClickListener{
 
-        Log.d("Main Activity", "${item.itemId}  magic line id: ${R.id.magicline_menu_id}")
+            if(currentFragment!=MapFragment()){
+                var trans = this.supportFragmentManager.beginTransaction()
+                trans.replace(R.id.frame_layout, MapFragment())
+                trans.commit()
+            }
 
-        var fragment:Fragment = MagicLineFragment()
-
-        when(item.itemId) {
-            R.id.magicline_menu_id -> {
-                fragment = MagicLineFragment()
-                Log.d("Main Activity", "magic line")
-            }
-            R.id.donations_menu_id -> {
-                fragment = DonationsFragment()
-                Log.d("Main Activity", "donations")
-            }
-            R.id.info_menu_id -> {
-                fragment = InfoFragment()
-                Log.d("Main Activity", "info")
-            }
-            R.id.schedule_menu_id-> fragment = ScheduleFragment()
         }
 
 
-        var trans = this.supportFragmentManager.beginTransaction()
-        trans.replace(R.id.frame_layout, fragment)
-        trans.commit()
+    }
+    private fun selectFragment(item:MenuItem){
+
+        var newFragment:Fragment
+
+        when(item.itemId) {
+            R.id.magicline_menu_id -> {
+                newFragment = MagicLineFragment()
+                Log.d("Main Activity", "magic line")
+            }
+            R.id.donations_menu_id -> {
+                newFragment = DonationsFragment()
+                Log.d("Main Activity", "donations")
+            }
+            R.id.info_menu_id -> {
+                newFragment = InfoFragment()
+                Log.d("Main Activity", "info")
+            }
+            R.id.schedule_menu_id-> newFragment = ScheduleFragment()
+            R.id.none -> return
+            else -> newFragment=MagicLineFragment()
+        }
+
+        if(newFragment::class != currentFragment::class){
+            var trans = this.supportFragmentManager.beginTransaction()
+            trans.replace(R.id.frame_layout, newFragment)
+            trans.commit()
+
+            currentFragment = newFragment
+        }
+
 
 
     }

@@ -21,4 +21,10 @@
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>
 
+    <!--Bottom navigation layout-->
+    <string name="magic_line_var_title">MagicLine</string>
+    <string name="schedule_var_title">Programación</string>
+    <string name="donation_var_title">Donatius</string>
+    <string name="info_var_title">Más info</string>
+
 </resources>

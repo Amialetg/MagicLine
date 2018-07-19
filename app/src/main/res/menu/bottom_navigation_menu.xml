@@ -5,22 +5,25 @@
     <item
         android:id="@+id/magicline_menu_id"
         android:icon="@drawable/fill_69"
-        android:title="MagicLine" />
+        android:title="@string/magic_line_var_title" />
     <item
         android:id="@+id/schedule_menu_id"
         android:icon="@drawable/fill_49"
-        android:title="Programación"
+        android:title="@string/schedule_var_title"
         />
     <item
-        android:title=""/>
+        android:title=""
+        android:id="@+id/none"
+        />
+
     <item
         android:id="@+id/donations_menu_id"
         android:icon="@drawable/fill_37"
-        android:title="Donativos" />
+        android:title="@string/donation_var_title" />
     <item
         android:id="@+id/info_menu_id"
         android:icon="@drawable/group_2"
-        android:title="Más info" />
+        android:title="@string/info_var_title" />
 
 
 </menu>

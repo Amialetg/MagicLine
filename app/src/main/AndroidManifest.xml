@@ -25,6 +25,7 @@
         </activity>
 
         <activity android:name=".PrincipalActivity"/>
+        <activity android:name=".MainActivity"/>
 
     </application>
 

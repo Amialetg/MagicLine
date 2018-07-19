@@ -34,6 +34,9 @@
     <dimen name="news_recycler_width">295dp</dimen>
     <dimen name="news_item_height">69dp</dimen>
 
+    <!-- Bottom nav bar -->
+    <dimen name="bottom_nav_height">49dp</dimen>
+
 
 
 

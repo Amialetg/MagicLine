@@ -50,15 +50,13 @@ class MagicLineFragment : Fragment() {
      */
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        //Init TextViews, etc
-
 
     }
 
     override fun onStart() {
-
         super.onStart()
 
+        //Init TextViews, etc
         initWidgets()
 
         initCountdownPV(viewPager)
@@ -86,7 +84,11 @@ class MagicLineFragment : Fragment() {
     }
 
     private fun initCountdownPV(viewPager: ViewPager){
-        val adapter = CountdownPagerAdapter(activity.supportFragmentManager)
+        /*
+         * We use childFragmentManager instead of supportFragmentManager because
+         * we are using a fragment inside a fragment
+        */
+        val adapter = CountdownPagerAdapter(childFragmentManager)
 
         viewPager.adapter=adapter
 
@@ -107,6 +109,7 @@ class MagicLineFragment : Fragment() {
                 // Check if this is the page you want.
             }
         })
+
     }
 
     private fun initProgrammingCards(){

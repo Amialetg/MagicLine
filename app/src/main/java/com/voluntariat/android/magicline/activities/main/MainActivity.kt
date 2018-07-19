@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline.activities.main
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
@@ -10,14 +11,14 @@ import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*
 
 
-class MainActivity: AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     //Bottom Toolbar
     lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
     lateinit var bottomBarBtn: FloatingActionButton
 
     //The app starts at the magic line fragment
-    private var currentFragment:Fragment = MagicLineFragment()
+    private var currentFragment: Fragment = MagicLineFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +31,13 @@ class MainActivity: AppCompatActivity(){
         initNavigation()
     }
 
-    private fun initWidgets(){
+    private fun initWidgets() {
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
         bottomBarBtn = findViewById(R.id.fab)
     }
 
-    private fun initBottomBar(){
+    private fun initBottomBar() {
 
         bottomBarView.enableShiftingMode(false)
         bottomBarView.enableItemShiftingMode(false)
@@ -44,7 +45,7 @@ class MainActivity: AppCompatActivity(){
 
     }
 
-    private fun initNavigation(){
+    private fun initNavigation() {
 
         //First time we open the app
         var trans = this.supportFragmentManager.beginTransaction()
@@ -53,11 +54,23 @@ class MainActivity: AppCompatActivity(){
 
         //Behaviour when clicked
         bottomBarView.setOnNavigationItemSelectedListener { item ->
-            selectFragment(item) ;true
+            bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
+            item.setCheckable(true)
+            selectFragment(item)
+            true
         }
-        bottomBarBtn.setOnClickListener{
+        bottomBarBtn.setOnClickListener {
 
-            if(currentFragment!=MapFragment()){
+            if (currentFragment != MapFragment()) {
+                bottomBarBtn.setColorFilter(Color.argb(255,237,53,37))
+                // unchecks the buttons of nav bar when user is in map
+                for (i in 0 until bottomBarView.menu.size()) {
+                    var m: MenuItem = bottomBarView.menu.getItem(i)
+                    m.setChecked(false)
+                    m.setCheckable(false)
+
+                }
+
                 var trans = this.supportFragmentManager.beginTransaction()
                 trans.replace(R.id.frame_layout, MapFragment())
                 trans.commit()
@@ -67,11 +80,12 @@ class MainActivity: AppCompatActivity(){
 
 
     }
-    private fun selectFragment(item:MenuItem){
 
-        var newFragment:Fragment
+    private fun selectFragment(item: MenuItem) {
 
-        when(item.itemId) {
+        var newFragment: Fragment
+
+        when (item.itemId) {
             R.id.magicline_menu_id -> {
                 newFragment = MagicLineFragment()
                 Log.d("Main Activity", "magic line")
@@ -84,19 +98,18 @@ class MainActivity: AppCompatActivity(){
                 newFragment = InfoFragment()
                 Log.d("Main Activity", "info")
             }
-            R.id.schedule_menu_id-> newFragment = ScheduleFragment()
+            R.id.schedule_menu_id -> newFragment = ScheduleFragment()
             R.id.none -> return
-            else -> newFragment=MagicLineFragment()
+            else -> newFragment = MagicLineFragment()
         }
 
-        if(newFragment::class != currentFragment::class){
+        if (newFragment::class != currentFragment::class) {
             var trans = this.supportFragmentManager.beginTransaction()
             trans.replace(R.id.frame_layout, newFragment)
             trans.commit()
 
             currentFragment = newFragment
         }
-
 
 
     }

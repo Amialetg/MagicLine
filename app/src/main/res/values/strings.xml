@@ -8,14 +8,17 @@
     <!--CountDown-->
     <string name="cursa_date">24.02.2019, 10:00</string>
 
-    <!--Principal Recaudats-->
+    <!--Section Recaudats-->
     <string name="btn_fer_donacio">Fer una donació</string>
     <string name="recaudats_text">recaudats</string>
 
-    <!--Principal News-->
+    <!--Section News-->
     <string name="news_title">NOTICIAS</string>
 
-    <!--Principal Programming-->
+    <!--Section Programming-->
     <string name="Programming_title">PROGRAMACIÓN</string>
+
+    <!--Section other values -->
+    <string name="other_values_title">OTROS VALORES</string>
 
 </resources>

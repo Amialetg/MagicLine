@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/MagicLineBar"
+        android:id="@+id/magicline_menu_id"
         android:icon="@drawable/fill_69"
         android:title="MagicLine" />
     <item
-        android:id="@+id/ProgramacionBar"
+        android:id="@+id/schedule_menu_id"
         android:icon="@drawable/fill_49"
         android:title="Programación"
         />
     <item
         android:title=""/>
     <item
-        android:id="@+id/DonativosBar"
+        android:id="@+id/donations_menu_id"
         android:icon="@drawable/fill_37"
         android:title="Donativos" />
     <item
-        android:id="@+id/MasInfoBar"
+        android:id="@+id/info_menu_id"
         android:icon="@drawable/group_2"
         android:title="Más info" />
 

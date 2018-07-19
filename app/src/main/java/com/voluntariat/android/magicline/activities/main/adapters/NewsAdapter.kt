@@ -19,9 +19,7 @@ class NewsAdapter(private val dataSet: Array<NewsModel>): RecyclerView.Adapter<N
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         // create a new view
         val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_news, parent, false)
-
-
-
+        
         return ViewHolder(itemView)
     }
 

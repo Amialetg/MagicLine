@@ -1,8 +1,8 @@
-package com.voluntariat.android.magicline
+package com.voluntariat.android.magicline.activities.main
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import com.voluntariat.android.magicline.R
 
 class MainActivity: AppCompatActivity(){
 

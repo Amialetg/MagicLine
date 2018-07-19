@@ -12,7 +12,7 @@
 
         <activity
 
-            android:name=".SplashScreen"
+            android:name=".activities.splash.SplashScreenActivity"
 
             >
 
@@ -24,8 +24,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PrincipalActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".activities.main.fragments.MagicLineFragment"/>
+        <activity android:name=".activities.main.MainActivity"/>
 
     </application>
 

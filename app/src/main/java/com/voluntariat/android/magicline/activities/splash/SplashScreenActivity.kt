@@ -1,17 +1,16 @@
-package com.voluntariat.android.magicline
+package com.voluntariat.android.magicline.activities.splash
 
 import android.app.Activity
 import android.content.Intent
-import android.net.wifi.hotspot2.pps.HomeSp
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.activities.main.MainActivity
 
 /**
  * Created by hector on 26/06/18.
  */
-class SplashScreen : Activity(){
+class SplashScreenActivity : Activity(){
     private var handler: Handler? = null
     private val SPLASH_DELAY: Long = 3000
 
@@ -27,7 +26,7 @@ class SplashScreen : Activity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.splash_screen)
+        setContentView(R.layout.activity_splash_screen)
 
         handler = Handler()
 

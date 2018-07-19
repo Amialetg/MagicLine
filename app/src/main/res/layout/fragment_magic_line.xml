@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrincipalActivity"
+    tools:context=".activities.main.fragments.MagicLineFragment"
     >
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:layout_marginBottom="50dp"
         >
 
-        <include layout="@layout/toolbar_principal_top" />
+        <include layout="@layout/toolbar_magic_line_top" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -27,13 +27,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/relative_countdown_view_pager" />
+                <include layout="@layout/view_pager_countdown_recaudats" />
 
-                <include layout="@layout/principal_news_recycler_layout" />
+                <include layout="@layout/layout_news" />
 
-                <include layout="@layout/programming_recycler" />
+                <include layout="@layout/layout_programming" />
 
-                <include layout="@layout/otros_valores" />
+                <include layout="@layout/layout_other_values" />
 
                 <include layout="@layout/layout_rrss" />
 
@@ -43,7 +43,7 @@
 
     </LinearLayout>
 
-    <include layout="@layout/bottom_nav_layout" />
+    <include layout="@layout/toolbar_bottom_nav" />
 
 
 

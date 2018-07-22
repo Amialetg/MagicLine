@@ -17,5 +17,16 @@
 
     <!--Principal Programming-->
     <string name="Programming_title">PROGRAMACIÓN</string>
+    <string name="text_nav_map">Mapa</string>
+    <string name="text_countdown_dies">DIES</string>
+    <string name="text_countdown_hores">HORES</string>
+    <string name="text_countdown_minuts">MINUTS</string>
+    <string name="text_countdown_segons">SEGONS</string>
+    <string name="text_rrss">RRSS</string>
+    <string name="text_otros_valores">OTROS VALORES</string>
+    <string name="nav_menu_magicline">MagicLine</string>
+    <string name="nav_menu_programacion">Programación</string>
+    <string name="nav_menu_donativos">Donativos</string>
+    <string name="nav_menu_masinfo">Más info</string>
 
 </resources>

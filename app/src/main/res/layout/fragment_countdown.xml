@@ -63,38 +63,37 @@
                 style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="DIES"
-                android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                />
+                android:layout_marginRight="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_countdown_dies" />
+
             <TextView
                 style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="HORES"
-                android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                />
+                android:layout_marginRight="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_countdown_hores" />
+
             <TextView
                 style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="MINUTS"
-                android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                />
+                android:layout_marginRight="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_countdown_minuts" />
+
             <TextView
                 style="@style/CountDownLetters"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="SEGONS"
-                android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                />
+                android:layout_marginRight="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_countdown_segons" />
 
         </GridLayout>
 

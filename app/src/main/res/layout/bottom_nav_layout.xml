@@ -38,17 +38,16 @@
     </android.support.design.widget.FloatingActionButton>
 
     <TextView
-        android:text="Mapa"
-        android:textSize="9sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:textColor="@color/grey"
+        android:layout_marginBottom="21dp"
         android:elevation="10dp"
 
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="21dp"
-        />
+        android:text="@string/text_nav_map"
+        android:textColor="@color/grey"
+        android:textSize="9sp" />
 
 </RelativeLayout>

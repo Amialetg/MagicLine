@@ -16,16 +16,16 @@
         android:layout_marginTop="@dimen/margin_top_recaudats_num"
         android:id="@+id/recaudats_num"
         />
+
     <TextView
+        android:id="@+id/recaudats_text"
+        style="@style/recaudats_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        style="@style/recaudats_text"
-        android:text="@string/recaudats_text"
         android:layout_below="@id/recaudats_num"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin_top_recaudats_text"
-        android:id="@+id/recaudats_text"
-        />
+        android:text="@string/recaudats_text" />
     <Button
         android:layout_width="@dimen/btn_fer_donacio_width"
         android:layout_height="@dimen/btn_fer_donacio_height"

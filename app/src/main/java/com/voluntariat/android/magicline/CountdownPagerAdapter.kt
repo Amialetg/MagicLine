@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
+import com.voluntariat.android.magicline.Fragments.CountdownFragment
+import com.voluntariat.android.magicline.Fragments.RecaudatsFragment
 
 class CountdownPagerAdapter(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
 
@@ -16,9 +18,9 @@ class CountdownPagerAdapter(fragmentManager: FragmentManager): FragmentPagerAdap
     override fun getItem(position: Int): Fragment {
         Log.d("PagerView", "$position")
         return when(position){
-            0->CountdownFragment()
+            0-> CountdownFragment()
             1-> RecaudatsFragment()
-            else->CountdownFragment()
+            else-> CountdownFragment()
         }
     }
 

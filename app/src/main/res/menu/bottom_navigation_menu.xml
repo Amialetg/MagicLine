@@ -11,9 +11,15 @@
         android:icon="@drawable/fill_49"
         android:title="@string/schedule_var_title"
         />
+
+    <!-- We disable this item because is the space where there
+         will go the floating action button for the map -->
     <item
         android:title=""
         android:id="@+id/none"
+        android:clickable="false"
+        android:focusable="false"
+        android:enabled="false"
         />
 
     <item

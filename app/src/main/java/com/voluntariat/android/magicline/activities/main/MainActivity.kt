@@ -14,8 +14,8 @@ import com.voluntariat.android.magicline.activities.main.fragments.*
 class MainActivity : AppCompatActivity() {
 
     //Bottom Toolbar
-    lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-    lateinit var bottomBarBtn: FloatingActionButton
+    private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+    private lateinit var bottomBarBtn: FloatingActionButton
 
     //The app starts at the magic line fragment
     private var currentFragment: Fragment = MagicLineFragment()
@@ -48,39 +48,31 @@ class MainActivity : AppCompatActivity() {
     private fun initNavigation() {
 
         //First time we open the app
-        var trans = this.supportFragmentManager.beginTransaction()
-        trans.replace(R.id.frame_layout, MagicLineFragment())
-        trans.commit()
+        val transaction = this.supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout, MagicLineFragment())
+        transaction.commit()
 
-        //Behaviour when clicked
+        //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
-            item.isCheckable = true
+
             selectFragment(item)
             true
         }
+
+        //Behaviour when clicked on the map item
         bottomBarBtn.setOnClickListener {
 
-            /*
-             * The if sentence purpose was to avoid refreshing the same fragment when
-             * we already were on that fragment. But it was introducing a bug in navigation
-             * and also it is okay to refresh that fragment when already clicked like
-             * Instagram does.
-             */
-            //if (currentFragment != MapFragment()) {
-                bottomBarBtn.setColorFilter(Color.argb(255,237,53,37))
-                // unchecks the buttons of nav bar when user is in map
-                for (i in 0 until bottomBarView.menu.size()) {
-                    var m: MenuItem = bottomBarView.menu.getItem(i)
-                    m.isChecked = false
-                    m.isCheckable = false
+            bottomBarBtn.setColorFilter(Color.argb(255,237,53,37))
 
-                }
+            //We set clicked on the none item in order to disable the rest of the items
+            //but the fragment that is shown is the map fragment
+            bottomBarView.menu.getItem(2).isChecked = true
 
-                var trans = this.supportFragmentManager.beginTransaction()
-                trans.replace(R.id.frame_layout, MapFragment())
-                trans.commit()
-            //}
+            val transaction = this.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, MapFragment())
+            transaction.commit()
+
 
         }
 
@@ -89,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
-        var newFragment: Fragment
+        val newFragment: Fragment
 
         when (item.itemId) {
             R.id.magicline_menu_id -> {
@@ -109,16 +101,13 @@ class MainActivity : AppCompatActivity() {
             else -> newFragment = MagicLineFragment()
         }
 
-        /*
-         * If with same purpose as before
-         */
-        //if (newFragment::class != currentFragment::class) {
-            var trans = this.supportFragmentManager.beginTransaction()
-            trans.replace(R.id.frame_layout, newFragment)
-            trans.commit()
 
-            currentFragment = newFragment
-        //}
+        val trans = this.supportFragmentManager.beginTransaction()
+        trans.replace(R.id.frame_layout, newFragment)
+        trans.commit()
+
+        currentFragment = newFragment
+
 
 
     }

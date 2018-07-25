@@ -55,26 +55,32 @@ class MainActivity : AppCompatActivity() {
         //Behaviour when clicked
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
-            item.setCheckable(true)
+            item.isCheckable = true
             selectFragment(item)
             true
         }
         bottomBarBtn.setOnClickListener {
 
-            if (currentFragment != MapFragment()) {
+            /*
+             * The if sentence purpose was to avoid refreshing the same fragment when
+             * we already were on that fragment. But it was introducing a bug in navigation
+             * and also it is okay to refresh that fragment when already clicked like
+             * Instagram does.
+             */
+            //if (currentFragment != MapFragment()) {
                 bottomBarBtn.setColorFilter(Color.argb(255,237,53,37))
                 // unchecks the buttons of nav bar when user is in map
                 for (i in 0 until bottomBarView.menu.size()) {
                     var m: MenuItem = bottomBarView.menu.getItem(i)
-                    m.setChecked(false)
-                    m.setCheckable(false)
+                    m.isChecked = false
+                    m.isCheckable = false
 
                 }
 
                 var trans = this.supportFragmentManager.beginTransaction()
                 trans.replace(R.id.frame_layout, MapFragment())
                 trans.commit()
-            }
+            //}
 
         }
 
@@ -103,13 +109,16 @@ class MainActivity : AppCompatActivity() {
             else -> newFragment = MagicLineFragment()
         }
 
-        if (newFragment::class != currentFragment::class) {
+        /*
+         * If with same purpose as before
+         */
+        //if (newFragment::class != currentFragment::class) {
             var trans = this.supportFragmentManager.beginTransaction()
             trans.replace(R.id.frame_layout, newFragment)
             trans.commit()
 
             currentFragment = newFragment
-        }
+        //}
 
 
     }

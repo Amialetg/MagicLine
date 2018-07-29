@@ -16,7 +16,7 @@
             android:layout_marginTop="11dp"
             android:layout_centerHorizontal="true"
             android:text="@string/map_km"
-            android:textColor="@color/black"/>
+            android:textColor="@color/grey"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_map"

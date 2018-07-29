@@ -6,18 +6,20 @@ import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.LinearLayout
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.ArrayList
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var mMap : GoogleMap
+    private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +32,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_map))
         mMap.addMarker(MarkerOptions().position(LatLng(0.0, 0.0)).title("Marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(0.0,0.0)))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(0.0, 0.0)))
 
     }
 
-    private fun initKmCards(){
+    private fun initKmCards() {
 
         val kmRecyclerView = findViewById<RecyclerView>(R.id.rv_map)
         val kmList = ArrayList<Int>()
@@ -44,7 +47,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         kmList.add(20)
         kmList.add(25)
         kmList.add(30)
-
 
 
         //Setting up the adapter and the layout manager for the recycler view

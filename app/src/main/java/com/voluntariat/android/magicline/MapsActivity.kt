@@ -2,7 +2,7 @@ package com.voluntariat.android.magicline
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -24,7 +24,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
+        val mapFragment:SupportMapFragment? = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
         initKmCards()
 

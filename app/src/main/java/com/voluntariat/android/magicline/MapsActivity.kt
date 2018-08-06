@@ -33,9 +33,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_map))
-        mMap.addMarker(MarkerOptions().position(LatLng(0.0, 0.0)).title("Marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(0.0, 0.0)))
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.390205, 2.154007),12.0f))
     }
 
     private fun initKmCards() {
@@ -54,5 +52,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val adapter = kmAdapter(kmList)
         kmRecyclerView.adapter = adapter
     }
+
 
 }

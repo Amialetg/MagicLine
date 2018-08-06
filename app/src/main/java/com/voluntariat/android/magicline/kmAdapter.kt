@@ -1,5 +1,9 @@
 package com.voluntariat.android.magicline
 
+import android.content.res.Resources
+import android.graphics.Color
+import android.support.v4.content.res.ResourcesCompat
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -26,9 +30,26 @@ class kmAdapter (val kmList : ArrayList<Int>) : RecyclerView.Adapter<kmAdapter.V
         val km : Int =  kmList[position]
 
         holder?.km?.text = km.toString()
+        
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val km = itemView.findViewById(R.id.map_km) as TextView
+
+        val km = itemView.findViewById<TextView>(R.id.map_km) as TextView
+        val card = itemView.findViewById<CardView>(R.id.card)
+
+        init {
+
+            itemView.setOnClickListener{
+
+
+                card.setCardBackgroundColor(ResourcesCompat.getColor(itemView.context.resources,R.color.colorPrimary,itemView.context.theme))
+                km.setTextColor(Color.WHITE)
+
+            }
+
+        }
+
     }
 }

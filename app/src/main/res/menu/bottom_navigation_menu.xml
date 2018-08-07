@@ -3,21 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/MagicLineBar"
+        android:id="@+id/magicline_menu_id"
         android:icon="@drawable/fill_69"
         android:title="@string/nav_menu_magicline" />
+
     <item
-        android:id="@+id/ProgramacionBar"
+        android:id="@+id/schedule_menu_id"
         android:icon="@drawable/fill_49"
         android:title="@string/nav_menu_programacion" />
+
+    <!-- We disable this item because is the space where there
+         will go the floating action button for the map -->
     <item
-        android:title=""/>
+        android:title=""
+        android:id="@+id/none"
+        android:clickable="false"
+        android:focusable="false"
+        android:enabled="false"
+        />
+
     <item
-        android:id="@+id/DonativosBar"
+        android:id="@+id/donations_menu_id"
         android:icon="@drawable/fill_37"
         android:title="@string/nav_menu_donativos" />
+
     <item
-        android:id="@+id/MasInfoBar"
+        android:id="@+id/info_menu_id"
         android:icon="@drawable/group_2"
         android:title="@string/nav_menu_masinfo" />
 

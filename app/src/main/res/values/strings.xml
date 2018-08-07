@@ -8,14 +8,14 @@
     <!--CountDown-->
     <string name="cursa_date">24.02.2019, 10:00</string>
 
-    <!--Principal Recaudats-->
+    <!--Section Recaudats-->
     <string name="btn_fer_donacio">Fer una donació</string>
     <string name="recaudats_text">recaudats</string>
 
-    <!--Principal News-->
+    <!--Section News-->
     <string name="news_title">NOTICIAS</string>
 
-    <!--Principal Programming-->
+    <!--Section Programming-->
     <string name="Programming_title">PROGRAMACIÓN</string>
     <string name="text_nav_map">Mapa</string>
     <string name="text_countdown_dies">DIES</string>
@@ -28,5 +28,17 @@
     <string name="nav_menu_programacion">Programación</string>
     <string name="nav_menu_donativos">Donativos</string>
     <string name="nav_menu_masinfo">Más info</string>
+
+    <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
+    <string name="map_km">Km caminada solidaria:</string>
+
+    <!--Section other values -->
+    <string name="other_values_title">OTROS VALORES</string>
+
+    <!--Bottom navigation layout-->
+    <string name="magic_line_var_title">MagicLine</string>
+    <string name="schedule_var_title">Programación</string>
+    <string name="donation_var_title">Donatius</string>
+    <string name="info_var_title">Más info</string>
 
 </resources>

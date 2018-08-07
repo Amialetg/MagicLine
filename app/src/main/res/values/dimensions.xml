@@ -34,6 +34,16 @@
     <dimen name="news_recycler_width">295dp</dimen>
     <dimen name="news_item_height">69dp</dimen>
 
+    <!-- Section other values -->
+    <dimen name="margin_top_values">26dp</dimen>
+    <dimen name="margin_bottom_values">20dp</dimen>
+    <dimen name="width_card_value">104dp</dimen>
+    <dimen name="height_card_value">98dp</dimen>
+
+
+    <!-- Bottom nav bar -->
+    <dimen name="bottom_nav_height">49dp</dimen>
+
 
 
 

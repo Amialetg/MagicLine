@@ -40,6 +40,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val kmRecyclerView = findViewById<RecyclerView>(R.id.rv_map)
         val kmList = ArrayList<Int>()
+
         kmList.add(10)
         kmList.add(15)
         kmList.add(20)

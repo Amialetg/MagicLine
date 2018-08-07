@@ -47,6 +47,7 @@ class kmAdapter (val kmList : ArrayList<Int>) : RecyclerView.Adapter<kmAdapter.V
         holder?.km?.text = km.toString()
         holder?.card?.setCardBackgroundColor(colorBg)
         holder?.km?.setTextColor(colorTxt)
+        holder?.km_text?.setTextColor(colorTxt)
 
 
     }
@@ -55,6 +56,7 @@ class kmAdapter (val kmList : ArrayList<Int>) : RecyclerView.Adapter<kmAdapter.V
 
         val km = itemView.findViewById<TextView>(R.id.map_km) as TextView
         val card = itemView.findViewById<CardView>(R.id.card)
+        val km_text = itemView.findViewById<TextView>(R.id.map_km_text)
         
         init {
 

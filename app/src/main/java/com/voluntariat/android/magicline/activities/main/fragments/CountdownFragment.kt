@@ -60,7 +60,6 @@ class CountdownFragment:Fragment(){
         //trobem el temps restant en long
         var diff:Long=cursaLong-currentLong
 
-
         MyCounter(diff, 1000, txtDies).start()
 
     }

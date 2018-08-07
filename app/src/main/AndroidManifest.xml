@@ -25,9 +25,8 @@
         
         <activity
 
-            android:name=".MapsActivity"
 
-            >
+            android:name=".activities.splash.SplashScreenActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +36,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PrincipalActivity"/>
+        <activity android:name=".activities.main.fragments.MagicLineFragment"/>
+        <activity android:name=".activities.main.MainActivity"/>
 
     </application>
 

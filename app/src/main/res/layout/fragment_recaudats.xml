@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/countdown_timer_height"
+    android:background="@color/colorPrimary"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="274.543€"
+        style="@style/recaudats_num"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_recaudats_num"
+        android:id="@+id/recaudats_num"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        style="@style/recaudats_text"
+        android:text="@string/recaudats_text"
+        android:layout_below="@id/recaudats_num"
+        android:layout_marginTop="@dimen/margin_top_recaudats_text"
+        android:id="@+id/recaudats_text"
+        />
+    <Button
+        android:layout_width="@dimen/btn_fer_donacio_width"
+        android:layout_height="@dimen/btn_fer_donacio_height"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_fer_donacio_not_normal"
+        android:text="@string/btn_fer_donacio"
+        style="@style/btn_recaudats_text"
+        android:layout_below="@id/recaudats_text"
+        android:layout_marginTop="@dimen/margin_top_btn_fer_donacio"
+        android:elevation="0dp"
+        />
+
+</RelativeLayout>

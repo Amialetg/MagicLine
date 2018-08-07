@@ -19,6 +19,7 @@
                 android:layout_centerInParent="true"
                 android:text="@string/news_title"
                 style="@style/NewsTitle"
+                android:letterSpacing="0.13"
                 />
         </RelativeLayout>
 

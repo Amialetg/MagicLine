@@ -5,6 +5,17 @@
     <dimen name="countdown_timer_height">249dp</dimen>
     <dimen name="padding_right_countdown">249dp</dimen>
 
+    <!--Recaudats-->
+    <dimen name="margin_top_recaudats_num">66dp</dimen>
+    <dimen name="margin_top_recaudats_text">2.5dp</dimen>
+    <dimen name="margin_top_btn_fer_donacio">17.5dp</dimen>
+    <dimen name="btn_fer_donacio_width">135dp</dimen>
+    <dimen name="btn_fer_donacio_height">38dp</dimen>
+        <!-- View Pager Indicator-->
+        <dimen name="margin_bottom_indicator">12dp</dimen>
+
+
+
     <!--Top Toolbar-->
     <dimen name="principal_top_toolbar_height">46dp</dimen>
     <dimen name="principal_top_toolbar_txt_width">312dp</dimen>
@@ -22,6 +33,16 @@
     <dimen name="news_arrow_box_width">40dp</dimen>
     <dimen name="news_recycler_width">295dp</dimen>
     <dimen name="news_item_height">69dp</dimen>
+
+    <!-- Section other values -->
+    <dimen name="margin_top_values">26dp</dimen>
+    <dimen name="margin_bottom_values">20dp</dimen>
+    <dimen name="width_card_value">104dp</dimen>
+    <dimen name="height_card_value">98dp</dimen>
+
+
+    <!-- Bottom nav bar -->
+    <dimen name="bottom_nav_height">49dp</dimen>
 
 
 

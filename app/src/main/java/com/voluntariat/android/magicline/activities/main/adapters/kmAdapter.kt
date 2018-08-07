@@ -1,16 +1,14 @@
-package com.voluntariat.android.magicline
+package com.voluntariat.android.magicline.activities.main.adapters
 
-import android.content.res.Resources
 import android.graphics.Color
 import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v4.widget.SearchViewCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.voluntariat.android.magicline.R
 
 
 /**
@@ -24,7 +22,7 @@ class kmAdapter (val kmList : ArrayList<Int>) : RecyclerView.Adapter<kmAdapter.V
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.km_cards, parent, false)
-        return ViewHolder(v,this)
+        return ViewHolder(v, this)
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +36,7 @@ class kmAdapter (val kmList : ArrayList<Int>) : RecyclerView.Adapter<kmAdapter.V
         val colorTxt : Int
 
         if(selectedPosition == position){
-            colorBg = ContextCompat.getColor(holder?.itemView?.context,R.color.colorPrimary)
+            colorBg = ContextCompat.getColor(holder?.itemView?.context, R.color.colorPrimary)
             colorTxt = Color.WHITE
         }
         else{

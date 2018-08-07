@@ -29,8 +29,14 @@
     <string name="nav_menu_donativos">Donativos</string>
     <string name="nav_menu_masinfo">Más info</string>
 
+    <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminada solidaria:</string>
+
+    <!--URL's-->
+    <string name="url_facebook">http://www.facebook.com</string>
+    <string name="url_google">http://www.google.com</string>
+    <string name="url_twitter">http://www.twitter.com</string>
 
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>

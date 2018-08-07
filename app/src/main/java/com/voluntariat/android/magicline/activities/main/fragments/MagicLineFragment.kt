@@ -195,9 +195,10 @@ class MagicLineFragment : Fragment() {
     }
 
     private fun initRRSSListeners(){
-        val urlFacebook = ""
-        val urlGoogle = ""
-        val urlTwitter = ""
+
+        val urlFacebook = getString(R.string.url_facebook)
+        val urlGoogle = getString(R.string.url_google)
+        val urlTwitter = getString(R.string.url_twitter)
 
 
         facebookView.setOnClickListener{
@@ -221,7 +222,6 @@ class MagicLineFragment : Fragment() {
 
         intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.setPackage("com.android.chrome")
         context.startActivity(intent)
 
     }

@@ -1,5 +1,7 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
@@ -37,6 +39,10 @@ class MagicLineFragment : Fragment() {
     lateinit var rightArrowView: RelativeLayout
     lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
 
+    //RRSS views
+    lateinit var facebookView : View
+    lateinit var googleView : View
+    lateinit var twitterView : View
 
     /*
      * Setting the corresponding view
@@ -64,6 +70,9 @@ class MagicLineFragment : Fragment() {
         initProgrammingCards()
 
         initNewsRecycler()
+
+        initRRSSListeners()
+
     }
 
     private fun initWidgets(){
@@ -79,6 +88,12 @@ class MagicLineFragment : Fragment() {
         leftArrowView=view!!.findViewById(R.id.left_arrow_relative)
         rightArrowView=view!!.findViewById(R.id.right_arrow_relative)
         recyclerViewIndicator=view!!.findViewById(R.id.news_pager_indicator)
+
+        //RRSS
+
+        facebookView = view!!.findViewById<View>(R.id.facebook)
+        googleView = view!!.findViewById<View>(R.id.google)
+        twitterView = view!!.findViewById<View>(R.id.twitter)
 
 
     }
@@ -178,4 +193,38 @@ class MagicLineFragment : Fragment() {
             mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex-1)
         }
     }
+
+    private fun initRRSSListeners(){
+        val urlFacebook = ""
+        val urlGoogle = ""
+        val urlTwitter = ""
+
+
+        facebookView.setOnClickListener{
+            callIntent(urlFacebook)
+        }
+
+        googleView.setOnClickListener{
+            callIntent(urlGoogle)
+        }
+
+        twitterView.setOnClickListener{
+            callIntent(urlTwitter)
+        }
+
+
+    }
+
+    private fun callIntent(url : String){
+
+        var intent : Intent
+
+        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.setPackage("com.android.chrome")
+        context.startActivity(intent)
+
+    }
+
+
 }

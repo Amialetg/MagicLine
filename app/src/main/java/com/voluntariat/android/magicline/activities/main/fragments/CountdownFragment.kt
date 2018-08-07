@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.utils.MyCounter
 import java.text.SimpleDateFormat
 import java.util.*

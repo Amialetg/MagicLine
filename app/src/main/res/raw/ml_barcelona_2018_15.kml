@@ -122,28 +122,12 @@
         <styleUrl>#icon-61-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
-    <Style id="line-9C27B0-5000-normal">
+    <Style id="line-ED3525-5000-normal">
       <LineStyle>
-        <color>ffb0279c</color>
-        <width>5</width>
+        <color>ff2535ED</color>
+        <width>7</width>
       </LineStyle>
     </Style>
-    <Style id="line-9C27B0-5000-highlight">
-      <LineStyle>
-        <color>ffb0279c</color>
-        <width>7.5</width>
-      </LineStyle>
-    </Style>
-    <StyleMap id="line-9C27B0-5000">
-      <Pair>
-        <key>normal</key>
-        <styleUrl>#line-9C27B0-5000-normal</styleUrl>
-      </Pair>
-      <Pair>
-        <key>highlight</key>
-        <styleUrl>#line-9C27B0-5000-highlight</styleUrl>
-      </Pair>
-    </StyleMap>
     <Placemark>
       <name>Inici de la ruta ML_2018_Barcelona_15.gpx</name>
       <styleUrl>#icon-61-nodesc</styleUrl>
@@ -165,7 +149,7 @@
     <Placemark>
       <name>ML_2018_Barcelona_15.gpx</name>
       <description><![CDATA[Estadístiques calculades a partir de les dades importades<br><br>Distància: 16,1 km]]></description>
-      <styleUrl>#line-9C27B0-5000</styleUrl>
+      <styleUrl>#line-ED3525-5000-normal</styleUrl>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>

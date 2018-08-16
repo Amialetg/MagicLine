@@ -88,22 +88,6 @@
         <width>7</width>
       </LineStyle>
     </Style>
-    <Style id="line-0288D1-5000-highlight">
-      <LineStyle>
-        <color>ffd18802</color>
-        <width>7.5</width>
-      </LineStyle>
-    </Style>
-    <StyleMap id="line-ED3525-5000">
-      <Pair>
-        <key>normal</key>
-        <styleUrl>#line-ED3525-5000-normal</styleUrl>
-      </Pair>
-      <Pair>
-        <key>highlight</key>
-        <styleUrl>#line-0288D1-5000-highlight</styleUrl>
-      </Pair>
-    </StyleMap>
     <Placemark>
       <name>Inici de la ruta ML_2018_Barcelona_10.gpx</name>
       <styleUrl>#icon-61-nodesc</styleUrl>
@@ -125,7 +109,7 @@
     <Placemark>
       <name>ML_2018_Barcelona_10.gpx</name>
       <description><![CDATA[Estadístiques calculades a partir de les dades importades<br><br>Distància: 9,5 km]]></description>
-      <styleUrl>#line-0288D1-5000</styleUrl>
+      <styleUrl>#line-ED3525-5000-normal</styleUrl>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>

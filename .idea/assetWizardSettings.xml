@@ -16,27 +16,12 @@
                             <entry key="actionbar">
                               <value>
                                 <PersistentState>
-                                  <option name="children">
-                                    <map>
-                                      <entry key="image">
-                                        <value>
-                                          <PersistentState>
-                                            <option name="values">
-                                              <map>
-                                                <entry key="paddingPercent" value="5" />
-                                              </map>
-                                            </option>
-                                          </PersistentState>
-                                        </value>
-                                      </entry>
-                                    </map>
-                                  </option>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\Hector\Desktop\MagicLine\app\src\main\res\drawable-hdpi\fill_16.png" />
-                                      <entry key="outputName" value="red_map" />
-                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="imageAsset" value="C:\Users\Albert Risco\Desktop\group_2.png" />
+                                      <entry key="outputName" value="ic_left_arrow_white" />
+                                      <entry key="theme" value="HOLO_DARK" />
                                       <entry key="themeColor" value="ed3525" />
                                     </map>
                                   </option>

@@ -47,4 +47,16 @@
     <string name="donation_var_title">Donatius</string>
     <string name="info_var_title">Más info</string>
 
+    <!--More info fragment-->
+    <string name="moreinfo_title">configuración</string>
+    <string name="moreinfo_sobre_la_ml">Todo sobre la magic line</string>
+    <string name="moreinfo_sitio_web">Ir al sitio web</string>
+    <string name="moreinfo_idioma">Idioma</string>
+    <string name="moreinfo_amigos">Invita a tus amigos</string>
+    <string name="moreinfo_sj">San Joan de Deu</string>
+    <string name="castellano">castellano</string>
+    <string name="catalan">catalan</string>
+
+
+
 </resources>

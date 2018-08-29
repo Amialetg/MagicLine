@@ -44,9 +44,21 @@
     <!-- Bottom nav bar -->
     <dimen name="bottom_nav_height">49dp</dimen>
 
-
-
-
+    <!-- More info fragment -->
+    <dimen name="configuration_label_height">61dp</dimen>
+    <dimen name="back_arrow_width">25dp</dimen>
+    <dimen name="back_arrow_height">25dp</dimen>
+    <dimen name="margin_left_back_arrow">7dp</dimen>
+    <dimen name="margin_right_back_arrow">15dp</dimen>
+    <dimen name="margin_left_title">15dp</dimen>
+    <dimen name="height_sections">65dp</dimen>
+    <dimen name="margin_left_sections">15dp</dimen>
+    <dimen name="height_idioma">140dp</dimen>
+    <dimen name="margin_top_idioma">17dp</dimen>
+    <dimen name="margin_left_text_checkbox">15dp</dimen>
+    <dimen name="margin_left_checkbox">28dp</dimen>
+    <dimen name="margin_bottom_checkbox">18dp</dimen>
+    <dimen name="margin_top_checkbox_layout">25dp</dimen>
 
 
 

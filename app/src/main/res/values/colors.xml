@@ -20,5 +20,10 @@
     <color name="selected_indicator_color">#4a4a4a</color>
     <color name="unselected_indicator_color">#c5c5c5</color>
 
+    <!-- More info fragment -->
+    <color name="moreinfo_title_color">#e7e7e7</color>
+    <color name="moreinfo_background">#4a4a4a</color>
+    <color name="moreinfo_bars">#979797</color>
+    <color name="background_checkbox">#d8d8d8</color>
 
 </resources>

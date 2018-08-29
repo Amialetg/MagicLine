@@ -17,7 +17,7 @@
             android:layout_width="13dp"
             android:layout_height="13dp"
             android:src="@drawable/checkbox_pressed"
-            android:id="@+id/checkbox_castellano"
+            android:id="@+id/checkbox_spanish"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/margin_left_checkbox"
             />
@@ -26,9 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/castellano"
-            android:id="@+id/checkbox_castellano_text"
+            android:id="@+id/checkbox_spanish_text"
             style="@style/MoreInfoLanguagePressed"
-            android:layout_toRightOf="@id/checkbox_castellano"
+            android:layout_toRightOf="@id/checkbox_spanish"
             />
 
     </RelativeLayout>

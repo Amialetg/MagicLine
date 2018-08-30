@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/toolbar_info_sjd_top"/>
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_image_sjd"
+        android:background="@color/grey"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_sjd_desc"
+        android:paddingTop="@dimen/padding_top_desc"
+        android:paddingLeft="@dimen/padding_left_desc"
+        style="@style/InfoSJDDesc"
+        />
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:letterSpacing="0.3"
+            style="@style/InfoSJDMarcador"
+            android:text="@string/info_sjd_magicline"
+            android:id="@+id/sjd_magicline_text"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:letterSpacing="0.3"
+            style="@style/InfoSJDMarcador"
+            android:text="@string/info_sjd_marcador"
+            android:id="@+id/info_sjd_marcador_text"
+            android:layout_below="@id/sjd_magicline_text"
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

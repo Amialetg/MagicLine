@@ -60,6 +60,12 @@
     <dimen name="margin_bottom_checkbox">18dp</dimen>
     <dimen name="margin_top_checkbox_layout">25dp</dimen>
 
+    <!-- Info SJD -->
+    <dimen name="height_toolbar_top_sjd">50dp</dimen>
+    <dimen name="height_image_sjd">224dp</dimen>
+    <dimen name="padding_top_desc">20dp</dimen>
+    <dimen name="padding_left_desc">15dp</dimen>
+
 
 
 

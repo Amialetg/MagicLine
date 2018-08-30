@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_toolbar_top_sjd"
+    android:orientation="horizontal">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/margin_left_back_arrow"
+        android:paddingEnd="@dimen/margin_right_back_arrow"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/back_arrow_width"
+            android:layout_height="@dimen/back_arrow_height"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_left_arrow_black"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="33dp"
+            android:layout_centerVertical="true"
+            android:background="@color/moreinfo_bars"
+            >
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/margin_left_title"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_sjd_title"
+            style="@style/InfoSJDTitle"
+
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

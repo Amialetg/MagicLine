@@ -57,6 +57,10 @@
     <string name="castellano">castellano</string>
     <string name="catalan">catalan</string>
 
-
+    <!-- Info SJD -->
+    <string name="info_sjd_title">#magicline</string>
+    <string name="info_sjd_desc">La Magic Line es más que una caminata, es un compromiso con quienes más lo necesitan. Por ello, para participar hay que ponerse un reto económico y organizar actividades solidarias para conseguirlo.</string>
+    <string name="info_sjd_magicline">#MagicLine</string>
+    <string name="info_sjd_marcador">MARCADOR</string>
 
 </resources>

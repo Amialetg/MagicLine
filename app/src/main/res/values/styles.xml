@@ -160,6 +160,37 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
+    <!-- Info sjd -->
+    <style name="InfoSJDTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="InfoSJDDesc" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+    </style>
+
+    <style name="InfoSJDMarcador" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/info_sjd_marcador</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/hiragino_sans_w6</item>
+        <item name="height">25sp</item>
+    </style>
+
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -13,8 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.*
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
@@ -50,13 +50,22 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         //wait for map to load
         initKmCards()
 
-        //ROUTES
+        //INTEREST POINTS
+        loadMarkers()
+
+    }
+
+    private fun setMarker(title:String,text:String,lat:Double,lon:Double,resourceId:Int){
+        val markerOptions = MarkerOptions().position(LatLng(lat,lon)).title(title)
+                .snippet(text).icon(BitmapDescriptorFactory.fromResource(resourceId))
+        mMap.addMarker(markerOptions)
 
     }
 
     private fun initKmCards() {
 
         val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
+        kmRecyclerView?.addItemDecoration(MarginItemDecoration(30))
         val kmList = ArrayList<Int>()
 
         kmList.add(10)
@@ -70,5 +79,36 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         val adapter = kmAdapter(kmList,mMap,context)
         kmRecyclerView?.adapter = adapter
+    }
+
+    private fun loadMarkers(){
+        //TODO("waiting for official info to fill")
+        setMarker("Font", "", 41.41649, 2.15293, R.drawable.fill_16)
+        setMarker("Font", "", 41.42317, 2.12254, R.drawable.fill_3)
+        setMarker("Font", "", 41.41949, 2.16376, R.drawable.fill_49)
+        setMarker("Font", "", 41.37281, 2.15025, R.drawable.fill_2)
+        setMarker("Font", "", 41.36102, 2.16168, R.drawable.fill_1)
+        setMarker("Font", "", 41.38462, 2.12367, R.drawable.fill_37)
+        setMarker("Font", "", 41.38219, 2.12768, R.drawable.fill_37)
+    }
+
+    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(outRect: Rect, view: View,
+                                    parent: RecyclerView, state: RecyclerView.State) {
+            with(outRect) {
+                if(parent.getChildAdapterPosition(view) == 4){
+                    right = spaceHeight*2
+                    left = spaceHeight
+                }
+                else if(parent.getChildAdapterPosition(view) == 0){
+                    left = spaceHeight*2
+                    right = spaceHeight
+                }
+                else{
+                left =  spaceHeight
+                right = spaceHeight
+                }
+            }
+        }
     }
 }

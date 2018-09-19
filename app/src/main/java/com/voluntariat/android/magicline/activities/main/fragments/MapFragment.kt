@@ -15,6 +15,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
 import java.util.ArrayList
@@ -23,6 +24,7 @@ import java.util.ArrayList
 class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var kmlLayer : KmlLayer
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,13 +38,20 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
 
-        initKmCards()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+
+        //SETUP
         mMap = googleMap
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.390205, 2.154007), 12.0f))
+
+        //wait for map to load
+        initKmCards()
+
+        //ROUTES
+
     }
 
     private fun initKmCards() {
@@ -59,7 +68,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = kmAdapter(kmList)
+        val adapter = kmAdapter(kmList,mMap,context)
         kmRecyclerView?.adapter = adapter
     }
 }

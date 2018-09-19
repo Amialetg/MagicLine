@@ -1,6 +1,7 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -82,6 +83,7 @@ class MagicLineFragment : Fragment() {
 
         //Programming cards
         progRecyclerView= view!!.findViewById(R.id.rv)
+        progRecyclerView.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_programming).toInt()))
 
         //News
         newsRecyclerView=view!!.findViewById(R.id.news_recycler)
@@ -226,5 +228,25 @@ class MagicLineFragment : Fragment() {
 
     }
 
+    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(outRect: Rect, view: View,
+                                    parent: RecyclerView, state: RecyclerView.State) {
+            with(outRect) {
+
+                if(parent.getChildAdapterPosition(view) == parent.adapter.itemCount-1){
+                    right = spaceHeight*2
+                    left = spaceHeight
+                }
+                else if(parent.getChildAdapterPosition(view) == 0){
+                    left = spaceHeight*2
+                    right = spaceHeight
+                }
+                else{
+                    left =  spaceHeight
+                    right = spaceHeight
+                }
+            }
+        }
+    }
 
 }

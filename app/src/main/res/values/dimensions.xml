@@ -60,6 +60,11 @@
     <dimen name="margin_bottom_checkbox">18dp</dimen>
     <dimen name="margin_top_checkbox_layout">25dp</dimen>
 
+    <!--Fix recycler margins-->
+    <dimen name="margin_programming">8dp</dimen>
+    <dimen name="margin_km">11dp</dimen>
+
+
 
 
 

@@ -7,16 +7,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="94dp"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="17dp"
-            android:layout_marginTop="11dp"
-            android:layout_centerHorizontal="true"
-            android:text="@string/map_km"
-            android:textColor="@color/grey"/>
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_map"

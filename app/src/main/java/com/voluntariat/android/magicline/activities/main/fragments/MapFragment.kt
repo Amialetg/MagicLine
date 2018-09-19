@@ -65,7 +65,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private fun initKmCards() {
 
         val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
-        kmRecyclerView?.addItemDecoration(MarginItemDecoration(30))
+        kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmList = ArrayList<Int>()
 
         kmList.add(10)

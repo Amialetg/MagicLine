@@ -26,4 +26,8 @@
     <color name="moreinfo_bars">#979797</color>
     <color name="background_checkbox">#d8d8d8</color>
 
+    <!--schedule fragment -->
+    <color name="line_color">#979797</color>
+    <color name="schedule_btn_txt">#e31818</color>
+
 </resources>

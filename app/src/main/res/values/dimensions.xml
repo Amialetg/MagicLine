@@ -66,6 +66,28 @@
 
 
 
-
+    <!-- schedule fragment -->
+        <!-- schedule card -->
+        <dimen name="height_model_card">220dp</dimen>
+        <dimen name="height_model_text">60dp</dimen>
+        <dimen name="width_relative">77dp</dimen>
+        <dimen name="margin_left_bar">26dp</dimen>
+        <dimen name="width_circle">7dp</dimen>
+        <dimen name="margin_left_circle">23.5dp</dimen>
+        <dimen name="margin_top_circle">15dp</dimen>
+        <dimen name="margin_top_hour">10dp</dimen>
+        <dimen name="margin_left_hour">5dp</dimen>
+        <dimen name="width_card">270dp</dimen>
+        <dimen name="height_card">199dp</dimen>
+        <dimen name="elevation_card">5dp</dimen>
+        <dimen name="margin_top_card">5dp</dimen>
+        <dimen name="radius_corner_card">15dp</dimen>
+        <dimen name="width_schedule_button">117dp</dimen>
+        <dimen name="height_schedule_button">32dp</dimen>
+        <dimen name="padding_left_card">20dp</dimen>
+        <dimen name="padding_top_card">7dp</dimen>
+        <dimen name="padding_right_card">7dp</dimen>
+        <dimen name="margin_top_text">4dp</dimen>
+        <dimen name="margin_left_text">10dp</dimen>
 
 </resources>

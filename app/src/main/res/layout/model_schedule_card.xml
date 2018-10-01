@@ -35,6 +35,7 @@
             android:layout_marginStart="@dimen/margin_left_hour"
             tools:text="13:30"
             style="@style/scheduleHour"
+            android:id="@+id/schedule_card_hour"
             />
 
     </RelativeLayout>
@@ -46,10 +47,9 @@
         android:layout_marginTop="@dimen/margin_top_card"
         android:layout_marginRight="15dp"
         >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:paddingStart="@dimen/padding_left_card"
             android:paddingEnd="@dimen/padding_top_card"
             android:paddingTop="@dimen/padding_right_card"
@@ -63,6 +63,7 @@
                 style="@style/scheduleCardTitle"
                 android:layout_marginBottom="8dp"
                 android:id="@+id/schedule_card_title"
+
                 />
 
             <TextView
@@ -72,6 +73,7 @@
                 style="@style/scheduleCardSubTitle"
                 android:layout_marginBottom="8dp"
                 android:id="@+id/schedule_card_subtitle"
+                android:layout_below="@id/schedule_card_title"
                 />
 
             <TextView
@@ -81,6 +83,7 @@
                 style="@style/scheduleCardDescription"
                 android:layout_marginBottom="8dp"
                 android:id="@+id/schedule_card_description"
+                android:layout_below="@id/schedule_card_subtitle"
                 />
 
             <Button
@@ -90,10 +93,12 @@
                 android:text="@string/schedule_button_text"
                 style="@style/scheduleSeeMoreBtn"
                 android:background="@drawable/btn_see_more_not_pressed"
+                android:layout_marginBottom="18dp"
+                android:layout_alignParentBottom="true"
                 />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
 

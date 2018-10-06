@@ -8,11 +8,30 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:paddingTop="80dp"
+
+
         >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/principal_top_toolbar"
+            style="@style/TopTitle"
+            android:layout_marginTop="34dp"
+            android:id="@+id/ml_title_text"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ciutat"
+            android:layout_below="@id/ml_title_text"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            />
 
         <GridLayout
+            android:layout_marginTop="@dimen/margin_top_grid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="2"

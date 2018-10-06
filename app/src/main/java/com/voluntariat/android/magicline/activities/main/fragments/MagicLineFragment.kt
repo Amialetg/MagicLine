@@ -5,7 +5,6 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
@@ -13,23 +12,27 @@ import android.support.v7.widget.RecyclerView
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.support.v4.view.ViewPager.OnPageChangeListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.voluntariat.android.magicline.*
-import com.voluntariat.android.magicline.activities.main.adapters.CountdownPagerAdapter
+import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
+import java.text.SimpleDateFormat
 
 
 class MagicLineFragment : Fragment() {
 
-    //Countdown - recaudats widgets
-    lateinit var viewPager: ViewPager
-    lateinit var viewPagerIndicator: com.kingfisher.easyviewindicator.AnyViewIndicator
+    //CountDown widgets
+    lateinit var txtDies: TextView
+    lateinit var txtHores: TextView
+    lateinit var txtMin: TextView
+    lateinit var txtSeg: TextView
+    private lateinit var dateCursaString: String
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
@@ -64,9 +67,9 @@ class MagicLineFragment : Fragment() {
         super.onStart()
 
         //Init TextViews, etc
-        initWidgets()
+        val txtArray = initWidgets()
 
-        initCountdownPV(viewPager)
+        initCountDown(txtArray)
 
         initProgrammingCards()
 
@@ -76,10 +79,15 @@ class MagicLineFragment : Fragment() {
 
     }
 
-    private fun initWidgets(){
-        //Countdown - recaudats view pager
-        viewPager = view!!.findViewById(R.id.principal_vp)
-        viewPagerIndicator=view!!.findViewById(R.id.view_pager_indicator)
+    private fun initWidgets():Array<TextView>{
+        //Countdown
+        txtDies=view!!.findViewById(R.id.countdown_dies)
+        txtHores=view!!.findViewById(R.id.countdown_hores)
+        txtMin=view!!.findViewById(R.id.countdown_min)
+        txtSeg=view!!.findViewById(R.id.countdown_seg)
+
+        //cursa date
+        dateCursaString= getString(R.string.cursa_date)
 
         //Programming cards
         progRecyclerView= view!!.findViewById(R.id.rv)
@@ -98,34 +106,28 @@ class MagicLineFragment : Fragment() {
         twitterView = view!!.findViewById<View>(R.id.twitter)
 
 
+        return arrayOf(txtDies, txtHores, txtMin, txtSeg)
+
+
     }
 
-    private fun initCountdownPV(viewPager: ViewPager){
-        /*
-         * We use childFragmentManager instead of supportFragmentManager because
-         * we are using a fragment inside a fragment
-        */
-        val adapter = CountdownPagerAdapter(childFragmentManager)
+    private fun initCountDown(txtDies: Array<TextView>){
 
-        viewPager.adapter=adapter
+        //Utilitzem el formatter per aconseguir l'objecte Date
+        var formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
 
-        //Number of fragments to scroll
-        viewPagerIndicator.setItemCount(adapter.count)
+        //Data actual y data de la cursa
+        var currentTime: Date = Calendar.getInstance().time
+        var dateCursa: Date = formatter.parse(dateCursaString)
 
-        //Where does it start
-        viewPagerIndicator.setCurrentPosition(0)
+        //pasem a long les dates
+        var currentLong:Long=currentTime.time
+        var cursaLong:Long=dateCursa.time
 
-        //Change when scroll
-        viewPager.addOnPageChangeListener(object : OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                viewPagerIndicator.setCurrentPosition(viewPager.currentItem)
-            }
+        //trobem el temps restant en long
+        var diff:Long=cursaLong-currentLong
 
-            override fun onPageSelected(position: Int) {
-                // Check if this is the page you want.
-            }
-        })
+        MyCounter(diff, 1000, txtDies).start()
 
     }
 
@@ -144,9 +146,6 @@ class MagicLineFragment : Fragment() {
         val adapter = ProgrammingAdapter(events)
         progRecyclerView.adapter = adapter
     }
-
-
-
 
 
     private fun initNewsRecycler() {

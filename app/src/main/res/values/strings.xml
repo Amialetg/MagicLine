@@ -7,10 +7,11 @@
 
     <!--CountDown-->
     <string name="cursa_date">24.02.2019, 10:00</string>
-
-    <!--Section Recaudats-->
+    <string name="ciutat">Barcelona</string>
     <string name="btn_fer_donacio">Fer una donació</string>
     <string name="recaudats_text">recaudats</string>
+    <string name="participants_text">participants</string>
+    <string name="mes_info">Més info</string>
 
     <!--Section News-->
     <string name="news_title">NOTICIAS</string>

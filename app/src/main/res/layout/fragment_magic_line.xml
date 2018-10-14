@@ -30,6 +30,8 @@
 
                 <include layout="@layout/layout_mes_que" />
 
+                <include layout="@layout/layout_a_fons" />
+
                 <include layout="@layout/layout_programming" />
 
                 <include layout="@layout/layout_other_values" />

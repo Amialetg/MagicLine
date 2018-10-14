@@ -23,7 +23,7 @@
     <string name="text_countdown_hores">HORES</string>
     <string name="text_countdown_minuts">MINUTS</string>
     <string name="text_countdown_segons">SEGONS</string>
-    <string name="text_rrss">RRSS</string>
+    <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
     <string name="text_otros_valores">OTROS VALORES</string>
     <string name="nav_menu_magicline">MagicLine</string>
     <string name="nav_menu_programacion">Programación</string>
@@ -35,6 +35,10 @@
     <string name="mesque_dona">dóna a un equip</string>
     <string name="mesque_demana">demana donatius</string>
     <string name="mesque_idees">idees de captació</string>
+
+    <!--Section a fons-->
+    <string name="afons_title">la magic line a fons</string>
+    <string name="afons_imprescindibles">Imprescindibles ML</string>
 
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>

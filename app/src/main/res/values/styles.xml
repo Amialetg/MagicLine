@@ -120,6 +120,18 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <!-- Principal a fons -->
+    <style name="afons_cards_txt" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
     <!-- More Info Fragment -->
     <style name="MoreInfoTitle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>

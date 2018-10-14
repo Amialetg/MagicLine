@@ -28,6 +28,8 @@
 
                 <include layout="@layout/layout_news" />
 
+                <include layout="@layout/layout_mes_que" />
+
                 <include layout="@layout/layout_programming" />
 
                 <include layout="@layout/layout_other_values" />

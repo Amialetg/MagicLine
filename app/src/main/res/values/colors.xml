@@ -13,6 +13,9 @@
 
     <color name="grey">#4c4c4c</color>
 
+    <!-- mesque layout -->
+    <color name="mesque_background">#b3e7e7e7</color>
+
     <!-- Bottom toolbar background -->
     <color name="bottom_toolbar_background">#fafafb</color>
 

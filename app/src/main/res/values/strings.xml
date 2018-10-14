@@ -30,6 +30,12 @@
     <string name="nav_menu_donativos">Donativos</string>
     <string name="nav_menu_masinfo">Más info</string>
 
+    <!--Section mes que-->
+    <string name="mesque_title">més que una caminada</string>
+    <string name="mesque_dona">dóna a un equip</string>
+    <string name="mesque_demana">demana donatius</string>
+    <string name="mesque_idees">idees de captació</string>
+
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminada solidaria:</string>
@@ -61,5 +67,7 @@
     <!-- schedule fragment -->
     <string name="schedule_card_description">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the </string>
     <string name="schedule_button_text">Veure més</string>
+
+
 
 </resources>

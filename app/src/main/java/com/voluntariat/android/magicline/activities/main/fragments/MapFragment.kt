@@ -83,13 +83,13 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private fun loadMarkers(){
         //TODO("waiting for official info to fill")
-        setMarker("Font", "", 41.41649, 2.15293, R.drawable.fill_16)
-        setMarker("Font", "", 41.42317, 2.12254, R.drawable.fill_3)
-        setMarker("Font", "", 41.41949, 2.16376, R.drawable.fill_49)
-        setMarker("Font", "", 41.37281, 2.15025, R.drawable.fill_2)
-        setMarker("Font", "", 41.36102, 2.16168, R.drawable.fill_1)
-        setMarker("Font", "", 41.38462, 2.12367, R.drawable.fill_37)
-        setMarker("Font", "", 41.38219, 2.12768, R.drawable.fill_37)
+        setMarker("Font", "", 41.41649, 2.15293, R.drawable.group_2)
+        setMarker("Font", "", 41.42317, 2.12254, R.drawable.group_3)
+        setMarker("Font", "", 41.41949, 2.16376, R.drawable.group_2)
+        setMarker("Font", "", 41.37281, 2.15025, R.drawable.group_4)
+        setMarker("Font", "", 41.36102, 2.16168, R.drawable.group_2)
+        setMarker("Font", "", 41.38462, 2.12367, R.drawable.group_3)
+        setMarker("Font", "", 41.38219, 2.12768, R.drawable.group_4)
     }
 
     class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {

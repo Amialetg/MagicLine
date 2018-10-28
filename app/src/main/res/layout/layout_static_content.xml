@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        
+        >
+        <RelativeLayout
+            android:layout_width="46dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:id="@+id/static_back_btn"
+            >
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:src="@drawable/left_arrow"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:background="@color/line_color"
+            android:layout_alignEnd="@id/static_back_btn"
+            android:id="@+id/static_header_line"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/static_header_line"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="18dp"
+            android:text="PICNIK" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="252dp"
+                android:background="@drawable/countdown_background"
+                android:id="@+id/static_image"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="32dp"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sant Joan De Déu"
+                    android:id="@+id/static_title"
+                    android:fontFamily="@font/lato_light"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Equipaments culturals obren Les portes"
+                    android:id="@+id/static_subtitle"
+                    android:fontFamily="@font/lato_blackitalic"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="7dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/static_info_example"
+                    android:fontFamily="@font/lato_light"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="15dp"
+                    />
+                <Button
+                    android:layout_width="@dimen/width_schedule_button"
+                    android:layout_height="@dimen/height_schedule_button"
+                    android:elevation="0dp"
+                    android:text="@string/schedule_button_text"
+                    style="@style/scheduleSeeMoreBtn"
+                    android:background="@drawable/btn_see_more_not_pressed"
+                    android:layout_marginBottom="18dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/static_see_more"
+                    />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/static_share_text"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="9sp"
+                    android:textColor="@color/grey"
+                    android:layout_marginBottom="9dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:src="@drawable/ic_facebook"
+                        android:id="@+id/static_fb"
+                        android:layout_marginEnd="7dp"
+                        />
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:src="@drawable/ic_instagram"
+                        android:id="@+id/static_inst"
+                        android:layout_marginEnd="7dp"
+                        />
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:src="@drawable/ic_twitter"
+                        android:id="@+id/static_twitter"
+                        />
+                    
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

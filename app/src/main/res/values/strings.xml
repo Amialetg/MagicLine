@@ -76,6 +76,12 @@
     <string name="schedule_alldayopen_act">Museus Oberts</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
+    <!-- static layout -->
+    <string name="static_info_example">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as their physical health.
+
+In recent years people the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as theirle are eating better and working out more often, resulting in people livin physical health.</string>
+    
+    <string name="static_share_text">Share your experiencies:</string>
 
 
 </resources>

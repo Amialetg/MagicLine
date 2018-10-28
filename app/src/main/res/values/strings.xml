@@ -69,8 +69,12 @@
     <string name="catalan">catalan</string>
 
     <!-- schedule fragment -->
+    <string name="schedule_title">Programació</string>
     <string name="schedule_card_description">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the </string>
     <string name="schedule_button_text">Veure més</string>
+    <string name="schedule_header_name">activitats durant tot el dia</string>
+    <string name="schedule_alldayopen_act">Museus Oberts</string>
+    <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
 
 

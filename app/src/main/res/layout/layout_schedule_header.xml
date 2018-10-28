@@ -1,11 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="140dp"
+    android:layout_height="141dp"
     android:orientation="vertical"
+
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:orientation="vertical"
+        android:background="@color/schedule_header_bg"
+        android:paddingStart="19dp"
+        android:paddingEnd="25dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_header_name"
+            android:textAllCaps="true"
+            android:fontFamily="@font/lato_regular"
+            android:textSize="16sp"
+            android:letterSpacing="0.2"
+            android:textColor="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/schedule_alldayopen_act"
+                android:fontFamily="@font/lato_blackitalic"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Total Ruta 6h)"
+                android:fontFamily="@font/lato_blackitalic"
+                android:textSize="13sp"
+                android:textColor="@color/schedule_header_subtitle"
+                android:paddingLeft="5dp"
+                />
+
+        </LinearLayout>
 
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_alldayopen_desc"
+            android:fontFamily="@font/lato_light"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_title"
+            android:fontFamily="@font/lato_regular"
+            android:textSize="14sp"
+            android:textColor="@color/schedule_header_bg"
+            android:textAllCaps="true"
+            android:paddingStart="19dp"
+            android:paddingEnd="25dp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"
+        />
 </LinearLayout>

@@ -17,6 +17,7 @@ class DonationsFragment:Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_donations, container,  false)
+        testApi()
     }
 
     fun testApi() {
@@ -26,16 +27,17 @@ class DonationsFragment:Fragment(){
 
 
         val retrofit = Retrofit.Builder()
-                .baseUrl("http://www.andreurm.cat/ws")
+                .baseUrl("http://ws.audioscrobbler.com")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
         val magicLineService = retrofit.create(MagicLineService::class.java)
-        val amount = 0.0
-        val donations = magicLineService.getMarkerDonations(amount)
-        val result = donations.execute().body()
-        Log.e("TEST","testing API :  " + result + " || " + amount)
+
+
+        val call = magicLineService.testAPI("Test")
+        val result = call.execute().body()
+        Log.e("API",result.toString())
     }
 
 }

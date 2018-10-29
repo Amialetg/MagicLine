@@ -1,12 +1,12 @@
 package com.voluntariat.android.magicline.Utils
 
-import okhttp3.Call
+import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface MagicLineService {
 
-    @GET
-    fun getMarkerDonations(@Query("amount") amount: Double): Call
+    @GET("users/{user}/repos")
+    fun testAPI(@Path("user") user: String): Call<List<Any>>
 
 }

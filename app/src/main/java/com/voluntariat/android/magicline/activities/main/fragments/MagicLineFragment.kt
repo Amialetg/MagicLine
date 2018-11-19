@@ -5,10 +5,12 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.CardView
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -43,6 +45,11 @@ class MagicLineFragment : Fragment() {
     lateinit var rightArrowView: RelativeLayout
     lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
 
+    //Other values
+    lateinit var infoGlobalButton: CardView
+    lateinit var infoDestinyButton: CardView
+    lateinit var infoSjdButton: CardView
+
     //RRSS views
     lateinit var facebookView : View
     lateinit var googleView : View
@@ -75,6 +82,8 @@ class MagicLineFragment : Fragment() {
 
         initNewsRecycler()
 
+        initOtherValuesListeners()
+
         initRRSSListeners()
 
     }
@@ -98,6 +107,11 @@ class MagicLineFragment : Fragment() {
         leftArrowView=view!!.findViewById(R.id.left_arrow_relative)
         rightArrowView=view!!.findViewById(R.id.right_arrow_relative)
         recyclerViewIndicator=view!!.findViewById(R.id.news_pager_indicator)
+
+        //Other values
+        infoGlobalButton = view!!.findViewById(R.id.info_global_button)
+        infoDestinyButton = view!!.findViewById(R.id.info_donations_destiny_button)
+        infoSjdButton = view!!.findViewById(R.id.info_sjd_button)
 
         //RRSS
 
@@ -192,6 +206,13 @@ class MagicLineFragment : Fragment() {
             if(lastVisibleItemIndex<=0) return@setOnClickListener
 
             mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex-1)
+        }
+    }
+
+    private fun initOtherValuesListeners(){
+        infoSjdButton.setOnClickListener{
+            println(message = "hi")
+            DetailFragment()
         }
     }
 

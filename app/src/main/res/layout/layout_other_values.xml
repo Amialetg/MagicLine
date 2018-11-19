@@ -34,6 +34,7 @@
             >
 
             <android.support.v7.widget.CardView
+                android:id="@+id/info_global_button"
                 android:layout_width="@dimen/width_card_value"
                 android:layout_height="@dimen/height_card_value"
                 android:elevation="12dp"
@@ -69,6 +70,7 @@
             >
 
             <android.support.v7.widget.CardView
+                android:id="@+id/info_donations_destiny_button"
                 android:layout_width="@dimen/width_card_value"
                 android:layout_height="@dimen/height_card_value"
                 android:layout_weight="1"
@@ -100,23 +102,24 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <android.support.v7.widget.CardView
+                android:id="@+id/info_sjd_button"
                 android:layout_width="@dimen/width_card_value"
                 android:layout_height="@dimen/height_card_value"
+                android:layout_centerHorizontal="true"
                 android:layout_weight="1"
                 android:elevation="12dp"
-                app:cardCornerRadius="5dp"
-                android:layout_centerHorizontal="true"
-                >
+                app:cardCornerRadius="5dp">
+
                 <ImageView
-                    android:layout_marginTop="13dp"
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="43dp"
-                    android:src="@drawable/fill_1"
-                    android:adjustViewBounds="true"/>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="13dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/fill_1" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -131,5 +134,4 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 </LinearLayout>

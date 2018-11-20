@@ -15,6 +15,7 @@ import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -211,8 +212,10 @@ class MagicLineFragment : Fragment() {
 
     private fun initOtherValuesListeners(){
         infoSjdButton.setOnClickListener{
-            println(message = "hi")
-            DetailFragment()
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("detailFragment")
+            transaction.commit()
         }
     }
 
@@ -268,5 +271,7 @@ class MagicLineFragment : Fragment() {
             }
         }
     }
+
+
 
 }

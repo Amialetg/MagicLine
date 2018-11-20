@@ -76,6 +76,8 @@
     <string name="schedule_alldayopen_act">Museus Oberts</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

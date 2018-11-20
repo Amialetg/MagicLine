@@ -37,6 +37,16 @@ class MainActivity : AppCompatActivity() {
         bottomBarBtn = findViewById(R.id.fab)
     }
 
+    override fun onBackPressed() {
+        val count = fragmentManager.backStackEntryCount
+        if (count == 0) {
+            super.onBackPressed()
+            //additional code
+        } else {
+            fragmentManager.popBackStack()
+        }
+    }
+
     private fun initBottomBar() {
 
         bottomBarView.enableShiftingMode(false)
@@ -72,11 +82,7 @@ class MainActivity : AppCompatActivity() {
             val transaction = this.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, MapFragment())
             transaction.commit()
-
-
         }
-
-
     }
 
     private fun selectFragment(item: MenuItem) {

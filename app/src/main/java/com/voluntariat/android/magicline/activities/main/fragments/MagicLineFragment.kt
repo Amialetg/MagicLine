@@ -214,7 +214,19 @@ class MagicLineFragment : Fragment() {
         infoSjdButton.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("detailFragment")
+            transaction.addToBackStack("infoSjdButton")
+            transaction.commit()
+        }
+        infoDestinyButton.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("infoDestinyButton")
+            transaction.commit()
+        }
+        infoGlobalButton.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("infoGlobalButton")
             transaction.commit()
         }
     }
@@ -271,7 +283,4 @@ class MagicLineFragment : Fragment() {
             }
         }
     }
-
-
-
 }

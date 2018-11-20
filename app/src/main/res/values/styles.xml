@@ -225,5 +225,29 @@
         <item name="android:fontFamily">@font/lato_black</item>
     </style>
 
+    <!-- Other Values Fragment Title-->
+    <style name="OtherValuesTitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Other Values Fragment Subtitle -->
+    <style name="OtherValuesSubtitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/lato_blackitalic</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Other Values Fragment Large Text-->
+    <style name="OtherValuesLargeText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
 
 </resources>

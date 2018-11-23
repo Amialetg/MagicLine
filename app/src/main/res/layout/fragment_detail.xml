@@ -3,12 +3,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.voluntariat.android.magicline.activities.main.fragments.DetailFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:id="@+id/detailLinearLayout">
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_blank_fragment" />-->
+    <!-- appbar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/configuration_label_height"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/margin_left_back_arrow"
+            android:paddingEnd="@dimen/margin_right_back_arrow"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/back_arrow_width"
+                android:layout_height="@dimen/back_arrow_height"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_news_left_arrow"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            >
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="33dp"
+                android:layout_centerVertical="true"
+                android:background="@color/moreinfo_bars"
+                >
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_left_title"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="picnik"
+                style="@style/OtherValuesTitle"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- body -->
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,37 +75,38 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="32dp"
-        >
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sant Joan de Déu"
-            style="@style/OtherValuesTitle"/>
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="32dp"
+            >
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sant Joan de Déu"
+                style="@style/OtherValuesTitle"/>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Equipaments culturals obren Les portes"
-            style="@style/OtherValuesSubtitle"
-            android:layout_marginBottom="7dp"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Equipaments culturals obren Les portes"
+                style="@style/OtherValuesSubtitle"
+                android:layout_marginBottom="7dp"/>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/OtherValuesLargeText"
-            android:text="In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as their physical health. In recent years people the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as theirle are eating better and working out more often, resulting in people livin physical health." />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/OtherValuesLargeText"
+                android:text="In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as their physical health. In recent years people the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as theirle are eating better and working out more often, resulting in people livin physical health." />
 
-    </LinearLayout>
+            <include layout="@layout/layout_share" />
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

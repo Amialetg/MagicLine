@@ -2,12 +2,15 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import com.voluntariat.android.magicline.activities.main.fragments.*
 
 
@@ -17,8 +20,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
     private lateinit var bottomBarBtn: FloatingActionButton
 
+    //Top Toolbar
+//    private lateinit var topBarView: com.android.
+
+
     //The app starts at the magic line fragment
-    private var currentFragment: Fragment = MagicLineFragment()
+    private var currentFragment: Fragment = DetailFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +42,23 @@ class MainActivity : AppCompatActivity() {
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
         bottomBarBtn = findViewById(R.id.fab)
+
+        //TopBar
+//        topBarView = findViewById(R.id.top_toolbar)
+//        topBarBtn = findViewById(R.id.backArrow)
     }
 
     override fun onBackPressed() {
+        val count = fragmentManager.backStackEntryCount
+        if (count == 0) {
+            super.onBackPressed()
+            //additional code
+        } else {
+            fragmentManager.popBackStack()
+        }
+    }
+
+    fun back() {
         val count = fragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
@@ -83,6 +104,12 @@ class MainActivity : AppCompatActivity() {
             transaction.replace(R.id.frame_layout, MapFragment())
             transaction.commit()
         }
+
+//        topBarBtn.setOnClickListener {
+//            val fragmentManager = this.supportFragmentManager
+//            fragmentManager.popBackStack()
+//        }
+
     }
 
     private fun selectFragment(item: MenuItem) {

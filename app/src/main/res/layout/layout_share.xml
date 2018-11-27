@@ -30,8 +30,8 @@
 
             <ImageButton
                 android:id="@+id/fb_button"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/share_fb"
                 app:layout_constraintTop_toBottomOf="@+id/shareText"
                 app:layout_constraintRight_toLeftOf="@+id/insta_button"
@@ -40,8 +40,8 @@
                 />
             <ImageButton
                 android:id="@+id/insta_button"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/share_insta"
                 app:layout_constraintTop_toBottomOf="@+id/shareText"
                 app:layout_constraintLeft_toRightOf="@id/fb_button"
@@ -53,8 +53,8 @@
 
             <ImageButton
                 android:id="@+id/twitter_button"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/share_twitter"
                 android:background="@null"
                 app:layout_constraintLeft_toRightOf="@id/insta_button"

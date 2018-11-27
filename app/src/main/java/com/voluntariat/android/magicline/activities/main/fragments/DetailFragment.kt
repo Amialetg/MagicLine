@@ -14,12 +14,16 @@ import android.widget.TextView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.MainActivity
 import com.voluntariat.android.magicline.models.DetailModel
+import kotlinx.android.synthetic.main.layout_share.*
 
 
 class DetailFragment : Fragment() {
 
     lateinit var backButton: ImageButton
     lateinit var viewOnWebButton: TextView
+    lateinit var fbButton: ImageButton
+    lateinit var instaButton: ImageButton
+    lateinit var twitterButton: ImageButton
 
     override fun onStart() {
         super.onStart()
@@ -46,11 +50,24 @@ class DetailFragment : Fragment() {
         viewOnWebButton.setOnClickListener{
             openNewTabWindow("www.google.es", context)
         }
+        fbButton.setOnClickListener{
+            startActivity(Intent())
+            openNewTabWindow("www.facebook.es", context)
+        }
+        instaButton.setOnClickListener{
+            openNewTabWindow("www.instagram.es", context)
+        }
+        twitterButton.setOnClickListener{
+            openNewTabWindow("www.twitter.es", context)
+        }
     }
 
     private fun initWidgets(){
         backButton = view!!.findViewById(R.id.backArrow)
         viewOnWebButton = view!!.findViewById(R.id.viewOnWeb)
+        fbButton = view!!.findViewById(R.id.fb_button)
+        instaButton = view!!.findViewById(R.id.insta_button)
+        twitterButton = view!!.findViewById(R.id.twitter)
     }
 
     fun openNewTabWindow(url: String, context : Context) {

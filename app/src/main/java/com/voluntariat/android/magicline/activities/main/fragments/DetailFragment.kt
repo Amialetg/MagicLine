@@ -67,7 +67,7 @@ class DetailFragment : Fragment() {
         viewOnWebButton = view!!.findViewById(R.id.viewOnWeb)
         fbButton = view!!.findViewById(R.id.fb_button)
         instaButton = view!!.findViewById(R.id.insta_button)
-        twitterButton = view!!.findViewById(R.id.twitter)
+        twitterButton = view!!.findViewById(R.id.twitter_button)
     }
 
     fun openNewTabWindow(url: String, context : Context) {

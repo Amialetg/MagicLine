@@ -10,19 +10,19 @@ import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.*
+import com.voluntariat.android.magicline.R.string.share
 import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
+import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
 import java.text.SimpleDateFormat
@@ -211,6 +211,7 @@ class MagicLineFragment : Fragment() {
     }
 
     private fun initOtherValuesListeners(){
+
         infoSjdButton.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment())

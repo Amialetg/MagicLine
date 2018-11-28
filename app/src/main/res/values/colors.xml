@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#4a4a4a</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="white">#FFF</color>
+    <color name="white">#ffffff</color>
 
     <color name="black">#000</color>
 
@@ -37,5 +37,8 @@
 
     <!-- toolbar appbar -->
     <color name="grey_line">#979797</color>
+
+    <!-- temporary colours -->
+    <color name="lessGreyColor">#dcdcdc</color>
 
 </resources>

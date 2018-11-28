@@ -22,6 +22,7 @@ class InfoFragment:Fragment(){
     lateinit var checkBoxCatalanText: TextView
     lateinit var checkBoxSpanishText: TextView
     private var languagePressed=1 // 1--> SPANISH 2-->CATALAN
+    lateinit var inviteFriendsListener: TextView
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,6 +35,8 @@ class InfoFragment:Fragment(){
         initWidgets()
 
         initLanguageSettings()
+
+        inviteFriendsListener()
     }
 
     private fun initWidgets(){
@@ -43,6 +46,8 @@ class InfoFragment:Fragment(){
         checkBoxSpanish = view!!.findViewById(R.id.checkbox_spanish)
         checkBoxCatalanText = view!!.findViewById(R.id.checkbox_catalan_text)
         checkBoxSpanishText = view!!.findViewById(R.id.checkbox_spanish_text)
+        inviteFriendsListener = view!!.findViewById(R.id.textView_moreInfo_friends)
+
 
     }
 
@@ -69,6 +74,16 @@ class InfoFragment:Fragment(){
 
                 languagePressed=2
             }
+        }
+    }
+
+    private fun inviteFriendsListener(){
+        inviteFriendsListener.setOnClickListener{
+
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
+            transaction.commit()
+
         }
     }
 

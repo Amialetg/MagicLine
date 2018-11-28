@@ -48,6 +48,10 @@
     <string name="url_facebook">http://www.facebook.com</string>
     <string name="url_google">http://www.google.com</string>
     <string name="url_twitter">http://www.twitter.com</string>
+    <string name="url_telegram">http://www.twitter.com</string>
+    <string name="url_whatsapp">http://www.whatsapp.com</string>
+
+
 
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>
@@ -77,5 +81,11 @@
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <string name="share">Share your experiences:</string>
+    <string name="inviteFriends">Invita a tus amigos \n a la app.</string>
+    <string name="whatsapp">WhastsApp</string>
+    <string name="telegram">Telegram</string>
+    <string name="messenger">Messenger</string>
+    <string name="facebook">Facebook</string>
+    <string name="email">E-mail</string>
 
 </resources>

@@ -174,12 +174,12 @@
         >
 
         <TextView
+            android:id="@+id/textView_moreInfo_friends"
+            style="@style/MoreInfoSections"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/moreinfo_amigos"
-            style="@style/MoreInfoSections"
 
-            />
+            android:text="@string/moreinfo_amigos" />
 
     </RelativeLayout>
     

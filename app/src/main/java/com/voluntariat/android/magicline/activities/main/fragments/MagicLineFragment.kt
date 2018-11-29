@@ -27,6 +27,7 @@ import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
 import kotlinx.android.synthetic.main.layout_a_fons.*
+import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 
@@ -72,14 +73,23 @@ class MagicLineFragment : Fragment() {
 
         initCountDown(txtArray)
 
-//        initProgrammingCards()
-
         initNewsRecycler()
+
+        initMoreInfoMLListener()
 
         initAfonsListeners()
 
         initRRSSListeners()
 
+    }
+
+    private fun initMoreInfoMLListener() {
+        moreInfoML.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, MoreInfoMLFragment)
+            transaction.addToBackStack("infoEssentialsButton")
+            transaction.commit()
+        }
     }
 
     private fun initWidgets():Array<TextView>{
@@ -91,10 +101,6 @@ class MagicLineFragment : Fragment() {
 
         //cursa date
         dateCursaString= getString(R.string.cursa_date)
-
-        //Programming cards
-//        progRecyclerView= view!!.findViewById(R.id.rv)
-//        progRecyclerView.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_programming).toInt()))
 
         //News
         newsRecyclerView=view!!.findViewById(R.id.news_recycler)
@@ -142,7 +148,6 @@ class MagicLineFragment : Fragment() {
         val adapter = ProgrammingAdapter(events)
         progRecyclerView.adapter = adapter
     }
-
 
     private fun initNewsRecycler() {
         val dataSet = arrayOf(NewsModel("Nou event en la programació", getString(lorem_ipsum)), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
@@ -203,12 +208,14 @@ class MagicLineFragment : Fragment() {
             transaction.addToBackStack("infoEssentialsButton")
             transaction.commit()
         }
+
         info_donations_destiny_button.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelDestiny))
             transaction.addToBackStack("infoDestinyButton")
             transaction.commit()
         }
+
         info_sjd_button.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelSantJoan))

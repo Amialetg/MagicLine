@@ -86,7 +86,7 @@ class MagicLineFragment : Fragment() {
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, MoreInfoMLFragment)
+            transaction.replace(R.id.frame_layout, MoreInfoMLFragment())
             transaction.addToBackStack("infoEssentialsButton")
             transaction.commit()
         }

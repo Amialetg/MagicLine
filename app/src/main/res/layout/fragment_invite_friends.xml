@@ -12,7 +12,7 @@
     android:paddingBottom="20dp">
 
     <ImageView
-        android:id="@+id/imageView_cartellBCN"
+        android:id="@+id/cartellBCNImageView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/moreinfo_amigos"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_cartellBCN"
+        app:layout_constraintBottom_toBottomOf="@+id/cartellBCNImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,9 +41,9 @@
         android:text="@string/inviteFriends"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_cartellBCN"
-        app:layout_constraintEnd_toEndOf="@+id/imageView_cartellBCN"
-        app:layout_constraintStart_toStartOf="@+id/imageView_cartellBCN"
+        app:layout_constraintBottom_toBottomOf="@+id/cartellBCNImageView"
+        app:layout_constraintEnd_toEndOf="@+id/cartellBCNImageView"
+        app:layout_constraintStart_toStartOf="@+id/cartellBCNImageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView_inviteFriends"
         tools:text="Invita a tus amigos\n a la app." />
 
@@ -54,11 +54,11 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_cartellBCN">
+        app:layout_constraintTop_toBottomOf="@+id/cartellBCNImageView">
 
 
         <TextView
-            android:id="@+id/textView_email"
+            android:id="@+id/emailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/msn_icon"
@@ -77,7 +77,7 @@
 
 
         <TextView
-            android:id="@+id/textView_facebook"
+            android:id="@+id/facebookTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/facebook_icon"
@@ -95,7 +95,7 @@
 
 
         <TextView
-            android:id="@+id/textView_mesenger"
+            android:id="@+id/messengerTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/messenger_icon"
@@ -114,7 +114,7 @@
 
 
         <TextView
-            android:id="@+id/textView_telegram"
+            android:id="@+id/telegramTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/telegram_icon"
@@ -133,7 +133,7 @@
 
 
         <TextView
-            android:id="@+id/textView_whats"
+            android:id="@+id/whatsappTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/whats_icon"

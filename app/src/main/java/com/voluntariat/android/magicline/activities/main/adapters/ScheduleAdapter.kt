@@ -28,6 +28,7 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
 
     }
 
+
     override fun getItemViewType(position: Int): Int {
         if(dataSet[position].type==1) return 1
         else return 2

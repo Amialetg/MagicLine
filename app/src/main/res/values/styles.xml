@@ -225,5 +225,58 @@
         <item name="android:fontFamily">@font/lato_black</item>
     </style>
 
+    <!-- Detail Fragment Title-->
+    <style name="OtherValuesTitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Detail Fragment Subtitle -->
+    <style name="OtherValuesSubtitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/lato_blackitalic</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Detail Fragment Large Text-->
+    <style name="OtherValuesLargeText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- App bar Detail Fragment -->
+    <style name="AppBarTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="ViewOnWeb">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Share your experiences -->
+    <style name="Share">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <!-- Toolbar navigation top -->
+    <style name="toolbar_top">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
 
 </resources>

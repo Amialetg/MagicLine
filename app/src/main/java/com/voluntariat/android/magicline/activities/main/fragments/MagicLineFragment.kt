@@ -5,14 +5,17 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.CardView
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -42,6 +45,11 @@ class MagicLineFragment : Fragment() {
     lateinit var leftArrowView: RelativeLayout
     lateinit var rightArrowView: RelativeLayout
     lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
+
+    //Other values
+    lateinit var infoGlobalButton: CardView
+    lateinit var infoDestinyButton: CardView
+    lateinit var infoSjdButton: CardView
 
     //RRSS views
     lateinit var facebookView : View
@@ -75,6 +83,8 @@ class MagicLineFragment : Fragment() {
 
         initNewsRecycler()
 
+        initOtherValuesListeners()
+
         initRRSSListeners()
 
     }
@@ -98,6 +108,11 @@ class MagicLineFragment : Fragment() {
         leftArrowView=view!!.findViewById(R.id.left_arrow_relative)
         rightArrowView=view!!.findViewById(R.id.right_arrow_relative)
         recyclerViewIndicator=view!!.findViewById(R.id.news_pager_indicator)
+
+        //Other values
+        infoGlobalButton = view!!.findViewById(R.id.info_global_button)
+        infoDestinyButton = view!!.findViewById(R.id.info_donations_destiny_button)
+        infoSjdButton = view!!.findViewById(R.id.info_sjd_button)
 
         //RRSS
 
@@ -195,6 +210,27 @@ class MagicLineFragment : Fragment() {
         }
     }
 
+    private fun initOtherValuesListeners(){
+        infoSjdButton.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("infoSjdButton")
+            transaction.commit()
+        }
+        infoDestinyButton.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("infoDestinyButton")
+            transaction.commit()
+        }
+        infoGlobalButton.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.addToBackStack("infoGlobalButton")
+            transaction.commit()
+        }
+    }
+
     private fun initRRSSListeners(){
 
         val urlFacebook = getString(R.string.url_facebook)
@@ -247,5 +283,4 @@ class MagicLineFragment : Fragment() {
             }
         }
     }
-
 }

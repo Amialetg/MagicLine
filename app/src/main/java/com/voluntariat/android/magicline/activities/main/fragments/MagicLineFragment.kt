@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.*
 import com.voluntariat.android.magicline.R.drawable.about_us
+import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
@@ -144,7 +145,7 @@ class MagicLineFragment : Fragment() {
 
 
     private fun initNewsRecycler() {
-        val dataSet = arrayOf(NewsModel("Nou event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
+        val dataSet = arrayOf(NewsModel("Nou event en la programació", getString(lorem_ipsum)), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
 
         val myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val myNewsAdapter = NewsAdapter(dataSet)

@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/news_item_height"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     >
@@ -13,12 +13,13 @@
         style="@style/NewsItemTitle"
         android:id="@+id/news_item_title"
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text = "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."
         style="@style/NewsItemDesc"
         android:id="@+id/news_item_desc"
+        android:maxLines="4"
         />
 
 </LinearLayout>

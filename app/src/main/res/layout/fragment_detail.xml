@@ -31,28 +31,27 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
-                    style="@style/OtherValuesTitle"
+                    android:id="@+id/detailTitle"
+                    style="@style/AFonsTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sant Joan de Déu" />
+                    android:text="@string/sjd_title" />
 
                 <TextView
-                    android:id="@+id/textView3"
-                    style="@style/OtherValuesSubtitle"
+                    android:id="@+id/detailSubtitle"
+                    style="@style/AFonsSubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="7dp"
-                    android:text="Equipaments culturals obren Les portes" />
+                    android:text="@string/sjd_subtitle" />
 
                 <TextView
-                    android:id="@+id/textView4"
-                    style="@style/OtherValuesLargeText"
+                    android:id="@+id/detailBody"
+                    style="@style/AFonsTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as their physical health. In recent years people the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as theirle are eating better and working out more often, resulting in people livin physical health." />
-
+                    android:text="@string/lorem_ipsum"/>
 
                 <TextView
                     android:id="@+id/viewOnWeb"

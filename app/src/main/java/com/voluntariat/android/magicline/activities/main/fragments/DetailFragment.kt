@@ -11,9 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.about_us
+import com.voluntariat.android.magicline.R.color.white
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.R.drawable.ic_news_left_arrow
-import com.voluntariat.android.magicline.R.string.viewOnWeb
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
@@ -23,47 +23,65 @@ import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 class DetailFragment : Fragment () {
 
     private lateinit var detailLayoutView: View
+    private lateinit var detailModel: DetailModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        detailModel = arguments.get("detailFragment") as DetailModel
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         detailLayoutView = inflater.inflate(R.layout.fragment_detail, container, false)
-        initWidgets()
         initToolbar()
+        initWidgets()
         return detailLayoutView
     }
 
     private fun initToolbar() {
-        val detailModel = DetailModel(title = getString(R.string.share), text = getString(R.string.share), subtitle = getString(R.string.share), link = getString(R.string.share))
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(context, about_us)
-        detailLayoutView.topToolbar.title = getString(viewOnWeb)
-        detailLayoutView.topToolbar.setNavigationIcon(ic_news_left_arrow)
+        detailLayoutView.topToolbarImg.background = detailModel.toolbarImg
+        detailLayoutView.topToolbar.title = detailModel.title
+        detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
+
+        if (!detailModel.isBlack){
+            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
+            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.white))
+        }
+        
+        detailLayoutView.detailTitle.text = detailModel.title
+        detailLayoutView.detailSubtitle.text = detailModel.subtitle
+        detailLayoutView.detailBody.text = detailModel.textBody
     }
 
     private fun initWidgets() {
 
-        val dataSet = getDataset()
-
-        detailLayoutView.viewOnWeb.setOnClickListener{
-            openNewTabWindow("www.google.es", context)
+        detailLayoutView.viewOnWeb.setOnClickListener {
+            openNewTabWindow(detailModel.link, context)
         }
-        detailLayoutView.fb_button.setOnClickListener{
-            openNewTabWindow("www.facebook.es", context)
+        detailLayoutView.fb_button.setOnClickListener {
+            openNewTabWindow(detailModel.link, context)
         }
-        detailLayoutView.insta_button.setOnClickListener{
-            openNewTabWindow("www.instagram.es", context)
+        detailLayoutView.insta_button.setOnClickListener {
+            openNewTabWindow(detailModel.link, context)
         }
-        detailLayoutView.twitter_button.setOnClickListener{
-            openNewTabWindow("www.twitter.es", context)
+        detailLayoutView.twitter_button.setOnClickListener {
+            openNewTabWindow(detailModel.link, context)
         }
     }
 
-    fun openNewTabWindow(url: String, context : Context) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    fun openNewTabWindow(url: String, context: Context) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
     }
 
-    private fun getDataset(): DetailModel{
-        return DetailModel(title = "", link = "", subtitle = "", text = "")
+    companion object {
+        fun newInstance(detailModel: DetailModel): DetailFragment {
+            val myFragment = DetailFragment()
+            val args = Bundle()
+            args.putSerializable("detailFragment", detailModel)
+            myFragment.arguments = args
+            return myFragment
+        }
     }
 }
 

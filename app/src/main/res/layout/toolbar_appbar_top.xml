@@ -19,7 +19,7 @@
             android:id="@+id/topToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextAppearance="@style/toolbar_top"
+            app:titleTextAppearance="@style/toolbarTop"
             android:fitsSystemWindows="true">
 
         </android.support.v7.widget.Toolbar>

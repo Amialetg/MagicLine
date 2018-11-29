@@ -79,7 +79,28 @@
     <!-- Detail fragment -->
     <string name="viewOnWeb">Veure la web</string>
 
+    <!-- Essentials Detail Fragment -->
+    <string name="essentials_title">Imprescindibles Magic Line</string>
+    <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
+    <string name="essentials_body">Equipaments culturals obren Les portes</string>
+    <string name="essentials_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Donations Destiny Detail Fragment -->
+    <string name="donations_title">Destí dels fons</string>
+    <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
+    <string name="donations_body">Equipaments culturals obren Les portes</string>
+    <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Sant Joan de Déu Detail Fragment -->
+    <string name="sjd_title">San Joan de Déu</string>
+    <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
+    <string name="sjd_body">Equipaments culturals obren Les portes</string>
+    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
     <!-- Share -->
     <string name="share">Share your experiences:</string>
+
+    <!-- LOREMIPSUM -->
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
 </resources>

@@ -12,9 +12,7 @@ import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*
 
 
-class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener {
-    override fun onBackStackChanged() {
-    }
+class MainActivity : AppCompatActivity() {
 
     //Bottom Toolbar
     private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -25,8 +23,6 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        supportFragmentManager.addOnBackStackChangedListener(this);
 
         setContentView(R.layout.activity_main)
 

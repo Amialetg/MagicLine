@@ -24,90 +24,73 @@ class InviteFriendsFragment: Fragment(){
     lateinit var textView_whatsapp: TextView
 
     override fun onStart() {
-        textView_email = view!!.findViewById(R.id.textView_email)
-//        textView_facebook = view!!.findViewById(R.id.textView_whats)
         super.onStart()
+        initWidgets()
         initRRSSListeners()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_invite_friends, container, false)
 
-
     }
+
+    private fun initWidgets(){
+        textView_email = view!!.findViewById(R.id.textView_email)
+        textView_facebook = view!!.findViewById(R.id.textView_facebook)
+        textView_messenger = view!!.findViewById(R.id.textView_mesenger)
+        textView_telegram = view!!.findViewById(R.id.textView_telegram)
+        textView_whatsapp = view!!.findViewById(R.id.textView_whats)
+    }
+
 
     private fun initRRSSListeners(){
 
+        val facebookPkg = getString(R.string.facebook_packg)
+        val messengerPkg = getString(R.string.messenger_packg)
+        val emailPkg = getString(R.string.email_packg)
+        val telegramPkg = getString(R.string.telegram_packg)
+        val whatsappPkg = getString(R.string.whatsapp_packg)
+
         textView_email.setOnClickListener{
-            callIntent()
+            callIntent(emailPkg)
         }
-
-//        textView_facebook.setOnClickListener{
-           // callIntent(urlGoogle)
-
-           // onClickWhatsApp(view: View)
-
-
-
-//        }
-
-//        textView_messenger.setOnClickListener{
-//           // callIntent(urlTwitter)
-//        }
-//
-//        textView_telegram.setOnClickListener{
-//          //  callIntent(urlGoogle)
-//        }
-//
-//        textView_whatsapp.setOnClickListener{
-//         //   callIntent(urlTwitter)
-//        }
+        textView_facebook.setOnClickListener{
+            callIntent(facebookPkg)
+        }
+        textView_messenger.setOnClickListener{
+            callIntent(messengerPkg)
+        }
+        textView_telegram.setOnClickListener{
+            callIntent(telegramPkg)
+        }
+        textView_whatsapp.setOnClickListener{
+            callIntent(whatsappPkg)
+        }
 
     }
 
-    private fun callIntent(){
+    fun callIntent(pkg: String) {
 
+//        val pm = context.packageManager//getPackageManager()
         try {
-            val i = Intent(Intent.ACTION_SEND)
-            i.type = "text/plain"
-            i.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
-            var strShareMessage = "\nLet me recommend you this application\n\n"
-            strShareMessage = strShareMessage + "https://play.google.com/store/apps/details?id=" + "com.basetis.ecolocalapp" //Substituir por Magic Line
-            val screenshotUri = Uri.parse("android.resource://res/drawable/pantallasplash")
-            i.type = "image/png"
-            //i.setPackage("mail.google.com")
-            i.putExtra(Intent.EXTRA_STREAM, screenshotUri)
-            i.putExtra(Intent.EXTRA_TEXT, strShareMessage)
-            startActivity(Intent.createChooser(i, "Share via"))
-        } catch (e: Exception) {
-            //e.toString();
+            val waIntent = Intent(Intent.ACTION_SEND)
+            waIntent.type = "text/plain"
+            waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
+            var text = "\n" + " Let me recommend you this application\n" + "\n"
+            text = text + "https://play.google.com/store/apps/details?id=" + "com.basetis.ecolocalapp" //Substituir por Magic Line
+            //val screenshotUri = Uri.parse("android.resource://res/drawable/pantallasplash")
+            //i.type = "image/png"
+            //i.putExtra(Intent.EXTRA_STREAM, screenshotUri)
+           // val info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA)
+            // Check if package exists or not. If not then code
+            //in catch block will be called
+            waIntent.setPackage(pkg)
+            waIntent.putExtra(Intent.EXTRA_TEXT, text)
+            startActivity(Intent.createChooser(waIntent, "Share with"))
+
+        } catch (e: PackageManager.NameNotFoundException) {
+            Toast.makeText(this.context, "App not Installed", Toast.LENGTH_SHORT).show()
         }
-
-
     }
-
-//    fun onClickWhatsApp(view: View) {
-
-//        val pm = "com.basetis.ecolocalapp"
-//        try {
-//
-//            val waIntent = Intent(Intent.ACTION_SEND)
-//            waIntent.type = "text/plain"
-//            val text = "YOUR TEXT HERE"
-//
-//            val info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA)
-//            //Check if package exists or not. If not then code
-//            //in catch block will be called
-//            waIntent.setPackage("com.whatsapp")
-//
-//            waIntent.putExtra(Intent.EXTRA_TEXT, text)
-//            startActivity(Intent.createChooser(waIntent, "Share with"))
-//
-//        } catch (e: PackageManager.NameNotFoundException) {
-//            Toast.makeText(this.context, "WhatsApp not Installed", Toast.LENGTH_SHORT).show()
-//        }
-
-//    }
 }

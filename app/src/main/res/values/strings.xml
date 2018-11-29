@@ -88,4 +88,13 @@
     <string name="facebook">Facebook</string>
     <string name="email">E-mail</string>
 
+    <!-- Packages social media -->
+
+    <string name="whatsapp_packg">com.whatsapp</string>
+    <string name="telegram_packg">org.telegram.messenger</string>
+    <string name="messenger_packg">com.facebook.orca</string>
+    <string name="facebook_packg">com.facebook.katana</string>
+    <string name="email_packg">com.google.android.gm</string>
+
+
 </resources>

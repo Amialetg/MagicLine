@@ -14,7 +14,7 @@
         android:text="@string/moreinfo_title" />
 
     <View
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/moreinfo_bars" />
 
@@ -32,7 +32,7 @@
         android:background="@color/moreinfo_bars" />
 
     <TextView
-        android:id="@+id/language_title"
+        android:id="@+id/titleLanguage"
         style="@style/MoreInfoSections"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,10 +40,10 @@
         android:text="@string/moreinfo_idioma" />
 
     <include
-        layout="@layout/layout_checkboxs_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp"
+        layout="@layout/layout_checkboxs_info" />
 
     <View
         android:layout_width="match_parent"

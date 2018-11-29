@@ -4,184 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/moreinfo_background"
-    >
-    
-    <LinearLayout
+    android:background="@color/moreinfo_background">
+
+    <TextView
+        style="@style/MoreInfoTitle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/configuration_label_height"
-        android:orientation="horizontal"
-        >
-        
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingStart="@dimen/margin_left_back_arrow"
-            android:paddingEnd="@dimen/margin_right_back_arrow"
-            >
-            
-            <ImageView
-                android:layout_width="@dimen/back_arrow_width"
-                android:layout_height="@dimen/back_arrow_height"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_left_arrow_white"
-                />
-            
-        </RelativeLayout>
-        
-        <RelativeLayout
-            android:layout_width="3dp"
-            android:layout_height="match_parent"
-            >
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="33dp"
-                android:layout_centerVertical="true"
-                android:background="@color/moreinfo_bars"
-                >
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_top_circle"
+        android:text="@string/moreinfo_title" />
 
-            </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
 
-        </RelativeLayout>
-    
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="@dimen/margin_left_title"
-            >
+    <TextView
+        android:id="@+id/moreInfoFriendsTextView"
+        style="@style/MoreInfoSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_amigos" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/moreinfo_title"
-                style="@style/MoreInfoTitle"
-                
-                />
-
-        </RelativeLayout>
-        
-    </LinearLayout>
-
-    <ImageView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/moreinfo_bars"
-    />
+        android:background="@color/moreinfo_bars" />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/language_title"
+        style="@style/MoreInfoSections"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_sections"
-        android:paddingLeft="@dimen/margin_left_sections"
-        >
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_idioma" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moreinfo_sobre_la_ml"
-            style="@style/MoreInfoSections"
+    <include
+        layout="@layout/layout_checkboxs_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"/>
 
-            />
-
-    </RelativeLayout>
-
-    <ImageView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/moreinfo_bars"
-        />
+        android:background="@color/moreinfo_bars" />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/basetisInfoTextView"
+        style="@style/MoreInfoSections"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_sections"
-        android:paddingLeft="@dimen/margin_left_sections"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moreinfo_sitio_web"
-            style="@style/MoreInfoSections"
-
-            />
-
-    </RelativeLayout>
-
-    <ImageView
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/aboutTheApp" />
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/moreinfo_bars"
-        />
+        android:background="@color/moreinfo_bars" />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/webMagicLineTextView"
+        style="@style/MoreInfoSections"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_sections"
-        android:paddingLeft="@dimen/margin_left_sections"
-        >
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_sitio_web" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moreinfo_sj"
-            style="@style/MoreInfoSections"
-
-            />
-
-    </RelativeLayout>
-
-    <ImageView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/moreinfo_bars"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_idioma"
-        android:paddingLeft="@dimen/margin_left_sections"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moreinfo_idioma"
-            style="@style/MoreInfoSections"
-            android:layout_centerVertical="false"
-            android:layout_marginTop="@dimen/margin_top_idioma"
-            android:id="@+id/language_title"
-            />
-
-        <include layout="@layout/layout_checkboxs_info"
-            android:layout_marginTop="@dimen/margin_top_checkbox_layout"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/language_title"
-            />
-        
-
-
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_sections"
-        android:paddingLeft="@dimen/margin_left_sections"
-        >
-
-        <TextView
-            android:id="@+id/textView_moreInfo_friends"
-            style="@style/MoreInfoSections"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/moreinfo_amigos" />
-
-    </RelativeLayout>
-    
+        android:background="@color/moreinfo_bars" />
 
 </LinearLayout>

@@ -64,7 +64,7 @@
     <string name="moreinfo_sitio_web">Ir al sitio web</string>
     <string name="moreinfo_idioma">Idioma</string>
     <string name="moreinfo_amigos">Invita a tus amigos</string>
-    <string name="moreinfo_sj">San Joan de Deu</string>
+    <string name="moreinfo_sj">Sant Joan de Deu</string>
     <string name="castellano">castellano</string>
     <string name="catalan">catalan</string>
 
@@ -92,7 +92,7 @@
     <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->
-    <string name="sjd_title">San Joan de Déu</string>
+    <string name="sjd_title">Sant Joan de Déu</string>
     <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
     <string name="sjd_body">Equipaments culturals obren Les portes</string>
     <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>

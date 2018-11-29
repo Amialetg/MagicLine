@@ -5,7 +5,7 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.CardView
+import android.support.v4.content.ContextCompat.getDrawable
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
@@ -18,13 +18,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.*
-import com.voluntariat.android.magicline.R.string.share
+import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
+import kotlinx.android.synthetic.main.layout_a_fons.*
+import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 
 
@@ -45,16 +47,6 @@ class MagicLineFragment : Fragment() {
     lateinit var leftArrowView: RelativeLayout
     lateinit var rightArrowView: RelativeLayout
     lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
-
-    //Other values
-    lateinit var infoGlobalButton: CardView
-    lateinit var infoDestinyButton: CardView
-    lateinit var infoSjdButton: CardView
-
-    //RRSS views
-    lateinit var facebookView : View
-    lateinit var googleView : View
-    lateinit var twitterView : View
 
     /*
      * Setting the corresponding view
@@ -79,11 +71,11 @@ class MagicLineFragment : Fragment() {
 
         initCountDown(txtArray)
 
-        initProgrammingCards()
+//        initProgrammingCards()
 
         initNewsRecycler()
 
-        initOtherValuesListeners()
+        initAfonsListeners()
 
         initRRSSListeners()
 
@@ -100,26 +92,14 @@ class MagicLineFragment : Fragment() {
         dateCursaString= getString(R.string.cursa_date)
 
         //Programming cards
-        progRecyclerView= view!!.findViewById(R.id.rv)
-        progRecyclerView.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_programming).toInt()))
+//        progRecyclerView= view!!.findViewById(R.id.rv)
+//        progRecyclerView.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_programming).toInt()))
 
         //News
         newsRecyclerView=view!!.findViewById(R.id.news_recycler)
         leftArrowView=view!!.findViewById(R.id.left_arrow_relative)
         rightArrowView=view!!.findViewById(R.id.right_arrow_relative)
         recyclerViewIndicator=view!!.findViewById(R.id.news_pager_indicator)
-
-        //Other values
-        infoGlobalButton = view!!.findViewById(R.id.info_global_button)
-        infoDestinyButton = view!!.findViewById(R.id.info_donations_destiny_button)
-        infoSjdButton = view!!.findViewById(R.id.info_sjd_button)
-
-        //RRSS
-
-        facebookView = view!!.findViewById<View>(R.id.facebook)
-        googleView = view!!.findViewById<View>(R.id.google)
-        twitterView = view!!.findViewById<View>(R.id.twitter)
-
 
         return arrayOf(txtDies, txtHores, txtMin, txtSeg)
 
@@ -210,24 +190,28 @@ class MagicLineFragment : Fragment() {
         }
     }
 
-    private fun initOtherValuesListeners(){
+    private fun initAfonsListeners(){
 
-        infoSjdButton.setOnClickListener{
+        val dataModelEssential = DetailModel(title = getString(R.string.essentials_title), subtitle = getString(R.string.essentials_subtitle), textBody = getString(R.string.essentials_body), link = getString(R.string.essentials_viewOnWeb), toolbarImg = getDrawable(context, about_us))
+        val dataModelDestiny = DetailModel(title = getString(R.string.donations_title), subtitle = getString(R.string.donations_subtitle), textBody = getString(R.string.donations_body), link = getString(R.string.donations_viewOnWeb), toolbarImg = getDrawable(context, about_us))
+        val dataModelSantJoan = DetailModel(title = getString(R.string.sjd_title), subtitle = getString(R.string.sjd_subtitle), textBody = getString(R.string.sjd_body), link = getString(R.string.sjd_viewOnWeb), toolbarImg = getDrawable(context, about_us))
+
+        info_essentials_button.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("infoSjdButton")
+            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelEssential))
+            transaction.addToBackStack("infoEssentialsButton")
             transaction.commit()
         }
-        infoDestinyButton.setOnClickListener{
+        info_donations_destiny_button.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
+            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelDestiny))
             transaction.addToBackStack("infoDestinyButton")
             transaction.commit()
         }
-        infoGlobalButton.setOnClickListener{
+        info_sjd_button.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("infoGlobalButton")
+            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelSantJoan))
+            transaction.addToBackStack("infoSjdButton")
             transaction.commit()
         }
     }
@@ -239,15 +223,15 @@ class MagicLineFragment : Fragment() {
         val urlTwitter = getString(R.string.url_twitter)
 
 
-        facebookView.setOnClickListener{
+        fb_button.setOnClickListener{
             callIntent(urlFacebook)
         }
 
-        googleView.setOnClickListener{
+        insta_button.setOnClickListener{
             callIntent(urlGoogle)
         }
 
-        twitterView.setOnClickListener{
+        twitter_button.setOnClickListener{
             callIntent(urlTwitter)
         }
 

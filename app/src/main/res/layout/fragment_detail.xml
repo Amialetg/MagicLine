@@ -34,24 +34,21 @@
                     android:id="@+id/detailTitle"
                     style="@style/AFonsTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sjd_title" />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/detailSubtitle"
                     style="@style/AFonsSubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:text="@string/sjd_subtitle" />
+                    android:layout_marginBottom="7dp" />
 
                 <TextView
                     android:id="@+id/detailBody"
                     style="@style/AFonsTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/lorem_ipsum"/>
+                    android:layout_marginBottom="20dp" />
 
                 <TextView
                     android:id="@+id/viewOnWeb"

@@ -46,7 +46,7 @@ class InfoFragment:Fragment(){
         checkBoxSpanish = view!!.findViewById(R.id.checkbox_spanish)
         checkBoxCatalanText = view!!.findViewById(R.id.checkbox_catalan_text)
         checkBoxSpanishText = view!!.findViewById(R.id.checkbox_spanish_text)
-        inviteFriendsListener = view!!.findViewById(R.id.textView_moreInfo_friends)
+        inviteFriendsListener = view!!.findViewById(R.id.moreInfoFriendsTextView)
 
 
     }

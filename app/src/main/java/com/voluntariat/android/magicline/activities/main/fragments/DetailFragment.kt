@@ -11,9 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.color.white
-import com.voluntariat.android.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.R.drawable.ic_news_left_arrow
+import com.voluntariat.android.magicline.R.drawable.*
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
@@ -38,21 +36,25 @@ class DetailFragment : Fragment () {
         return detailLayoutView
     }
 
-    private fun initToolbar() {
-        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        detailLayoutView.topToolbarImg.background = detailModel.toolbarImg
-        detailLayoutView.topToolbar.title = detailModel.title
-        detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
-        detailLayoutView.topToolbar.setNavigationOnClickListener { activity.onBackPressed() }
-
+    override fun onResume() {
+        super.onResume()
         if (!detailModel.isBlack){
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.white))
+        } else {
+            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
+            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.black))
         }
+        if (detailModel.hasToolbarImg) { detailLayoutView.topToolbarImg.background = detailModel.toolbarImg }
+    }
 
-        detailLayoutView.detailTitle.text = detailModel.title
+    private fun initToolbar() {
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        detailLayoutView.topToolbar.title = detailModel.title
         detailLayoutView.detailSubtitle.text = detailModel.subtitle
         detailLayoutView.detailBody.text = detailModel.textBody
+        detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
+        detailLayoutView.topToolbar.setNavigationOnClickListener { activity.onBackPressed() }
     }
 
     private fun initWidgets() {

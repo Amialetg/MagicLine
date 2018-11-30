@@ -1,40 +1,40 @@
 <resources>
     <string name="app_name">MagicLine</string>
     <string name="principal_top_toolbar">#MagicLine</string>
-    <string name="OValues1">Utilización de envases ecológicos</string>
-    <string name="OValues2">Puntos de reciclaje</string>
-    <string name="OValues3">Respeto al medioambiente</string>
+    <string name="OValues1">Utilizació d\'envasos ecològics</string>
+    <string name="OValues2">Punts de reciclatge</string>
+    <string name="OValues3">Respecte amb el medi ambient</string>
 
     <!--CountDown-->
     <string name="cursa_date">24.02.2019, 10:00</string>
     <string name="ciutat">Barcelona</string>
-    <string name="btn_fer_donacio">Hacer una donación</string>
-    <string name="recaudats_text">recaudados</string>
-    <string name="participants_text">participantes</string>
-    <string name="mes_info">Más info</string>
+    <string name="btn_fer_donacio">Fer una donació</string>
+    <string name="recaudats_text">recaudats</string>
+    <string name="participants_text">participants</string>
+    <string name="mes_info">Més info</string>
 
     <!--Section News-->
-    <string name="news_title">NOTICIAS</string>
+    <string name="news_title">NOTICIES</string>
 
     <!--Section Programming-->
-    <string name="Programming_title">PROGRAMACIÓN</string>
+    <string name="Programming_title">PROGRAMACIÓ</string>
     <string name="text_nav_map">Mapa</string>
-    <string name="text_countdown_dies">DÍAS</string>
-    <string name="text_countdown_hores">HORAS</string>
-    <string name="text_countdown_minuts">MINUTOS</string>
-    <string name="text_countdown_segons">SEGUNDOS</string>
-    <string name="text_rrss">DIFUNDE LA MAGIC LINE SJD</string>
-    <string name="text_otros_valores">OTROS VALORES</string>
+    <string name="text_countdown_dies">DIES</string>
+    <string name="text_countdown_hores">HORES</string>
+    <string name="text_countdown_minuts">MINUTS</string>
+    <string name="text_countdown_segons">SEGONS</string>
+    <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
+    <string name="text_otros_valores">ALTRES VALORS</string>
     <string name="nav_menu_magicline">MagicLine</string>
-    <string name="nav_menu_programacion">Programación</string>
-    <string name="nav_menu_donativos">Donativos</string>
-    <string name="nav_menu_masinfo">Más info</string>
+    <string name="nav_menu_programacion">Programació</string>
+    <string name="nav_menu_donativos">Donatius</string>
+    <string name="nav_menu_masinfo">Més info</string>
 
     <!--Section mes que-->
-    <string name="mesque_title">más que una caminata</string>
-    <string name="mesque_dona">da a un equipo</string>
-    <string name="mesque_demana">pide donativos</string>
-    <string name="mesque_idees">ideas de captación</string>
+    <string name="mesque_title">més que una caminada</string>
+    <string name="mesque_dona">dóna a un equip</string>
+    <string name="mesque_demana">demana donatius</string>
+    <string name="mesque_idees">idees de captació</string>
 
     <!--Section a fons-->
     <string name="afons_title">la magic line a fons</string>
@@ -42,7 +42,7 @@
 
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
-    <string name="map_km">Km caminata solidaria:</string>
+    <string name="map_km">Km caminada solidaria:</string>
 
     <!--URL's-->
     <string name="url_facebook">http://www.facebook.com</string>
@@ -54,38 +54,38 @@
 
 
     <!--Section other values -->
-    <string name="other_values_title">OTROS VALORES</string>
+    <string name="other_values_title">ALTRES VALORS</string>
 
     <!--Bottom navigation layout-->
     <string name="magic_line_var_title">MagicLine</string>
-    <string name="schedule_var_title">Programación</string>
-    <string name="donation_var_title">Donativos</string>
-    <string name="info_var_title">Más info</string>
+    <string name="schedule_var_title">Programació</string>
+    <string name="donation_var_title">Donatius</string>
+    <string name="info_var_title">Més info</string>
 
     <!--More info fragment-->
-    <string name="moreinfo_title">configuración</string>
-    <string name="moreinfo_sobre_la_ml">Todo sobre la magic line</string>
-    <string name="moreinfo_sitio_web">Ir al sitio web</string>
+    <string name="moreinfo_title">configuració</string>
+    <string name="moreinfo_sobre_la_ml">Tot sobre la magic line</string>
+    <string name="moreinfo_sitio_web">Anar al lloc web</string>
     <string name="moreinfo_idioma">Idioma</string>
-    <string name="moreinfo_amigos">Invita a tus amigos</string>
+    <string name="moreinfo_amigos">Convida als teus amics</string>
     <string name="moreinfo_sj">San Joan de Deu</string>
-    <string name="castellano">castellano</string>
-    <string name="catalan">catalan</string>
+    <string name="castellano">castellà</string>
+    <string name="catalan">català</string>
 
     <!-- schedule fragment -->
-    <string name="schedule_title">Programación</string>
+    <string name="schedule_title">Programació</string>
     <string name="schedule_card_description">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the </string>
-    <string name="schedule_button_text">Ver más</string>
-    <string name="schedule_header_name">Actividades durante todo el día</string>
-    <string name="schedule_alldayopen_act">Museos Abiertos</string>
+    <string name="schedule_button_text">Veure més</string>
+    <string name="schedule_header_name">activitats durant tot el dia</string>
+    <string name="schedule_alldayopen_act">Museus Oberts</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->
-    <string name="viewOnWeb">Ver la web</string>
+    <string name="viewOnWeb">Veure la web</string>
 
     <!-- Share -->
     <string name="share">Share your experiences:</string>
-    <string name="inviteFriends">Invita a tus amigos \n a la app.</string>
+    <string name="inviteFriends">Convida als teus amics \n a l'app.</string>
     <string name="whatsapp">WhastsApp</string>
     <string name="telegram">Telegram</string>
     <string name="messenger">Messenger</string>

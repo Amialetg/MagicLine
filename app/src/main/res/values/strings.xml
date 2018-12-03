@@ -105,5 +105,13 @@
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
 
 
+    <string name="donationText">Donativo</string>
+    <string name="magicLineTitle">MagicLine</string>
+    <string name="textDonateCause">Haz un donativo y ayudarás a los equipos de la Magic Line conseguir su reto solidario! El 100% de los fondos captados por los equipos se destinan a programas de atención a personas en situación vulnerable.</string>
+    <string name="particularText">Particular</string>
+    <string name="EntityText">Entidad</string>
+    <string name="importText">No quiero publicar el importe</string>
+    <string name="nameImportText">No quiero publicar el nombre</string>
+
 
 </resources>

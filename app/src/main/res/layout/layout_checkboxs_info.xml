@@ -4,60 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/moreinfo_background"
-    >
+    android:background="@color/moreinfo_background">
 
-    <RelativeLayout
+
+    <TextView
+        android:id="@+id/checkbox_spanish_text"
+        style="@style/MoreInfoLanguageNotPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spanish_relative"
-        android:layout_marginBottom="@dimen/margin_bottom_checkbox"
-        >
-        <ImageView
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:src="@drawable/checkbox_pressed"
-            android:id="@+id/checkbox_spanish"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_left_checkbox"
-            />
-        <TextView
-            android:layout_marginLeft="@dimen/margin_left_text_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/castellano"
-            android:id="@+id/checkbox_spanish_text"
-            style="@style/MoreInfoLanguagePressed"
-            android:layout_toRightOf="@id/checkbox_spanish"
-            />
-
-    </RelativeLayout>
+        android:layout_marginLeft="@dimen/margin_left_text_checkbox"
+        android:drawableStart="@drawable/checkbox_not_pressed"
+        android:drawablePadding="10dp"
+        android:padding="@dimen/margin_left_sections"
+        android:text="@string/castellano" />
 
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/checkbox_catalan_text"
+        style="@style/MoreInfoLanguageNotPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/catalan_relative"
-        >
-        <ImageView
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:src="@drawable/checkbox_not_pressed"
-            android:id="@+id/checkbox_catalan"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_left_checkbox"
-            />
-        <TextView
-            android:layout_marginLeft="@dimen/margin_left_text_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/catalan"
-            android:id="@+id/checkbox_catalan_text"
-            android:layout_toRightOf="@id/checkbox_catalan"
-            style="@style/MoreInfoLanguageNotPressed"
-            />
-
-    </RelativeLayout>
+        android:layout_marginLeft="@dimen/margin_left_text_checkbox"
+        android:drawableStart="@drawable/checkbox_not_pressed"
+        android:drawablePadding="10dp"
+        android:padding="@dimen/radius_corner_card"
+        android:text="@string/catalan" />
 
 </LinearLayout>

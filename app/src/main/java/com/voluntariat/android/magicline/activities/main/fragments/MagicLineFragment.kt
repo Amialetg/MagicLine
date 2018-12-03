@@ -20,11 +20,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.*
+import com.voluntariat.android.magicline.Utils.MagicLineInterceptor
+import com.voluntariat.android.magicline.Utils.MagicLineService
 import com.voluntariat.android.magicline.Utils.MyCounter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 
 
@@ -87,6 +92,35 @@ class MagicLineFragment : Fragment() {
 
         initRRSSListeners()
 
+        val thread = Thread(Runnable {
+            try {
+                testApi()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        })
+
+        thread.start()
+    }
+
+    fun testApi() {
+        val client = OkHttpClient().newBuilder()
+                .addInterceptor(MagicLineInterceptor("acces_token"))
+                .build()
+
+
+        val retrofit = Retrofit.Builder()
+                .baseUrl("https://api.github.com")
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+        val magicLineService = retrofit.create(MagicLineService::class.java)
+
+
+        val call = magicLineService.testAPI("hectorpascual")
+        val result = call.execute().body()
+        Log.e("API",result.toString())
     }
 
     private fun initWidgets():Array<TextView>{

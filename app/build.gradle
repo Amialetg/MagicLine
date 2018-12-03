@@ -59,4 +59,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.kingfisherphuoc:easy-recyclerview-indicator:1.2'
+
+    implementation "com.squareup.okhttp3:okhttp:3.11.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.11.0"
+
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
 }

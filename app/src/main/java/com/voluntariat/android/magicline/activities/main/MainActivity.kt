@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*

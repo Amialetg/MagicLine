@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView
 import java.util.*
 import android.widget.LinearLayout
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -20,6 +21,7 @@ import com.voluntariat.android.magicline.*
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.Utils.MyCounter
+import com.voluntariat.android.magicline.activities.main.MainActivity
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.DetailModel
@@ -27,6 +29,7 @@ import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
+import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
@@ -53,14 +56,26 @@ class MagicLineFragment : Fragment() {
 
         initCountDown(txtArray)
 
+        initMoreInfoMLListener()
+
         initNewsRecycler()
 
-        initMoreInfoMLListener()
+        initMesQueListeners()
 
         initAfonsListeners()
 
         initRRSSListeners()
 
+    }
+
+    private fun initMesQueListeners() {
+
+        btnDonateTeam.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DonationsFragment())
+            transaction.addToBackStack("donateTeam")
+            transaction.commit()
+        }
     }
 
     private fun initMoreInfoMLListener() {

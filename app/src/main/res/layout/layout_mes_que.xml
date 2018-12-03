@@ -32,6 +32,7 @@
             >
 
             <Button
+                android:id="@+id/btnDonateTeam"
                 android:layout_width="112dp"
                 android:layout_height="56dp"
                 android:background="@drawable/btn_mes_que_not_pressed"

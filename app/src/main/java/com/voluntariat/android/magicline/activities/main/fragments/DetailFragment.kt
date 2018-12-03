@@ -45,15 +45,16 @@ class DetailFragment : Fragment () {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.black))
         }
-        if (detailModel.hasToolbarImg) { detailLayoutView.topToolbarImg.background = detailModel.toolbarImg }
+        if (detailModel.hasToolbarImg) { detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(context, detailModel.toolbarImg) }
     }
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        detailLayoutView.topToolbar.title = detailModel.title
+        detailLayoutView.detailTitle.text = detailModel.title
         detailLayoutView.detailSubtitle.text = detailModel.subtitle
         detailLayoutView.detailBody.text = detailModel.textBody
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
+        detailLayoutView.topToolbar.title = detailModel.title
         detailLayoutView.topToolbar.setNavigationOnClickListener { activity.onBackPressed() }
     }
 

@@ -181,9 +181,23 @@ class MagicLineFragment : Fragment() {
 
     private fun initAfonsListeners() {
 
-        val dataModelEssential = DetailModel(title = getString(R.string.essentials_title), subtitle = getString(R.string.essentials_subtitle), textBody = getString(R.string.essentials_body), link = getString(R.string.essentials_viewOnWeb), toolbarImg = getDrawable(context, about_us))
-        val dataModelDestiny = DetailModel(title = getString(R.string.donations_title), subtitle = getString(R.string.donations_subtitle), textBody = getString(R.string.donations_body), link = getString(R.string.donations_viewOnWeb), toolbarImg = getDrawable(context, about_us))
-        val dataModelSantJoan = DetailModel(title = getString(R.string.sjd_title), subtitle = getString(R.string.sjd_subtitle), textBody = getString(R.string.sjd_body), link = getString(R.string.sjd_viewOnWeb), toolbarImg = getDrawable(context, about_us))
+        val dataModelEssential = DetailModel(
+                title = getString(R.string.essentials_title),
+                subtitle = getString(R.string.essentials_subtitle),
+                textBody = getString(R.string.essentials_body),
+                link = getString(R.string.essentials_viewOnWeb))
+        val dataModelDestiny = DetailModel(
+                title = getString(R.string.donations_title),
+                subtitle = getString(R.string.donations_subtitle),
+                textBody = getString(R.string.donations_body),
+                link = getString(R.string.donations_viewOnWeb))
+        val dataModelSantJoan = DetailModel(
+                title = getString(R.string.sjd_title),
+                subtitle = getString(R.string.sjd_subtitle),
+                textBody = getString(R.string.sjd_body),
+                link = getString(R.string.sjd_viewOnWeb),
+                toolbarImg = about_us,
+                hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()

@@ -18,7 +18,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="225dp"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_ml" />
 

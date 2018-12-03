@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="25dp"
-    android:background="@color/mesque_background"
+    android:background="@drawable/mes_que_border"
     >
 
     <TextView
@@ -13,11 +13,8 @@
         android:layout_height="wrap_content"
         android:text="@string/mesque_title"
         android:fontFamily="@font/lato_regular"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:letterSpacing="0.2"
         android:textColor="@color/grey"
-        android:textAllCaps="true"
+        style="@style/NewsTitle"
         />
 
     <LinearLayout
@@ -35,6 +32,7 @@
             >
 
             <Button
+                android:id="@+id/btnDonateTeam"
                 android:layout_width="112dp"
                 android:layout_height="56dp"
                 android:background="@drawable/btn_mes_que_not_pressed"
@@ -56,6 +54,7 @@
             >
 
             <Button
+                android:id="@+id/btnRequestDonates"
                 android:layout_width="112dp"
                 android:layout_height="56dp"
                 android:background="@drawable/btn_mes_que_not_pressed"
@@ -76,6 +75,7 @@
             >
 
             <Button
+                android:id="@+id/btnBrainStorm"
                 android:layout_width="112dp"
                 android:layout_height="56dp"
                 android:background="@drawable/btn_mes_que_not_pressed"

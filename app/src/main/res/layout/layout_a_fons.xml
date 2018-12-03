@@ -12,12 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/afons_title"
         android:fontFamily="@font/lato_regular"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:letterSpacing="0.2"
-        android:textColor="@color/black"
-        android:textAllCaps="true"
-        />
+        style="@style/NewsTitle" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +30,7 @@
             >
 
             <android.support.v7.widget.CardView
+                android:id="@+id/info_essentials_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
                 android:text="@string/mesque_dona"
@@ -83,6 +79,7 @@
             >
 
             <android.support.v7.widget.CardView
+                android:id="@+id/info_donations_destiny_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
                 android:text="@string/mesque_dona"
@@ -90,8 +87,7 @@
                 android:textColor="@color/grey"
                 android:layout_weight="1"
                 android:layout_centerHorizontal="true"
-                app:cardCornerRadius="7.2dp"
-                >
+                app:cardCornerRadius="7.2dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -111,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/afons_desti"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/afons_imprescindibles"
+                        android:text="@string/donations_title"
                         style="@style/afons_cards_txt"
                         />
 
@@ -130,11 +126,11 @@
             >
 
             <android.support.v7.widget.CardView
+                android:id="@+id/info_sjd_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
                 android:text="@string/mesque_dona"
                 android:fontFamily="@font/lato_bold"
-                android:textColor="@color/grey"
                 android:layout_weight="1"
                 android:layout_centerHorizontal="true"
                 app:cardCornerRadius="7.2dp"
@@ -158,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/afons_sj"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/afons_imprescindibles"
+                        android:text="@string/sjd_title"
                         style="@style/afons_cards_txt"
                         />
 

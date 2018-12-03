@@ -6,18 +6,9 @@
     android:background="#ffffff">
 
     <ImageView
-
-        android:layout_width="186dp"
-        android:layout_height="154dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="16dp"
-        android:src="@drawable/pantallasplash"/>
-
-    <ImageView
-        android:layout_width="375dp"
-        android:layout_height="366dp"
-        android:layout_marginTop="301dp"
-        android:layout_marginLeft="0dp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/splash"/>
 
 </RelativeLayout>

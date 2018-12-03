@@ -68,7 +68,7 @@
     <string name="moreinfo_sitio_web">Ir al sitio web</string>
     <string name="moreinfo_idioma">Idioma</string>
     <string name="moreinfo_amigos">Invita a tus amigos</string>
-    <string name="moreinfo_sj">San Joan de Deu</string>
+    <string name="moreinfo_sj">Sant Joan de Deu</string>
     <string name="castellano">castellano</string>
     <string name="catalan">catalan</string>
 
@@ -82,6 +82,24 @@
 
     <!-- Detail fragment -->
     <string name="viewOnWeb">Veure la web</string>
+
+    <!-- Essentials Detail Fragment -->
+    <string name="essentials_title">Imprescindibles Magic Line</string>
+    <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
+    <string name="essentials_body">Equipaments culturals obren Les portes</string>
+    <string name="essentials_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Donations Destiny Detail Fragment -->
+    <string name="donations_title">Destí dels fons</string>
+    <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
+    <string name="donations_body">Equipaments culturals obren Les portes</string>
+    <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Sant Joan de Déu Detail Fragment -->
+    <string name="sjd_title">Sant Joan de Déu</string>
+    <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
+    <string name="sjd_body">Equipaments culturals obren Les portes</string>
+    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
 
     <!-- Share -->
     <string name="share">Share your experiences:</string>
@@ -105,5 +123,33 @@
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
 
 
+
+    <!-- LOREMIPSUM -->
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
+    <!-- MAGIC LINE INFO -->
+    <string name="ml">Magic Line</string>
+    <string name="info_ml">La Magic Line es más que una caminata, es un compromiso con quienes más lo necesitan. Por ello, para participar hay que ponerse un reto económico y organizar actividades solidarias para conseguirlo.</string>
+    <string name="counter">Marcador</string>
+    <string name="participants">Participants inscrits</string>
+    <string name="vacancy">Plaçes</string>
+    <string name="vacancy_km">Plaçes per tram</string>
+    <string name="walk_title">La caminata</string>
+    <string name="walk_text_1">Los recorridos de</string>
+    <string name="walk_text_2">10, 15, 20, 30 y 40km</string>
+    <string name="walk_text_3">de la Magic Line en Barcelona empiezan en Nou Barris, cruzan Collserola y contemplan un descanso en Montjuïc y una fiesta solidaria en la Plaza de la Catedral de Barcelona.</string>
+    <string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>
+    <string name="walk_10km">10 km</string>
+    <string name="walk_10km_place">FUENTES DE MONTJUÏC</string>
+    <string name="walk_15km">15 km</string>
+    <string name="walk_15km_place">HOSPITAL SAN JUAN DE DIOS</string>
+    <string name="walk_15km_track">Desnivel +228m -281m (Track 15km)</string>
+    <string name="walk_20km">20 km</string>
+    <string name="walk_20km_place">VALLVIDRERA</string>
+    <string name="walk_20km_track">track</string>
+    <string name="walk_30km">30 km</string>
+    <string name="walk_40km">40 km</string>
+    <string name="more_info_on">Més info a:</string>
+    <string name="ml_sjd">Magic Line sjd</string>
 
 </resources>

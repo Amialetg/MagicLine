@@ -1,11 +1,12 @@
 package com.voluntariat.android.magicline.Utils
 
-import com.google.maps.android.heatmaps.Gradient
 import com.voluntariat.android.magicline.BuildConfig
 
 const val BARCELONA: String = "Barcelona"
 const val VALENCIA: String = "Valencia"
 const val MALLORCA: String = "Mallorca"
+//todo: mover a constants.kt
+const val URL_IDEAS_GUIDE: String = "http://www.magiclinesjd.org/files/froala/74e5144938f7c849173fe0347e213fd8052d5731.pdf"
 
 // To use an specific code for each Flavor :
 fun isBarcelonaFlavor() : Boolean {

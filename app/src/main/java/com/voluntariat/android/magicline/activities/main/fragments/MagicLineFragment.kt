@@ -1,19 +1,15 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
-import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat.getDrawable
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
 import java.util.*
-import android.widget.LinearLayout
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -21,12 +17,10 @@ import com.voluntariat.android.magicline.*
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.Utils.MyCounter
-import com.voluntariat.android.magicline.activities.main.MainActivity
+import com.voluntariat.android.magicline.Utils.URL_IDEAS_GUIDE
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
-import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
-import com.voluntariat.android.magicline.models.ProgrammingModel
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
@@ -76,6 +70,18 @@ class MagicLineFragment : Fragment() {
             transaction.addToBackStack("donateTeam")
             transaction.commit()
         }
+
+        btnRequestDonates.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            //todo: uncomment when merge the branch multi lang
+//            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
+            transaction.addToBackStack("donateTeam")
+            transaction.commit()
+        }
+
+        btnBrainStorm.setOnClickListener {
+            callIntent(URL_IDEAS_GUIDE)
+        }
     }
 
     private fun initMoreInfoMLListener() {
@@ -113,22 +119,6 @@ class MagicLineFragment : Fragment() {
 
         MyCounter(diff, 1000, txtDies).start()
 
-    }
-
-    private fun initProgrammingCards() {
-
-        //data Test
-        val events = ArrayList<ProgrammingModel>()
-        events.add(ProgrammingModel("TOT EL DIA", "Museus Oberts"))
-        events.add(ProgrammingModel("10:30", "Concert"))
-        events.add(ProgrammingModel("Avui", "Dinar"))
-        events.add(ProgrammingModel("Avui", "Dinar"))
-
-
-        //Setting up the adapter and the layout manager for the recycler view
-        progRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
-        val adapter = ProgrammingAdapter(events)
-        progRecyclerView.adapter = adapter
     }
 
     private fun initNewsRecycler() {
@@ -239,8 +229,6 @@ class MagicLineFragment : Fragment() {
         twitter_button.setOnClickListener {
             callIntent(urlTwitter)
         }
-
-
     }
 
     private fun callIntent(url: String) {
@@ -249,23 +237,4 @@ class MagicLineFragment : Fragment() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
-
-//    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
-//        override fun getItemOffsets(outRect: Rect, view: View,
-//                                    parent: RecyclerView, state: RecyclerView.State) {
-//            with(outRect) {
-//
-//                if (parent.getChildAdapterPosition(view) == parent.adapter.itemCount - 1) {
-//                    right = spaceHeight * 2
-//                    left = spaceHeight
-//                } else if (parent.getChildAdapterPosition(view) == 0) {
-//                    left = spaceHeight * 2
-//                    right = spaceHeight
-//                } else {
-//                    left = spaceHeight
-//                    right = spaceHeight
-//                }
-//            }
-//        }
-//    }
 }

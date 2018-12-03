@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
+
 import java.util.*
 
 class Const {
@@ -22,7 +23,7 @@ class Const {
             Locale.setDefault(locale)
             var configuration: Configuration = Configuration()
             configuration.locale = locale
-            context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
+             context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
             //save the data shared preferences
             var editor : SharedPreferences.Editor = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE ).edit()
             editor.putString("My_Lang", lang)

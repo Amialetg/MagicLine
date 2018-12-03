@@ -1,9 +1,6 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
-import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,7 +13,6 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.Utils.Const
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
-import java.util.*
 
 
 class InfoFragment:Fragment(){
@@ -39,18 +35,20 @@ class InfoFragment:Fragment(){
 
     private fun initLanguageSettings(){
 
-        if(Const.languagePressed == 1){
-            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
-            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+        if(Const.languagePressed == 2){
 
-            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
-            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
-        }else{
             checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
             checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
 
             isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguagePressed)
             isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguageNotPressed)
+
+        }else{
+            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
+            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+
+            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
+            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
         }
 
         checkbox_spanish_text.setOnClickListener{
@@ -84,8 +82,6 @@ class InfoFragment:Fragment(){
 
             }
         }
-
-
     }
 
     fun refreshFragment() {
@@ -127,7 +123,5 @@ class InfoFragment:Fragment(){
         context.startActivity(intent)
 
     }
-
-
 
 }

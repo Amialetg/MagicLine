@@ -1,16 +1,16 @@
 package com.voluntariat.android.magicline.activities.main
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.view.MenuItem
-import android.widget.ImageView
+import com.voluntariat.android.magicline.Utils.Const
 import com.voluntariat.android.magicline.activities.main.fragments.*
 
 
@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         initBottomBar()
 
         initNavigation()
+
+        Const.loadLocale(context = this.applicationContext)
     }
 
     private fun initWidgets() {
@@ -104,12 +106,6 @@ class MainActivity : AppCompatActivity() {
             transaction.replace(R.id.frame_layout, MapFragment())
             transaction.commit()
         }
-
-//        topBarBtn.setOnClickListener {
-//            val fragmentManager = this.supportFragmentManager
-//            fragmentManager.popBackStack()
-//        }
-
     }
 
     private fun selectFragment(item: MenuItem) {
@@ -144,5 +140,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 }

@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.Utils.Const
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 import java.util.*
@@ -20,7 +21,7 @@ import java.util.*
 
 class InfoFragment:Fragment(){
 
-    private var languagePressed = 0 // 1--> SPANISH 2-->CATALAN
+     // 1--> SPANISH 2-->CATALAN
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_info, container,  false)
@@ -37,10 +38,23 @@ class InfoFragment:Fragment(){
     }
 
     private fun initLanguageSettings(){
-        loadLocale()
+
+        if(Const.languagePressed == 1){
+            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
+            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+
+            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
+            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
+        }else{
+            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
+            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+
+            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguagePressed)
+            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguageNotPressed)
+        }
 
         checkbox_spanish_text.setOnClickListener{
-            if(languagePressed!=1){
+            if(Const.languagePressed!=1){
 
                 checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
                 checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
@@ -48,25 +62,25 @@ class InfoFragment:Fragment(){
                 isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
                 isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
 
-                languagePressed=1
+                Const.languagePressed=1
 
-               setLocale("es", languagePressed)
-               // refreshFragment()
+               Const.setLocale("es", Const.languagePressed, context)
+                refreshFragment()
             }
         }
 
         checkbox_catalan_text.setOnClickListener{
-            if(languagePressed!=2){
+            if(Const.languagePressed!=2){
                 checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
                 checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
 
                 isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguagePressed)
                 isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguageNotPressed)
 
-                languagePressed=2
+                Const.languagePressed=2
 
-                setLocale("ca", languagePressed)
-               // refreshFragment()
+                Const.setLocale("ca", Const.languagePressed, context)
+                refreshFragment()
 
             }
         }
@@ -113,25 +127,7 @@ class InfoFragment:Fragment(){
         context.startActivity(intent)
 
     }
-    private fun setLocale(lang: String, isCheck: Int) {
-        var locale : Locale = Locale(lang)
-        Locale.setDefault(locale)
-        var configuration: Configuration = Configuration()
-        configuration.locale = locale
-        context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
-        //save the data shared preferences
-        var editor : SharedPreferences.Editor = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE ).edit()
-        editor.putString("My_Lang", lang)
-        editor.putInt("my_check", isCheck)
-        editor.apply()
 
-    }
 
-    public fun loadLocale() {
-        var preferences: SharedPreferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        var language:String = preferences.getString("My_Lang", "")
-        languagePressed = preferences.getInt("my_check", 0)
-        setLocale(language, languagePressed)
 
-    }
 }

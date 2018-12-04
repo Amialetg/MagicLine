@@ -120,7 +120,14 @@
         <item name="android:maxLines">4</item>
         <item name="android:ellipsize">end</item>
     </style>
-
+    <!-- Principal - Més que-->
+    <style name="btn_mes_que">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+    </style>
     <!-- Principal a fons -->
     <style name="afons_cards_txt" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>

@@ -15,7 +15,7 @@ class DonationsFragment:Fragment(){
     }
 
     private fun testApi() {
-        /*val client = OkHttpClient().newBuilder()
+        /*val loginModelClient = OkHttpClient().newBuilder()
                 .addInterceptor(MagicLineInterceptor("acces_token"))
                 .build()
 

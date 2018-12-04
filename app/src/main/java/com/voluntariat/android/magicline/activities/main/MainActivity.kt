@@ -9,6 +9,9 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.Result
+import com.voluntariat.android.magicline.data.api.MagicLineAPI
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +33,14 @@ class MainActivity : AppCompatActivity() {
         initBottomBar()
 
         initNavigation()
+
+        MagicLineRepositoryImpl(MagicLineAPI.service).authenticate(
+                "apiml",
+                "4p1ml2018"
+        ) { result -> when (result) {
+            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
+            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
+        } }
     }
 
     private fun initWidgets() {

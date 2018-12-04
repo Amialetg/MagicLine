@@ -1,8 +1,7 @@
-package com.voluntariat.android.magicline.Utils
+package com.voluntariat.android.magicline.data
 
 import okhttp3.Interceptor
 import okhttp3.Response
-
 
 class MagicLineInterceptor(val access_token: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -10,7 +9,6 @@ class MagicLineInterceptor(val access_token: String) : Interceptor {
 
         val url = request.url().newBuilder()
                 .addQueryParameter("acces_token", access_token)
-                .addQueryParameter("format", "json")
                 .build()
 
         val newRequest = request.newBuilder()

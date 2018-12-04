@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.Utils
+package com.voluntariat.android.magicline.data.api
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -34,10 +34,18 @@ class MainActivity : AppCompatActivity() {
 
         initNavigation()
 
-        MagicLineRepositoryImpl(MagicLineAPI.service).authenticate(
+        /**
+         * TODO remove. Example of how to call API
+         */
+        val repo = MagicLineRepositoryImpl(MagicLineAPI.service)
+        repo.authenticate(
                 "apiml",
                 "4p1ml2018"
         ) { result -> when (result) {
+            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
+            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
+        } }
+        repo.getPosts { result -> when (result) {
             is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }

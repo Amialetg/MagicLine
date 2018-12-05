@@ -36,7 +36,7 @@ object MagicLineAPI {
         @POST("oAuthLogin")
         //fun oAuthLogin(@Field("username") userData: String, @Field("password") pwdData: String) : Call<LoginModel>
         //fun oAuthLogin(@Body userData: RequestBody) : Call<LoginModel>
-        fun oAuthLogin(@Field("username", encoded = true) username: String, @Field("password", encoded = true) password: String) : Call<LoginModel>
+        fun oAuthLogin(@Field("username", encoded = false) username: String, @Field("password", encoded = false) password: String) : Call<LoginModel>
         //fun oAuthLogin(@Body body: RequestBody) : Call<LoginModel>
         //fun oAuthLogin(@Query("username") username: String, @Query("password") password: String) : Call<LoginModel>
         //fun oAuthLogin(@Body userData: HashMap<String, String>) : Call<LoginModel>

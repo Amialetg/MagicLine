@@ -8,7 +8,7 @@ class MagicLineInterceptor(var accessToken: String?) : Interceptor {
         val originalRequest = chain.request()
 
         if (accessToken.isNullOrEmpty()) return chain.proceed(originalRequest.newBuilder()
-                .header("Content-Type", "application/json")
+                .header("Content-Type", "application/x-www-form-urlencoded")
                 .build())
 
         val url = originalRequest.url().newBuilder()

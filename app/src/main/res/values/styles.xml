@@ -319,4 +319,10 @@
         <item name="android:letterSpacing">0.02</item>
     </style>
 
+    <style name="participants" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
 </resources>

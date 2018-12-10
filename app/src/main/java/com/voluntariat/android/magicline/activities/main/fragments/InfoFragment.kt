@@ -1,76 +1,110 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.content.SharedPreferences
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.RelativeLayout
+import android.widget.CompoundButton
 import android.widget.TextView
 import com.voluntariat.android.magicline.R
+import kotlinx.android.synthetic.main.fragment_info.*
+import kotlinx.android.synthetic.main.layout_checkboxs_info.*
+
 
 class InfoFragment:Fragment(){
 
-
-    //Language widgets
-    lateinit var spanishRelativeLayout: RelativeLayout
-    lateinit var catalanRelativeLayout: RelativeLayout
-    lateinit var checkBoxCatalan: ImageView
-    lateinit var checkBoxSpanish: ImageView
-    lateinit var checkBoxCatalanText: TextView
-    lateinit var checkBoxSpanishText: TextView
-    private var languagePressed=1 // 1--> SPANISH 2-->CATALAN
-
+     // 1--> SPANISH 2-->CATALAN
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_info, container,  false)
     }
 
+
     override fun onStart() {
+
         super.onStart()
 
-        initWidgets()
-
         initLanguageSettings()
-    }
 
-    private fun initWidgets(){
-        spanishRelativeLayout = view!!.findViewById(R.id.spanish_relative)
-        catalanRelativeLayout = view!!.findViewById(R.id.catalan_relative)
-        checkBoxCatalan = view!!.findViewById(R.id.checkbox_catalan)
-        checkBoxSpanish = view!!.findViewById(R.id.checkbox_spanish)
-        checkBoxCatalanText = view!!.findViewById(R.id.checkbox_catalan_text)
-        checkBoxSpanishText = view!!.findViewById(R.id.checkbox_spanish_text)
-
+        listener()
     }
 
     private fun initLanguageSettings(){
-        spanishRelativeLayout.setOnClickListener{
-            if(languagePressed!=1){
-                checkBoxSpanish.setImageResource(R.drawable.checkbox_pressed)
-                checkBoxSpanishText.setTextAppearance(context, R.style.MoreInfoLanguagePressed)
+        val prefs : SharedPreferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-                checkBoxCatalan.setImageResource(R.drawable.checkbox_not_pressed)
-                checkBoxCatalanText.setTextAppearance(context, R.style.MoreInfoLanguageNotPressed)
+        if(prefs.getString("My_Lang", "") == "ca"){
+            checkbox_catalan_text.isChecked = true
+        }else{
+            checkbox_spanish_text.isChecked = true
+        }
 
-                languagePressed=1
+
+        checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
+
+            if(checkbox_spanish_text.isChecked){
+
+                if (checkbox_catalan_text.isChecked){
+                    checkbox_catalan_text.isChecked = false
+                }
+
+                val editor = prefs.edit()
+                editor.putString("My_Lang", "es")
+                editor.apply()
+                refresh()
             }
         }
 
-        catalanRelativeLayout.setOnClickListener{
-            if(languagePressed!=2){
-                checkBoxCatalan.setImageResource(R.drawable.checkbox_pressed)
-                checkBoxCatalanText.setTextAppearance(context, R.style.MoreInfoLanguagePressed)
+        checkbox_catalan_text.setOnCheckedChangeListener { checkbox_catalan_text, isChecked ->
 
-                checkBoxSpanish.setImageResource(R.drawable.checkbox_not_pressed)
-                checkBoxSpanishText.setTextAppearance(context, R.style.MoreInfoLanguageNotPressed)
+            if(checkbox_catalan_text.isChecked){
+                if (checkbox_spanish_text.isChecked){
+                    checkbox_spanish_text.isChecked = false
 
-                languagePressed=2
+                }
+                val editor = prefs.edit()
+                editor.putString("My_Lang", "ca")
+                editor.apply()
+                refresh()
             }
         }
     }
 
+    fun refresh() {
+        activity.recreate()
+    }
+
+    private fun listener(){
+        val urlMagicLine= getString(R.string.magicLineWeb)
+
+        moreInfoFriendsTextView.setOnClickListener{
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
+            transaction.addToBackStack(InviteFriendsFragment().javaClass.canonicalName)
+            transaction.commit()
+        }
+        webMagicLineTextView.setOnClickListener{
+            callIntent(urlMagicLine)
+        }
+
+        basetisInfoTextView.setOnClickListener{
+            //Navegar al fragment de BaseTIS
+            print("Basetis Information")
+        }
+    }
+
+    private fun callIntent(url : String){
+
+        var intent : Intent
+        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+
+    }
 
 }

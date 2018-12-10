@@ -185,7 +185,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColor">@color/schedule_btn_txt</item>
+        <item name="android:textColor">@color/light_red</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:layout_centerVertical">true</item>

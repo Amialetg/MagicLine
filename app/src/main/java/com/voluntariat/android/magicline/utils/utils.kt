@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.Utils
+package com.voluntariat.android.magicline.utils
 
 import com.voluntariat.android.magicline.BuildConfig
 

@@ -16,8 +16,8 @@ import android.widget.TextView
 import com.voluntariat.android.magicline.*
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
-import com.voluntariat.android.magicline.Utils.MyCounter
-import com.voluntariat.android.magicline.Utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.utils.MyCounter
+import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel

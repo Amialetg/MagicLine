@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 import com.voluntariat.android.magicline.R.string.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
 import android.graphics.Typeface
+import android.os.Build
 import android.support.v4.content.res.ResourcesCompat
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -35,15 +36,15 @@ class MoreInfoMLFragment : Fragment() {
         return moreInfoMLView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         createBarChart()
     }
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         moreInfoMLView.topToolbar.title = getString(R.string.ml)
-        moreInfoMLView.topToolbar.navigationIcon = ContextCompat.getDrawable(context, ic_black_cross)
-        moreInfoMLView.topToolbar.setNavigationOnClickListener { activity.onBackPressed() }
+        moreInfoMLView.topToolbar.navigationIcon = ContextCompat.getDrawable(this.requireContext(), ic_black_cross)
+        moreInfoMLView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val text: String = getString(walk_text_1) + " "
         val text2: String =  "<b>"+ getString(walk_text_2)+ "</b>" + " "
@@ -68,8 +69,12 @@ class MoreInfoMLFragment : Fragment() {
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize=0f
         val colors = java.util.ArrayList<Int>()
-        colors.add(activity.getColor(light_red))
-        colors.add(activity.getColor(mesque_background))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            colors.add(this.requireActivity().getColor(light_red))
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            colors.add(this.requireActivity().getColor(mesque_background))
+        }
 
         dataSet.colors = colors
         pieChart.animateY(5000)
@@ -80,7 +85,7 @@ class MoreInfoMLFragment : Fragment() {
         pieChart.holeRadius = 80f
         pieChart.centerText = "13.000" + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
-        var typeFace: Typeface? = ResourcesCompat.getFont(context, R.font.lato_light)
+        var typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)
         pieChart.setCenterTextTypeface(typeFace)
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false

@@ -13,7 +13,7 @@ import com.voluntariat.android.magicline.R
  */
 
 class ProgrammingAdapter (val programmingEvents : ArrayList<ProgrammingModel>) : RecyclerView.Adapter<ProgrammingAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.model_programming, parent, false)
         return ViewHolder(v)
     }
@@ -22,7 +22,7 @@ class ProgrammingAdapter (val programmingEvents : ArrayList<ProgrammingModel>) :
         return programmingEvents.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event : ProgrammingModel =  programmingEvents[position]
 
         holder?.name?.text = event.name

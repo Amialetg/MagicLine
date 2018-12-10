@@ -21,7 +21,7 @@ class InfoFragment:Fragment(){
 
      // 1--> SPANISH 2-->CATALAN
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_info, container,  false)
     }
 
@@ -36,7 +36,7 @@ class InfoFragment:Fragment(){
     }
 
     private fun initLanguageSettings(){
-        val prefs : SharedPreferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
+        val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
         if(prefs.getString("My_Lang", "") == "ca"){
             checkbox_catalan_text.isChecked = true
@@ -76,14 +76,14 @@ class InfoFragment:Fragment(){
     }
 
     fun refresh() {
-        activity.recreate()
+        this.requireActivity().recreate()
     }
 
     private fun listener(){
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, InviteFriendsFragment())
             transaction.addToBackStack(InviteFriendsFragment().javaClass.canonicalName)
             transaction.commit()
@@ -103,7 +103,7 @@ class InfoFragment:Fragment(){
         var intent : Intent
         intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
+        this.requireContext().startActivity(intent)
 
     }
 

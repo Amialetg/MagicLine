@@ -298,16 +298,25 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="walk_text_bold">
+    <style name="walkTextBold">
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="walk_text" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="walkText" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:paddingHorizontal">16dp</item>
+    </style>
+
+    <style name="boldTitleCaps" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.02</item>
     </style>
 
 </resources>

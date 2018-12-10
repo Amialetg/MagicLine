@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="20dp"
     tools:context="com.voluntariat.android.magicline.activities.main.fragments.DetailFragment">
 
     <!-- appbar -->
@@ -15,18 +14,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/about_us" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,28 +31,24 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
-                    style="@style/OtherValuesTitle"
+                    android:id="@+id/detailTitle"
+                    style="@style/AFonsTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Sant Joan de Déu" />
+                    android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/textView3"
-                    style="@style/OtherValuesSubtitle"
+                    android:id="@+id/detailSubtitle"
+                    style="@style/AFonsSubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:text="Equipaments culturals obren Les portes" />
+                    android:layout_marginBottom="7dp" />
 
                 <TextView
-                    android:id="@+id/textView4"
-                    style="@style/OtherValuesLargeText"
+                    android:id="@+id/detailBody"
+                    style="@style/AFonsTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as their physical health. In recent years people the importance of proper diet and exercise, and recent surveys show that over the last 20 years people are eating better and working out more often, resulting in people living longer, but people are still lacking in their understanding that their mental well being is just as important as theirle are eating better and working out more often, resulting in people livin physical health." />
-
+                    android:layout_marginBottom="20dp" />
 
                 <TextView
                     android:id="@+id/viewOnWeb"

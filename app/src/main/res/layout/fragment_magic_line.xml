@@ -32,10 +32,6 @@
 
                 <include layout="@layout/layout_a_fons" />
 
-                <include layout="@layout/layout_programming" />
-
-                <include layout="@layout/layout_other_values" />
-
                 <include layout="@layout/layout_rrss" />
 
             </LinearLayout>

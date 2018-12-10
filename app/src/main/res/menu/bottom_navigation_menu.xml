@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/magicline_menu_id"
-        android:icon="@drawable/fill_69"
-        android:title="@string/nav_menu_magicline" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_menu_home" />
 
     <item
         android:id="@+id/schedule_menu_id"
-        android:icon="@drawable/fill_49"
+        android:icon="@drawable/ic_trainer"
         android:title="@string/nav_menu_programacion" />
 
     <!-- We disable this item because is the space where there
@@ -24,7 +24,7 @@
 
     <item
         android:id="@+id/donations_menu_id"
-        android:icon="@drawable/fill_37"
+        android:icon="@drawable/ic_donations"
         android:title="@string/nav_menu_donativos" />
 
     <item

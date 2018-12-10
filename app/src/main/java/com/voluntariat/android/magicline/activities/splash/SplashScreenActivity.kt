@@ -13,7 +13,7 @@ import com.voluntariat.android.magicline.activities.main.MainActivity
  */
 class SplashScreenActivity : Activity(){
     private var handler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000
+    private val SPLASH_DELAY: Long = 200
 
     internal val mRunnable: Runnable = Runnable {
         if(!isFinishing){

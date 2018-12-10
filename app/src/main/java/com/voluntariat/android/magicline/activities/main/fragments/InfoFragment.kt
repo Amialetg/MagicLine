@@ -44,6 +44,7 @@ class InfoFragment:Fragment(){
             checkbox_spanish_text.isChecked = true
         }
 
+
         checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
             if(checkbox_spanish_text.isChecked){
@@ -55,8 +56,6 @@ class InfoFragment:Fragment(){
                 val editor = prefs.edit()
                 editor.putString("My_Lang", "es")
                 editor.apply()
-                refresh()
-            }else{
                 refresh()
             }
         }
@@ -71,8 +70,6 @@ class InfoFragment:Fragment(){
                 val editor = prefs.edit()
                 editor.putString("My_Lang", "ca")
                 editor.apply()
-                refresh()
-            }else{
                 refresh()
             }
         }

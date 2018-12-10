@@ -6,19 +6,18 @@
     android:orientation="vertical"
     android:background="@color/moreinfo_background">
 
-
-    <CheckBox
+    <RadioButton
         android:id="@+id/checkbox_spanish_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_left_sections"
-        android:layout_marginStart="@dimen/margin_left_text_checkbox"
-        android:text="@string/castellano"
         android:button="@drawable/checkbox_selector"
         android:textColor="@drawable/textcolor_selector"
-        style="@style/MoreInfoLanguageNotPressed" />
+        android:layout_marginStart="@dimen/margin_left_text_checkbox"
+        android:text="@string/castellano"
+        style="@style/MoreInfoLanguageNotPressed"/>
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/checkbox_catalan_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

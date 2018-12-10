@@ -68,8 +68,8 @@ class MoreInfoMLFragment : Fragment() {
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize=0f
         val colors = java.util.ArrayList<Int>()
-        colors.add(activity.getColor(light_red))
-        colors.add(activity.getColor(mesque_background))
+        colors.add(ContextCompat.getColor(context, light_red))
+        colors.add(ContextCompat.getColor(context, mesque_background))
 
         dataSet.colors = colors
         pieChart.animateY(2000)

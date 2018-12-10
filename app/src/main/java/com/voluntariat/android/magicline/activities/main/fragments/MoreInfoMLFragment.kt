@@ -72,7 +72,7 @@ class MoreInfoMLFragment : Fragment() {
         colors.add(activity.getColor(mesque_background))
 
         dataSet.colors = colors
-        pieChart.animateY(5000)
+        pieChart.animateY(2000)
         val data = PieData(dataSet)
         pieChart.data = data
         dataSet.sliceSpace = 2f

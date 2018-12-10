@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.utils
+package com.voluntariat.android.magicline.Utils
 
 import android.os.CountDownTimer
 import android.widget.TextView

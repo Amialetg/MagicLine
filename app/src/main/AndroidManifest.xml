@@ -36,8 +36,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.main.MainActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.main.fragments.MagicLineFragment"/>
+        <activity android:name=".activities.main.MainActivity"/>
 
     </application>
 

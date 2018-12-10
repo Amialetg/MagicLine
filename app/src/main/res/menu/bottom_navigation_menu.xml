@@ -5,7 +5,7 @@
     <item
         android:id="@+id/magicline_menu_id"
         android:icon="@drawable/ic_home"
-        android:title="@string/nav_menu_magicline" />
+        android:title="@string/nav_menu_home" />
 
     <item
         android:id="@+id/schedule_menu_id"

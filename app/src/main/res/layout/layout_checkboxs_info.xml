@@ -7,27 +7,26 @@
     android:background="@color/moreinfo_background">
 
 
-    <TextView
+    <CheckBox
         android:id="@+id/checkbox_spanish_text"
-        style="@style/MoreInfoLanguageNotPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left_text_checkbox"
-        android:drawableStart="@drawable/checkbox_not_pressed"
-        android:drawablePadding="10dp"
         android:padding="@dimen/margin_left_sections"
-        android:text="@string/castellano" />
+        android:layout_marginStart="@dimen/margin_left_text_checkbox"
+        android:text="@string/castellano"
+        android:button="@drawable/checkbox_selector"
+        android:textColor="@drawable/textcolor_selector"
+        style="@style/MoreInfoLanguageNotPressed" />
 
-
-    <TextView
+    <CheckBox
         android:id="@+id/checkbox_catalan_text"
-        style="@style/MoreInfoLanguageNotPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left_text_checkbox"
-        android:drawableStart="@drawable/checkbox_not_pressed"
-        android:drawablePadding="10dp"
+        android:layout_marginStart="@dimen/margin_left_text_checkbox"
+        android:button="@drawable/checkbox_selector"
         android:padding="@dimen/radius_corner_card"
-        android:text="@string/catalan" />
+        android:text="@string/catalan"
+        android:textColor="@drawable/textcolor_selector"
+        style="@style/MoreInfoLanguageNotPressed"/>
 
 </LinearLayout>

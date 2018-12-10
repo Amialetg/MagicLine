@@ -1,6 +1,8 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -8,9 +10,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.TextView
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.Utils.Const
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
@@ -34,67 +36,50 @@ class InfoFragment:Fragment(){
     }
 
     private fun initLanguageSettings(){
+        val prefs : SharedPreferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(Const.languagePressed == 2){
-
-            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
-            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
-
-            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguagePressed)
-            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguageNotPressed)
-
+        if(prefs.getString("My_Lang", "") == "ca"){
+            checkbox_catalan_text.isChecked = true
         }else{
-            checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
-            checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
-
-            isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
-            isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
+            checkbox_spanish_text.isChecked = true
         }
 
-        checkbox_spanish_text.setOnClickListener{
-            if(Const.languagePressed!=1){
+        checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
-                checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
-                checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+            if(checkbox_spanish_text.isChecked){
 
-                isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguagePressed)
-                isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguageNotPressed)
+                if (checkbox_catalan_text.isChecked){
+                    checkbox_catalan_text.isChecked = false
+                }
 
-                Const.languagePressed=1
-
-               Const.setLocale("es", Const.languagePressed, context)
-                refreshFragment()
+                val editor = prefs.edit()
+                editor.putString("My_Lang", "es")
+                editor.apply()
+                refresh()
+            }else{
+                refresh()
             }
         }
 
-        checkbox_catalan_text.setOnClickListener{
-            if(Const.languagePressed!=2){
-                checkbox_catalan_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_pressed, 0, 0, 0);
-                checkbox_spanish_text.setCompoundDrawablesWithIntrinsicBounds( R.drawable.checkbox_not_pressed, 0, 0, 0);
+        checkbox_catalan_text.setOnCheckedChangeListener { checkbox_catalan_text, isChecked ->
 
-                isVersionLower(checkbox_catalan_text, R.style.MoreInfoLanguagePressed)
-                isVersionLower(checkbox_spanish_text, R.style.MoreInfoLanguageNotPressed)
+            if(checkbox_catalan_text.isChecked){
+                if (checkbox_spanish_text.isChecked){
+                    checkbox_spanish_text.isChecked = false
 
-                Const.languagePressed=2
-
-                Const.setLocale("ca", Const.languagePressed, context)
-                refreshFragment()
-
+                }
+                val editor = prefs.edit()
+                editor.putString("My_Lang", "ca")
+                editor.apply()
+                refresh()
+            }else{
+                refresh()
             }
         }
     }
 
-    fun refreshFragment() {
-        val ft = fragmentManager.beginTransaction()
-        ft.detach(this).attach(this).commit()
-    }
-    private fun isVersionLower(textView: TextView,resId :Int){
-
-        if (Build.VERSION.SDK_INT < 23) {
-            textView.setTextAppearance(context, resId)
-        } else {
-            textView.setTextAppearance(resId)
-        }
+    fun refresh() {
+        activity.recreate()
     }
 
     private fun listener(){
@@ -103,6 +88,7 @@ class InfoFragment:Fragment(){
         moreInfoFriendsTextView.setOnClickListener{
             val transaction = activity.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, InviteFriendsFragment())
+            transaction.addToBackStack(InviteFriendsFragment().javaClass.canonicalName)
             transaction.commit()
         }
         webMagicLineTextView.setOnClickListener{

@@ -4,18 +4,10 @@
 
     <item>
         <shape
-            android:shape="rectangle">
+            android:shape="oval">
             <solid android:color="@color/background_checkbox"/>
-            <corners
-                android:bottomRightRadius="2dp"
-                android:bottomLeftRadius="2dp"
-                android:topRightRadius="2dp"
-                android:topLeftRadius="2dp"/>
             <size android:height="13dp"
                 android:width="13dp"/>
-
         </shape>
-
     </item>
-
 </layer-list>

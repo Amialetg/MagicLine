@@ -2,19 +2,14 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
-import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.view.MenuItem
-import android.widget.ImageView
 import com.voluntariat.android.magicline.activities.main.fragments.*
 
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     //Bottom Toolbar
     private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -35,10 +30,19 @@ class MainActivity : AppCompatActivity() {
 
         initBottomBar()
 
+        if (savedInstanceState == null) {
+            //First time we open the app
+            val transaction = this.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, MagicLineFragment())
+            transaction.commit()
+        }
         initNavigation()
+
+        //Constants.loadLocale(context = this.applicationContext)
     }
 
     private fun initWidgets() {
+
         //BottomBar
         bottomBarView = findViewById(R.id.bottom_navigation)
         bottomBarBtn = findViewById(R.id.fab)
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 //        topBarView = findViewById(R.id.top_toolbar)
 //        topBarBtn = findViewById(R.id.backArrow)
     }
+
 
     override fun onBackPressed() {
         val count = fragmentManager.backStackEntryCount
@@ -76,12 +81,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initNavigation() {
+    public fun initNavigation() {
 
-        //First time we open the app
-        val transaction = this.supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_layout, MagicLineFragment())
-        transaction.commit()
+
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
@@ -104,12 +106,6 @@ class MainActivity : AppCompatActivity() {
             transaction.replace(R.id.frame_layout, MapFragment())
             transaction.commit()
         }
-
-//        topBarBtn.setOnClickListener {
-//            val fragmentManager = this.supportFragmentManager
-//            fragmentManager.popBackStack()
-//        }
-
     }
 
     private fun selectFragment(item: MenuItem) {
@@ -126,6 +122,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Main Activity", "donations")
             }
             R.id.info_menu_id -> {
+
                 newFragment = InfoFragment()
                 Log.d("Main Activity", "info")
             }
@@ -134,9 +131,9 @@ class MainActivity : AppCompatActivity() {
             else -> newFragment = MagicLineFragment()
         }
 
-
         val trans = this.supportFragmentManager.beginTransaction()
         trans.replace(R.id.frame_layout, newFragment)
+        trans.addToBackStack(newFragment.javaClass.canonicalName)
         trans.commit()
 
         currentFragment = newFragment
@@ -144,5 +141,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 }

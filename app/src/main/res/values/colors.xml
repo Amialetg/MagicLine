@@ -6,7 +6,7 @@
 
     <color name="white">#ffffff</color>
 
-    <color name="black">#000</color>
+    <color name="black">#000000</color>
 
 
     <color name="gris1">#f6f6f6</color>
@@ -31,7 +31,7 @@
 
     <!--schedule fragment -->
     <color name="line_color">#979797</color>
-    <color name="schedule_btn_txt">#e31818</color>
+    <color name="light_red">#e31818</color>
     <color name="schedule_header_bg">#4a4a4a</color>
     <color name="schedule_header_subtitle">#8f8f8f</color>
 

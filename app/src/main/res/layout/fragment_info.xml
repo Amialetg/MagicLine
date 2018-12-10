@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/moreinfo_background">
 
     <TextView
+        style="@style/MoreInfoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_top_circle"
+        android:text="@string/moreinfo_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
+
+    <TextView
+        android:id="@+id/moreInfoFriendsTextView"
+        style="@style/MoreInfoSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_amigos" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
+
+    <TextView
+        android:id="@+id/titleLanguage"
+        style="@style/MoreInfoSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_idioma" />
+
+    <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Info fragment"
-        />
+        android:layout_marginBottom="40dp"
+        layout="@layout/layout_checkboxs_info" />
 
-</android.support.constraint.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
+
+    <TextView
+        android:id="@+id/basetisInfoTextView"
+        style="@style/MoreInfoSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/aboutTheApp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
+
+    <TextView
+        android:id="@+id/webMagicLineTextView"
+        style="@style/MoreInfoSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sectionHeight"
+        android:text="@string/moreinfo_sitio_web" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/moreinfo_bars" />
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/moreinfo_background">
+
+    <RadioButton
+        android:id="@+id/checkbox_spanish_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_left_sections"
+        android:button="@drawable/checkbox_selector"
+        android:textColor="@drawable/textcolor_selector"
+        android:layout_marginStart="@dimen/margin_left_text_checkbox"
+        android:text="@string/castellano"
+        style="@style/MoreInfoLanguageNotPressed"/>
+
+    <RadioButton
+        android:id="@+id/checkbox_catalan_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_left_text_checkbox"
+        android:button="@drawable/checkbox_selector"
+        android:padding="@dimen/radius_corner_card"
+        android:text="@string/catalan"
+        android:textColor="@drawable/textcolor_selector"
+        style="@style/MoreInfoLanguageNotPressed"/>
+
+</LinearLayout>

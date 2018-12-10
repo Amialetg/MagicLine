@@ -24,10 +24,10 @@
     <View
 
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="94dp"
         android:layout_marginTop="49dp"
         android:alpha="0.7"
-        android:background="@color/white" />
+        android:background="@color/grey" />
 
     <include layout="@layout/maps_km_layout" />
 

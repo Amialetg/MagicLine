@@ -4,14 +4,17 @@
     <color name="colorPrimaryDark">#4a4a4a</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="white">#FFF</color>
+    <color name="white">#ffffff</color>
 
-    <color name="black">#000</color>
+    <color name="black">#000000</color>
 
 
     <color name="gris1">#f6f6f6</color>
 
     <color name="grey">#4c4c4c</color>
+
+    <!-- mesque layout -->
+    <color name="mesque_background">#b3e7e7e7</color>
 
     <!-- Bottom toolbar background -->
     <color name="bottom_toolbar_background">#fafafb</color>
@@ -20,5 +23,22 @@
     <color name="selected_indicator_color">#4a4a4a</color>
     <color name="unselected_indicator_color">#c5c5c5</color>
 
+    <!-- More info fragment -->
+    <color name="moreinfo_title_color">#e7e7e7</color>
+    <color name="moreinfo_background">#4a4a4a</color>
+    <color name="moreinfo_bars">#979797</color>
+    <color name="background_checkbox">#d8d8d8</color>
+
+    <!--schedule fragment -->
+    <color name="line_color">#979797</color>
+    <color name="light_red">#e31818</color>
+    <color name="schedule_header_bg">#4a4a4a</color>
+    <color name="schedule_header_subtitle">#8f8f8f</color>
+
+    <!-- toolbar appbar -->
+    <color name="grey_line">#979797</color>
+
+    <!-- temporary colours -->
+    <color name="lessGreyColor">#dcdcdc</color>
 
 </resources>

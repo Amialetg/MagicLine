@@ -2,8 +2,10 @@
 <resources>
 
     <!--CountDown-->
-    <dimen name="countdown_timer_height">249dp</dimen>
+    <dimen name="countdown_parent_height">299dp</dimen>
+    <dimen name="countdown_timer_height">232dp</dimen>
     <dimen name="padding_right_countdown">249dp</dimen>
+    <dimen name="margin_top_grid">105dp</dimen>
 
     <!--Recaudats-->
     <dimen name="margin_top_recaudats_num">66dp</dimen>
@@ -11,10 +13,12 @@
     <dimen name="margin_top_btn_fer_donacio">17.5dp</dimen>
     <dimen name="btn_fer_donacio_width">135dp</dimen>
     <dimen name="btn_fer_donacio_height">38dp</dimen>
+    <dimen name="height_recaudats">64dp</dimen>
         <!-- View Pager Indicator-->
         <dimen name="margin_bottom_indicator">12dp</dimen>
 
-
+    <!--Participants-->
+    <dimen name="width_participants">144dp</dimen>
 
     <!--Top Toolbar-->
     <dimen name="principal_top_toolbar_height">46dp</dimen>
@@ -44,11 +48,50 @@
     <!-- Bottom nav bar -->
     <dimen name="bottom_nav_height">49dp</dimen>
 
+    <!-- More info fragment -->
+    <dimen name="configuration_label_height">61dp</dimen>
+    <dimen name="back_arrow_width">25dp</dimen>
+    <dimen name="back_arrow_height">25dp</dimen>
+    <dimen name="margin_left_back_arrow">7dp</dimen>
+    <dimen name="margin_right_back_arrow">15dp</dimen>
+    <dimen name="margin_left_title">15dp</dimen>
+    <dimen name="height_sections">65dp</dimen>
+    <dimen name="margin_left_sections">15dp</dimen>
+    <dimen name="height_idioma">140dp</dimen>
+    <dimen name="margin_top_idioma">17dp</dimen>
+    <dimen name="margin_left_text_checkbox">15dp</dimen>
+    <dimen name="margin_left_checkbox">28dp</dimen>
+    <dimen name="margin_bottom_checkbox">18dp</dimen>
+    <dimen name="margin_top_checkbox_layout">25dp</dimen>
+
+    <!--Fix recycler margins-->
+    <dimen name="margin_programming">8dp</dimen>
+    <dimen name="margin_km">11dp</dimen>
 
 
 
-
-
-
+    <!-- schedule fragment -->
+        <!-- schedule card -->
+        <dimen name="height_model_card">220dp</dimen>
+        <dimen name="height_model_text">60dp</dimen>
+        <dimen name="width_relative">77dp</dimen>
+        <dimen name="margin_left_bar">26dp</dimen>
+        <dimen name="width_circle">7dp</dimen>
+        <dimen name="margin_left_circle">23.5dp</dimen>
+        <dimen name="margin_top_circle">15dp</dimen>
+        <dimen name="margin_top_hour">10dp</dimen>
+        <dimen name="margin_left_hour">5dp</dimen>
+        <dimen name="width_card">270dp</dimen>
+        <dimen name="height_card">199dp</dimen>
+        <dimen name="elevation_card">5dp</dimen>
+        <dimen name="margin_top_card">5dp</dimen>
+        <dimen name="radius_corner_card">15dp</dimen>
+        <dimen name="width_schedule_button">117dp</dimen>
+        <dimen name="height_schedule_button">32dp</dimen>
+        <dimen name="padding_left_card">20dp</dimen>
+        <dimen name="padding_top_card">7dp</dimen>
+        <dimen name="padding_right_card">7dp</dimen>
+        <dimen name="margin_top_text">4dp</dimen>
+        <dimen name="margin_left_text">10dp</dimen>
 
 </resources>

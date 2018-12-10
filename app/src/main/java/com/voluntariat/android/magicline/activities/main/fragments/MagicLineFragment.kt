@@ -1,11 +1,8 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
-import android.content.Intent
-import android.graphics.Rect
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.CardView
+import android.support.v4.view.ViewPager
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
@@ -13,27 +10,23 @@ import android.support.v7.widget.RecyclerView
 import java.util.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.support.v4.view.ViewPager.OnPageChangeListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.voluntariat.android.magicline.*
-import com.voluntariat.android.magicline.utils.MyCounter
+import com.voluntariat.android.magicline.activities.main.adapters.CountdownPagerAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.adapters.ProgrammingAdapter
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.models.ProgrammingModel
-import java.text.SimpleDateFormat
 
 
 class MagicLineFragment : Fragment() {
 
-    //CountDown widgets
-    lateinit var txtDies: TextView
-    lateinit var txtHores: TextView
-    lateinit var txtMin: TextView
-    lateinit var txtSeg: TextView
-    private lateinit var dateCursaString: String
+    //Countdown - recaudats widgets
+    lateinit var viewPager: ViewPager
+    lateinit var viewPagerIndicator: com.kingfisher.easyviewindicator.AnyViewIndicator
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
@@ -44,15 +37,6 @@ class MagicLineFragment : Fragment() {
     lateinit var rightArrowView: RelativeLayout
     lateinit var recyclerViewIndicator: com.kingfisher.easyviewindicator.RecyclerViewIndicator
 
-    //Other values
-    lateinit var infoGlobalButton: CardView
-    lateinit var infoDestinyButton: CardView
-    lateinit var infoSjdButton: CardView
-
-    //RRSS views
-    lateinit var facebookView : View
-    lateinit var googleView : View
-    lateinit var twitterView : View
 
     /*
      * Setting the corresponding view
@@ -73,33 +57,22 @@ class MagicLineFragment : Fragment() {
         super.onStart()
 
         //Init TextViews, etc
-        val txtArray = initWidgets()
+        initWidgets()
 
-        initCountDown(txtArray)
+        initCountdownPV(viewPager)
 
         initProgrammingCards()
 
         initNewsRecycler()
-
-        initOtherValuesListeners()
-
-        initRRSSListeners()
-
     }
 
-    private fun initWidgets():Array<TextView>{
-        //Countdown
-        txtDies=view!!.findViewById(R.id.countdown_dies)
-        txtHores=view!!.findViewById(R.id.countdown_hores)
-        txtMin=view!!.findViewById(R.id.countdown_min)
-        txtSeg=view!!.findViewById(R.id.countdown_seg)
-
-        //cursa date
-        dateCursaString= getString(R.string.cursa_date)
+    private fun initWidgets(){
+        //Countdown - recaudats view pager
+        viewPager = view!!.findViewById(R.id.principal_vp)
+        viewPagerIndicator=view!!.findViewById(R.id.view_pager_indicator)
 
         //Programming cards
         progRecyclerView= view!!.findViewById(R.id.rv)
-        progRecyclerView.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_programming).toInt()))
 
         //News
         newsRecyclerView=view!!.findViewById(R.id.news_recycler)
@@ -107,40 +80,35 @@ class MagicLineFragment : Fragment() {
         rightArrowView=view!!.findViewById(R.id.right_arrow_relative)
         recyclerViewIndicator=view!!.findViewById(R.id.news_pager_indicator)
 
-        //Other values
-        infoGlobalButton = view!!.findViewById(R.id.info_global_button)
-        infoDestinyButton = view!!.findViewById(R.id.info_donations_destiny_button)
-        infoSjdButton = view!!.findViewById(R.id.info_sjd_button)
-
-        //RRSS
-
-        facebookView = view!!.findViewById<View>(R.id.facebook)
-        googleView = view!!.findViewById<View>(R.id.google)
-        twitterView = view!!.findViewById<View>(R.id.twitter)
-
-
-        return arrayOf(txtDies, txtHores, txtMin, txtSeg)
-
 
     }
 
-    private fun initCountDown(txtDies: Array<TextView>){
+    private fun initCountdownPV(viewPager: ViewPager){
+        /*
+         * We use childFragmentManager instead of supportFragmentManager because
+         * we are using a fragment inside a fragment
+        */
+        val adapter = CountdownPagerAdapter(childFragmentManager)
 
-        //Utilitzem el formatter per aconseguir l'objecte Date
-        var formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
+        viewPager.adapter=adapter
 
-        //Data actual y data de la cursa
-        var currentTime: Date = Calendar.getInstance().time
-        var dateCursa: Date = formatter.parse(dateCursaString)
+        //Number of fragments to scroll
+        viewPagerIndicator.setItemCount(adapter.count)
 
-        //pasem a long les dates
-        var currentLong:Long=currentTime.time
-        var cursaLong:Long=dateCursa.time
+        //Where does it start
+        viewPagerIndicator.setCurrentPosition(0)
 
-        //trobem el temps restant en long
-        var diff:Long=cursaLong-currentLong
+        //Change when scroll
+        viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                viewPagerIndicator.setCurrentPosition(viewPager.currentItem)
+            }
 
-        MyCounter(diff, 1000, txtDies).start()
+            override fun onPageSelected(position: Int) {
+                // Check if this is the page you want.
+            }
+        })
 
     }
 
@@ -159,6 +127,9 @@ class MagicLineFragment : Fragment() {
         val adapter = ProgrammingAdapter(events)
         progRecyclerView.adapter = adapter
     }
+
+
+
 
 
     private fun initNewsRecycler() {
@@ -205,80 +176,6 @@ class MagicLineFragment : Fragment() {
             if(lastVisibleItemIndex<=0) return@setOnClickListener
 
             mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex-1)
-        }
-    }
-
-    private fun initOtherValuesListeners(){
-        infoSjdButton.setOnClickListener{
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("infoSjdButton")
-            transaction.commit()
-        }
-        infoDestinyButton.setOnClickListener{
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("infoDestinyButton")
-            transaction.commit()
-        }
-        infoGlobalButton.setOnClickListener{
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment())
-            transaction.addToBackStack("infoGlobalButton")
-            transaction.commit()
-        }
-    }
-
-    private fun initRRSSListeners(){
-
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlGoogle = getString(R.string.url_google)
-        val urlTwitter = getString(R.string.url_twitter)
-
-
-        facebookView.setOnClickListener{
-            callIntent(urlFacebook)
-        }
-
-        googleView.setOnClickListener{
-            callIntent(urlGoogle)
-        }
-
-        twitterView.setOnClickListener{
-            callIntent(urlTwitter)
-        }
-
-
-    }
-
-    private fun callIntent(url : String){
-
-        var intent : Intent
-
-        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
-
-    }
-
-    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(outRect: Rect, view: View,
-                                    parent: RecyclerView, state: RecyclerView.State) {
-            with(outRect) {
-
-                if(parent.getChildAdapterPosition(view) == parent.adapter.itemCount-1){
-                    right = spaceHeight*2
-                    left = spaceHeight
-                }
-                else if(parent.getChildAdapterPosition(view) == 0){
-                    left = spaceHeight*2
-                    right = spaceHeight
-                }
-                else{
-                    left =  spaceHeight
-                    right = spaceHeight
-                }
-            }
         }
     }
 }

@@ -1,8 +1,0 @@
-To change color and width of routes change these lines with the editor:
-
-<Style id="track">
-			<LineStyle>
-				<color>ff00ffff</color>
-				<width>3</width>
-			</LineStyle>
-		</Style>

@@ -25,7 +25,7 @@
     <string name="text_countdown_segons">SEGONS</string>
     <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
     <string name="text_otros_valores">ALTRES VALORS</string>
-    <string name="nav_menu_magicline">MagicLine</string>
+    <string name="nav_menu_home">Home</string>
     <string name="nav_menu_programacion">Programació</string>
     <string name="nav_menu_donativos">Donatius</string>
     <string name="nav_menu_masinfo">Més info</string>
@@ -83,6 +83,24 @@
     <!-- Detail fragment -->
     <string name="viewOnWeb">Veure la web</string>
 
+    <!-- Essentials Detail Fragment -->
+    <string name="essentials_title">Imprescindibles Magic Line</string>
+    <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
+    <string name="essentials_body">Equipaments culturals obren Les portes</string>
+    <string name="essentials_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Donations Destiny Detail Fragment -->
+    <string name="donations_title">Destí dels fons</string>
+    <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
+    <string name="donations_body">Equipaments culturals obren Les portes</string>
+    <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
+    <!-- Sant Joan de Déu Detail Fragment -->
+    <string name="sjd_title" translatable="false">Sant Joan de Déu</string>
+    <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
+    <string name="sjd_body">Equipaments culturals obren Les portes</string>
+    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+
     <!-- Share -->
     <string name="share">Share your experiences:</string>
     <string name="inviteFriends">Convida als teus amics \n a l\'app.</string>
@@ -99,7 +117,6 @@
     <string name="messenger_packg">com.facebook.orca</string>
     <string name="facebook_packg">com.facebook.katana</string>
     <string name="email_packg">com.google.android.gm</string>
-    <string name="aboutTheApp">Sobre Magic Line</string>
 
     <!-- Magic Line web -->
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
@@ -112,6 +129,10 @@
     <string name="importText">No vull publicar l\'import</string>
     <string name="nameImportText">No vull publicar el nom</string>
 
+    <!-- ABOUT ML APP -->
+    <string name="aboutTheAppTitle">Sobre Magic Line</string>
+    <string name="aboutTheAppSubTitle">Compromís social</string>
+    <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
 
 
 </resources>

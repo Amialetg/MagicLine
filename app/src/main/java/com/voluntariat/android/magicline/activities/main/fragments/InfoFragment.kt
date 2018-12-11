@@ -4,15 +4,15 @@ import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import android.widget.TextView
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.drawable.about_us
+import com.voluntariat.android.magicline.R.string.*
+import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
@@ -92,9 +92,21 @@ class InfoFragment:Fragment(){
             callIntent(urlMagicLine)
         }
 
-        basetisInfoTextView.setOnClickListener{
-            //Navegar al fragment de BaseTIS
-            print("Basetis Information")
+        aboutMLTextView.setOnClickListener{
+
+            val dataModelAboutMLApp = DetailModel(
+                    title = getString(aboutTheAppTitle),
+                    subtitle = getString(aboutTheAppSubTitle),
+                    textBody = getString(aboutTheAppBody),
+                    link = getString(essentials_viewOnWeb),
+                    toolbarImg = about_us,
+                    isBlack = false,
+                    hasToolbarImg = true)
+
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelAboutMLApp))
+            transaction.addToBackStack(DetailFragment().javaClass.canonicalName)
+            transaction.commit()
         }
     }
 

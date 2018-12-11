@@ -51,12 +51,12 @@
         android:background="@color/moreinfo_bars" />
 
     <TextView
-        android:id="@+id/basetisInfoTextView"
+        android:id="@+id/aboutMLTextView"
         style="@style/MoreInfoSections"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/sectionHeight"
-        android:text="@string/aboutTheApp" />
+        android:text="@string/aboutTheAppTitle" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

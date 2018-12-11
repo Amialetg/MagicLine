@@ -26,8 +26,6 @@ import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.renderer.Renderer
-import com.voluntariat.android.magicline.utils.MyValueFormatter
 
 
 class MoreInfoMLFragment : Fragment() {
@@ -111,7 +109,6 @@ class MoreInfoMLFragment : Fragment() {
         labels.add("Andrea")
 
         val dataSet = BarDataSet(entries, "")
-        dataSet.valueFormatter = MyValueFormatter()
         val data = BarData(dataSet)
         dataSet.color = ContextCompat.getColor(context, light_red)
         data.barWidth = 0.15f // set custom bar width
@@ -120,9 +117,12 @@ class MoreInfoMLFragment : Fragment() {
         barChart.setGridBackgroundColor(Color.BLUE)
         barChart.setDrawBorders(false)
         barChart.description.isEnabled = false
-        barChart.animateY(2000)
         barChart.setFitBars(true) // make the x-axis fit exactly all bars
-        dataSet.setDrawValues(false)
+        barChart.isHighlightPerTapEnabled = false
+        barChart.isDoubleTapToZoomEnabled = false
+        barChart.setPinchZoom(false)
+//        dataSet.setDrawValues(false)
+        barChart.animateY(2000)
         barChart.invalidate() // refresh
     }
 }

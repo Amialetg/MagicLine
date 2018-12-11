@@ -119,6 +119,21 @@
     <string name="send_message">Envia un missatge als membres de l\'equip(màx 100 caràcters)</string>
     <string name="plainImport">Import</string>
     <string name="hintPlainName">Nom</string>
+    <string name="hintPlainTeam">Equip</string>
+    <string name="hintpalinSurname">Cognom</string>
+    <string name="confirmEmail">Repeteix el teu correu electrònic</string>
+    <string name="longEmail">Correu electrònic</string>
 
 
+
+    <string-array name="lenguajes">
+        <item>Seleccione</item>
+        <item>Ruby</item>
+        <item>Java</item>
+        <item>.NET</item>
+        <item>Python</item>
+        <item>PHP</item>
+        <item>JavaScript</item>
+        <item>GO</item>
+    </string-array>
 </resources>

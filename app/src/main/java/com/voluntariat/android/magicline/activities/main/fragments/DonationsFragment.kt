@@ -1,5 +1,7 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -12,8 +14,7 @@ import android.text.style.ForegroundColorSpan
 import android.text.SpannableString
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_donations.*
-
-
+import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
 class DonationsFragment:Fragment(){
@@ -28,5 +29,12 @@ class DonationsFragment:Fragment(){
         super.onStart()
 
     }
+
+    private fun initSpinnerTeam(){
+
+        //We should get the teams from API
+
+    }
+
 
 }

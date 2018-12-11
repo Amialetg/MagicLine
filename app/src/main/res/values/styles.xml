@@ -326,9 +326,16 @@
     </style>
 
     <style name="IRPFStyle">
-        <item name="android:textColor">@color/lessGreyColor</item>
+        <item name="android:textColor">@color/grey_line</item>
         <item name="android:fontFamily">@font/lato_light</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="buttonStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
     </style>
 
 </resources>

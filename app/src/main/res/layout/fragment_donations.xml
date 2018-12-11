@@ -48,14 +48,14 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@drawable/radiobutton_not_pressed"
+                    android:button="@drawable/radiobutton_selector"
                     android:padding="@dimen/padding_left_card"
                     android:text="@string/particularText"/>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@drawable/radiobutton_not_pressed"
+                    android:button="@drawable/radiobutton_selector"
                     android:padding="@dimen/padding_left_card"
                     android:text="@string/EntityText" />
 
@@ -66,15 +66,16 @@
                 android:id="@+id/importEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:autofillHints="@string/plainImport"
                 android:hint="@string/plainImport"
-                android:autofillHints="@string/plainImport" tools:targetApi="o"/>
+                android:inputType="numberDecimal"
+                tools:targetApi="o" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:button="@drawable/checkbox_not_pressed"
-                android:padding="@dimen/padding_left_card"
+                android:button="@drawable/checkbox_selector"
+                android:padding="10dp"
                 android:text="@string/importText"/>
 
 
@@ -82,17 +83,128 @@
                 android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="string/hintPlainName"
                 android:hint="@string/hintPlainName"
                 android:inputType="textPersonName"
-                android:autofillHints="string/hintPlainName" tools:targetApi="o"/>
+                tools:targetApi="o" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:button="@drawable/checkbox_not_pressed"
-                android:padding="@dimen/padding_left_card"
-                android:text="@string/nameImportText"/>
+                android:button="@drawable/checkbox_selector"
+                android:padding="10dp"
+                android:text="@string/nameImportText" />
 
+
+            <Spinner
+                android:id="@+id/teamSpinner"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/lenguajes"
+                android:paddingTop="@dimen/padding_left_card"
+                android:paddingBottom="@dimen/margin_bottom_indicator" />
+
+
+            <EditText
+                android:id="@+id/surnameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/hintpalinSurname"
+                android:hint="@string/hintpalinSurname"
+                android:inputType="textPersonName"
+                android:paddingTop="@dimen/padding_left_card"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/padding_left_card">
+
+                <Spinner
+                    android:id="@+id/typeIdentificationSpinner"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/lenguajes"
+                    android:prompt="@string/n_document" />
+
+
+                <EditText
+                    android:id="@+id/identificationEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="@string/hintpalinSurname"
+                    android:hint="@string/n_document"
+                    android:inputType="textPersonName"
+                    tools:targetApi="o" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/emailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/longEmail"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/confirmEmailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/confirmEmail"
+                android:inputType="textEmailAddress" />
+            <EditText
+                android:id="@+id/sendAMessageextBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="100dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/send_message"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_box" />
+
+            <TextView
+                style="@style/IRPFStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margin_programming"
+                android:text="@string/infoIRPF"
+                android:textAlignment="center" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox_selector"
+                android:padding="10dp"
+                android:text="@string/irpf"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox_selector"
+                android:padding="10dp"
+                android:text="@string/getNews"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox_selector"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/privacyPolicy"/>
+            <TextView
+                android:id="@+id/donateAction"
+                android:padding="15dp"
+                android:layout_marginBottom="40dp"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/donate"
+                android:background="@drawable/button_border"
+                style="@style/buttonStyle"/>
 
         </LinearLayout>
 

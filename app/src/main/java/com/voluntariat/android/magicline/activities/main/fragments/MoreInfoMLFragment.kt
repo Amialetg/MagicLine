@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -22,6 +23,12 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R.color.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.renderer.Renderer
+import com.voluntariat.android.magicline.utils.MyValueFormatter
+
 
 class MoreInfoMLFragment : Fragment() {
 
@@ -75,8 +82,9 @@ class MoreInfoMLFragment : Fragment() {
         pieChart.animateY(2000)
         val data = PieData(dataSet)
         pieChart.data = data
-        dataSet.sliceSpace = 2f
-
+        pieChart.rotationAngle = 0f
+        pieChart.isHighlightPerTapEnabled = false
+        pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
         pieChart.centerText = "13.000" + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
@@ -84,12 +92,39 @@ class MoreInfoMLFragment : Fragment() {
         pieChart.setCenterTextTypeface(typeFace)
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
+        pieChart.onChartGestureListener = null
 
     }
 
     private fun setupBarChartData() {
 
+        val entries = arrayListOf<BarEntry>()
+        entries.add(BarEntry(0f, 30f))
+        entries.add(BarEntry(1f, 80f))
+        entries.add(BarEntry(2f, 60f))
+        entries.add(BarEntry(3f, 50f))
+
+        val labels = arrayListOf<String>()
+        labels.add("Andrea")
+        labels.add("Andrea")
+        labels.add("Andrea")
+        labels.add("Andrea")
+
+        val dataSet = BarDataSet(entries, "")
+        dataSet.valueFormatter = MyValueFormatter()
+        val data = BarData(dataSet)
+        dataSet.color = ContextCompat.getColor(context, light_red)
+        data.barWidth = 0.15f // set custom bar width
+        barChart.data = data
+        barChart.legend.isEnabled = false
+        barChart.setGridBackgroundColor(Color.BLUE)
+        barChart.setDrawBorders(false)
+        barChart.description.isEnabled = false
+        barChart.animateY(2000)
+        barChart.setFitBars(true) // make the x-axis fit exactly all bars
+        dataSet.setDrawValues(false)
+        barChart.invalidate() // refresh
     }
-
-
 }
+
+

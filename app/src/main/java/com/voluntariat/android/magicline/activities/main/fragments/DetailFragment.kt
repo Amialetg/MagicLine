@@ -25,7 +25,7 @@ class DetailFragment : Fragment () {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        detailModel = arguments.get("detailFragment") as DetailModel
+        detailModel = arguments?.get("detailFragment") as DetailModel
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -39,15 +39,14 @@ class DetailFragment : Fragment () {
     override fun onResume() {
         super.onResume()
         if (!detailModel.isBlack){
-            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
-            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.white))
+            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
+            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.white))
         } else {
-            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(context, R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
-            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.black))
+            detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
+            detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbar.background = ContextCompat.getDrawable(context, detailModel.toolbarImg)
-        }
+            detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
     }
 
     private fun initToolbar() {
@@ -57,22 +56,22 @@ class DetailFragment : Fragment () {
         detailLayoutView.detailBody.text = detailModel.textBody
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
-        detailLayoutView.topToolbar.setNavigationOnClickListener { activity.onBackPressed() }
+        detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
     }
 
     private fun initWidgets() {
 
         detailLayoutView.viewOnWeb.setOnClickListener {
-            openNewTabWindow(detailModel.link, context)
+            openNewTabWindow(detailModel.link, this.requireContext())
         }
         detailLayoutView.fb_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, context)
+            openNewTabWindow(detailModel.link, this.requireContext())
         }
         detailLayoutView.insta_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, context)
+            openNewTabWindow(detailModel.link, this.requireContext())
         }
         detailLayoutView.twitter_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, context)
+            openNewTabWindow(detailModel.link, this.requireContext())
         }
     }
 

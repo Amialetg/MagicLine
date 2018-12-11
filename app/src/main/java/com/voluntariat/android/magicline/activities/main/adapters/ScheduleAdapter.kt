@@ -35,7 +35,7 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
     }
 
     // Create new views
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         // create a new view
 
         when(viewType){

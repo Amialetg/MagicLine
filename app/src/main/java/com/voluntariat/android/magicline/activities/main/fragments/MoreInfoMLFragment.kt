@@ -102,12 +102,6 @@ class MoreInfoMLFragment : Fragment() {
         entries.add(BarEntry(2f, 60f))
         entries.add(BarEntry(3f, 50f))
 
-        val labels = arrayListOf<String>()
-        labels.add("Andrea")
-        labels.add("Andrea")
-        labels.add("Andrea")
-        labels.add("Andrea")
-
         val dataSet = BarDataSet(entries, "")
         val data = BarData(dataSet)
         dataSet.color = ContextCompat.getColor(context, light_red)
@@ -120,8 +114,9 @@ class MoreInfoMLFragment : Fragment() {
         barChart.setFitBars(true) // make the x-axis fit exactly all bars
         barChart.isHighlightPerTapEnabled = false
         barChart.isDoubleTapToZoomEnabled = false
-        barChart.setPinchZoom(false)
-//        dataSet.setDrawValues(false)
+        barChart.isDragEnabled = false
+        barChart.isScaleXEnabled = false
+        barChart.isScaleYEnabled = false
         barChart.animateY(2000)
         barChart.invalidate() // refresh
     }

@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <android.support.v7.widget.Toolbar
-            android:background="@color/white"
             android:id="@+id/topToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextAppearance="@style/toolbarTop">
-        </android.support.v7.widget.Toolbar>
+            android:background="@color/white"
+            android:gravity="top"
+            app:titleMarginTop="15dp"
+            app:titleTextAppearance="@style/toolbarTop" />
 
         <ImageView
             android:id="@+id/topToolbarImg"
@@ -19,4 +25,7 @@
             android:adjustViewBounds="true"
             />
 
+    </RelativeLayout>
+
 </android.support.design.widget.AppBarLayout>
+

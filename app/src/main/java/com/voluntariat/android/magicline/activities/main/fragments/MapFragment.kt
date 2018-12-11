@@ -27,7 +27,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var kmlLayer : KmlLayer
 
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_map, container, false)
 
     }
@@ -77,7 +77,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = kmAdapter(kmList,mMap,context)
+        val adapter = kmAdapter(kmList,mMap, this.requireContext())
         kmRecyclerView?.adapter = adapter
     }
 

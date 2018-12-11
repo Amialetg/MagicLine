@@ -22,6 +22,7 @@ class DonationsFragment:Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater?.inflate(R.layout.fragment_donations, container,  false)
+        testApi()
     }
 
     override fun onStart() {
@@ -36,5 +37,19 @@ class DonationsFragment:Fragment(){
 
     }
 
+    private fun testApi() {
+        /*val loginModelClient = OkHttpClient().newBuilder()
+                .addInterceptor(MagicLineInterceptor("acces_token"))
+                .build()
 
+
+
+
+        val magicLineService = retrofit.create(MagicLineService::class.java)
+
+
+        val call = magicLineService.testAPI("Test")
+        val result = call.execute().body()
+        Log.e("API",result.toString())*/
+    }
 }

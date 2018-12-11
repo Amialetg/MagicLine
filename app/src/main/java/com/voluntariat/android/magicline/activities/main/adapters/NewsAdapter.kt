@@ -16,7 +16,7 @@ class NewsAdapter(private val dataSet: Array<NewsModel>): RecyclerView.Adapter<N
     }
 
     // Create new views
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
         val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_news, parent, false)
 

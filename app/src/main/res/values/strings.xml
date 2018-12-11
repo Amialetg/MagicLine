@@ -96,7 +96,7 @@
     <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->
-    <string name="sjd_title">Sant Joan de Déu</string>
+    <string name="sjd_title" translatable="false">Sant Joan de Déu</string>
     <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
     <string name="sjd_body">Equipaments culturals obren Les portes</string>
     <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
@@ -104,10 +104,10 @@
     <!-- Share -->
     <string name="share">Share your experiences:</string>
     <string name="inviteFriends">Invita a tus amigos \n a la app.</string>
-    <string name="whatsapp">WhastsApp</string>
-    <string name="telegram">Telegram</string>
-    <string name="messenger">Messenger</string>
-    <string name="facebook">Facebook</string>
+    <string name="whatsapp" translatable="false">WhastsApp</string>
+    <string name="telegram" translatable="false">Telegram</string>
+    <string name="messenger" translatable="false">Messenger</string>
+    <string name="facebook" translatable="false">Facebook</string>
     <string name="email">E-mail</string>
 
     <!-- Packages social media -->
@@ -117,12 +117,9 @@
     <string name="messenger_packg">com.facebook.orca</string>
     <string name="facebook_packg">com.facebook.katana</string>
     <string name="email_packg">com.google.android.gm</string>
-    <string name="aboutTheApp">Sobre Magic Line</string>
 
     <!-- Magic Line web -->
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
-
-
     <string name="donationText">Donativo</string>
     <string name="magicLineTitle">MagicLine</string>
     <string name="textDonateCause">Haz un donativo y ayudarás a los equipos de la Magic Line conseguir su reto solidario! El 100% de los fondos captados por los equipos se destinan a programas de atención a personas en situación vulnerable.</string>
@@ -131,12 +128,12 @@
     <string name="importText">No quiero publicar el importe</string>
     <string name="nameImportText">No quiero publicar el nombre</string>
 
-
     <!-- LOREMIPSUM -->
-    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="lorem_ipsum" translatable="false">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
+    <!-- todo: put real texts -->
     <!-- MAGIC LINE INFO -->
-    <string name="ml">Magic Line</string>
+    <string name="ml" translatable="false">Magic Line</string>
     <string name="info_ml">La Magic Line es más que una caminata, es un compromiso con quienes más lo necesitan. Por ello, para participar hay que ponerse un reto económico y organizar actividades solidarias para conseguirlo.</string>
     <string name="counter">Marcador</string>
     <string name="participants">Participants inscrits</string>
@@ -172,6 +169,10 @@
     <string name="hintpalinSurname">Cognom</string>
     <string name="confirmEmail">Repeteix el teu correu electrònic</string>
     <string name="longEmail">Correu electrònic</string>
+    <!-- ABOUT ML APP -->
+    <string name="aboutTheAppTitle">Sobre Magic Line</string>
+    <string name="aboutTheAppSubTitle">Compromís social</string>
+    <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
 
 
     <string-array name="lenguajes">
@@ -184,4 +185,6 @@
         <item>JavaScript</item>
         <item>GO</item>
     </string-array>
+
+
 </resources>

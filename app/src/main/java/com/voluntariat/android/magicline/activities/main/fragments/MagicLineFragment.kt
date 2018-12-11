@@ -38,7 +38,7 @@ class MagicLineFragment : Fragment() {
     lateinit var progRecyclerView: RecyclerView
 
     //Setting the corresponding view
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_magic_line, container, false)
     }
 
@@ -65,14 +65,14 @@ class MagicLineFragment : Fragment() {
     private fun initMesQueListeners() {
 
         btnDonateTeam.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DonationsFragment())
             transaction.addToBackStack("donateTeam")
             transaction.commit()
         }
 
         btnRequestDonates.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             //todo: uncomment when merge the branch multi lang
 //            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
             transaction.addToBackStack("donateTeam")
@@ -86,7 +86,7 @@ class MagicLineFragment : Fragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, MoreInfoMLFragment())
             transaction.addToBackStack("infoEssentialsButton")
             transaction.commit()
@@ -190,21 +190,21 @@ class MagicLineFragment : Fragment() {
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelEssential))
             transaction.addToBackStack("infoEssentialsButton")
             transaction.commit()
         }
 
         info_donations_destiny_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelDestiny))
             transaction.addToBackStack("infoDestinyButton")
             transaction.commit()
         }
 
         info_sjd_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
+            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelSantJoan))
             transaction.addToBackStack("infoSjdButton")
             transaction.commit()
@@ -235,6 +235,6 @@ class MagicLineFragment : Fragment() {
         var intent: Intent
         intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
+        this.requireContext().startActivity(intent)
     }
 }

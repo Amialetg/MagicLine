@@ -111,7 +111,14 @@
     <string name="EntityText">Entitat</string>
     <string name="importText">No vull publicar l\'import</string>
     <string name="nameImportText">No vull publicar el nom</string>
-
+    <string name="donate">DONAR</string>
+    <string name="irpf">Vull deduir aquesta donació a la quota de l\'IRPF</string>
+    <string name="getNews">Vull rebre informació de les novetats solidàries de Sant Joan de Déu.</string>
+    <string name="privacyPolicy">Accepto la política de privacitat de dades</string>
+    <string name="n_document">Nº document</string>
+    <string name="send_message">Envia un missatge als membres de l\'equip(màx 100 caràcters)</string>
+    <string name="plainImport">Import</string>
+    <string name="hintPlainName">Nom</string>
 
 
 </resources>

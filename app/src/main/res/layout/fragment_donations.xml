@@ -11,15 +11,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_left_card"
+            android:paddingRight="@dimen/padding_left_card">
 
             <TextView
                 style="@style/TopTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
                 android:paddingTop="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
                 android:paddingBottom="@dimen/margin_programming"
                 android:text="@string/magicLineTitle"
                 android:textColor="@color/light_red" />
@@ -28,8 +28,6 @@
                 style="@style/scheduleHour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
                 android:paddingBottom="@dimen/margin_programming"
                 android:text="@string/donationText"
                 android:textColor="@color/black" />
@@ -38,8 +36,6 @@
                 style="@style/recaudats_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
                 android:text="@string/textDonateCause"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textSize_14" />
@@ -49,58 +45,54 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/radiobutton_not_pressed"
-                    android:drawablePadding="5dp"
+                    android:button="@drawable/radiobutton_not_pressed"
                     android:padding="@dimen/padding_left_card"
-                    android:text="@string/particularText" />
+                    android:text="@string/particularText"/>
 
-                <TextView
+                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/radiobutton_not_pressed"
-                    android:drawablePadding="5dp"
+                    android:button="@drawable/radiobutton_not_pressed"
                     android:padding="@dimen/padding_left_card"
                     android:text="@string/EntityText" />
 
 
             </LinearLayout>
+
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/importEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:inputType="numberDecimal"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
-                tools:text="Import *" />
+                android:hint="@string/plainImport"
+                android:autofillHints="@string/plainImport" tools:targetApi="o"/>
 
-            <TextView
-                android:layout_width="match_parent"
+            <CheckBox
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/checkbox_not_pressed"
-                android:drawablePadding="5dp"
-                android:text="@string/importText"
-                android:textAlignment="viewEnd" />
+                android:button="@drawable/checkbox_not_pressed"
+                android:padding="@dimen/padding_left_card"
+                android:text="@string/importText"/>
+
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:hint="@string/hintPlainName"
                 android:inputType="textPersonName"
-                android:text="Name"/>
+                android:autofillHints="string/hintPlainName" tools:targetApi="o"/>
 
-            <TextView
-                android:layout_width="match_parent"
+            <CheckBox
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/checkbox_not_pressed"
-                android:drawablePadding="5dp"
+                android:button="@drawable/checkbox_not_pressed"
                 android:padding="@dimen/padding_left_card"
-                android:text="@string/nameImportText"
-                android:textAlignment="viewEnd" />
+                android:text="@string/nameImportText"/>
+
 
         </LinearLayout>
 

@@ -1,7 +1,7 @@
 package com.voluntariat.android.magicline.db.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.voluntariat.android.magicline.data.apimodels.Post
 import com.voluntariat.android.magicline.data.apimodels.PostsItem
 

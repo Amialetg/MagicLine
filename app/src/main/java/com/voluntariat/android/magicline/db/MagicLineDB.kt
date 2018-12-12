@@ -1,13 +1,13 @@
 package com.voluntariat.android.magicline.db
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import android.content.Context
 import com.voluntariat.android.magicline.db.dao.PostDao
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.voluntariat.android.magicline.data.apimodels.Post
-import android.arch.persistence.db.SupportSQLiteDatabase
-import android.support.annotation.NonNull
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.annotation.NonNull
 import android.os.AsyncTask
 import com.voluntariat.android.magicline.data.apimodels.PostImageItem
 import com.voluntariat.android.magicline.data.apimodels.PostsItem

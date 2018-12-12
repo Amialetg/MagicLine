@@ -3,24 +3,30 @@ package com.voluntariat.android.magicline.activities.main.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProviders
 import com.voluntariat.android.magicline.*
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.utils.MyCounter
 import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
@@ -30,12 +36,24 @@ import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 
 
-class MagicLineFragment : Fragment() {
+class MagicLineFragment : androidx.fragment.app.Fragment() {
+
+
+    private lateinit var mMagicLineViewModel: AndroidViewModel
 
     private lateinit var dateCursaString: String
 
     //Programming section widgets
-    lateinit var progRecyclerView: RecyclerView
+    lateinit var progRecyclerView: androidx.recyclerview.widget.RecyclerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        val factory: MagicLineViewModelFactory  = MagicLineViewModelFactory(repository)
+        mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
+
+    }
 
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -124,28 +142,28 @@ class MagicLineFragment : Fragment() {
     private fun initNewsRecycler() {
         val dataSet = arrayOf(NewsModel("Nou event en la programació", getString(lorem_ipsum)), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
 
-        val myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val myNewsManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
         val myNewsAdapter = NewsAdapter(dataSet)
 
         news_recycler.layoutManager = myNewsManager
         news_recycler.adapter = myNewsAdapter
 
         //Adding pager behaviour
-        val snapHelper = PagerSnapHelper()
+        val snapHelper = androidx.recyclerview.widget.PagerSnapHelper()
         news_recycler.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(news_recycler)
 
         //Adding the page indicators
-        news_pager_indicator.setRecyclerView(news_recycler)
+        // TODO re-DO news slider
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
     }
 
-    private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
+    private fun initArrowsListeners(mLayoutManager: androidx.recyclerview.widget.LinearLayoutManager) {
 
         right_arrow_relative.setOnClickListener {
-            val totalItemCount = news_recycler.adapter.itemCount
+            val totalItemCount = news_recycler.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
 
@@ -157,7 +175,7 @@ class MagicLineFragment : Fragment() {
         }
 
         left_arrow_relative.setOnClickListener {
-            val totalItemCount = news_recycler.adapter.itemCount
+            val totalItemCount = news_recycler.adapter?.itemCount ?:0
 
             if (totalItemCount < 0) return@setOnClickListener
 

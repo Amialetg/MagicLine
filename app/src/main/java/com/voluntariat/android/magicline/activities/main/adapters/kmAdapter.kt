@@ -2,9 +2,9 @@ package com.voluntariat.android.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.CardView
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ import com.voluntariat.android.magicline.R
  */
 
 class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
-                 val context: Context) : RecyclerView.Adapter<kmAdapter.ViewHolder>() {
+                 val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<kmAdapter.ViewHolder>() {
 
     var selectedPosition : Int = 0
     var kmlLayers : ArrayList<KmlLayer> = arrayListOf(KmlLayer(googleMap,R.raw.ml_barcelona_2018_10,context),
@@ -68,10 +68,10 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
 
     }
 
-    class ViewHolder(itemView: View, adapter: kmAdapter) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, adapter: kmAdapter) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         val km = itemView.findViewById<TextView>(R.id.map_km) as TextView
-        val card = itemView.findViewById<CardView>(R.id.card)
+        val card = itemView.findViewById<androidx.cardview.widget.CardView>(R.id.card)
         val km_text = itemView.findViewById<TextView>(R.id.map_km_text)
         
         init {

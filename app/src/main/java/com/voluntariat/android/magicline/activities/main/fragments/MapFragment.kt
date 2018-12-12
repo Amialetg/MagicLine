@@ -2,10 +2,10 @@ package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +21,7 @@ import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
 import java.util.ArrayList
 
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var kmlLayer : KmlLayer
@@ -64,7 +64,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private fun initKmCards() {
 
-        val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
+        val kmRecyclerView = view?.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_map)
         kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmList = ArrayList<Int>()
 
@@ -76,7 +76,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
 
         //Setting up the adapter and the layout manager for the recycler view
-        kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
+        kmRecyclerView?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         val adapter = kmAdapter(kmList,mMap, this.requireContext())
         kmRecyclerView?.adapter = adapter
     }
@@ -92,9 +92,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         setMarker("Font", "", 41.38219, 2.12768, R.drawable.group_4)
     }
 
-    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
+    class MarginItemDecoration(private val spaceHeight: Int) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
         override fun getItemOffsets(outRect: Rect, view: View,
-                                    parent: RecyclerView, state: RecyclerView.State) {
+                                    parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
             with(outRect) {
                 if(parent.getChildAdapterPosition(view) == 4){
                     right = spaceHeight*2

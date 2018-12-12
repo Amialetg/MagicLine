@@ -3,7 +3,7 @@ package com.voluntariat.android.magicline.activities.main
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.voluntariat.android.magicline.utils.getPreferencesLanguage
 import com.voluntariat.android.magicline.utils.updateBaseContextLocale
 

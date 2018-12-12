@@ -22,7 +22,7 @@
         android:weightSum="3"
         android:layout_marginTop="19dp">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/info_essentials_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
@@ -53,10 +53,10 @@
 
                 </LinearLayout>
                 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/info_donations_destiny_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
@@ -86,10 +86,10 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/info_sjd_button"
                 android:layout_width="104dp"
                 android:layout_height="98dp"
@@ -119,7 +119,7 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

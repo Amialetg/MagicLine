@@ -1,7 +1,7 @@
 package com.voluntariat.android.magicline.data
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 import com.voluntariat.android.magicline.utils.callback
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
@@ -11,14 +11,14 @@ import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.db.dao.PostDao
 
 
-class MagicLineRepositoryImpl(application: Application)
+class MagicLineRepositoryImpl(database: MagicLineDB?)
     : MagicLineRepository {
 
     private lateinit var mPostDao: PostDao
     private val mAllPosts: LiveData<List<PostsItem>>
 
     init {
-        val db = MagicLineDB.getDatabase(application)
+        val db = database
         if (db != null) {
             mPostDao = db.postDao()
         }

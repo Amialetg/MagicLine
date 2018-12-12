@@ -1,41 +1,38 @@
 package com.voluntariat.android.magicline.activities.main
 
 import android.app.Activity
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProviders
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
-import android.support.design.widget.FloatingActionButton
-import android.support.v4.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 
 
 
 class MainActivity : BaseActivity() {
-    //Database
-    private lateinit var mMagicLineViewModel: AndroidViewModel
 
     //Bottom Toolbar
     private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
     private lateinit var bottomBarBtn: FloatingActionButton
 
     //The app starts at the magic line fragment
-    private var currentFragment: Fragment = MagicLineFragment()
+    private var currentFragment: androidx.fragment.app.Fragment = MagicLineFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
-        mMagicLineViewModel = ViewModelProviders.of(this).get(MagicLineViewModel::class.java)
 
         initWidgets()
 
@@ -52,7 +49,7 @@ class MainActivity : BaseActivity() {
         /**
          * TODO remove. Example of how to call API
          */
-        val repo = MagicLineRepositoryImpl(application)
+        val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(applicationContext))
         repo.authenticate(
                 "apiml",
                 "4p1ml2018"
@@ -126,7 +123,7 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
-        val newFragment: Fragment
+        val newFragment: androidx.fragment.app.Fragment
 
         when (item.itemId) {
             R.id.magicline_menu_id -> {

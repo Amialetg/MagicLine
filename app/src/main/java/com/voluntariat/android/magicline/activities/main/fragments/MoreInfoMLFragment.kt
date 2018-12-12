@@ -1,9 +1,9 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -17,14 +17,14 @@ import com.voluntariat.android.magicline.R.string.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
 import android.graphics.Typeface
 import android.os.Build
-import android.support.v4.content.res.ResourcesCompat
+import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R.color.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 
-class MoreInfoMLFragment : Fragment() {
+class MoreInfoMLFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var moreInfoMLView: View
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel

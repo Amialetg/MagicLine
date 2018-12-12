@@ -1,9 +1,9 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +13,10 @@ import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
 
-class ScheduleFragment:Fragment(){
+class ScheduleFragment: androidx.fragment.app.Fragment(){
 
     //recycler widgets
-    lateinit var scheduleRecyclerView:RecyclerView
+    lateinit var scheduleRecyclerView: androidx.recyclerview.widget.RecyclerView
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,7 +38,7 @@ class ScheduleFragment:Fragment(){
     private fun initScheduleRecycler(){
         val dataSet = getDataset()
 
-        val myScheduleManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val myScheduleManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
         val myScheduleAdapter = ScheduleAdapter(dataSet)
 
         scheduleRecyclerView.layoutManager = myScheduleManager

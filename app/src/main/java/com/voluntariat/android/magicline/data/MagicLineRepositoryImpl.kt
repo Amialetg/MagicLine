@@ -13,11 +13,7 @@ class MagicLineRepositoryImpl(private val service: MagicLineAPI.MagicLineService
             password: String,
             onResult: (loginResult: Result<String>) -> Unit) {
 
-        MagicLineAPI.accessToken = "34c5f8837ff1511fa56e7fb23fcb367f4877cd44"
-        /**
-         * Code that will be used when Login works
-         */
-        /*MagicLineAPI.accessToken = null
+        MagicLineAPI.accessToken = null
         service.oAuthLogin(username, password).enqueue(callback(
             { result ->
                 if (result.isSuccessful) {
@@ -31,7 +27,7 @@ class MagicLineRepositoryImpl(private val service: MagicLineAPI.MagicLineService
             }, { error ->
                 onResult(Result.Failure(error))
             }
-        ))*/
+        ))
     }
 
     override fun getPosts(

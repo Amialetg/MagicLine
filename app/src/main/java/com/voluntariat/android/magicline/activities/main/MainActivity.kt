@@ -1,5 +1,8 @@
 package com.voluntariat.android.magicline.activities.main
 
+import android.app.Activity
+import android.arch.lifecycle.AndroidViewModel
+import android.arch.lifecycle.ViewModelProviders
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,8 +15,13 @@ import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
+
+
 
 class MainActivity : BaseActivity() {
+    //Database
+    private lateinit var mMagicLineViewModel: AndroidViewModel
 
     //Bottom Toolbar
     private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -26,6 +34,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        mMagicLineViewModel = ViewModelProviders.of(this).get(MagicLineViewModel::class.java)
 
         initWidgets()
 
@@ -42,7 +52,7 @@ class MainActivity : BaseActivity() {
         /**
          * TODO remove. Example of how to call API
          */
-        val repo = MagicLineRepositoryImpl(MagicLineAPI.service)
+        val repo = MagicLineRepositoryImpl(application)
         repo.authenticate(
                 "apiml",
                 "4p1ml2018"
@@ -51,7 +61,9 @@ class MainActivity : BaseActivity() {
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }
         repo.getPosts { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
+            is Result.Success -> {Log.d("apiLogin","Success, token: ${result.data}")
+
+            }
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }
     }
@@ -82,9 +94,7 @@ class MainActivity : BaseActivity() {
 
     }
 
-    public fun initNavigation() {
-
-
+    private fun initNavigation() {
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
@@ -139,7 +149,7 @@ class MainActivity : BaseActivity() {
 
         val trans = this.supportFragmentManager.beginTransaction()
         trans.replace(R.id.frame_layout, newFragment)
-        trans.addToBackStack(newFragment.javaClass.canonicalName)
+//        trans.addToBackStack(newFragment.javaClass.canonicalName)
         trans.commit()
 
         currentFragment = newFragment

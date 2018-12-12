@@ -1,42 +1,56 @@
 package com.voluntariat.android.magicline.data.apimodels
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "posts")
 data class Post(
+        @ColumnInfo(name = "date")
+        @field:SerializedName("date")
+        val date: String? = null,
 
-	@field:SerializedName("date")
-	val date: String? = null,
+        @ColumnInfo(name = "img" )
+        @field:SerializedName("img")
+        val img: String? = null,
 
-	@field:SerializedName("img")
-	val img: String? = null,
+        @ColumnInfo(name = "created" )
+        @field:SerializedName("created")
+        val created: String? = null,
 
-	@field:SerializedName("created")
-	val created: String? = null,
+        @ColumnInfo(name = "weight")
+        @field:SerializedName("weight")
+        val weight: String? = null,
 
-	@field:SerializedName("weight")
-	val weight: String? = null,
+        @ColumnInfo(name = "modified")
+        @field:SerializedName("modified")
+        val modified: String? = null,
 
-	@field:SerializedName("modified")
-	val modified: String? = null,
+        @ColumnInfo(name = "id")
+        @field:SerializedName("id")
+        val id: String? = null,
 
-	@field:SerializedName("id")
-	val id: String? = null,
+        @ColumnInfo(name = "text")
+        @field:SerializedName("text")
+        val text: String? = null,
 
-	@field:SerializedName("text")
-	val text: String? = null,
+        @ColumnInfo(name = "locale")
+        @field:SerializedName("locale")
+        val locale: String? = null,
 
-	@field:SerializedName("locale")
-	val locale: String? = null,
+        @ColumnInfo(name = "title")
+        @field:SerializedName("title")
+        val title: String? = null,
 
-	@field:SerializedName("title")
-	val title: String? = null,
+        @ColumnInfo(name = "slug")
+        @field:SerializedName("slug")
+        val slug: String? = null,
 
-	@field:SerializedName("slug")
-	val slug: String? = null,
+        @ColumnInfo(name = "url")
+        @field:SerializedName("url")
+        val url: String? = null,
 
-	@field:SerializedName("url")
-	val url: String? = null,
-
-	@field:SerializedName("teaser")
-	val teaser: String? = null
+        @ColumnInfo(name = "teaser")
+        @field:SerializedName("teaser")
+        val teaser: String? = null
 )

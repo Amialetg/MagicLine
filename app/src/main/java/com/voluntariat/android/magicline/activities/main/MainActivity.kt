@@ -1,17 +1,21 @@
 package com.voluntariat.android.magicline.activities.main
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.MenuItem
+import com.onesignal.OneSignal
 import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.utils.ExampleNotificationOpenedHandler
 
 class MainActivity : BaseActivity() {
 
@@ -24,6 +28,11 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .setNotificationOpenedHandler(ExampleNotificationOpenedHandler(this))
+                .init()
 
         setContentView(R.layout.activity_main)
 
@@ -54,6 +63,8 @@ class MainActivity : BaseActivity() {
             is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }
+
+        notificactionListener()
     }
 
     private fun initWidgets() {
@@ -83,8 +94,6 @@ class MainActivity : BaseActivity() {
     }
 
     public fun initNavigation() {
-
-
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
@@ -137,6 +146,10 @@ class MainActivity : BaseActivity() {
             else -> newFragment = MagicLineFragment()
         }
 
+        navigateToFragment(newFragment)
+    }
+    private fun navigateToFragment(newFragment: Fragment){
+
         val trans = this.supportFragmentManager.beginTransaction()
         trans.replace(R.id.frame_layout, newFragment)
         trans.addToBackStack(newFragment.javaClass.canonicalName)
@@ -144,9 +157,33 @@ class MainActivity : BaseActivity() {
 
         currentFragment = newFragment
 
+    }
+
+    private fun notificactionListener() {
+
+        val type = intent.getStringExtra("From")
+
+        if (type != null) {
+            when (type) {
+                "ultimaNoticia" ->{
+                    navigateToFragment(InviteFriendsFragment())
+
+                }
+                "ferDonacio" -> {
+                    navigateToFragment(DonationsFragment())
+
+                }
+                "detallsEsdeveniments" -> {
+                    navigateToFragment(DetailFragment())
+
+                }
+                else -> {
+                    Log.i("oneSignal", "oneSignal")
+                }
+            }
+        }
 
 
     }
 
-
-}
+    }

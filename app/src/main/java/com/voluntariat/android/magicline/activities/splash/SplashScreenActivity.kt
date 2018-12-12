@@ -7,6 +7,7 @@ import android.os.Handler
 import com.onesignal.OneSignal
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.MainActivity
+import com.voluntariat.android.magicline.utils.ExampleNotificationOpenedHandler
 
 /**
  * Created by hector on 26/06/18.
@@ -32,6 +33,7 @@ class SplashScreenActivity : Activity(){
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
+                .setNotificationOpenedHandler(ExampleNotificationOpenedHandler(this))
                 .init()
 
         setContentView(R.layout.activity_splash_screen)

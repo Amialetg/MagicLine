@@ -24,7 +24,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R.color.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 
-class MoreInfoMLFragment : androidx.fragment.app.Fragment() {
+class MoreInfoMLFragment : Fragment() {
 
     private lateinit var moreInfoMLView: View
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel

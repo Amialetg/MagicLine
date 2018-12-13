@@ -4,21 +4,27 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.core.content.ContextCompat
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.*
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
-import kotlinx.android.synthetic.main.fragment_detail.view.*
-import kotlinx.android.synthetic.main.layout_share.view.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
+import kotlinx.android.synthetic.main.fragment_detail.view.detailBody
+import kotlinx.android.synthetic.main.fragment_detail.view.detailSubtitle
+import kotlinx.android.synthetic.main.fragment_detail.view.detailTitle
+import kotlinx.android.synthetic.main.fragment_detail.view.viewOnWeb
+import kotlinx.android.synthetic.main.layout_share.view.fb_button
+import kotlinx.android.synthetic.main.layout_share.view.insta_button
+import kotlinx.android.synthetic.main.layout_share.view.twitter_button
+import kotlinx.android.synthetic.main.toolbar_appbar_top.topToolbar
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbar
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbarImg
 
-class DetailFragment : androidx.fragment.app.Fragment() {
+class DetailFragment : Fragment() {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel

@@ -8,8 +8,8 @@ import android.widget.TextView
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.R
 
-class NewsAdapter(private val dataSet: Array<NewsModel>): androidx.recyclerview.widget.RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
-    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
+class NewsAdapter(private val dataSet: Array<NewsModel>): RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val title = itemView.findViewById<TextView>(R.id.news_item_title)
         val desc = itemView.findViewById<TextView>(R.id.news_item_desc)
 

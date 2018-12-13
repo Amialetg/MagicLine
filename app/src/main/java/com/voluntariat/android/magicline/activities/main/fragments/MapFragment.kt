@@ -2,26 +2,28 @@ package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.graphics.Rect
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
 import java.util.ArrayList
 
 
-class MapFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var kmlLayer : KmlLayer
@@ -64,7 +66,7 @@ class MapFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     private fun initKmCards() {
 
-        val kmRecyclerView = view?.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_map)
+        val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
         kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmList = ArrayList<Int>()
 
@@ -76,7 +78,7 @@ class MapFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
 
         //Setting up the adapter and the layout manager for the recycler view
-        kmRecyclerView?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
+        kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         val adapter = kmAdapter(kmList,mMap, this.requireContext())
         kmRecyclerView?.adapter = adapter
     }
@@ -92,9 +94,9 @@ class MapFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
         setMarker("Font", "", 41.38219, 2.12768, R.drawable.group_4)
     }
 
-    class MarginItemDecoration(private val spaceHeight: Int) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
+    class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(outRect: Rect, view: View,
-                                    parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
+                                    parent: RecyclerView, state: RecyclerView.State) {
             with(outRect) {
                 if(parent.getChildAdapterPosition(view) == 4){
                     right = spaceHeight*2

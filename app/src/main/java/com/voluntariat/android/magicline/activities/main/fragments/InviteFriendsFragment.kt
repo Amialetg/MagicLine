@@ -1,20 +1,22 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.voluntariat.android.magicline.R
 import android.widget.Toast
-import android.content.pm.PackageManager
-import android.content.pm.PackageInfo
-import kotlinx.android.synthetic.main.fragment_invite_friends.*
+import androidx.fragment.app.Fragment
+import com.voluntariat.android.magicline.R
+import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.facebookTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.messengerTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
 
 
-class InviteFriendsFragment: androidx.fragment.app.Fragment(){
+class InviteFriendsFragment: Fragment(){
 
     override fun onStart() {
         super.onStart()

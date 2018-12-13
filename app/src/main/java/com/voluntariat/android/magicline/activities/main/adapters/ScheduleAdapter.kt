@@ -1,26 +1,25 @@
 package com.voluntariat.android.magicline.activities.main.adapters
 
-import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
-import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
-class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>(){
+class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    class ViewHolderText(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
+    class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
         val hour = itemView.findViewById<TextView>(R.id.schedule_hour)
         val text = itemView.findViewById<TextView>(R.id.schedule_text)
 
     }
 
-    class ViewHolderCard(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
+    class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView){
         val hour = itemView.findViewById<TextView>(R.id.schedule_card_hour)
         val title = itemView.findViewById<TextView>(R.id.schedule_card_title)
         val subtitle = itemView.findViewById<TextView>(R.id.schedule_card_subtitle)
@@ -35,7 +34,7 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): android
     }
 
     // Create new views
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         // create a new view
 
         when(viewType){
@@ -52,7 +51,7 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): android
     }
 
     // Replace the contents of a view
-    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         //Get information from the new item
         when(getItemViewType(position)){
             1->{

@@ -35,9 +35,9 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun Fragment.transitionWithModalAnimation(fragment: BaseFragment, dataModel: DataModelInterface) {
+fun Fragment.transitionWithModalAnimation(fragment: BaseFragment, dataModel: DataModelInterface, useModalAnimation: Boolean = true) {
     val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-    transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
+    if(useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
     transaction.replace(R.id.frame_layout, fragment.newInstance(dataModel))
     transaction.addToBackStack(fragment.javaClass.canonicalName)
     transaction.commit()

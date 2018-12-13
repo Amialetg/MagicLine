@@ -11,14 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
-class DetailFragment : BaseFragment(), DataModelInterface {
+class DetailFragment : BaseFragment() {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel
@@ -81,7 +80,7 @@ class DetailFragment : BaseFragment(), DataModelInterface {
     }
 
     companion object {
-        fun newInstance(dataModel: DataModelInterface): BaseFragment {
+        fun newInstance(dataModel: DetailModel): BaseFragment {
             val myFragment = DetailFragment()
             val args = Bundle()
             args.putSerializable("detailFragment", dataModel)

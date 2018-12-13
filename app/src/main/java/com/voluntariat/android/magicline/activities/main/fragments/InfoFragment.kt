@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.*
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_info.*
@@ -117,7 +116,7 @@ class InfoFragment: BaseFragment() {
     }
 
     companion object {
-        fun newInstance(dataModel: DataModelInterface): BaseFragment {
+        fun newInstance(): BaseFragment {
             return InfoFragment()
         }
     }

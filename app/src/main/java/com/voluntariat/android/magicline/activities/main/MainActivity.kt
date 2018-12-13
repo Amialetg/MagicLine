@@ -2,13 +2,15 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
+import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.*
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.Result
+import com.voluntariat.android.magicline.data.api.MagicLineAPI
 
 class MainActivity : BaseActivity() {
 
@@ -36,7 +38,21 @@ class MainActivity : BaseActivity() {
         }
         initNavigation()
 
-        //Constants.loadLocale(context = this.applicationContext)
+        /**
+         * TODO remove. Example of how to call API
+         */
+        val repo = MagicLineRepositoryImpl(MagicLineAPI.service)
+        repo.authenticate(
+                "apiml",
+                "4p1ml2018"
+        ) { result -> when (result) {
+            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
+            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
+        } }
+        repo.getPosts { result -> when (result) {
+            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
+            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
+        } }
     }
 
     private fun initWidgets() {
@@ -48,12 +64,12 @@ class MainActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-        val count = fragmentManager.backStackEntryCount
+        val count = supportFragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
             //additional code
         } else {
-            fragmentManager.popBackStack()
+            supportFragmentManager.popBackStack()
         }
     }
 
@@ -66,8 +82,6 @@ class MainActivity : BaseActivity() {
     }
 
     public fun initNavigation() {
-
-
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
@@ -126,8 +140,6 @@ class MainActivity : BaseActivity() {
         trans.commit()
 
         currentFragment = newFragment
-
-
 
     }
 

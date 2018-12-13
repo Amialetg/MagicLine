@@ -29,7 +29,7 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
             ,KmlLayer(googleMap,R.raw.ml_barcelona_2018_30,context))
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.km_cards, parent, false)
         return ViewHolder(v, this)
     }
@@ -38,7 +38,7 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
         return kmList.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val km : Int =  kmList[position]
         val colorBg : Int
@@ -46,12 +46,13 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
 
         //DO ACTIONS WHEN BUTTON SELECTED
         if(selectedPosition == position){
-            colorBg = ContextCompat.getColor(holder?.itemView?.context, R.color.colorPrimary)
-            colorTxt = Color.WHITE
+            colorBg = ContextCompat.getColor(holder?.itemView.context, R.color.colorPrimary)
+            colorTxt = ContextCompat.getColor(context, R.color.white)
             if(!kmlLayers.get(selectedPosition).isLayerOnMap) kmlLayers.get(selectedPosition).addLayerToMap()
         }
         else{
-            colorBg = Color.WHITE
+            colorBg = ContextCompat.getColor(context, R.color.white)
+
             colorTxt = Color.parseColor("#80000000")
             for(i:Int in 0..4){
                 if( i != selectedPosition && kmlLayers.get(i).isLayerOnMap) kmlLayers.get(i).removeLayerFromMap()

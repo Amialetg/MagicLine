@@ -3,24 +3,23 @@ package com.voluntariat.android.magicline.activities.main.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
-
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
-import java.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.voluntariat.android.magicline.*
+import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
-import com.voluntariat.android.magicline.utils.MyCounter
-import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
+import com.voluntariat.android.magicline.utils.MyCounter
+import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
@@ -28,9 +27,10 @@ import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 
-class MagicLineFragment : Fragment() {
+class MagicLineFragment : BaseFragment() {
 
     private lateinit var dateCursaString: String
 
@@ -38,7 +38,7 @@ class MagicLineFragment : Fragment() {
     lateinit var progRecyclerView: RecyclerView
 
     //Setting the corresponding view
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_magic_line, container, false)
     }
 
@@ -65,18 +65,11 @@ class MagicLineFragment : Fragment() {
     private fun initMesQueListeners() {
 
         btnDonateTeam.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DonationsFragment())
-            transaction.addToBackStack("donateTeam")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(DonationsFragment.newInstance())
         }
 
         btnRequestDonates.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            //todo: uncomment when merge the branch multi lang
-//            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
-            transaction.addToBackStack("donateTeam")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
 
         btnBrainStorm.setOnClickListener {
@@ -86,10 +79,7 @@ class MagicLineFragment : Fragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, MoreInfoMLFragment())
-            transaction.addToBackStack("infoEssentialsButton")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
         }
     }
 
@@ -190,24 +180,15 @@ class MagicLineFragment : Fragment() {
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelEssential))
-            transaction.addToBackStack("infoEssentialsButton")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))
         }
 
         info_donations_destiny_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelDestiny))
-            transaction.addToBackStack("infoDestinyButton")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelDestiny))
         }
 
         info_sjd_button.setOnClickListener {
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelSantJoan))
-            transaction.addToBackStack("infoSjdButton")
-            transaction.commit()
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelSantJoan))
         }
     }
 
@@ -235,6 +216,7 @@ class MagicLineFragment : Fragment() {
         var intent: Intent
         intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
+        this.requireContext().startActivity(intent)
     }
 }
+

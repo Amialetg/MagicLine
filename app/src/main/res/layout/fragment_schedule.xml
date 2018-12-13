@@ -6,7 +6,7 @@
     android:orientation="vertical"
     >
 
-    <include layout="@layout/layout_schedule_header"></include>
+    <include layout="@layout/layout_schedule_header" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

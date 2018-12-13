@@ -78,6 +78,7 @@
     <string name="schedule_button_text">Ver más</string>
     <string name="schedule_header_name">Actividades durante todo el día</string>
     <string name="schedule_alldayopen_act">Museos Abiertos</string>
+    <string name="schedule_header_total_duration">(Total ruta 6h)</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->

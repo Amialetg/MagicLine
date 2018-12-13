@@ -4,21 +4,20 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.*
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
-class DetailFragment : Fragment () {
+class DetailFragment : BaseFragment() {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel
@@ -56,7 +55,8 @@ class DetailFragment : Fragment () {
         detailLayoutView.detailBody.text = detailModel.textBody
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
-        detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
+        detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
+        }
     }
 
     private fun initWidgets() {
@@ -75,15 +75,15 @@ class DetailFragment : Fragment () {
         }
     }
 
-    fun openNewTabWindow(url: String, context: Context) {
+    private fun openNewTabWindow(url: String, context: Context) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
     }
 
     companion object {
-        fun newInstance(detailModel: DetailModel): DetailFragment {
+        fun newInstance(dataModel: DetailModel): BaseFragment {
             val myFragment = DetailFragment()
             val args = Bundle()
-            args.putSerializable("detailFragment", detailModel)
+            args.putSerializable("detailFragment", dataModel)
             myFragment.arguments = args
             return myFragment
         }

@@ -1,3 +1,5 @@
 package com.voluntariat.android.magicline.models
 
-data class MoreInfoMLModel(val aboutML: String )
+import com.voluntariat.android.magicline.activities.main.DataModelInterface
+
+data class MoreInfoMLModel(val aboutML: String ) : DataModelInterface

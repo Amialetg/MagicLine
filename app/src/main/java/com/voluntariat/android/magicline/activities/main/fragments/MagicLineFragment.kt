@@ -4,23 +4,22 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
-import java.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.voluntariat.android.magicline.*
+import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
-import com.voluntariat.android.magicline.utils.MyCounter
-import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
+import com.voluntariat.android.magicline.utils.MyCounter
+import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
@@ -28,6 +27,7 @@ import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MagicLineFragment : Fragment() {
@@ -190,24 +190,15 @@ class MagicLineFragment : Fragment() {
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelEssential))
-            transaction.addToBackStack("infoEssentialsButton")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelEssential)
         }
 
         info_donations_destiny_button.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelDestiny))
-            transaction.addToBackStack("infoDestinyButton")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelDestiny)
         }
 
         info_sjd_button.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DetailFragment.newInstance(dataModelSantJoan))
-            transaction.addToBackStack("infoSjdButton")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelSantJoan)
         }
     }
 
@@ -237,4 +228,8 @@ class MagicLineFragment : Fragment() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }
+
+
+
 }
+

@@ -13,15 +13,5 @@ import com.voluntariat.android.magicline.db.MagicLineDB
 
 class MagicLineViewModel(application : Application, private val repository: MagicLineRepository) : AndroidViewModel(application) {
 
-    private lateinit var mAllPosts: LiveData<List<Post>>
-
-    fun getAllPosts(): LiveData<List<Post>> {
-        return mAllPosts
-    }
-
-    fun insert(postsItem: PostsItem) {
-        repository.insert(postsItem)
-    }
-
-
+    val posts: LiveData<List<PostsItem>> = repository.getPosts()
 }

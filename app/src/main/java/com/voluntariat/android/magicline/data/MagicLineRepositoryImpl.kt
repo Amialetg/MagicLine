@@ -3,6 +3,7 @@ package com.voluntariat.android.magicline.data
 import android.app.Application
 import androidx.lifecycle.LiveData
 import android.os.AsyncTask
+import androidx.lifecycle.MutableLiveData
 import com.voluntariat.android.magicline.utils.callback
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
 import com.voluntariat.android.magicline.data.apimodels.PostList
@@ -60,19 +61,15 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         ))
     }
 
-    override fun getPosts(
-            onResult: (postResult: Result<PostList>) -> Unit) {
+    override fun getPosts() : LiveData<List<PostsItem>> {
         MagicLineAPI.service.posts().enqueue(callback(
-                { result ->
-                    if (result.isSuccessful) {
-                        mPostDao.insertList(result.body()?.posts)
-                    } else {
-                        onResult(Result.Failure(Throwable(result.errorBody().toString())))
-                    }
-                }, { error ->
-            onResult(Result.Failure(error))
-        }))
+            { result ->
+                if (result.isSuccessful) {
+                    val data = MutableLiveData<List<PostsItem>>()
+                    mPostDao.insertList(result.body()?.posts)
+                }
+            }))
+
+        return mPostDao.getAllPosts()
     }
-
-
 }

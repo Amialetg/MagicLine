@@ -39,7 +39,7 @@ import java.text.SimpleDateFormat
 class MagicLineFragment : androidx.fragment.app.Fragment() {
 
 
-    private lateinit var mMagicLineViewModel: AndroidViewModel
+    private lateinit var mMagicLineViewModel: MagicLineViewModel
 
     private lateinit var dateCursaString: String
 
@@ -52,7 +52,6 @@ class MagicLineFragment : androidx.fragment.app.Fragment() {
         var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
-
     }
 
     //Setting the corresponding view
@@ -140,10 +139,8 @@ class MagicLineFragment : androidx.fragment.app.Fragment() {
     }
 
     private fun initNewsRecycler() {
-        val dataSet = arrayOf(NewsModel("Nou event en la programació", getString(lorem_ipsum)), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
-
         val myNewsManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
-        val myNewsAdapter = NewsAdapter(dataSet)
+        val myNewsAdapter = NewsAdapter()
 
         news_recycler.layoutManager = myNewsManager
         news_recycler.adapter = myNewsAdapter
@@ -158,6 +155,10 @@ class MagicLineFragment : androidx.fragment.app.Fragment() {
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
+
+        mMagicLineViewModel.posts.observe(this, androidx.lifecycle.Observer {
+            myNewsAdapter.loadItems(it ?: emptyList())
+            myNewsAdapter.notifyDataSetChanged()})
     }
 
     private fun initArrowsListeners(mLayoutManager: androidx.recyclerview.widget.LinearLayoutManager) {

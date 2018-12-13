@@ -57,12 +57,7 @@ class MainActivity : BaseActivity() {
             is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }
-        repo.getPosts { result -> when (result) {
-            is Result.Success -> {Log.d("apiLogin","Success, token: ${result.data}")
-
-            }
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
+        repo.getPosts()
     }
 
     private fun initWidgets() {
@@ -94,8 +89,7 @@ class MainActivity : BaseActivity() {
     private fun initNavigation() {
 
         //Behaviour when clicked on a item different from map
-        bottomBarView.setOnNavigationItemSelectedListener { item ->
-            bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
+        bottomBarView.setOnNavigationItemSelectedListener { item -> bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
 
             selectFragment(item)
             true

@@ -17,6 +17,7 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
+import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel

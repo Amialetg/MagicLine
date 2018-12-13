@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
-class InfoFragment: androidx.fragment.app.Fragment(){
+class InfoFragment: Fragment(){
 
      // 1--> SPANISH 2-->CATALAN
 

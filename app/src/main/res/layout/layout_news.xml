@@ -57,7 +57,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="@dimen/news_recycler_width"
                     android:layout_height="wrap_content"
-                    android:id="@+id/news_recycler"
+                    android:id="@+id/newsRecyclerView"
                     >
                 </androidx.recyclerview.widget.RecyclerView>
 

@@ -4,18 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.data.apimodels.Post
 import com.voluntariat.android.magicline.data.apimodels.PostsItem
 
-class NewsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
-
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
     lateinit var data: List<PostsItem>
 
-    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val title = itemView.findViewById<TextView>(R.id.news_item_title)
         val desc = itemView.findViewById<TextView>(R.id.news_item_desc)
-
     }
 
     // Create new views
@@ -30,7 +28,6 @@ class NewsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<NewsAdapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         //Get information from the new item
-
         holder.title.text = data[position].title
         holder.desc.text = data[position].text
 

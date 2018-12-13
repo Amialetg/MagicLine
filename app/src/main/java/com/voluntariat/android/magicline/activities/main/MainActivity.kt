@@ -1,23 +1,20 @@
 package com.voluntariat.android.magicline.activities.main
 
-import android.app.Activity
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModelProviders
 import android.graphics.Color
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.voluntariat.android.magicline.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.MenuItem
-import com.voluntariat.android.magicline.activities.main.fragments.*
+import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
+import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
+import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
-import com.voluntariat.android.magicline.data.api.MagicLineAPI
 import com.voluntariat.android.magicline.db.MagicLineDB
-import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
-
 
 
 class MainActivity : BaseActivity() {
@@ -27,7 +24,7 @@ class MainActivity : BaseActivity() {
     private lateinit var bottomBarBtn: FloatingActionButton
 
     //The app starts at the magic line fragment
-    private var currentFragment: androidx.fragment.app.Fragment = MagicLineFragment()
+    private var currentFragment: Fragment = MagicLineFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,7 +114,7 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
-        val newFragment: androidx.fragment.app.Fragment
+        val newFragment: Fragment
 
         when (item.itemId) {
             R.id.magicline_menu_id -> {

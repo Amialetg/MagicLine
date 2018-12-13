@@ -20,7 +20,8 @@ class MagicLineViewModel(application : Application, private val repository: Magi
     }
 
     fun insert(postsItem: PostsItem) {
-        repository.insert(postsItem)
+        // TODO("implement!")
+        //repository.insert(postsItem)
     }
 
 

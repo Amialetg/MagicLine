@@ -29,11 +29,12 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // OneSignal Initialization
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
                 .setNotificationOpenedHandler(ExampleNotificationOpenedHandler(this))
                 .init()
-
         setContentView(R.layout.activity_main)
 
         initWidgets()
@@ -174,7 +175,7 @@ class MainActivity : BaseActivity() {
 
                 }
                 "detallsEsdeveniments" -> {
-                    navigateToFragment(ScheduleFragment())
+                    navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
 
                 }
                 else -> {

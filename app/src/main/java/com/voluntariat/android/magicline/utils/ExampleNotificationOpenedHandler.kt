@@ -1,22 +1,12 @@
 package com.voluntariat.android.magicline.utils
 
-import android.app.FragmentController
-import android.app.FragmentManager
 import android.content.Context
 import android.util.Log
 import com.onesignal.OSNotificationOpenResult
 import com.onesignal.OneSignal
-import com.voluntariat.android.magicline.activities.splash.SplashScreenActivity
 import com.onesignal.OSNotificationAction
 import android.content.Intent
-import android.net.Uri
-import android.support.v4.app.FragmentTransaction
-import android.widget.Toast
-import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.fragments.InviteFriendsFragment
-import android.support.v4.content.ContextCompat.startActivity
 import com.voluntariat.android.magicline.activities.main.MainActivity
-import android.support.v4.app.FragmentActivity
 
 
 
@@ -32,20 +22,25 @@ internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.No
         val customKey: String?
         val intent = Intent(context, MainActivity::class.java)
 
-
         if (data != null) {
 
             when (data["type"] ) {
                 "ultimaNoticia" ->{
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT )
+
                     intent.putExtra("From", "ultimaNoticia")
                     this.context.startActivity(intent)
                 }
                 "ferDonacio" -> {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT )
+
                     intent.putExtra("From", "ferDonacio")
                     this.context.startActivity(intent)
 
                 }
                 "detallsEsdeveniments" -> {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+
                     intent.putExtra("From", "detallsEsdeveniments")
                     this.context.startActivity(intent)
 
@@ -65,7 +60,4 @@ internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.No
             Log.i("OneSignalExample", "Button pressed with id: " + result.action.actionID)
 
     }
-
-
-
 }

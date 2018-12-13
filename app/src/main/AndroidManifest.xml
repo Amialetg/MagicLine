@@ -21,25 +21,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_API_key"/>
-
-        
         <activity
-
-
             android:name=".activities.splash.SplashScreenActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
 
         <activity android:name=".activities.main.MainActivity"
             android:screenOrientation="portrait"/>
 
-        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
 
     </application>
 

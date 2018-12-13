@@ -166,7 +166,7 @@ class MainActivity : BaseActivity() {
         if (type != null) {
             when (type) {
                 "ultimaNoticia" ->{
-                    navigateToFragment(InviteFriendsFragment())
+                    navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
 
                 }
                 "ferDonacio" -> {
@@ -174,7 +174,7 @@ class MainActivity : BaseActivity() {
 
                 }
                 "detallsEsdeveniments" -> {
-                    navigateToFragment(DetailFragment())
+                    navigateToFragment(ScheduleFragment())
 
                 }
                 else -> {

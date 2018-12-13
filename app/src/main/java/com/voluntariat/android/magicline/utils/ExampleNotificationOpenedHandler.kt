@@ -39,7 +39,6 @@ internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.No
                 "ultimaNoticia" ->{
                     intent.putExtra("From", "ultimaNoticia")
                     this.context.startActivity(intent)
-
                 }
                 "ferDonacio" -> {
                     intent.putExtra("From", "ferDonacio")

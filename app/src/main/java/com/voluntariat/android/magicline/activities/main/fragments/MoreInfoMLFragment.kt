@@ -1,30 +1,31 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.*
-import com.voluntariat.android.magicline.models.MoreInfoMLModel
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-import com.voluntariat.android.magicline.R.string.*
-import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
-import android.graphics.Typeface
-import android.os.Build
-import android.support.v4.content.res.ResourcesCompat
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.voluntariat.android.magicline.R.color.*
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.color.light_red
+import com.voluntariat.android.magicline.R.color.mesque_background
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
+import com.voluntariat.android.magicline.R.string.*
+import com.voluntariat.android.magicline.activities.main.DataModelInterface
+import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
+import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
-class MoreInfoMLFragment : Fragment() {
+class MoreInfoMLFragment : BaseFragment() {
 
     private lateinit var moreInfoMLView: View
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel
@@ -94,6 +95,14 @@ class MoreInfoMLFragment : Fragment() {
 
     private fun setupBarChartData() {
 
+    }
+
+    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
+        val myFragment = MoreInfoMLFragment()
+        val args = Bundle()
+        args.putSerializable("moreInfoMLFragment", dataModel)
+        myFragment.arguments = args
+        return myFragment
     }
 
 

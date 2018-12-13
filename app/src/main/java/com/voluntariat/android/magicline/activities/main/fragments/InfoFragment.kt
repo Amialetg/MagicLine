@@ -12,6 +12,7 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.*
 import com.voluntariat.android.magicline.activities.main.DataModelInterface
+import com.voluntariat.android.magicline.models.DefaultModel
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_info.*
@@ -84,11 +85,9 @@ class InfoFragment: BaseFragment() {
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
-            transaction.addToBackStack(InviteFriendsFragment().javaClass.canonicalName)
-            transaction.commit()
+            transitionWithModalAnimation(fragment = InviteFriendsFragment(), dataModel = DefaultModel(true))
         }
+
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)
         }

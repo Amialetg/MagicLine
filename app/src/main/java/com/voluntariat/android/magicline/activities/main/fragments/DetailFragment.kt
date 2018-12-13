@@ -80,10 +80,10 @@ class DetailFragment : BaseFragment(), DataModelInterface {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
     }
 
-    override fun newInstance(detailModel: DataModelInterface): BaseFragment {
+    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
         val myFragment = DetailFragment()
         val args = Bundle()
-        args.putSerializable("detailFragment", detailModel)
+        args.putSerializable("detailFragment", dataModel)
         myFragment.arguments = args
         return myFragment
     }

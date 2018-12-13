@@ -1,20 +1,25 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.voluntariat.android.magicline.R
 import android.widget.Toast
-import android.content.pm.PackageManager
-import android.content.pm.PackageInfo
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import kotlinx.android.synthetic.main.fragment_invite_friends.*
 
 
-class InviteFriendsFragment: Fragment(){
+class InviteFriendsFragment: BaseFragment() {
+    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
+        val myFragment = InviteFriendsFragment()
+        val args = Bundle()
+        args.putSerializable("donationsFragment", dataModel)
+        myFragment.arguments = args
+        return myFragment
+    }
 
     override fun onStart() {
         super.onStart()

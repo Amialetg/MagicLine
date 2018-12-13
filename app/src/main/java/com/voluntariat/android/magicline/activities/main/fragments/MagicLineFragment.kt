@@ -3,7 +3,6 @@ package com.voluntariat.android.magicline.activities.main.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
@@ -14,7 +13,9 @@ import android.widget.TextView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
+import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
+import com.voluntariat.android.magicline.models.DefaultModel
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
@@ -30,7 +31,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class MagicLineFragment : Fragment() {
+class MagicLineFragment : BaseFragment() {
 
     private lateinit var dateCursaString: String
 
@@ -65,18 +66,11 @@ class MagicLineFragment : Fragment() {
     private fun initMesQueListeners() {
 
         btnDonateTeam.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, DonationsFragment())
-            transaction.addToBackStack("donateTeam")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = DonationsFragment(), dataModel = DefaultModel(true))
         }
 
         btnRequestDonates.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            //todo: uncomment when merge the branch multi lang
-//            transaction.replace(R.id.frame_layout, InviteFriendsFragment())
-            transaction.addToBackStack("donateTeam")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = InviteFriendsFragment(), dataModel = DefaultModel(true))
         }
 
         btnBrainStorm.setOnClickListener {
@@ -86,10 +80,7 @@ class MagicLineFragment : Fragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, MoreInfoMLFragment())
-            transaction.addToBackStack("infoEssentialsButton")
-            transaction.commit()
+            transitionWithModalAnimation(fragment = MoreInfoMLFragment(), dataModel = DefaultModel(true))
         }
     }
 
@@ -229,6 +220,9 @@ class MagicLineFragment : Fragment() {
         this.requireContext().startActivity(intent)
     }
 
+    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
 
 }

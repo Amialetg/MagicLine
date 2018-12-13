@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.activities.main.DataModelInterface
@@ -24,13 +22,9 @@ class DetailFragment : BaseFragment(), DataModelInterface {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel
-    private lateinit var slideUpAnimation: Animation
-    private lateinit var slideDownAnimation: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        slideUpAnimation = AnimationUtils.loadAnimation(context, R.anim.slide_in_up)
-        slideDownAnimation = AnimationUtils.loadAnimation(context, R.anim.slide_out_up)
         detailModel = arguments?.get("detailFragment") as DetailModel
     }
 
@@ -53,11 +47,6 @@ class DetailFragment : BaseFragment(), DataModelInterface {
         }
         if (detailModel.hasToolbarImg) {
             detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
-    }
-//
-    override fun onPause() {
-        super.onPause()
-        detailLayoutView.startAnimation(slideDownAnimation)
     }
 
     private fun initToolbar() {
@@ -87,7 +76,7 @@ class DetailFragment : BaseFragment(), DataModelInterface {
         }
     }
 
-    fun openNewTabWindow(url: String, context: Context) {
+    private fun openNewTabWindow(url: String, context: Context) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
     }
 

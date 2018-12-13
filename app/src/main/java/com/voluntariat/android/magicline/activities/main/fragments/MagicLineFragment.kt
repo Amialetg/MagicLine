@@ -50,7 +50,7 @@ class MagicLineFragment : androidx.fragment.app.Fragment() {
         super.onCreate(savedInstanceState)
 
         var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
-        val factory: MagicLineViewModelFactory  = MagicLineViewModelFactory(repository)
+        val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
 
     }

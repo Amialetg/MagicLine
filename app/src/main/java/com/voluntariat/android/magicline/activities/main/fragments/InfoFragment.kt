@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.*
 import com.voluntariat.android.magicline.activities.main.DataModelInterface
-import com.voluntariat.android.magicline.models.DefaultModel
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_info.*
@@ -85,7 +85,7 @@ class InfoFragment: BaseFragment() {
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            transitionWithModalAnimation(fragment = InviteFriendsFragment(), dataModel = DefaultModel(true))
+            (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
 
         webMagicLineTextView.setOnClickListener{
@@ -103,7 +103,7 @@ class InfoFragment: BaseFragment() {
                     isBlack = false,
                     hasToolbarImg = true)
 
-            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelAboutMLApp)
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelAboutMLApp))
         }
     }
 
@@ -116,12 +116,10 @@ class InfoFragment: BaseFragment() {
 
     }
 
-    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
-        val myFragment = InfoFragment()
-        val args = Bundle()
-        args.putSerializable("infoFragment", dataModel)
-        myFragment.arguments = args
-        return myFragment
+    companion object {
+        fun newInstance(dataModel: DataModelInterface): BaseFragment {
+            return InfoFragment()
+        }
     }
 
 }

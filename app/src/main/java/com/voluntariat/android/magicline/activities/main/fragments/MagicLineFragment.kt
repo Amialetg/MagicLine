@@ -3,6 +3,7 @@ package com.voluntariat.android.magicline.activities.main.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
@@ -13,9 +14,7 @@ import android.widget.TextView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
-import com.voluntariat.android.magicline.models.DefaultModel
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
@@ -66,11 +65,11 @@ class MagicLineFragment : BaseFragment() {
     private fun initMesQueListeners() {
 
         btnDonateTeam.setOnClickListener {
-            transitionWithModalAnimation(fragment = DonationsFragment(), dataModel = DefaultModel(true))
+            (activity as AppCompatActivity).transitionWithModalAnimation(DonationsFragment.newInstance())
         }
 
         btnRequestDonates.setOnClickListener {
-            transitionWithModalAnimation(fragment = InviteFriendsFragment(), dataModel = DefaultModel(true))
+            (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
 
         btnBrainStorm.setOnClickListener {
@@ -80,7 +79,7 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            transitionWithModalAnimation(fragment = MoreInfoMLFragment(), dataModel = DefaultModel(true))
+            (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
         }
     }
 
@@ -181,15 +180,15 @@ class MagicLineFragment : BaseFragment() {
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {
-            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelEssential)
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))
         }
 
         info_donations_destiny_button.setOnClickListener {
-            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelDestiny)
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelDestiny))
         }
 
         info_sjd_button.setOnClickListener {
-            transitionWithModalAnimation(fragment = DetailFragment(), dataModel = dataModelSantJoan)
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelSantJoan))
         }
     }
 
@@ -219,11 +218,5 @@ class MagicLineFragment : BaseFragment() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }
-
-    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-
 }
 

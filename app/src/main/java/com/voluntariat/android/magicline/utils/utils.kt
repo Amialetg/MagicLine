@@ -1,9 +1,8 @@
 package com.voluntariat.android.magicline.utils
 
-import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,10 +34,10 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun Fragment.transitionWithModalAnimation(fragment: BaseFragment, dataModel: DataModelInterface, useModalAnimation: Boolean = true) {
-    val transaction = this.requireActivity().supportFragmentManager.beginTransaction()
+fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true) {
+    val transaction = this.supportFragmentManager.beginTransaction()
     if(useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
-    transaction.replace(R.id.frame_layout, fragment.newInstance(dataModel))
+    transaction.replace(R.id.frame_layout, fragment)
     transaction.addToBackStack(fragment.javaClass.canonicalName)
     transaction.commit()
 }

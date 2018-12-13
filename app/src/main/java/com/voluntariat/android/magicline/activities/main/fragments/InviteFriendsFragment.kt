@@ -8,18 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import kotlinx.android.synthetic.main.fragment_invite_friends.*
 
 
 class InviteFriendsFragment: BaseFragment() {
-    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
-        val myFragment = InviteFriendsFragment()
-        val args = Bundle()
-        args.putSerializable("donationsFragment", dataModel)
-        myFragment.arguments = args
-        return myFragment
-    }
 
     override fun onStart() {
         super.onStart()
@@ -79,6 +71,12 @@ class InviteFriendsFragment: BaseFragment() {
 
         } catch (e: PackageManager.NameNotFoundException) {
             Toast.makeText(this.context, "App not Installed", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    companion object {
+        fun newInstance(): BaseFragment {
+            return InviteFriendsFragment()
         }
     }
 }

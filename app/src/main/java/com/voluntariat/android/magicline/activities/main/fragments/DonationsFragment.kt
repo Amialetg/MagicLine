@@ -5,17 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 
 class DonationsFragment: BaseFragment(){
 
-    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
-        val myFragment = DonationsFragment()
-        val args = Bundle()
-        args.putSerializable("donationsFragment", dataModel)
-        myFragment.arguments = args
-        return myFragment
-    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_donations, container,  false)
@@ -36,5 +29,11 @@ class DonationsFragment: BaseFragment(){
         val call = magicLineService.testAPI("Test")
         val result = call.execute().body()
         Log.e("API",result.toString())*/
+    }
+
+    companion object {
+        fun newInstance() : BaseFragment {
+            return DonationsFragment()
+        }
     }
 }

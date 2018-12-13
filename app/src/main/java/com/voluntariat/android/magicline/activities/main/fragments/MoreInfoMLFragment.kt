@@ -18,7 +18,6 @@ import com.voluntariat.android.magicline.R.color.light_red
 import com.voluntariat.android.magicline.R.color.mesque_background
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.R.string.*
-import com.voluntariat.android.magicline.activities.main.DataModelInterface
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
@@ -48,9 +47,9 @@ class MoreInfoMLFragment : BaseFragment() {
         moreInfoMLView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val text: String = getString(walk_text_1) + " "
-        val text2: String =  "<b>"+ getString(walk_text_2)+ "</b>" + " "
+        val text2: String = "<b>" + getString(walk_text_2) + "</b>" + " "
         val text3: String = getString(walk_text_3) + " "
-        val text4: String = "<b>"+ getString(walk_text_4) +"</b>"
+        val text4: String = "<b>" + getString(walk_text_4) + "</b>"
         val textView = moreInfoMLView.firstWalkText
         textView.text = Html.fromHtml(text + text2 + text3 + text4)
     }
@@ -68,7 +67,7 @@ class MoreInfoMLFragment : BaseFragment() {
 
 
         val dataSet = PieDataSet(yVals, "")
-        dataSet.valueTextSize=0f
+        dataSet.valueTextSize = 0f
         val colors = java.util.ArrayList<Int>()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             colors.add(this.requireActivity().getColor(light_red))
@@ -97,12 +96,10 @@ class MoreInfoMLFragment : BaseFragment() {
 
     }
 
-    override fun newInstance(dataModel: DataModelInterface): BaseFragment {
-        val myFragment = MoreInfoMLFragment()
-        val args = Bundle()
-        args.putSerializable("moreInfoMLFragment", dataModel)
-        myFragment.arguments = args
-        return myFragment
+    companion object {
+        fun newInstance(): BaseFragment {
+            return MoreInfoMLFragment()
+        }
     }
 
 

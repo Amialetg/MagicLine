@@ -19,15 +19,16 @@
             />
 
         <ImageView
+            android:id="@+id/circle"
             android:layout_width="@dimen/width_circle"
             android:layout_height="@dimen/width_circle"
             android:src="@drawable/circle_filled"
             android:layout_marginStart="@dimen/margin_left_circle"
             android:layout_marginTop="@dimen/margin_top_circle"
-            android:id="@+id/circle"
             />
 
         <TextView
+            android:id="@+id/scheduleHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/circle"
@@ -35,18 +36,17 @@
             android:layout_marginStart="@dimen/margin_left_hour"
             tools:text="13:30"
             style="@style/scheduleHour"
-            android:id="@+id/schedule_hour"
             />
 
         <TextView
+            android:id="@+id/scheduleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/schedule_hour"
+            android:layout_toRightOf="@id/scheduleHour"
             tools:text="Tornar a caminar"
             style="@style/scheduleCardTitle"
             android:layout_marginTop="@dimen/margin_top_text"
             android:layout_marginLeft="@dimen/margin_left_text"
-            android:id="@+id/schedule_text"
             />
 
     </RelativeLayout>

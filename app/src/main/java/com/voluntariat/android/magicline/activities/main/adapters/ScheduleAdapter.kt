@@ -6,25 +6,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.kingfisher.easyviewindicator.R.attr.subtitle
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.id.*
 import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
+import kotlinx.android.synthetic.main.model_programming.view.*
+import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
 class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val hour = itemView.findViewById<TextView>(R.id.schedule_hour)
-        val text = itemView.findViewById<TextView>(R.id.schedule_text)
+        val hour = itemView.scheduleHour
+        val text = itemView.scheduleText
 
     }
 
     class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val hour = itemView.findViewById<TextView>(R.id.schedule_card_hour)
-        val title = itemView.findViewById<TextView>(R.id.schedule_card_title)
-        val subtitle = itemView.findViewById<TextView>(R.id.schedule_card_subtitle)
-        val description = itemView.findViewById<TextView>(R.id.schedule_card_description)
+        val scheduleCardHour = itemView.scheduleCardHour
+        val scheduleCardTitle = itemView.scheduleCardTitle
+        val subtitle = itemView.scheduleCardSubtitle
+        val scheduleCardDescription = itemView.scheduleCardDescription
 
     }
 
@@ -34,19 +38,17 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
         else return 2
     }
 
-    // Create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        // create a new view
 
-        when(viewType){
+        return when(viewType){
             1->{
-                val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_schedule_text, parent, false)
-                return ViewHolderText(itemView)
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text, parent, false)
+                ViewHolderText(itemView)
             }
 
             else->{
-                val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_schedule_card, parent, false)
-                return ViewHolderCard(itemView)
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
+                ViewHolderCard(itemView)
             }
         }
     }
@@ -58,25 +60,16 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
             1->{
                 val textViewHolder = holder as ViewHolderText
                 val textModel = dataSet[position] as ScheduleTextModel
-
                 textViewHolder.hour.text = textModel.hour
                 textViewHolder.text.text = textModel.text
             }
             else->{
-
-
-
                 val cardViewHolder = holder as ViewHolderCard
                 val cardModel = dataSet[position] as ScheduleCardModel
-
-                Log.d("Schedule Adapter", cardModel.toString())
-
-
-                cardViewHolder.hour.text = cardModel.hour
-                cardViewHolder.title.text = cardModel.title
+                cardViewHolder.scheduleCardHour.text = cardModel.hour
+                cardViewHolder.scheduleCardTitle.text = cardModel.title
                 cardViewHolder.subtitle.text = cardModel.subtitle
-                cardViewHolder.description.text = cardModel.description
-
+                cardViewHolder.scheduleCardDescription.text = cardModel.description
             }
         }
     }

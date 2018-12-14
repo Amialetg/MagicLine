@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
@@ -54,13 +56,38 @@ class MainActivity : BaseActivity() {
     }
 
     private fun getData() {
-        scheduleModel =  arrayOf<ScheduleGeneralModel>(
+        scheduleModel = arrayOf<ScheduleGeneralModel>(
                 ScheduleTextModel("9:30", "Salida"),
-                ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", "In recent years people have realized the importance of proper diet and exercise, and recent surveys"),
+                ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(lorem_ipsum),
+                        detailModel = DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))),
                 ScheduleTextModel("12:30", "Tornar a caminar"),
-                ScheduleCardModel("13:30", "Espectacle", "Equipaments culturals obren les portes", "In recent years people have realized the importance of proper diet and exercise, and recent surveys"),
+                ScheduleCardModel(
+                        "13:30",
+                        "Espectacle",
+                        "Equipaments culturals obren les portes",
+                        "In recent years people have realized the importance of proper diet and exercise, and recent surveys",
+                        DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))
+                ),
                 ScheduleTextModel("15:00", "Caminar una mica més"),
-                ScheduleCardModel("16:30", "Concerts", "Equipaments culturals obren les portes", "In recent years people")
+                ScheduleCardModel(
+                        "16:30",
+                        "Concerts",
+                        "Equipaments culturals obren les portes",
+                        "In recent years people",
+                        detailModel = DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))
+                )
         )
     }
 

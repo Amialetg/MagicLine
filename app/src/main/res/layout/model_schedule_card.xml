@@ -35,7 +35,7 @@
             android:layout_marginStart="@dimen/margin_left_hour"
             tools:text="13:30"
             style="@style/scheduleHour"
-            android:id="@+id/schedule_card_hour"
+            android:id="@+id/scheduleCardHour"
             />
 
     </RelativeLayout>
@@ -55,36 +55,37 @@
             android:paddingTop="@dimen/padding_right_card">
 
             <TextView
+                android:id="@+id/scheduleCardTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Picnik"
                 style="@style/scheduleCardTitle"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/schedule_card_title"
 
                 />
 
             <TextView
+                android:id="@+id/scheduleCardSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Equipaments culturals obren Les portes"
                 style="@style/scheduleCardSubTitle"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/schedule_card_subtitle"
-                android:layout_below="@id/schedule_card_title"
+                android:layout_below="@id/scheduleCardTitle"
                 />
 
             <TextView
+                android:id="@+id/scheduleCardDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/schedule_card_description"
+                tools:text="@string/lorem_ipsum"
                 style="@style/scheduleCardDescription"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/schedule_card_description"
-                android:layout_below="@id/schedule_card_subtitle"
+                android:layout_below="@id/scheduleCardSubtitle"
                 />
 
             <Button
+                android:id="@+id/seeMoreBtn"
                 android:layout_width="@dimen/width_schedule_button"
                 android:layout_height="@dimen/height_schedule_button"
                 android:elevation="0dp"

@@ -28,7 +28,7 @@ data class Post(
 	@field:SerializedName("locale")
 	val locale: String? = null,
 
-	@field:SerializedName("title")
+	@field:SerializedName("scheduleCardTitle")
 	val title: String? = null,
 
 	@field:SerializedName("slug")

@@ -50,9 +50,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/padding_left_card"
-            android:paddingEnd="@dimen/padding_top_card"
-            android:paddingTop="@dimen/padding_right_card">
+            android:paddingTop="@dimen/padding_right_card"
+            android:paddingHorizontal="16dp">
 
             <TextView
                 android:id="@+id/scheduleCardTitle"
@@ -61,7 +60,6 @@
                 tools:text="Picnik"
                 style="@style/scheduleCardTitle"
                 android:layout_marginBottom="8dp"
-
                 />
 
             <TextView
@@ -80,6 +78,8 @@
                 android:layout_height="wrap_content"
                 tools:text="@string/lorem_ipsum"
                 style="@style/scheduleCardDescription"
+                android:maxLines="3"
+                android:ellipsize="end"
                 android:layout_marginBottom="8dp"
                 android:layout_below="@id/scheduleCardSubtitle"
                 />

@@ -45,18 +45,22 @@ class MainActivity : BaseActivity() {
         repo.authenticate(
                 "apiml",
                 "4p1ml2018"
-        ) { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
-        repo.getPosts { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
+        ) { result ->
+            when (result) {
+                is Result.Success -> Log.d("apiLogin", "Success, token: ${result.data}")
+                is Result.Failure -> Log.d("apiLogin", "Failure: ${result.throwable.message}")
+            }
+        }
+        repo.getPosts { result ->
+            when (result) {
+                is Result.Success -> Log.d("apiLogin", "Success, token: ${result.data}")
+                is Result.Failure -> Log.d("apiLogin", "Failure: ${result.throwable.message}")
+            }
+        }
     }
 
     private fun getData() {
-        scheduleModel = arrayOf<ScheduleGeneralModel>(
+        scheduleModel = arrayOf(
                 ScheduleTextModel("9:30", "Salida"),
                 ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(lorem_ipsum),
                         detailModel = DetailModel(
@@ -114,7 +118,7 @@ class MainActivity : BaseActivity() {
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
-            floatingBtn.setColorFilter(Color.argb(255,74,74,74))
+            floatingBtn.setColorFilter(Color.argb(255, 74, 74, 74))
 
             selectFragment(item)
             true
@@ -122,7 +126,7 @@ class MainActivity : BaseActivity() {
 
         //Behaviour when clicked on the map item
         floatingBtn.setOnClickListener {
-            floatingBtn.setColorFilter(Color.argb(255,237,53,37))
+            floatingBtn.setColorFilter(Color.argb(255, 237, 53, 37))
 
             //We set clicked on the none item in order to disable the rest of the items
             //but the fragment that is shown is the map fragment

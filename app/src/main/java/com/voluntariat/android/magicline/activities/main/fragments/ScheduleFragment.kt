@@ -1,7 +1,6 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,16 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.ScheduleAdapter
-import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
-import com.voluntariat.android.magicline.models.ScheduleTextModel
 
-class ScheduleFragment:Fragment(){
+class ScheduleFragment: BaseFragment() {
 
     //recycler widgets
     lateinit var scheduleRecyclerView:RecyclerView
+    private lateinit var scheduleModel: Array<ScheduleGeneralModel>
 
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        scheduleModel = arguments?.get("scheduleFragment") as Array<ScheduleGeneralModel>
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_schedule, container,  false)
     }
@@ -36,16 +37,20 @@ class ScheduleFragment:Fragment(){
     }
 
     private fun initScheduleRecycler(){
-        val dataSet = getDataset()
-
         val myScheduleManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val myScheduleAdapter = ScheduleAdapter(dataSet)
+        val myScheduleAdapter = ScheduleAdapter(scheduleModel)
 
         scheduleRecyclerView.layoutManager = myScheduleManager
         scheduleRecyclerView.adapter = myScheduleAdapter
     }
 
-    private fun getDataset(): Array<ScheduleGeneralModel>{
-        return arrayOf(ScheduleTextModel("9:30", "Salida"), ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", "In recent years people have realized the importance of proper diet and exercise, and recent surveys"),ScheduleTextModel("12:30", "Tornar a caminar"), ScheduleCardModel("13:30", "Espectacle", "Equipaments culturals obren les portes", "In recent years people have realized the importance of proper diet and exercise, and recent surveys"),ScheduleTextModel("15:00", "Caminar una mica més"), ScheduleCardModel("16:30", "Concerts", "Equipaments culturals obren les portes", "In recent years people"))
+    companion object {
+        fun newInstance(scheduleModel: Array<ScheduleGeneralModel>): BaseFragment {
+            val myFragment = ScheduleFragment()
+            val args = Bundle()
+            args.putSerializable("scheduleFragment", scheduleModel)
+            myFragment.arguments = args
+            return myFragment
+        }
     }
 }

@@ -21,7 +21,7 @@ import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
 import java.util.ArrayList
 
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var kmlLayer : KmlLayer

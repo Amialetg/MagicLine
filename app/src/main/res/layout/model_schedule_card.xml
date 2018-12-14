@@ -52,9 +52,7 @@
             android:layout_height="match_parent"
             android:paddingStart="@dimen/padding_left_card"
             android:paddingEnd="@dimen/padding_top_card"
-            android:paddingTop="@dimen/padding_right_card"
-
-            >
+            android:paddingTop="@dimen/padding_right_card">
 
             <TextView
                 android:layout_width="wrap_content"

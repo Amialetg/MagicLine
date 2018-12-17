@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_donations.*
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //To add a Script
+        
         val css = "header, #results, body > div > h3 { display: none; }"
         val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
@@ -53,7 +53,6 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
-                // Do something
                 v.webviewDonation.evaluateJavascript(js, null)
                 super.onPageStarted(view, url, favicon)
 
@@ -68,7 +67,6 @@ class DonationsFragment: BaseFragment(){
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
-                // Enable disable back forward button
 
                 v.progressBar.visibility = View.GONE
                 v.webviewDonation.evaluateJavascript(js, null)
@@ -81,7 +79,6 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.clearCache(true)
 
         return v
-        //testApi()
 
     }
 

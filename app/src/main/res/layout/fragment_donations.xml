@@ -1,107 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/fragment_donations"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+    <WebView
+        android:id="@+id/webviewDonation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-            <TextView
-                style="@style/TopTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingTop="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
-                android:paddingBottom="@dimen/margin_programming"
-                android:text="@string/magicLineTitle"
-                android:textColor="@color/light_red" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:minWidth="50dp"
+        android:visibility="visible"/>
 
-            <TextView
-                style="@style/scheduleHour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
-                android:paddingBottom="@dimen/margin_programming"
-                android:text="@string/donationText"
-                android:textColor="@color/black" />
-
-            <TextView
-                style="@style/recaudats_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
-                android:text="@string/textDonateCause"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textSize_14" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/radiobutton_not_pressed"
-                    android:drawablePadding="5dp"
-                    android:padding="@dimen/padding_left_card"
-                    android:text="@string/particularText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/radiobutton_not_pressed"
-                    android:drawablePadding="5dp"
-                    android:padding="@dimen/padding_left_card"
-                    android:text="@string/EntityText" />
-
-
-            </LinearLayout>
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="@dimen/padding_left_card"
-                android:paddingRight="@dimen/padding_left_card"
-                tools:text="Import *" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/checkbox_not_pressed"
-                android:drawablePadding="5dp"
-                android:text="@string/importText"
-                android:textAlignment="viewEnd" />
-
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/checkbox_not_pressed"
-                android:drawablePadding="5dp"
-                android:padding="@dimen/padding_left_card"
-                android:text="@string/nameImportText"
-                android:textAlignment="viewEnd" />
-
-        </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

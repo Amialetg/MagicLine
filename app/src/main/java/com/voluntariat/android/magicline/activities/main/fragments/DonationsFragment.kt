@@ -12,6 +12,8 @@ import android.os.Build
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
+import android.widget.ProgressBar
+import kotlinx.android.synthetic.main.fragment_donations.*
 
 
 class DonationsFragment: BaseFragment(){
@@ -52,9 +54,7 @@ class DonationsFragment: BaseFragment(){
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
                 // Do something
-                v.progressBar.visibility = View.VISIBLE
                 v.webviewDonation.evaluateJavascript(js, null)
-
                 super.onPageStarted(view, url, favicon)
 
             }
@@ -62,7 +62,6 @@ class DonationsFragment: BaseFragment(){
             override fun onLoadResource(view: WebView?, url: String?) {
                 v.webviewDonation.evaluateJavascript(js, null)
 
-                v.progressBar?.visibility = View.VISIBLE
                 super.onLoadResource(view, url)
 
             }
@@ -70,16 +69,16 @@ class DonationsFragment: BaseFragment(){
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
                 // Enable disable back forward button
+
                 v.progressBar.visibility = View.GONE
                 v.webviewDonation.evaluateJavascript(js, null)
-
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
             }
         }
 
         v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
-        v.webviewDonation.clearCache(false)
+        v.webviewDonation.clearCache(true)
 
         return v
         //testApi()

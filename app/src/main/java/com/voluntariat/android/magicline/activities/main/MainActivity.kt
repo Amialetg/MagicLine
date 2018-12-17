@@ -1,16 +1,13 @@
 package com.voluntariat.android.magicline.activities.main
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.voluntariat.android.magicline.R
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.MenuItem
 import com.onesignal.OneSignal
+import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.data.Result
@@ -77,12 +74,12 @@ class MainActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-        val count = fragmentManager.backStackEntryCount
+        val count = supportFragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
             //additional code
         } else {
-            fragmentManager.popBackStack()
+            supportFragmentManager.popBackStack()
         }
     }
 

@@ -17,6 +17,9 @@ import android.webkit.WebSettings
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //To add a Script
+        val css = "header, #results, body > div > h3 { display: none; }"
+        val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
 
@@ -44,38 +47,23 @@ class DonationsFragment: BaseFragment(){
             settings.mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
         }
 
-
-
-
-//        v.webviewDonation.webChromeClient = object : WebChromeClient() {
-//            override fun onProgressChanged(view: WebView, progress: Int) {
-//                v.progressBar.progress = progress
-//                if (progress == 100) {
-//                    v.progressBar.visibility = View.GONE
-//
-//                } else {
-//                    v.progressBar.visibility = View.VISIBLE
-//
-//                }
-//            }
-//        }
-//
-
         // Set web view client
         v.webviewDonation.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
                 // Do something
                 v.progressBar.visibility = View.VISIBLE
+                v.webviewDonation.evaluateJavascript(js, null)
+
                 super.onPageStarted(view, url, favicon)
 
             }
 
             override fun onLoadResource(view: WebView?, url: String?) {
+                v.webviewDonation.evaluateJavascript(js, null)
+
                 v.progressBar?.visibility = View.VISIBLE
                 super.onLoadResource(view, url)
-
-
 
             }
 
@@ -83,6 +71,7 @@ class DonationsFragment: BaseFragment(){
                 // Page loading finished
                 // Enable disable back forward button
                 v.progressBar.visibility = View.GONE
+                v.webviewDonation.evaluateJavascript(js, null)
 
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
@@ -96,6 +85,7 @@ class DonationsFragment: BaseFragment(){
         //testApi()
 
     }
+
 
     private fun testApi() {
         /*val loginModelClient = OkHttpClient().newBuilder()
@@ -115,5 +105,7 @@ class DonationsFragment: BaseFragment(){
             return DonationsFragment()
         }
     }
+
+
 
 }

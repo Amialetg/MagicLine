@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 data class PostsItem(
 
         @PrimaryKey(autoGenerate = true)
-        val primaryKey: Int = 0,
+        val primaryKey: Int,
         @Embedded
         @SerializedName("Post")
         val post : Post,

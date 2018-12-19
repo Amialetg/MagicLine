@@ -14,4 +14,7 @@ import com.voluntariat.android.magicline.data.apimodels.PostsItem
     @Query("select * from postItems where id = :idPost")
     fun getPostById(idPost: Int): Post
 
+    @Query("DELETE FROM postItems")
+    fun nukeTable()
+
 }

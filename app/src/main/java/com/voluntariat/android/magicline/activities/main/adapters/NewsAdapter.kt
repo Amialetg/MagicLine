@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline.activities.main.adapters
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
@@ -11,8 +12,8 @@ import com.voluntariat.android.magicline.models.NewsModel
 class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val title = itemView.findViewById<TextView>(R.id.news_item_title)
-        val desc = itemView.findViewById<TextView>(R.id.news_item_desc)
+        val title: TextView = itemView.findViewById(R.id.news_item_title)
+        val desc : TextView = itemView.findViewById<TextView>(R.id.news_item_desc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +26,7 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
 
         //Get information from the new item
         holder.title.text = dataSet[position].title
-        holder.desc.text = dataSet[position].description
+        holder.desc.text = Html.fromHtml(dataSet[position].description)
 
     }
     override fun getItemCount() = dataSet.size

@@ -64,6 +64,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
                 if (result.isSuccessful) {
                     var posts = result.body()?.posts as ArrayList<PostsItem>
                     Log.d("###", posts.toString())
+                    mPostDao.nukeTable()
                     mPostDao.insertList(posts)
                 }
             }))

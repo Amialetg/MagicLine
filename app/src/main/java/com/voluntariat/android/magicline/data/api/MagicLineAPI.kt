@@ -4,6 +4,7 @@ import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.data.MagicLineInterceptor
 import com.voluntariat.android.magicline.data.apimodels.LoginModel
 import com.voluntariat.android.magicline.data.apimodels.PostList
+import com.voluntariat.android.magicline.data.apimodels.Response
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -31,7 +32,7 @@ object MagicLineAPI {
         fun testAPI(@Path("user") user: String): Call<List<Any>>
 
         @GET("posts.json")
-        fun posts(): Call<PostList>
+        fun posts(): Call<Response>
 
         @FormUrlEncoded
         @POST("oAuthLogin")

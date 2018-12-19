@@ -1,8 +1,10 @@
 package com.voluntariat.android.magicline.data
 import androidx.lifecycle.LiveData
 import android.os.AsyncTask
+import android.util.Log
 import com.voluntariat.android.magicline.utils.callback
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.data.apimodels.Post
 import com.voluntariat.android.magicline.data.apimodels.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.db.dao.PostDao
@@ -60,7 +62,9 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         MagicLineAPI.service.posts().enqueue(callback(
             { result ->
                 if (result.isSuccessful) {
-                    mPostDao.insertList(result.body()?.posts)
+                    var posts = result.body()?.posts as ArrayList<PostsItem>
+                    Log.d("###", posts.toString())
+                    mPostDao.insertList(posts)
                 }
             }))
 

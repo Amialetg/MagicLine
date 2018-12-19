@@ -9,6 +9,8 @@ data class PostsItem(
         @PrimaryKey(autoGenerate = true)
         val primaryKey: Int = 0,
         @Embedded
+        @SerializedName("Post")
         val post : Post,
+        @SerializedName("PostImage")
         val postImages : MutableList<PostImageItem>
 )

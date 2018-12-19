@@ -1,17 +1,14 @@
 package com.voluntariat.android.magicline.db.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 interface BaseDao<T> {
 
     @Insert
     fun insert(obj: T)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertList(obj: List<T?>?)
 
     @Update

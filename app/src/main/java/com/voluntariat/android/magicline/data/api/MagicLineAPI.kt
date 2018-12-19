@@ -9,11 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 object MagicLineAPI {
     private const val URL = "http://magiclinesjd.org/ws/" // PROD
@@ -22,7 +18,12 @@ object MagicLineAPI {
     set(value) {
         field = value
         magicLineInterceptor.accessToken = value
+        retrofit = getRetrofit()
     }
+
+    private val magicLineInterceptor = MagicLineInterceptor(accessToken)
+
+    private var retrofit = getRetrofit()
 
     interface MagicLineService {
 
@@ -30,7 +31,7 @@ object MagicLineAPI {
         fun testAPI(@Path("user") user: String): Call<List<Any>>
 
         @GET("posts.json")
-        fun posts(/*@Query("access_token") accessToken: String*/): Call<PostList>
+        fun posts(): Call<PostList>
 
         @FormUrlEncoded
         @POST("oAuthLogin")
@@ -54,16 +55,15 @@ object MagicLineAPI {
          */
     }
 
-    private val magicLineInterceptor = MagicLineInterceptor(accessToken)
-
-    private val retrofit =
-            Retrofit.Builder()
-                    .baseUrl(URL)
-                    .client(getOkHttpClient())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-
     val service: MagicLineService = retrofit.create(MagicLineService::class.java)
+
+    private fun getRetrofit() : Retrofit {
+        return Retrofit.Builder()
+                .baseUrl(URL)
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+    }
 
     private fun getOkHttpClient(): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()

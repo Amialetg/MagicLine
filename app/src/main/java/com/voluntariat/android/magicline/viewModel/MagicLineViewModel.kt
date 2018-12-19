@@ -9,5 +9,7 @@ import com.voluntariat.android.magicline.data.apimodels.PostsItem
 
 class MagicLineViewModel(application : Application, private val repository: MagicLineRepository) : AndroidViewModel(application) {
 
-    val posts: LiveData<List<PostsItem>> = repository.getPosts()
+    fun getPosts() : LiveData<List<PostsItem>> {
+        return repository.getPosts()
+    }
 }

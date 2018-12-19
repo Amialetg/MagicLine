@@ -1,12 +1,8 @@
 package com.voluntariat.android.magicline.data
-
-import android.app.Application
 import androidx.lifecycle.LiveData
 import android.os.AsyncTask
-import androidx.lifecycle.MutableLiveData
 import com.voluntariat.android.magicline.utils.callback
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
-import com.voluntariat.android.magicline.data.apimodels.PostList
 import com.voluntariat.android.magicline.data.apimodels.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.db.dao.PostDao
@@ -26,10 +22,9 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         mAllPosts = mPostDao.getAllPosts()
     }
 
-    private class InsertAsyncTask internal constructor(private val mAsyncTaskDao: PostDao) : AsyncTask<PostsItem, Void, Void>() {
+    private class InsertAsyncTask internal constructor(private val asyncPostDao: PostDao) : AsyncTask<PostsItem, Void, Void>() {
 
         override fun doInBackground(vararg params: PostsItem): Void? {
-            mAsyncTaskDao.insert(params[0])
             return null
         }
     }
@@ -65,7 +60,6 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         MagicLineAPI.service.posts().enqueue(callback(
             { result ->
                 if (result.isSuccessful) {
-                    val data = MutableLiveData<List<PostsItem>>()
                     mPostDao.insertList(result.body()?.posts)
                 }
             }))

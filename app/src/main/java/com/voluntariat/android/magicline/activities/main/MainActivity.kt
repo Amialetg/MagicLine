@@ -13,9 +13,7 @@ import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFrag
 import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
 import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
-import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.db.MagicLineDB
-
 
 class MainActivity : BaseActivity() {
 
@@ -42,19 +40,6 @@ class MainActivity : BaseActivity() {
             transaction.commit()
         }
         initNavigation()
-
-        /**
-         * TODO remove. Example of how to call API
-         */
-        val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(applicationContext))
-        repo.authenticate(
-                "apiml",
-                "4p1ml2018"
-        ) { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
-        repo.getPosts()
     }
 
     private fun initWidgets() {

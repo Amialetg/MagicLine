@@ -6,37 +6,31 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.data.apimodels.PostsItem
+import com.voluntariat.android.magicline.models.NewsModel
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
-    lateinit var data: List<PostsItem>
+class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val title = itemView.findViewById<TextView>(R.id.news_item_title)
         val desc = itemView.findViewById<TextView>(R.id.news_item_desc)
     }
 
-    // Create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // create a new view
         val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_news, parent, false)
 
         return ViewHolder(itemView)
     }
 
-    // Replace the contents of a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         //Get information from the new item
-        holder.title.text = data[position].title
-        holder.desc.text = data[position].text
+        holder.title.text = dataSet[position].title
+        holder.desc.text = dataSet[position].description
 
     }
+    override fun getItemCount() = dataSet.size
 
-    // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = data.size
-
-    fun loadItems (posts : List<PostsItem>) {
-        data = posts
+    fun loadItems (news: List<NewsModel>) {
+        dataSet = news
     }
 }

@@ -2,10 +2,15 @@ package com.voluntariat.android.magicline.data.apimodels
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "posts")
 data class Post(
+        @ColumnInfo(name = "id")
+        @field:SerializedName("id")
+        val id: String? = null,
+
         @ColumnInfo(name = "date")
         @field:SerializedName("date")
         val date: String? = null,
@@ -25,10 +30,6 @@ data class Post(
         @ColumnInfo(name = "modified")
         @field:SerializedName("modified")
         val modified: String? = null,
-
-        @ColumnInfo(name = "id")
-        @field:SerializedName("id")
-        val id: String? = null,
 
         @ColumnInfo(name = "text")
         @field:SerializedName("text")

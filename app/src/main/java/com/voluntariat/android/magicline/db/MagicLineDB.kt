@@ -1,18 +1,18 @@
 package com.voluntariat.android.magicline.db
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
 import android.content.Context
 import com.voluntariat.android.magicline.db.dao.PostDao
-import androidx.room.Room
-import com.voluntariat.android.magicline.data.apimodels.Post
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.annotation.NonNull
 import android.os.AsyncTask
+import androidx.room.*
+import com.voluntariat.android.magicline.data.apimodels.Converters
+import com.voluntariat.android.magicline.data.apimodels.Post
 import com.voluntariat.android.magicline.data.apimodels.PostImageItem
 import com.voluntariat.android.magicline.data.apimodels.PostsItem
 
 @Database(entities = [PostsItem::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class MagicLineDB : RoomDatabase() {
     abstract fun postDao(): PostDao
 
@@ -47,7 +47,7 @@ private class PopulateDbAsync internal constructor(db: MagicLineDB) : AsyncTask<
     private val mPostDao: PostDao = db.postDao()
 
     override fun doInBackground(vararg params: Void): Void? {
-        var post = PostsItem(title = "Noticia 1")
+        var post = PostsItem(0, Post(title = "Noticia 1"), ArrayList<PostImageItem>())
         mPostDao.insert(post)
         return null
     }

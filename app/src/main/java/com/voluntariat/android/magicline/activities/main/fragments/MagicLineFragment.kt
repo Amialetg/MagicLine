@@ -8,17 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
-import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.apimodels.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
@@ -46,7 +45,7 @@ import kotlinx.android.synthetic.main.layout_rrss.twitter_button
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
-
+import com.voluntariat.android.magicline.data.Result
 
 class MagicLineFragment : Fragment() {
 
@@ -54,6 +53,7 @@ class MagicLineFragment : Fragment() {
     private lateinit var mMagicLineViewModel: MagicLineViewModel
 
     private lateinit var dateCursaString: String
+    private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
@@ -153,7 +153,7 @@ class MagicLineFragment : Fragment() {
 
     private fun initNewsRecycler() {
         val myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        val myNewsAdapter = NewsAdapter()
+        myNewsAdapter = NewsAdapter(ArrayList())
 
         newsRecyclerView.layoutManager = myNewsManager
         newsRecyclerView.adapter = myNewsAdapter
@@ -169,10 +169,28 @@ class MagicLineFragment : Fragment() {
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
+        val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        repo.authenticate(
+                "apiml",
+                "4p1ml2018"
+        ) { result -> when (result) {
+            is Result.Success -> subscribeToPosts()
+        } }
 
-        mMagicLineViewModel.posts.observe(this, androidx.lifecycle.Observer {
-            myNewsAdapter.loadItems(it ?: emptyList())
+    }
+
+    private fun subscribeToPosts() {
+        mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+            myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
+    }
+
+    private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
+        val news : MutableList<NewsModel> = mutableListOf()
+        for (item in list) {
+            news.add(NewsModel(title = item.post.title, description = item.post.text))
+        }
+        return news
     }
 
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {

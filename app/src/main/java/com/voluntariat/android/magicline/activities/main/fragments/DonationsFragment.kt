@@ -1,5 +1,7 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.widget.ProgressBar
 import kotlinx.android.synthetic.main.fragment_donations.*
+import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
 class DonationsFragment: BaseFragment(){
@@ -24,6 +27,9 @@ class DonationsFragment: BaseFragment(){
         val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
+
+        val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
+
 
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO
@@ -75,7 +81,13 @@ class DonationsFragment: BaseFragment(){
             }
         }
 
-        v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
+
+
+        if(prefs.getString("My_Lang", "") == "ca"){
+            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
+        }else{
+            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/es/equipos/")
+        }
         v.webviewDonation.clearCache(true)
 
         return v

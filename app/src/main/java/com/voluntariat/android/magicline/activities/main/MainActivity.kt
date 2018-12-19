@@ -1,5 +1,7 @@
 package com.voluntariat.android.magicline.activities.main
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -159,7 +161,9 @@ class MainActivity : BaseActivity() {
 
     private fun notificactionListener() {
 
-        val type = intent.getStringExtra("From")
+//       val type = intent.getStringExtra("From")
+        val prefs : SharedPreferences = this.baseContext.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
+        val type = prefs.getString("From", "")
 
         if (type != null) {
             when (type) {
@@ -176,10 +180,30 @@ class MainActivity : BaseActivity() {
 
                 }
                 else -> {
-                    Log.i("oneSignal", "oneSignal")
+                    navigateToFragment(MagicLineFragment())
                 }
             }
         }
+
+//        if (type != null) {
+//            when (type) {
+//                "ultimaNoticia" ->{
+//                    navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
+//
+//                }
+//                "ferDonacio" -> {
+//                    navigateToFragment(DonationsFragment())
+//
+//                }
+//                "detallsEsdeveniments" -> {
+//                    navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
+//
+//                }
+//                else -> {
+//                    Log.i("oneSignal", "oneSignal")
+//                }
+//            }
+//        }
 
 
     }

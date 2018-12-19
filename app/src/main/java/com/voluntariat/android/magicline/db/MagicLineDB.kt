@@ -25,6 +25,7 @@ abstract class MagicLineDB : RoomDatabase() {
                 INSTANCE = Room.databaseBuilder(context.applicationContext,
                         MagicLineDB::class.java, "magicLine.db")
                         .addCallback(sRoomDatabaseCallback)
+                        .allowMainThreadQueries()
                         .build()
             }
             return INSTANCE

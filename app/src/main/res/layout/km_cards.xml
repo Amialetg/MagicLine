@@ -2,14 +2,14 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="77dp"
-    android:id="@+id/card"
+    android:id="@+id/CardRoute"
     android:layout_height="73dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="10dp"
     android:layout_marginTop="11dp">
 
     <TextView
-        android:id="@+id/mapKm"
+        android:id="@+id/TextViewMapNumKm"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -19,7 +19,7 @@
         android:text="20"/>
 
     <TextView
-        android:id="@+id/mapKmText"
+        android:id="@+id/TextViewMapTextKm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="km"

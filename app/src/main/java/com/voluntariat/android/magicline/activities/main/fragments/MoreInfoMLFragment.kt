@@ -8,27 +8,26 @@ import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 import android.graphics.Color
 import android.graphics.Typeface
-import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.app.AppCompatActivity
-import android.text.Html
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import com.voluntariat.android.magicline.R.string.*
+import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
+import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.string.*
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
+import com.voluntariat.android.magicline.utils.htmlToSpanned
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.BarData
-import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 
 class MoreInfoMLFragment : BaseFragment() {
 
@@ -57,7 +56,9 @@ class MoreInfoMLFragment : BaseFragment() {
         val text3: String = getString(walk_text_3) + " "
         val text4: String = "<b>" + getString(walk_text_4) + "</b>"
         val textView = moreInfoMLView.firstWalkText
-        textView.text = Html.fromHtml(text + text2 + text3 + text4)
+
+        var infoText = text + text2 + text3 + text4
+        textView.text = infoText.htmlToSpanned()
     }
 
     private fun createBarChart() {

@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         tools:text = "Nou event en la programació"
         style="@style/NewsItemTitle"
-        android:id="@+id/news_item_title"
+        android:id="@+id/newsItemTitle"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/NewsItemDesc"
-        android:id="@+id/news_item_desc"
+        android:id="@+id/newsItemDesc"
         />
 
 </LinearLayout>

@@ -2,24 +2,25 @@ package com.voluntariat.android.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.CardView
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.google.android.gms.maps.GoogleMap
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
+import kotlinx.android.synthetic.main.km_cards.view.*
 
 
 /**
  * Created by hector on 27/06/18.
  */
 
-class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
-                 val context: Context) : RecyclerView.Adapter<kmAdapter.ViewHolder>() {
+class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: GoogleMap,
+                 val context: Context) : RecyclerView.Adapter<KmAdapter.ViewHolder>() {
 
     var selectedPosition : Int = 0
     var kmlLayers : ArrayList<KmlLayer> = arrayListOf(KmlLayer(googleMap,R.raw.ml_barcelona_2018_10,context),
@@ -30,7 +31,7 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.km_cards, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.km_cards, parent, false)
         return ViewHolder(v, this)
     }
 
@@ -39,56 +40,42 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val km : Int =  kmList[position]
         val colorBg : Int
         val colorTxt : Int
 
-        //DO ACTIONS WHEN BUTTON SELECTED
-        if(selectedPosition == position){
-            colorBg = ContextCompat.getColor(holder?.itemView.context, R.color.colorPrimary)
+        if (selectedPosition == position) {
+            colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
-            if(!kmlLayers.get(selectedPosition).isLayerOnMap) kmlLayers.get(selectedPosition).addLayerToMap()
-        }
-        else{
+            if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
+        } else {
             colorBg = ContextCompat.getColor(context, R.color.white)
-
             colorTxt = Color.parseColor("#80000000")
             for(i:Int in 0..4){
-                if( i != selectedPosition && kmlLayers.get(i).isLayerOnMap) kmlLayers.get(i).removeLayerFromMap()
+                if( i != selectedPosition && kmlLayers[i].isLayerOnMap) kmlLayers[i].removeLayerFromMap()
             }
         }
 
-        holder?.km?.text = km.toString()
-        holder?.card?.setCardBackgroundColor(colorBg)
-        holder?.km?.setTextColor(colorTxt)
-        holder?.km_text?.setTextColor(colorTxt)
-
-        //UPDATE ROUTES
-
+        holder.km.text = km.toString()
+        holder.card?.setCardBackgroundColor(colorBg)
+        holder.km.setTextColor(colorTxt)
+        holder.kmText?.setTextColor(colorTxt)
     }
 
-    class ViewHolder(itemView: View, adapter: kmAdapter) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, adapter: KmAdapter) : RecyclerView.ViewHolder(itemView) {
 
-        val km = itemView.findViewById<TextView>(R.id.map_km) as TextView
-        val card = itemView.findViewById<CardView>(R.id.card)
-        val km_text = itemView.findViewById<TextView>(R.id.map_km_text)
+        val km: TextView = itemView.mapKm
+        val card: CardView = itemView.card
+        val kmText: TextView = itemView.mapKmText
         
         init {
-
             itemView.setOnClickListener{
-
                 with(adapter){
-
                     notifyItemChanged(selectedPosition)
                     selectedPosition = adapterPosition
                     notifyItemChanged(selectedPosition)
-
                 }
-
-
             }
-
         }
 
     }

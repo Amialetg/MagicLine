@@ -12,7 +12,7 @@ import android.widget.TextView
 import com.google.android.gms.maps.GoogleMap
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
-
+import kotlinx.android.synthetic.main.km_cards.view.*
 
 /**
  * Created by hector on 27/06/18.
@@ -21,12 +21,13 @@ import com.voluntariat.android.magicline.R
 class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
                  val context: Context) : RecyclerView.Adapter<kmAdapter.ViewHolder>() {
 
-    var selectedPosition : Int = 0
-    var kmlLayers : ArrayList<KmlLayer> = arrayListOf(KmlLayer(googleMap,R.raw.ml_barcelona_2018_10,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_15,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_20,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_25,context)
-            ,KmlLayer(googleMap,R.raw.ml_barcelona_2018_30,context))
+    var selectedPosition: Int = 0
+    var kmlLayers: ArrayList<KmlLayer> = arrayListOf(KmlLayer(googleMap, R.raw.ml_bcn_10km, context),
+            KmlLayer(googleMap, R.raw.ml_barcelona_2018_10, context),
+            KmlLayer(googleMap, R.raw.ml_bcn_40km, context),
+            KmlLayer(googleMap, R.raw.ml_bcn_30km, context),
+            KmlLayer(googleMap, R.raw.ml_bcn_30km, context),
+            KmlLayer(googleMap, R.raw.ml_bcn_40km, context))
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,6 +38,8 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
     override fun getItemCount(): Int {
         return kmList.size
     }
+
+    // change the bg color to red when a route is selected
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -59,21 +62,14 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
             }
         }
 
-        holder?.km?.text = km.toString()
-        holder?.card?.setCardBackgroundColor(colorBg)
-        holder?.km?.setTextColor(colorTxt)
-        holder?.km_text?.setTextColor(colorTxt)
-
-        //UPDATE ROUTES
-
+        holder.itemView.TextViewMapNumKm.text = km.toString()
+        holder.itemView.TextViewMapNumKm.setTextColor(colorTxt)
+        holder.itemView.TextViewMapTextKm.setTextColor(colorTxt)
+        holder.itemView.CardRoute.setCardBackgroundColor(colorBg)
     }
 
     class ViewHolder(itemView: View, adapter: kmAdapter) : RecyclerView.ViewHolder(itemView) {
 
-        val km = itemView.findViewById<TextView>(R.id.map_km) as TextView
-        val card = itemView.findViewById<CardView>(R.id.card)
-        val km_text = itemView.findViewById<TextView>(R.id.map_km_text)
-        
         init {
 
             itemView.setOnClickListener{

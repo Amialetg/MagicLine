@@ -1,10 +1,6 @@
-package com.voluntariat.android.magicline.activities.main
+package com.voluntariat.android.magicline.activities.main.general
 
-import android.app.Activity
-import android.app.ActivityManager
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -26,7 +22,9 @@ class MainActivity : BaseActivity() {
     private lateinit var bottomBarBtn: FloatingActionButton
 
     //The app starts at the magic line fragment
-    private var currentFragment: Fragment = MagicLineFragment()
+//    private var currentFragment: Fragment = MagicLineFragment()
+
+    private lateinit var currentFragment: Fragment
 
 
 //
@@ -35,19 +33,13 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // OneSignal Initialization
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .setNotificationOpenedHandler(ExampleNotificationOpenedHandler(this))
-                .init()
         setContentView(R.layout.activity_main)
 
         initWidgets()
 
         initBottomBar()
 
-        if (savedInstanceState == null && intent?.extras?.get("From") == null) {
+        if (savedInstanceState == null) {
             //First time we open the app
             val transaction = this.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, MagicLineFragment())
@@ -73,14 +65,6 @@ class MainActivity : BaseActivity() {
 
     }
 
-    private fun initialization() {
-
-        val prefs : SharedPreferences = this.baseContext.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
-        val editor = prefs.edit()
-//
-        editor.putString("notificationOpened", "no")
-        editor.apply()
-    }
     private fun initWidgets() {
 
         //BottomBar
@@ -107,7 +91,7 @@ class MainActivity : BaseActivity() {
 
     }
 
-    public fun initNavigation() {
+     fun initNavigation() {
 
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
@@ -159,8 +143,6 @@ class MainActivity : BaseActivity() {
             R.id.none -> return
             else -> newFragment = MagicLineFragment()
         }
-        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY;
-
 
         navigateToFragment(newFragment)
     }
@@ -200,11 +182,4 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-
-    fun appInForeground(context: Context): Boolean {
-        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val runningAppProcesses = activityManager.runningAppProcesses ?: return false
-        return runningAppProcesses.any { it.processName == context.packageName && it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND }
-    }
-
-    }
+}

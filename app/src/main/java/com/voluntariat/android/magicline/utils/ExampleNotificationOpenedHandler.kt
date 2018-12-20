@@ -1,14 +1,10 @@
 package com.voluntariat.android.magicline.utils
 
-import android.app.Activity
 import android.content.Context
-import android.util.Log
 import com.onesignal.OSNotificationOpenResult
 import com.onesignal.OneSignal
-import com.onesignal.OSNotificationAction
 import android.content.Intent
-import android.content.SharedPreferences
-import com.voluntariat.android.magicline.activities.main.MainActivity
+import com.voluntariat.android.magicline.activities.main.general.MainActivity
 
 
 
@@ -26,25 +22,16 @@ internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.No
 
             when (data["type"] ) {
                 "ultimaNoticia" ->{
-
                   intent.putExtra("From", "ultimaNoticia")
                 }
                 "ferDonacio" -> {
-
                   intent.putExtra("From", "ferDonacio")
-
                 }
                 "detallsEsdeveniments" -> {
-
                     intent.putExtra("From", "detallsEsdeveniments")
-
-
                 }
-
             }
         }
         this.context.startActivity(intent)
-
-
     }
 }

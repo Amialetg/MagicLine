@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import com.onesignal.OneSignal
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.MainActivity
-import com.voluntariat.android.magicline.utils.ExampleNotificationOpenedHandler
+import com.voluntariat.android.magicline.activities.main.general.MainActivity
 
 /**
  * Created by hector on 26/06/18.

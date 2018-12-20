@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.activities.main
+package com.voluntariat.android.magicline.activities.main.general
 
 import android.app.Activity
 import android.content.Context

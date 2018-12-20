@@ -1,18 +1,12 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
-import android.graphics.Typeface
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.*
-import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 import com.voluntariat.android.magicline.R.string.*
@@ -27,12 +21,8 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.color.light_red
 import com.voluntariat.android.magicline.R.color.mesque_background
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.R.string.*
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
-import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class MoreInfoMLFragment : BaseFragment() {
 

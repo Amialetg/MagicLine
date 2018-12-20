@@ -39,12 +39,12 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
 
         when(viewType){
             1->{
-                val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_schedule_text, parent, false)
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text, parent, false)
                 return ViewHolderText(itemView)
             }
 
             else->{
-                val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_schedule_card, parent, false)
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
                 return ViewHolderCard(itemView)
             }
         }

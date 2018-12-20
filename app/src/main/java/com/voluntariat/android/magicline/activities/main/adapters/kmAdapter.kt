@@ -30,7 +30,7 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.km_cards, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.km_cards, parent, false)
         return ViewHolder(v, this)
     }
 
@@ -46,7 +46,7 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
 
         //DO ACTIONS WHEN BUTTON SELECTED
         if(selectedPosition == position){
-            colorBg = ContextCompat.getColor(holder?.itemView.context, R.color.colorPrimary)
+            colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
             if(!kmlLayers.get(selectedPosition).isLayerOnMap) kmlLayers.get(selectedPosition).addLayerToMap()
         }
@@ -59,10 +59,10 @@ class kmAdapter (val kmList : ArrayList<Int>, val googleMap: GoogleMap,
             }
         }
 
-        holder?.km?.text = km.toString()
-        holder?.card?.setCardBackgroundColor(colorBg)
-        holder?.km?.setTextColor(colorTxt)
-        holder?.km_text?.setTextColor(colorTxt)
+        holder.km.text = km.toString()
+        holder.card?.setCardBackgroundColor(colorBg)
+        holder.km.setTextColor(colorTxt)
+        holder.km_text?.setTextColor(colorTxt)
 
         //UPDATE ROUTES
 

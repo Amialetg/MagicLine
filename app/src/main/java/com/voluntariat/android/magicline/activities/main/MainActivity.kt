@@ -2,22 +2,16 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.fragments.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
 import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
 import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
-import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
-import com.voluntariat.android.magicline.db.MagicLineDB
 
 class MainActivity : BaseActivity() {
 

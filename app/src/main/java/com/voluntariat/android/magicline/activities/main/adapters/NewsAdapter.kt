@@ -17,7 +17,7 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_news, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_news, parent, false)
 
         return ViewHolder(itemView)
     }

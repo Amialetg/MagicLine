@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.R.id.topToolbar
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.detailBody
 import kotlinx.android.synthetic.main.fragment_detail.view.detailSubtitle
@@ -20,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_detail.view.viewOnWeb
 import kotlinx.android.synthetic.main.layout_share.view.fb_button
 import kotlinx.android.synthetic.main.layout_share.view.insta_button
 import kotlinx.android.synthetic.main.layout_share.view.twitter_button
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbar
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbarImg
 

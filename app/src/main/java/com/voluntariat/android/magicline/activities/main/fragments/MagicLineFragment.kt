@@ -7,15 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.voluntariat.android.magicline.R
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
-import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
@@ -25,6 +23,14 @@ import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
 import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
+
+import java.util.Calendar
+import java.util.Date
+import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
@@ -32,33 +38,6 @@ import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import com.voluntariat.android.magicline.utils.MyCounter
-import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
-import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
-import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
-import kotlinx.android.synthetic.main.layout_a_fons.info_donations_destiny_button
-import kotlinx.android.synthetic.main.layout_a_fons.info_essentials_button
-import kotlinx.android.synthetic.main.layout_a_fons.info_sjd_button
-import kotlinx.android.synthetic.main.layout_countdown.countdown_dies
-import kotlinx.android.synthetic.main.layout_countdown.countdown_hores
-import kotlinx.android.synthetic.main.layout_countdown.countdown_min
-import kotlinx.android.synthetic.main.layout_countdown.countdown_seg
-import kotlinx.android.synthetic.main.layout_mes_que.btnBrainStorm
-import kotlinx.android.synthetic.main.layout_mes_que.btnDonateTeam
-import kotlinx.android.synthetic.main.layout_mes_que.btnRequestDonates
-import kotlinx.android.synthetic.main.layout_news.left_arrow_relative
-import kotlinx.android.synthetic.main.layout_news.newsRecyclerView
-import kotlinx.android.synthetic.main.layout_news.right_arrow_relative
-import kotlinx.android.synthetic.main.layout_recaudats_participants.moreInfoML
-import kotlinx.android.synthetic.main.layout_rrss.fb_button
-import kotlinx.android.synthetic.main.layout_rrss.insta_button
-import kotlinx.android.synthetic.main.layout_rrss.twitter_button
-import java.text.SimpleDateFormat
-import java.util.*
-
-import java.util.Calendar
-import java.util.Date
-import com.voluntariat.android.magicline.data.Result
 
 class MagicLineFragment : BaseFragment() {
 
@@ -277,8 +256,7 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun callIntent(url: String) {
-        var intent: Intent
-        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }

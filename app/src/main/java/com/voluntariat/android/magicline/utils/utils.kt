@@ -1,6 +1,6 @@
 package com.voluntariat.android.magicline.utils
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.BaseFragment

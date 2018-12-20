@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
+import com.voluntariat.android.magicline.activities.main.adapters.KmAdapter
 import java.util.ArrayList
 
 
@@ -79,7 +79,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = kmAdapter(kmList,mMap, this.requireContext())
+        val adapter = KmAdapter(kmList,mMap, this.requireContext())
         kmRecyclerView?.adapter = adapter
     }
 

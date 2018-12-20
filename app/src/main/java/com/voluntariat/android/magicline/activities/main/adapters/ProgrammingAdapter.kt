@@ -7,12 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.models.ProgrammingModel
+import kotlinx.android.synthetic.main.model_programming.view.*
 
 /**
  * Created by hector on 27/06/18.
  */
 
-class ProgrammingAdapter (val programmingEvents : ArrayList<ProgrammingModel>) : RecyclerView.Adapter<ProgrammingAdapter.ViewHolder>() {
+class ProgrammingAdapter (private val programmingEvents : ArrayList<ProgrammingModel>) : RecyclerView.Adapter<ProgrammingAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.model_programming, parent, false)
         return ViewHolder(v)
@@ -30,7 +31,7 @@ class ProgrammingAdapter (val programmingEvents : ArrayList<ProgrammingModel>) :
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val hour = itemView.findViewById(R.id.hour) as TextView
-        val name = itemView.findViewById(R.id.name) as TextView
+        val hour = itemView.hour as TextView
+        val name = itemView.name as TextView
     }
 }

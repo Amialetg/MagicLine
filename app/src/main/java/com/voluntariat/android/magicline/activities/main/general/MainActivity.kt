@@ -5,17 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import com.onesignal.OneSignal
-import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.fragments.*
-import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
-import com.voluntariat.android.magicline.data.Result
-import com.voluntariat.android.magicline.data.api.MagicLineAPI
-import com.voluntariat.android.magicline.utils.ExampleNotificationOpenedHandler
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
 import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
+import com.voluntariat.android.magicline.activities.main.fragments.InviteFriendsFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
 import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
@@ -33,10 +28,6 @@ class MainActivity : BaseActivity() {
 
     private lateinit var currentFragment: Fragment
 
-
-//
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,7 +44,7 @@ class MainActivity : BaseActivity() {
             transaction.commit()
 
             if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?)
+                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
             }
         }
         initNavigation()
@@ -156,20 +147,12 @@ class MainActivity : BaseActivity() {
         val extra = intent?.getSerializableExtra("From")
         navigateFromIntentExtra(extra)
     }
-    private fun navigateFromIntentExtra(extra: Serializable?) {
+    private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
         when (extra) {
-            "ultimaNoticia" ->{
-                this.transitionWithModalAnimation(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
-            }
-            "ferDonacio" -> {
-                this.transitionWithModalAnimation(DonationsFragment())
-            }
-            "detallsEsdeveniments" -> {
-                this.transitionWithModalAnimation(ScheduleFragment()) //Especificar qué Fragment
-            }
-            else -> {
-                this.transitionWithModalAnimation(MagicLineFragment())
-            }
+            "ultimaNoticia" -> this.transitionWithModalAnimation(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
+            "ferDonacio" -> this.transitionWithModalAnimation(DonationsFragment())
+            "detallsEsdeveniments" -> this.transitionWithModalAnimation(ScheduleFragment()) //Especificar qué Fragment
+            else -> if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
         }
     }
 }

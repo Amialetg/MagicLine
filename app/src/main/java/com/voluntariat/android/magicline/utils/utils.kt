@@ -1,5 +1,8 @@
 package com.voluntariat.android.magicline.utils
 
+import android.os.Build
+import android.text.Html
+import android.text.Spanned
 import androidx.appcompat.app.AppCompatActivity
 import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.R
@@ -40,4 +43,12 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
     transaction.replace(R.id.frame_layout, fragment)
     transaction.addToBackStack(fragment.javaClass.canonicalName)
     transaction.commit()
+}
+
+fun String.htmlToSpanned() : Spanned {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        Html.fromHtml(this)
+    }
 }

@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.models.NewsModel
+import com.voluntariat.android.magicline.utils.htmlToSpanned
 
 class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
@@ -26,7 +27,7 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
 
         //Get information from the new item
         holder.title.text = dataSet[position].title
-        holder.desc.text = Html.fromHtml(dataSet[position].description)
+        holder.desc.text = dataSet[position].description?.htmlToSpanned()
 
     }
     override fun getItemCount() = dataSet.size

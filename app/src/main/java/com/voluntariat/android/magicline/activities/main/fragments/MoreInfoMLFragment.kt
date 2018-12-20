@@ -22,6 +22,7 @@ import com.voluntariat.android.magicline.R.color.light_red
 import com.voluntariat.android.magicline.R.color.mesque_background
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
+import com.voluntariat.android.magicline.utils.htmlToSpanned
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 
 class MoreInfoMLFragment : BaseFragment() {
@@ -51,7 +52,9 @@ class MoreInfoMLFragment : BaseFragment() {
         val text3: String = getString(walk_text_3) + " "
         val text4: String = "<b>" + getString(walk_text_4) + "</b>"
         val textView = moreInfoMLView.firstWalkText
-        textView.text = Html.fromHtml(text + text2 + text3 + text4)
+
+        var infoText = text + text2 + text3 + text4
+        textView.text = infoText.htmlToSpanned()
     }
 
     private fun createBarChart() {

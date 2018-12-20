@@ -13,7 +13,7 @@ import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
 
-class ScheduleFragment: Fragment(){
+class ScheduleFragment: BaseFragment(){
 
     //recycler widgets
     lateinit var scheduleRecyclerView: RecyclerView

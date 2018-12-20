@@ -19,6 +19,8 @@ import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
 import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
 import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
+import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
+import java.io.Serializable
 
 class MainActivity : BaseActivity() {
 
@@ -49,6 +51,10 @@ class MainActivity : BaseActivity() {
             val transaction = this.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, MagicLineFragment())
             transaction.commit()
+
+            if (intent.hasExtra("From")) {
+                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?)
+            }
         }
         initNavigation()
     }
@@ -148,24 +154,21 @@ class MainActivity : BaseActivity() {
         super.onNewIntent(intent)
         setIntent(Intent().apply { putExtra("From", "ferDonacio") })
         val extra = intent?.getSerializableExtra("From")
-        Log.d("onesignal","Funciona! From: $extra")
-
+        navigateFromIntentExtra(extra)
+    }
+    private fun navigateFromIntentExtra(extra: Serializable?) {
         when (extra) {
             "ultimaNoticia" ->{
-                navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
-
+                this.transitionWithModalAnimation(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
             }
             "ferDonacio" -> {
-                Log.d("onesignal","fer donacio")
-                navigateToFragment(DonationsFragment())
-
+                this.transitionWithModalAnimation(DonationsFragment())
             }
             "detallsEsdeveniments" -> {
-                navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
-
+                this.transitionWithModalAnimation(ScheduleFragment()) //Especificar qué Fragment
             }
             else -> {
-                navigateToFragment(MagicLineFragment())
+                this.transitionWithModalAnimation(MagicLineFragment())
             }
         }
     }

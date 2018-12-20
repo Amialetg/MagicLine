@@ -2,9 +2,8 @@ package com.voluntariat.android.magicline.data.api
 
 import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.data.MagicLineInterceptor
-import com.voluntariat.android.magicline.data.apimodels.LoginModel
-import com.voluntariat.android.magicline.data.apimodels.PostList
-import com.voluntariat.android.magicline.data.apimodels.Response
+import com.voluntariat.android.magicline.data.models.login.LoginModel
+import com.voluntariat.android.magicline.data.models.posts.Response
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call

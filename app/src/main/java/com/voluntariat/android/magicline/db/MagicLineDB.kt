@@ -6,10 +6,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.annotation.NonNull
 import android.os.AsyncTask
 import androidx.room.*
-import com.voluntariat.android.magicline.data.apimodels.Converters
-import com.voluntariat.android.magicline.data.apimodels.Post
-import com.voluntariat.android.magicline.data.apimodels.PostImageItem
-import com.voluntariat.android.magicline.data.apimodels.PostsItem
+import com.voluntariat.android.magicline.data.models.posts.Converters
+import com.voluntariat.android.magicline.data.models.posts.Post
+import com.voluntariat.android.magicline.data.models.posts.PostImageItem
+import com.voluntariat.android.magicline.data.models.posts.PostsItem
 
 @Database(entities = [PostsItem::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

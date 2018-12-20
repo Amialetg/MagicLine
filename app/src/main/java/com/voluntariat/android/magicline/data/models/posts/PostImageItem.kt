@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.data.apimodels
+package com.voluntariat.android.magicline.data.models.posts
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

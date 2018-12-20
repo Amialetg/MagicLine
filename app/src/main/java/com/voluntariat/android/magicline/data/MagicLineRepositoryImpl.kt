@@ -4,8 +4,7 @@ import android.os.AsyncTask
 import android.util.Log
 import com.voluntariat.android.magicline.utils.callback
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
-import com.voluntariat.android.magicline.data.apimodels.Post
-import com.voluntariat.android.magicline.data.apimodels.PostsItem
+import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.db.dao.PostDao
 

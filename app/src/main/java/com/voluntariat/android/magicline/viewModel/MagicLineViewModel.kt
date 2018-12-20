@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.voluntariat.android.magicline.data.MagicLineRepository
-import com.voluntariat.android.magicline.data.apimodels.PostsItem
+import com.voluntariat.android.magicline.data.models.posts.PostsItem
 
 
 class MagicLineViewModel(application : Application, private val repository: MagicLineRepository) : AndroidViewModel(application) {

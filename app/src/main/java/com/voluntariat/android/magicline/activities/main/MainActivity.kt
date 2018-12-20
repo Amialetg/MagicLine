@@ -2,9 +2,20 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.string.lorem_ipsum
+import com.voluntariat.android.magicline.activities.main.fragments.*
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.Result
+import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.models.DetailModel
+import com.voluntariat.android.magicline.models.ScheduleCardModel
+import com.voluntariat.android.magicline.models.ScheduleGeneralModel
+import com.voluntariat.android.magicline.models.ScheduleTextModel
+import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
+import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
 import android.util.Log
 import android.view.MenuItem
-import com.voluntariat.android.magicline.R
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
@@ -15,36 +26,60 @@ import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragm
 
 class MainActivity : BaseActivity() {
 
-    //Bottom Toolbar
-    private lateinit var bottomBarView: com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-    private lateinit var bottomBarBtn: FloatingActionButton
-
     //The app starts at the magic line fragment
     private var currentFragment: Fragment = MagicLineFragment()
+    private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
-        initWidgets()
+        getData()
 
         initBottomBar()
 
         if (savedInstanceState == null) {
-            //First time we open the app
-            val transaction = this.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, MagicLineFragment())
-            transaction.commit()
+            transitionWithModalAnimation(fragment = MagicLineFragment(), useModalAnimation = false, addToBackStack = false)
         }
         initNavigation()
+
     }
 
-    private fun initWidgets() {
-
-        //BottomBar
-        bottomBarView = findViewById(R.id.bottom_navigation)
-        bottomBarBtn = findViewById(R.id.fab)
+    private fun getData() {
+        scheduleModel = arrayOf(
+                ScheduleTextModel("9:30", "Salida"),
+                ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(lorem_ipsum),
+                        detailModel = DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))),
+                ScheduleTextModel("12:30", "Tornar a caminar"),
+                ScheduleCardModel(
+                        "13:30",
+                        "Espectacle",
+                        "Equipaments culturals obren les portes",
+                        "In recent years people have realized the importance of proper diet and exercise, and recent surveys",
+                        DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))
+                ),
+                ScheduleTextModel("15:00", "Caminar una mica més"),
+                ScheduleCardModel(
+                        "16:30",
+                        "Concerts",
+                        "Equipaments culturals obren les portes",
+                        "In recent years people",
+                        detailModel = DetailModel(
+                                title = getString(R.string.essentials_title),
+                                subtitle = getString(R.string.essentials_subtitle),
+                                textBody = getString(R.string.essentials_body),
+                                link = getString(R.string.essentials_viewOnWeb))
+                )
+        )
     }
 
 
@@ -69,24 +104,21 @@ class MainActivity : BaseActivity() {
     private fun initNavigation() {
 
         //Behaviour when clicked on a item different from map
-        bottomBarView.setOnNavigationItemSelectedListener { item -> bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
+        bottomBarView.setOnNavigationItemSelectedListener { item ->
+            floatingBtn.setColorFilter(Color.argb(255, 74, 74, 74))
 
             selectFragment(item)
             true
         }
 
         //Behaviour when clicked on the map item
-        bottomBarBtn.setOnClickListener {
-
-            bottomBarBtn.setColorFilter(Color.argb(255,237,53,37))
+        floatingBtn.setOnClickListener {
+            floatingBtn.setColorFilter(Color.argb(255, 237, 53, 37))
 
             //We set clicked on the none item in order to disable the rest of the items
             //but the fragment that is shown is the map fragment
             bottomBarView.menu.getItem(2).isChecked = true
-
-            val transaction = this.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, MapFragment())
-            transaction.commit()
+            transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false, addToBackStack = false)
         }
     }
 
@@ -97,7 +129,7 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
-        val newFragment: Fragment
+        val newFragment: BaseFragment
 
         when (item.itemId) {
             R.id.magicline_menu_id -> {
@@ -113,10 +145,11 @@ class MainActivity : BaseActivity() {
                 newFragment = InfoFragment()
                 Log.d("Main Activity", "info")
             }
-            R.id.schedule_menu_id -> newFragment = ScheduleFragment()
+            R.id.schedule_menu_id -> newFragment = ScheduleFragment.newInstance(scheduleModel = scheduleModel)
             R.id.none -> return
             else -> newFragment = MagicLineFragment()
         }
+        transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false, addToBackStack = false)
 
         val trans = this.supportFragmentManager.beginTransaction()
         trans.replace(R.id.frame_layout, newFragment)
@@ -124,7 +157,6 @@ class MainActivity : BaseActivity() {
         trans.commit()
 
         currentFragment = newFragment
-
     }
 
 

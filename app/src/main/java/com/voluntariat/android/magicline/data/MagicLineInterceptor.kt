@@ -14,9 +14,11 @@ class MagicLineInterceptor(var accessToken: String?) : Interceptor {
         val url = originalRequest.url().newBuilder()
                 .addQueryParameter("access_token", accessToken)
                 .build()
+
         return chain.proceed(originalRequest.newBuilder()
                 .url(url)
                 .header("Content-Type", "application/json")
+                .header("Cache-control", "no-cache")
                 .build())
     }
 }

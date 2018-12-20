@@ -2,15 +2,16 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.fragments.*
-import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
-import com.voluntariat.android.magicline.data.Result
-import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
+import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
+import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
 
 class MainActivity : BaseActivity() {
 
@@ -37,22 +38,6 @@ class MainActivity : BaseActivity() {
             transaction.commit()
         }
         initNavigation()
-
-        /**
-         * TODO remove. Example of how to call API
-         */
-        val repo = MagicLineRepositoryImpl(MagicLineAPI.service)
-        repo.authenticate(
-                "apiml",
-                "4p1ml2018"
-        ) { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
-        repo.getPosts { result -> when (result) {
-            is Result.Success -> Log.d("apiLogin","Success, token: ${result.data}")
-            is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
-        } }
     }
 
     private fun initWidgets() {
@@ -81,11 +66,10 @@ class MainActivity : BaseActivity() {
 
     }
 
-    public fun initNavigation() {
+    private fun initNavigation() {
 
         //Behaviour when clicked on a item different from map
-        bottomBarView.setOnNavigationItemSelectedListener { item ->
-            bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
+        bottomBarView.setOnNavigationItemSelectedListener { item -> bottomBarBtn.setColorFilter(Color.argb(255,74,74,74))
 
             selectFragment(item)
             true
@@ -136,7 +120,7 @@ class MainActivity : BaseActivity() {
 
         val trans = this.supportFragmentManager.beginTransaction()
         trans.replace(R.id.frame_layout, newFragment)
-        trans.addToBackStack(newFragment.javaClass.canonicalName)
+//        trans.addToBackStack(newFragment.javaClass.canonicalName)
         trans.commit()
 
         currentFragment = newFragment

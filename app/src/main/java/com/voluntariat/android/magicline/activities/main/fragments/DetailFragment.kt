@@ -4,18 +4,24 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
-import kotlinx.android.synthetic.main.fragment_detail.view.*
-import kotlinx.android.synthetic.main.layout_share.view.*
+import kotlinx.android.synthetic.main.fragment_detail.view.detailBody
+import kotlinx.android.synthetic.main.fragment_detail.view.detailSubtitle
+import kotlinx.android.synthetic.main.fragment_detail.view.detailTitle
+import kotlinx.android.synthetic.main.fragment_detail.view.viewOnWeb
+import kotlinx.android.synthetic.main.layout_share.view.fb_button
+import kotlinx.android.synthetic.main.layout_share.view.insta_button
+import kotlinx.android.synthetic.main.layout_share.view.twitter_button
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbar
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbarImg
 
 class DetailFragment : BaseFragment() {
 

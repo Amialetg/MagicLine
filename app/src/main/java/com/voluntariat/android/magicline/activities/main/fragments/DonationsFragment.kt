@@ -14,15 +14,11 @@ import android.os.Build
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
-import android.widget.ProgressBar
-import kotlinx.android.synthetic.main.fragment_donations.*
-import kotlinx.android.synthetic.main.layout_checkboxs_info.*
-
 
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        
+
         val css = "header, #results, body > div > h3 { display: none; }"
         val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
@@ -99,6 +95,9 @@ class DonationsFragment: BaseFragment(){
         /*val loginModelClient = OkHttpClient().newBuilder()
                 .addInterceptor(MagicLineInterceptor("acces_token"))
                 .build()
+
+
+
 
         val magicLineService = retrofit.create(MagicLineService::class.java)
 

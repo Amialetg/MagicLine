@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.data.apimodels
+package com.voluntariat.android.magicline.data.models.login
 
 import com.google.gson.annotations.SerializedName
 

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_model_text"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     xmlns:tools="http://schemas.android.com/tools"
     >
@@ -35,18 +34,18 @@
             android:layout_marginStart="@dimen/margin_left_hour"
             tools:text="13:30"
             style="@style/scheduleHour"
-            android:id="@+id/schedule_hour"
+            android:id="@+id/scheduleHour"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/schedule_hour"
+            android:layout_toRightOf="@id/scheduleHour"
             tools:text="Tornar a caminar"
             style="@style/scheduleCardTitle"
             android:layout_marginTop="@dimen/margin_top_text"
             android:layout_marginLeft="@dimen/margin_left_text"
-            android:id="@+id/schedule_text"
+            android:id="@+id/scheduleText"
             />
 
     </RelativeLayout>

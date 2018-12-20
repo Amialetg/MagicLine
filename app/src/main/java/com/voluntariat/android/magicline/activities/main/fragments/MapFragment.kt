@@ -2,22 +2,24 @@ package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.adapters.kmAdapter
+import com.voluntariat.android.magicline.activities.main.adapters.KmAdapter
 import java.util.ArrayList
 
 
@@ -28,7 +30,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_map, container, false)
+        return inflater.inflate(R.layout.fragment_map, container, false)
 
     }
 
@@ -77,7 +79,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = kmAdapter(kmList,mMap, this.requireContext())
+        val adapter = KmAdapter(kmList,mMap, this.requireContext())
         kmRecyclerView?.adapter = adapter
     }
 

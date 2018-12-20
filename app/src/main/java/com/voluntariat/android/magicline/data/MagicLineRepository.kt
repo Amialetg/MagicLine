@@ -1,6 +1,7 @@
 package com.voluntariat.android.magicline.data
 
-import com.voluntariat.android.magicline.data.apimodels.PostList
+import androidx.lifecycle.LiveData
+import com.voluntariat.android.magicline.data.models.posts.PostsItem
 
 interface MagicLineRepository {
     fun authenticate(
@@ -9,5 +10,5 @@ interface MagicLineRepository {
             onResult: (loginResult: Result<String>) -> Unit
     )
 
-    fun getPosts(onResult: (loginResult: Result<PostList>) -> Unit)
+    fun getPosts() : LiveData<List<PostsItem>>
 }

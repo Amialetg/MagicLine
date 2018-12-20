@@ -1,39 +1,35 @@
 package com.voluntariat.android.magicline.activities.main.adapters
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
-import com.voluntariat.android.magicline.models.NewsModel
+import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.models.NewsModel
+import com.voluntariat.android.magicline.utils.htmlToSpanned
+import kotlinx.android.synthetic.main.model_news.view.*
 
-class NewsAdapter(private val dataSet: Array<NewsModel>): RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val title = itemView.findViewById<TextView>(R.id.news_item_title)
-        val desc = itemView.findViewById<TextView>(R.id.news_item_desc)
+class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val title: TextView = itemView.newsItemTitle
+        val desc: TextView = itemView.newsItemDesc
     }
 
-    // Create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // create a new view
-        val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.model_news, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_news, parent, false)
 
         return ViewHolder(itemView)
     }
 
-    // Replace the contents of a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        //Get information from the new item
-
         holder.title.text = dataSet[position].title
-        holder.desc.text = dataSet[position].description
-
+        holder.desc.text = dataSet[position].description?.htmlToSpanned()
     }
-
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
+    fun loadItems (news: List<NewsModel>) {
+        dataSet = news
+    }
 }

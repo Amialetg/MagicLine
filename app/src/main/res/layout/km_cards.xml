@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="77dp"
-    android:id="@+id/card"
+    android:id="@+id/CardRoute"
     android:layout_height="73dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="10dp"
@@ -13,7 +13,7 @@
     >
 
     <TextView
-        android:id="@+id/map_km"
+        android:id="@+id/TextViewMapNumKm"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -22,7 +22,7 @@
         android:layout_marginLeft="9dp"
         android:text="20"/>
     <TextView
-        android:id="@+id/map_km_text"
+        android:id="@+id/TextViewMapTextKm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="km"

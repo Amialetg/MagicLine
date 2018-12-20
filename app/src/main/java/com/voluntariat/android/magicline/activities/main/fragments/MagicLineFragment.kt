@@ -3,22 +3,34 @@ package com.voluntariat.android.magicline.activities.main.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.about_us
-import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
+import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.models.posts.PostsItem
+import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
 import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
+import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
+
+import java.util.Calendar
+import java.util.Date
+import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
@@ -26,16 +38,26 @@ import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import java.text.SimpleDateFormat
-import java.util.*
-
 
 class MagicLineFragment : BaseFragment() {
 
+
+    private lateinit var mMagicLineViewModel: MagicLineViewModel
+
     private lateinit var dateCursaString: String
+    private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
     lateinit var progRecyclerView: RecyclerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        val factory = MagicLineViewModelFactory(requireActivity().application, repository)
+        mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
+
+    }
 
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -112,30 +134,51 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initNewsRecycler() {
-        val dataSet = arrayOf(NewsModel("Nou event en la programació", getString(lorem_ipsum)), NewsModel("Segon event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Tercer event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."), NewsModel("Quart event en la programació", "In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the  otal ruta."))
-
         val myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        val myNewsAdapter = NewsAdapter(dataSet)
+        myNewsAdapter = NewsAdapter(ArrayList())
 
-        news_recycler.layoutManager = myNewsManager
-        news_recycler.adapter = myNewsAdapter
+        newsRecyclerView.layoutManager = myNewsManager
+        newsRecyclerView.adapter = myNewsAdapter
 
         //Adding pager behaviour
         val snapHelper = PagerSnapHelper()
-        news_recycler.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
-        snapHelper.attachToRecyclerView(news_recycler)
+        newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
+        snapHelper.attachToRecyclerView(newsRecyclerView)
+        newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
 
         //Adding the page indicators
-        news_pager_indicator.setRecyclerView(news_recycler)
+        // TODO re-DO news slider
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
+        val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        repo.authenticate(
+                "apiml",
+                "4p1ml2018"
+        ) { result -> when (result) {
+            is Result.Success -> subscribeToPosts()
+        } }
+
+    }
+
+    private fun subscribeToPosts() {
+        mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+            myNewsAdapter.loadItems(toNewsModel(it))
+            myNewsAdapter.notifyDataSetChanged()})
+    }
+
+    private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
+        val news : MutableList<NewsModel> = mutableListOf()
+        for (item in list) {
+            news.add(NewsModel(title = item.post.title, description = item.post.text))
+        }
+        return news
     }
 
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
 
         right_arrow_relative.setOnClickListener {
-            val totalItemCount = news_recycler.adapter.itemCount
+            val totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
 
@@ -143,11 +186,11 @@ class MagicLineFragment : BaseFragment() {
 
             if (lastVisibleItemIndex >= totalItemCount) return@setOnClickListener
 
-            mLayoutManager.smoothScrollToPosition(news_recycler, null, lastVisibleItemIndex + 1)
+            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
         }
 
         left_arrow_relative.setOnClickListener {
-            val totalItemCount = news_recycler.adapter.itemCount
+            val totalItemCount = newsRecyclerView.adapter?.itemCount ?:0
 
             if (totalItemCount < 0) return@setOnClickListener
 
@@ -155,7 +198,7 @@ class MagicLineFragment : BaseFragment() {
 
             if (lastVisibleItemIndex <= 0) return@setOnClickListener
 
-            mLayoutManager.smoothScrollToPosition(news_recycler, null, lastVisibleItemIndex - 1)
+            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
         }
     }
 
@@ -213,10 +256,8 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun callIntent(url: String) {
-        var intent: Intent
-        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }
 }
-

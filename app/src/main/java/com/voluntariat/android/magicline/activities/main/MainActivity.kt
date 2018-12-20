@@ -2,9 +2,6 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.util.Log
-import android.view.MenuItem
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.string.lorem_ipsum
 import com.voluntariat.android.magicline.activities.main.fragments.*
@@ -17,6 +14,15 @@ import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
+import android.util.Log
+import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
+import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
+import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
+import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
 
 class MainActivity : BaseActivity() {
 
@@ -38,25 +44,6 @@ class MainActivity : BaseActivity() {
         }
         initNavigation()
 
-        /**
-         * TODO remove. Example of how to call API
-         */
-        val repo = MagicLineRepositoryImpl(MagicLineAPI.service)
-        repo.authenticate(
-                "apiml",
-                "4p1ml2018"
-        ) { result ->
-            when (result) {
-                is Result.Success -> Log.d("apiLogin", "Success, token: ${result.data}")
-                is Result.Failure -> Log.d("apiLogin", "Failure: ${result.throwable.message}")
-            }
-        }
-        repo.getPosts { result ->
-            when (result) {
-                is Result.Success -> Log.d("apiLogin", "Success, token: ${result.data}")
-                is Result.Failure -> Log.d("apiLogin", "Failure: ${result.throwable.message}")
-            }
-        }
     }
 
     private fun getData() {
@@ -163,6 +150,12 @@ class MainActivity : BaseActivity() {
             else -> newFragment = MagicLineFragment()
         }
         transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false, addToBackStack = false)
+
+        val trans = this.supportFragmentManager.beginTransaction()
+        trans.replace(R.id.frame_layout, newFragment)
+//        trans.addToBackStack(newFragment.javaClass.canonicalName)
+        trans.commit()
+
         currentFragment = newFragment
     }
 

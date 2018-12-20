@@ -7,18 +7,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <TextView
+        android:id="@+id/newsItemTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text = "Nou event en la programació"
         style="@style/NewsItemTitle"
-        android:id="@+id/news_item_title"
         />
 
     <TextView
+        android:id="@+id/newsItemDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/NewsItemDesc"
-        android:id="@+id/news_item_desc"
         />
 
 </LinearLayout>

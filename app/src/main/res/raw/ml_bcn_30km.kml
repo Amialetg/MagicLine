@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>ML_2018_BCN_30.gpx</name>
+    <name>Magic Line Barcelona 2019, 30 Km.gpx</name>
     <Style id="icon-123-nodesc-normal">
       <IconStyle>
         <scale>1.1</scale>
@@ -14,7 +14,7 @@
         <scale>0</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Fi de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
     <Style id="icon-123-nodesc-highlight">
@@ -29,7 +29,7 @@
         <scale>1.1</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Fi de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
     <StyleMap id="icon-123-nodesc">
@@ -54,7 +54,7 @@
         <scale>0</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Inici de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
     <Style id="icon-61-nodesc-highlight">
@@ -69,7 +69,7 @@
         <scale>1.1</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Inici de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
     <StyleMap id="icon-61-nodesc">
@@ -82,14 +82,30 @@
         <styleUrl>#icon-61-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
-    <Style id="line-ED3525-5000-normal">
+    <Style id="line-E65100-5000-normal">
       <LineStyle>
-        <color>ff2535ED</color>
-        <width>7</width>
+        <color>ff0051e6</color>
+        <width>5</width>
       </LineStyle>
     </Style>
+    <Style id="line-E65100-5000-highlight">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>7.5</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-E65100-5000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-E65100-5000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-E65100-5000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
     <Placemark>
-      <name>Inici de la ruta ML_2018_Barcelona_30.gpx</name>
+      <name>Inici de la ruta Magic Line Barcelona 2019, 30 Km.gpx</name>
       <styleUrl>#icon-61-nodesc</styleUrl>
       <Point>
         <coordinates>
@@ -98,7 +114,7 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>Fi de la ruta ML_2018_Barcelona_30.gpx</name>
+      <name>Fi de la ruta Magic Line Barcelona 2019, 30 Km.gpx</name>
       <styleUrl>#icon-123-nodesc</styleUrl>
       <Point>
         <coordinates>
@@ -107,9 +123,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ML_2018_Barcelona_30.gpx</name>
+      <name>Magic Line Barcelona 2019, 30 Km.gpx</name>
       <description><![CDATA[Estadístiques calculades a partir de les dades importades<br><br>Distància: 31,9 km]]></description>
-      <styleUrl>#line-ED3525-5000-normal</styleUrl>
+      <styleUrl>#line-E65100-5000</styleUrl>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>

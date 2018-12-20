@@ -1,11 +1,13 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.ScheduleAdapter
 import com.voluntariat.android.magicline.models.DetailModel
@@ -77,7 +79,7 @@ class ScheduleFragment : BaseFragment() {
     }
 
     private fun initScheduleRecycler() {
-        val myScheduleManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val myScheduleManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         val myScheduleAdapter = ScheduleAdapter(scheduleModel, getListeners())
 
         scheduleRecyclerView.layoutManager = myScheduleManager

@@ -1,96 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>ML_2018_BCN_10.gpx</name>
-    <Style id="icon-123-nodesc-normal">
+    <name>Magic Line Barcelona 2019, 10 Km.gpx</name>
+    <Style id="icon-1899-0288D1-nodesc-normal">
       <IconStyle>
-        <scale>1.1</scale>
+        <color>ffd18802</color>
+        <scale>1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
         </Icon>
-        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
       </IconStyle>
       <LabelStyle>
         <scale>0</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Fi de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <Style id="icon-123-nodesc-highlight">
+    <Style id="icon-1899-0288D1-nodesc-highlight">
       <IconStyle>
-        <scale>1.1</scale>
+        <color>ffd18802</color>
+        <scale>1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
         </Icon>
-        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
       </IconStyle>
       <LabelStyle>
-        <scale>1.1</scale>
+        <scale>1</scale>
       </LabelStyle>
       <BalloonStyle>
-        <text><![CDATA[<h3>Fi de la ruta</h3>]]></text>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <StyleMap id="icon-123-nodesc">
+    <StyleMap id="icon-1899-0288D1-nodesc">
       <Pair>
         <key>normal</key>
-        <styleUrl>#icon-123-nodesc-normal</styleUrl>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
       </Pair>
       <Pair>
         <key>highlight</key>
-        <styleUrl>#icon-123-nodesc-highlight</styleUrl>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
-    <Style id="icon-61-nodesc-normal">
-      <IconStyle>
-        <scale>1.1</scale>
-        <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
-        </Icon>
-        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
-      </IconStyle>
-      <LabelStyle>
-        <scale>0</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>Inici de la ruta</h3>]]></text>
-      </BalloonStyle>
-    </Style>
-    <Style id="icon-61-nodesc-highlight">
-      <IconStyle>
-        <scale>1.1</scale>
-        <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
-        </Icon>
-        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
-      </IconStyle>
-      <LabelStyle>
-        <scale>1.1</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>Inici de la ruta</h3>]]></text>
-      </BalloonStyle>
-    </Style>
-    <StyleMap id="icon-61-nodesc">
-      <Pair>
-        <key>normal</key>
-        <styleUrl>#icon-61-nodesc-normal</styleUrl>
-      </Pair>
-      <Pair>
-        <key>highlight</key>
-        <styleUrl>#icon-61-nodesc-highlight</styleUrl>
-      </Pair>
-    </StyleMap>
-    <Style id="line-ED3525-5000-normal">
+    <Style id="line-0288D1-5456-normal">
       <LineStyle>
-        <color>ff2535ED</color>
-        <width>7</width>
+        <color>ffd18802</color>
+        <width>5.456</width>
       </LineStyle>
     </Style>
+    <Style id="line-0288D1-5456-highlight">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>8.184</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-0288D1-5456">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-0288D1-5456-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-0288D1-5456-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
     <Placemark>
-      <name>Inici de la ruta ML_2018_Barcelona_10.gpx</name>
-      <styleUrl>#icon-61-nodesc</styleUrl>
+      <name>Inici de la ruta Magic Line Barcelona 2019, 10 Km.gpx</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
       <Point>
         <coordinates>
           2.1505819,41.3707569,0
@@ -98,8 +76,8 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>Fi de la ruta ML_2018_Barcelona_10.gpx</name>
-      <styleUrl>#icon-123-nodesc</styleUrl>
+      <name>Fi de la ruta Magic Line Barcelona 2019, 10 Km.gpx</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
       <Point>
         <coordinates>
           2.175164,41.384263,0
@@ -107,9 +85,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ML_2018_Barcelona_10.gpx</name>
+      <name>Magic Line Barcelona 2019, 10 Km.gpx</name>
       <description><![CDATA[Estadístiques calculades a partir de les dades importades<br><br>Distància: 9,5 km]]></description>
-      <styleUrl>#line-ED3525-5000-normal</styleUrl>
+      <styleUrl>#line-0288D1-5456</styleUrl>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>

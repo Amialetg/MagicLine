@@ -29,6 +29,7 @@ class KmAdapter (private val kmList : ArrayList<Int>, googleMap: GoogleMap,
             KmlLayer(googleMap, R.raw.ml_bcn_30km_ll, context),
             KmlLayer(googleMap, R.raw.ml_bcn_40km, context))
 
+
     private var kmlPlacemarks: ArrayList<KmlPlacemark> = arrayListOf(
 //            KmlPlacemark(googleMap, R.raw.ml_bcn_placemarkers)
     )

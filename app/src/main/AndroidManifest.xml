@@ -21,11 +21,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_API_key"/>
-
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
         
         <activity
-
-
             android:name=".activities.splash.SplashScreenActivity">
 
             <intent-filter>
@@ -38,7 +37,6 @@
 
         <activity android:name=".activities.main.MainActivity"
             android:screenOrientation="portrait"/>
-
     </application>
 
 </manifest>

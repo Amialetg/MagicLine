@@ -2,8 +2,12 @@ package com.voluntariat.android.magicline.activities.main
 
 import android.graphics.Color
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
+import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
+import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.activities.main.fragments.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.voluntariat.android.magicline.R
@@ -51,12 +55,12 @@ class MainActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-        val count = fragmentManager.backStackEntryCount
+        val count = supportFragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
             //additional code
         } else {
-            fragmentManager.popBackStack()
+            supportFragmentManager.popBackStack()
         }
     }
 
@@ -126,8 +130,6 @@ class MainActivity : BaseActivity() {
         trans.commit()
 
         currentFragment = newFragment
-
-
 
     }
 

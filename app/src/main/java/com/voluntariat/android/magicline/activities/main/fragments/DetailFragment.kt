@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
+import com.voluntariat.android.magicline.R.id.topToolbar
 import com.voluntariat.android.magicline.models.DetailModel
 import kotlinx.android.synthetic.main.fragment_detail.view.detailBody
 import kotlinx.android.synthetic.main.fragment_detail.view.detailSubtitle
@@ -20,11 +20,10 @@ import kotlinx.android.synthetic.main.fragment_detail.view.viewOnWeb
 import kotlinx.android.synthetic.main.layout_share.view.fb_button
 import kotlinx.android.synthetic.main.layout_share.view.insta_button
 import kotlinx.android.synthetic.main.layout_share.view.twitter_button
-import kotlinx.android.synthetic.main.toolbar_appbar_top.topToolbar
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbar
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbarImg
 
-class DetailFragment : Fragment() {
+class DetailFragment : BaseFragment() {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel
@@ -62,7 +61,8 @@ class DetailFragment : Fragment() {
         detailLayoutView.detailBody.text = detailModel.textBody
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
-        detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
+        detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
+        }
     }
 
     private fun initWidgets() {
@@ -81,15 +81,15 @@ class DetailFragment : Fragment() {
         }
     }
 
-    fun openNewTabWindow(url: String, context: Context) {
+    private fun openNewTabWindow(url: String, context: Context) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
     }
 
     companion object {
-        fun newInstance(detailModel: DetailModel): DetailFragment {
+        fun newInstance(dataModel: DetailModel): BaseFragment {
             val myFragment = DetailFragment()
             val args = Bundle()
-            args.putSerializable("detailFragment", detailModel)
+            args.putSerializable("detailFragment", dataModel)
             myFragment.arguments = args
             return myFragment
         }

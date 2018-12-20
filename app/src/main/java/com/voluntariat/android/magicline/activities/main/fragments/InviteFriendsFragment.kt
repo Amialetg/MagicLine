@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_invite_friends.*
 import androidx.fragment.app.Fragment
 import com.voluntariat.android.magicline.R
 import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
 import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
 
 
-class InviteFriendsFragment: Fragment(){
+class InviteFriendsFragment: BaseFragment() {
 
     override fun onStart() {
         super.onStart()
@@ -76,6 +77,12 @@ class InviteFriendsFragment: Fragment(){
 
         } catch (e: PackageManager.NameNotFoundException) {
             Toast.makeText(this.context, "App not Installed", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    companion object {
+        fun newInstance(): BaseFragment {
+            return InviteFriendsFragment()
         }
     }
 }

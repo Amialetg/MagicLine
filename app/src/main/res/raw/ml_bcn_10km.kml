@@ -46,13 +46,13 @@
     </StyleMap>
     <Style id="line-0288D1-5456-normal">
       <LineStyle>
-        <color>ffd18802</color>
+        <color>ff0051e6</color>
         <width>5.456</width>
       </LineStyle>
     </Style>
     <Style id="line-0288D1-5456-highlight">
       <LineStyle>
-        <color>ffd18802</color>
+        <color>ff0051e6</color>
         <width>8.184</width>
       </LineStyle>
     </Style>

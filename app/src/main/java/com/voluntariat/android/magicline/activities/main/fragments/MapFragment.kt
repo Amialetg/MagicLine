@@ -2,16 +2,17 @@ package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
+import android.location.Location
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,15 +20,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.maps.android.data.kml.KmlLayer
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.user_location
+import com.voluntariat.android.magicline.R.drawable.user_location_icon
 import com.voluntariat.android.magicline.activities.main.adapters.KmAdapter
 import mumayank.com.airlocationlibrary.AirLocation
-import java.util.ArrayList
-import android.graphics.Canvas
-import android.graphics.drawable.Drawable
-import android.location.Location
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.voluntariat.android.magicline.R.drawable.user_location_icon
 
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
@@ -49,7 +44,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var mapView: View = inflater.inflate(R.layout.fragment_map, container, false)
-        kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
         return mapView
 
     }
@@ -64,6 +58,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             }
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
+
                 // couldn't fetch location due to reason available in locationFailedEnum
                 // you may optionally do something to inform the user, even though the reason may be obvious
             }
@@ -85,7 +80,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         initKmCards()
 
         //INTEREST POINTS
-        loadMarkers()
+//        loadMarkers()
+        kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
         kmlLayer.addLayerToMap()
 
     }
@@ -120,6 +116,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         kmList.add(20)
         kmList.add(30)
         kmList.add(30)
+        kmList.add(40)
 
 
         //Setting up the adapter and the layout manager for the recycler view

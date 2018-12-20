@@ -84,13 +84,13 @@
     </StyleMap>
     <Style id="line-C5E1A5-5000-normal">
       <LineStyle>
-        <color>ffa5e1c5</color>
+        <color>ff0051e6</color>
         <width>5</width>
       </LineStyle>
     </Style>
     <Style id="line-C5E1A5-5000-highlight">
       <LineStyle>
-        <color>ffa5e1c5</color>
+        <color>ff0051e6</color>
         <width>7.5</width>
       </LineStyle>
     </Style>

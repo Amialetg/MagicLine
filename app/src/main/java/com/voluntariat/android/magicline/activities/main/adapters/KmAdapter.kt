@@ -53,7 +53,7 @@ class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: Goo
         } else {
             colorBg = ContextCompat.getColor(context, R.color.white)
             colorTxt = Color.parseColor("#80000000")
-            for(i:Int in 0..4){
+            for(i:Int in 0 until kmList.size){
                 if( i != selectedPosition && kmlLayers[i].isLayerOnMap) kmlLayers[i].removeLayerFromMap()
             }
         }

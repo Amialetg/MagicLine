@@ -51,7 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="@dimen/padding_right_card"
-            android:paddingHorizontal="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
                 android:id="@+id/scheduleCardTitle"

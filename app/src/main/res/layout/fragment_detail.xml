@@ -59,8 +59,10 @@
                     android:text="@string/viewOnWeb"
                     android:textAlignment="center"
                     android:layout_marginBottom="20dp"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="15dp" />
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp" />
 
                 <include layout="@layout/layout_share" />
 

@@ -1,6 +1,9 @@
 package com.voluntariat.android.magicline.activities.main
 
 import android.app.Activity
+import android.app.ActivityManager
+import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
@@ -25,6 +28,10 @@ class MainActivity : BaseActivity() {
     //The app starts at the magic line fragment
     private var currentFragment: Fragment = MagicLineFragment()
 
+
+//
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,7 +47,7 @@ class MainActivity : BaseActivity() {
 
         initBottomBar()
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null && intent?.extras?.get("From") == null) {
             //First time we open the app
             val transaction = this.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, MagicLineFragment())
@@ -64,9 +71,16 @@ class MainActivity : BaseActivity() {
             is Result.Failure -> Log.d("apiLogin","Failure: ${result.throwable.message}")
         } }
 
-        notificactionListener()
     }
 
+    private fun initialization() {
+
+        val prefs : SharedPreferences = this.baseContext.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
+        val editor = prefs.edit()
+//
+        editor.putString("notificationOpened", "no")
+        editor.apply()
+    }
     private fun initWidgets() {
 
         //BottomBar
@@ -145,6 +159,8 @@ class MainActivity : BaseActivity() {
             R.id.none -> return
             else -> newFragment = MagicLineFragment()
         }
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY;
+
 
         navigateToFragment(newFragment)
     }
@@ -159,53 +175,36 @@ class MainActivity : BaseActivity() {
 
     }
 
-    private fun notificactionListener() {
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        setIntent(Intent().apply { putExtra("From", "ferDonacio") })
+        val extra = intent?.getSerializableExtra("From")
+        Log.d("onesignal","Funciona! From: $extra")
 
-//       val type = intent.getStringExtra("From")
-        val prefs : SharedPreferences = this.baseContext.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
-        val type = prefs.getString("From", "")
+        when (extra) {
+            "ultimaNoticia" ->{
+                navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
 
-        if (type != null) {
-            when (type) {
-                "ultimaNoticia" ->{
-                    navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
+            }
+            "ferDonacio" -> {
+                Log.d("onesignal","fer donacio")
+                navigateToFragment(DonationsFragment())
 
-                }
-                "ferDonacio" -> {
-                    navigateToFragment(DonationsFragment())
+            }
+            "detallsEsdeveniments" -> {
+                navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
 
-                }
-                "detallsEsdeveniments" -> {
-                    navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
-
-                }
-                else -> {
-                    navigateToFragment(MagicLineFragment())
-                }
+            }
+            else -> {
+                navigateToFragment(MagicLineFragment())
             }
         }
+    }
 
-//        if (type != null) {
-//            when (type) {
-//                "ultimaNoticia" ->{
-//                    navigateToFragment(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
-//
-//                }
-//                "ferDonacio" -> {
-//                    navigateToFragment(DonationsFragment())
-//
-//                }
-//                "detallsEsdeveniments" -> {
-//                    navigateToFragment(ScheduleFragment()) //Especificar qué Fragment
-//
-//                }
-//                else -> {
-//                    Log.i("oneSignal", "oneSignal")
-//                }
-//            }
-//        }
-
-
+    fun appInForeground(context: Context): Boolean {
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val runningAppProcesses = activityManager.runningAppProcesses ?: return false
+        return runningAppProcesses.any { it.processName == context.packageName && it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND }
     }
 
     }

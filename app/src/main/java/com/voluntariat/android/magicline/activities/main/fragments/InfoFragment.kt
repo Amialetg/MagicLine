@@ -78,6 +78,7 @@ class InfoFragment: BaseFragment() {
 
     fun refresh() {
         this.requireActivity().recreate()
+
     }
 
     private fun listener(){

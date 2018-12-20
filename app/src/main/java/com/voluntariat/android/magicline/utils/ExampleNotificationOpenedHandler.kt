@@ -21,42 +21,28 @@ internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.No
     override fun notificationOpened(result: OSNotificationOpenResult) {
         val data = result.notification.payload.additionalData
         val intent = Intent(context, MainActivity::class.java)
-        //save data persistently
-        val prefs : SharedPreferences = this.context.getSharedPreferences("Settings", Activity.MODE_PRIVATE )
-        val editor = prefs.edit()
-
 
         if (data != null) {
 
             when (data["type"] ) {
                 "ultimaNoticia" ->{
-//                  intent.putExtra("From", "ultimaNoticia")
 
-                    editor.putString("From", "ultimaNoticia")
-                    editor.apply()
+                  intent.putExtra("From", "ultimaNoticia")
                 }
                 "ferDonacio" -> {
 
-//                    intent.putExtra("From", "ferDonacio")
-                    editor.putString("From", "ferDonacio")
-                    editor.apply()
+                  intent.putExtra("From", "ferDonacio")
 
                 }
                 "detallsEsdeveniments" -> {
-                    editor.putString("From", "detallsEsdeveniments")
-                    editor.apply()
 
-                }
-                else -> { // Navega a la página principal
-                    editor.putString("From", "main")
-                    editor.apply()
+                    intent.putExtra("From", "detallsEsdeveniments")
 
 
                 }
+
             }
         }
-        //intent.setFlags = (Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or )
-
         this.context.startActivity(intent)
 
 

@@ -207,14 +207,17 @@ class MagicLineFragment : BaseFragment() {
 
         val dataModelEssential = DetailModel(
                 title = getString(R.string.essentials_title),
-                subtitle = getString(R.string.essentials_subtitle),
+                subtitle = "",
+//                subtitle = getString(R.string.essentials_subtitle),
+
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
                // toolbarImg = R.drawable.imprescindibles,
                 hasToolbarImg = true)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
-                subtitle = getString(R.string.donations_subtitle),
+                subtitle = "",
+//                subtitle = getString(R.string.donations_subtitle),
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
               //  toolbarImg = R.drawable.destidelfons,

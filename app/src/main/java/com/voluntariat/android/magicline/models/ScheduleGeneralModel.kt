@@ -1,3 +1,5 @@
 package com.voluntariat.android.magicline.models
 
-abstract class ScheduleGeneralModel(val type: Int)
+import java.io.Serializable
+
+abstract class ScheduleGeneralModel(val type: Int): Serializable

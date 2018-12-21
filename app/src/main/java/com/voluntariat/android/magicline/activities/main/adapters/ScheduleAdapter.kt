@@ -3,27 +3,36 @@ package com.voluntariat.android.magicline.activities.main.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
 import com.voluntariat.android.magicline.models.ScheduleTextModel
+import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
-class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): RecyclerView.Adapter<RecyclerView.ViewHolder> () {
+class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private var listeners: List<View.OnClickListener>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val hour: TextView = itemView.scheduleHour
-        val text: TextView = itemView.scheduleText
+    class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val hour = itemView.scheduleHour
+        val text = itemView.scheduleText
     }
 
     class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val hour: TextView = itemView.scheduleCardHour
-        val title: TextView = itemView.scheduleCardTitle
-        val subtitle: TextView = itemView.scheduleCardSubtitle
-        val description: TextView = itemView.scheduleCardDescription
+        val scheduleCardHour = itemView.scheduleCardHour
+        val scheduleCardTitle = itemView.scheduleCardTitle
+        val subtitle = itemView.scheduleCardSubtitle
+        val scheduleCardDescription = itemView.scheduleCardDescription
+        val seeMoreBtn = itemView.seeMoreBtn
+
+        fun bind(cardModel: ScheduleCardModel, listener: View.OnClickListener) {
+            itemView.scheduleCardHour.text = cardModel.hour
+            itemView.scheduleCardTitle.text = cardModel.title
+            itemView.scheduleCardSubtitle.text = cardModel.subtitle
+            itemView.scheduleCardDescription.text = cardModel.description
+            itemView.seeMoreBtn.setOnClickListener(listener)
+        }
     }
 
     override fun getItemViewType(position: Int): Int = if (dataSet[position].type==1) 1 else 2
@@ -46,16 +55,15 @@ class ScheduleAdapter(private val dataSet: Array<ScheduleGeneralModel>): Recycle
             1 -> {
                 val textViewHolder = holder as ViewHolderText
                 val textModel = dataSet[position] as ScheduleTextModel
-
                 textViewHolder.hour.text = textModel.hour
                 textViewHolder.text.text = textModel.text
             } else -> {
-                val cardViewHolder = holder as ViewHolderCard
                 val cardModel = dataSet[position] as ScheduleCardModel
-                cardViewHolder.hour.text = cardModel.hour
-                cardViewHolder.title.text = cardModel.title
-                cardViewHolder.subtitle.text = cardModel.subtitle
-                cardViewHolder.description.text = cardModel.description
+                if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
+                holder.itemView.scheduleCardTitle.text = cardModel.title
+                holder.itemView.scheduleCardHour.text = cardModel.hour
+                holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle
+                holder.itemView.scheduleCardDescription.text = cardModel.description
             }
         }
     }

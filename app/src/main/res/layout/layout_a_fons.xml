@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
         android:weightSum="3"
         android:layout_marginTop="19dp">
 
@@ -62,7 +63,8 @@
                 android:layout_height="98dp"
                 android:text="@string/mesque_dona"
                 android:layout_weight="1"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 app:cardCornerRadius="7.2dp">
 
                 <LinearLayout

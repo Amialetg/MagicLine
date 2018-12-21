@@ -6,14 +6,11 @@
     android:orientation="vertical"
     >
 
-    <include layout="@layout/layout_schedule_header"></include>
+    <include layout="@layout/layout_schedule_header" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scheduleRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/schedule_recycler"
-        >
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

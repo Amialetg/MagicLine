@@ -61,7 +61,7 @@ class MagicLineFragment : BaseFragment() {
 
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_magic_line, container, false)
+        return inflater.inflate(R.layout.fragment_magic_line, container, false)
     }
 
     override fun onStart() {

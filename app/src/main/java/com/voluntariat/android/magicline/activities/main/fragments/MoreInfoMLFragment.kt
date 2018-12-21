@@ -37,7 +37,6 @@ class MoreInfoMLFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         moreInfoMLView = inflater.inflate(R.layout.fragment_more_info_ml, container, false)
 
-
         var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
@@ -47,13 +46,11 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         requestChartData()
         createBarChart()
     }
 
     private fun requestChartData() {
-
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
             val total = participants.totalParticipants
             val places = 13000
@@ -62,7 +59,6 @@ class MoreInfoMLFragment : BaseFragment() {
 
             currentParticipants.text = total.toString()
             configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
-
         })
     }
 
@@ -88,9 +84,7 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun setUpPieChartData() {
-
         configurePieChart(20f, 80f)
-
     }
 
     private fun configurePieChart(pieValue: Float, pieTotal: Float) {
@@ -120,7 +114,6 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun setupBarChartData() {
-
         val entries = arrayListOf<BarEntry>()
         entries.add(BarEntry(0f, 30f))
         entries.add(BarEntry(1f, 80f))

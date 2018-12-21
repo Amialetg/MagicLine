@@ -1,9 +1,11 @@
 package com.voluntariat.android.magicline.data
 
 import androidx.lifecycle.LiveData
+import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
 
 interface MagicLineRepository {
+
     fun authenticate(
             username: String,
             password: String,
@@ -11,4 +13,6 @@ interface MagicLineRepository {
     )
 
     fun getPosts() : LiveData<List<PostsItem>>
+
+    fun getDonations() : LiveData<List<DonationsDBModel>>
 }

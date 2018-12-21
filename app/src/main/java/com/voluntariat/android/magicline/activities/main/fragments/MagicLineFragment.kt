@@ -17,27 +17,25 @@ import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
 import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
+import com.voluntariat.android.magicline.utils.toEuro
+import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
-import java.text.SimpleDateFormat
-import java.util.*
-
-import java.util.Calendar
-import java.util.Date
-import com.voluntariat.android.magicline.data.Result
-import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MagicLineFragment : BaseFragment() {
 
@@ -165,6 +163,17 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
+
+        mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donations ->
+            // TODO refactor
+            var donationText = 0.0
+            for (donation in donations) {
+                if (donation.donationsBcn != null && donation.donationsBcn.isNotEmpty() && donation.donationsBcn?.toDouble()!! > donationText) {
+                    donationText = donation.donationsBcn?.toDouble()
+                }
+            }
+            recaudats_num.text = donationText.toEuro()
+        })
     }
 
     private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {

@@ -9,5 +9,5 @@ data class Val(
 
 	@ColumnInfo(name = "amount")
 	@field:SerializedName("amount")
-	val amount: Any? = null
+	val amount: String? = null
 )

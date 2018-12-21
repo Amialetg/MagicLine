@@ -76,22 +76,56 @@
     <string name="viewOnWeb">Veure la web</string>
 
     <!-- Essentials Detail Fragment -->
-    <string name="essentials_title">Imprescindibles Magic Line</string>
+    <string name="essentials_title">10 imprescindibles Magic Line SJD</string>
     <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
-    <string name="essentials_body">Equipaments culturals obren Les portes</string>
-    <string name="essentials_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+    <string name="essentials_body">
+        <![CDATA[<html>
+         1. <b>MOLT MÉS QUE UNA CAMINADA.</b> Les accions solidàries dels equips es converteixen en ajudes per persones en situació vulnerable ateses a centres de Sant Joan de Déu i altres entitats properes.<br/><br/>
+
+2.   <b>UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b>  Aixequeu el cap, la Magic Line SJD us acosta a muntanya, parcs naturals i urbans, carrers i places de la ciutat.<br/><br/>
+
+3.   <b>QUI AJUDES T’AJUDA.</b>  Us oferim punts d\’avituallament, aliment complementari per la caminada, que us facilitaran persones ateses als nostres centres.<br/><br/>
+
+4.   <b>VOLUNTARIAT.</b>  Centenars de persones i empreses aporten el seu temps i serveis per a fer possible l\’esdeveniment.<br/><br/>
+
+5.   <b>CULTURA INCLUSIVA.</b>  Durant el recorregut us trobareu propostes de música i teatre de carrer, així com els museus de Montjuïc oberts per a vosaltres. Gaudiu de la companyia!<br/><br/>
+
+6.   <b>PICNIC AL CASTELL.</b>  Al fossar del castell de Montjuïc hi teniu una zona per a dinar, amb música i activitats per als més petits.<br/><br/>
+
+7.   <b>FESTA SOLIDÀRIA A L\’ARRIBADA.</b>  A la plaça de la Catedral us hi espera una celebració d’aquesta enorme mobilització.<br/><br/>
+
+8.   <b>PRODUCTES MAGIC LINE SJD.</b>  Un record de la mobilització solidària que no és només per a tu.<br/><br/>
+
+9.   <b>EXPLICA LA TEVA EXPERIÈNCIA</b>  de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
+
+10.   <b>GRÀCIES, GRÀCIES, GRÀCIES.</b>  Som milers de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
+        </string>
+    <string name="essentials_viewOnWeb">https://www.magiclinesjd.org/ca/</string>
 
     <!-- Donations Destiny Detail Fragment -->
     <string name="donations_title">Destí dels fons</string>
     <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
-    <string name="donations_body">Equipaments culturals obren Les portes</string>
-    <string name="donations_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+    <string name="donations_body">
+<![CDATA[<html>
+   La Magic Line SJD permet finançar programes de suport a <b>infants, adults i persones grans que pateixen situacions de vulnerabilitat</b>. Aquí i arreu del món. Gràcies a les aportacions econòmiques dels equips i al suport de les institucions i empreses treballem en garantir:<br/>
+<ul>
+<li><b>LLAR.</b> Oferir pisos amb acompanyament psico social a famílies amb pocs recursos, a persones en situació de sense llar, a joves migrants i a persones que demanen refugi.</li><br/>
+
+<li><b>OCUPACIÓ.</b> Acompanyar en el procés de recerca de feina a persones amb trastorn mental, amb discapacitat i en situació de sense llar.</li><br/>
+
+<li><b>SALUT.</b> Cuidar les persones que atenem més enllà de l\'assistència bàsica, donant-los petits ajuts econòmics si ho requereixen, teràpies parassistencials com musicoteràpia, teràpies amb animals o horticultura i invertint en la cura del futur amb projectes de recerca social i biomèdica.</li><br/>
+
+<li><b>COOPERACIÓ INTERNACIONAL.</b> Facilitar l\'atenció a països en desenvolupament fent acompanyament entre professionals i aportant alguns materials especialitzats.</li><br/>
+   </ul>
+</html>]]>
+      </string>
+    <string name="donations_viewOnWeb">http://www.magiclinesjd.org/ca/a_qui_ajudem</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->
-    <string name="sjd_title" translatable="false">Sant Joan de Déu</string>
-    <string name="sjd_subtitle">Equipaments culturals obren Les portes</string>
-    <string name="sjd_body">Equipaments culturals obren Les portes</string>
-    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/</string>
+    <string name="sjd_title" translatable="false">Solidaritat Sant Joan de Déu</string>
+    <string name="sjd_subtitle">L\’Obra Social Sant Joan de Déu promou la solidaritat per sensibilitzar i implicar la ciutadania entorn a les realitats de vulnerabilitat social que genera la societat.</string>
+    <string name="sjd_body">Des dels centres socials i sanitaris de l\’Orde Hospitalari SJD cuidem a qui ho necessita: infants, joves, adults i persones grans en situació de sense llar o dependència, amb trastorn mental, amb discapacitat intel·lectual. Ho fem aquí i arreu del món a través d\’agermanaments amb centres de països en situació de pobresa. I ho fem de manera integral, incorporant una mirada sanitària, així com emocional i social a la cura de les persones que atenem.</string>
+    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/ca</string>
 
     <!-- Share -->
     <string name="share">Share your experiences:</string>

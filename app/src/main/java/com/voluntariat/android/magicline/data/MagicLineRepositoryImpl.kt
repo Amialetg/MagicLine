@@ -83,7 +83,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
             {
                 result ->
                 if (result.isSuccessful) {
-                    var donations = result.body()?.donations as Donations
+                    var donations = result.body()?.donations
                     if (donations != null && donations.barcelona?.amount != null) {
                         insertDonationsDBModelFromAPI(donations)
                     }

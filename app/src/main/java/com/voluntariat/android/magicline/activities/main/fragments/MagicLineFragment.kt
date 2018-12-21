@@ -63,6 +63,7 @@ class MagicLineFragment : BaseFragment() {
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_magic_line, container, false)
+
     }
 
     override fun onStart() {
@@ -218,18 +219,17 @@ class MagicLineFragment : BaseFragment() {
         val dataModelEssential = DetailModel(
                 title = getString(R.string.essentials_title),
                 subtitle = "",
-//                subtitle = getString(R.string.essentials_subtitle),
-
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
+                isBlack = false,
                // toolbarImg = R.drawable.imprescindibles,
                 hasToolbarImg = true)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = "",
-//                subtitle = getString(R.string.donations_subtitle),
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
+                isBlack = false,
               //  toolbarImg = R.drawable.destidelfons,
                 hasToolbarImg = true)
         val dataModelSantJoan = DetailModel(
@@ -237,6 +237,7 @@ class MagicLineFragment : BaseFragment() {
                 subtitle = getString(R.string.sjd_subtitle),
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
+                isBlack = false,
               //  toolbarImg = R.drawable.laboratori,
                 hasToolbarImg = true)
 

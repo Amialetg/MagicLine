@@ -46,7 +46,8 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+
     }
 
     private fun initToolbar() {
@@ -77,7 +78,7 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun openNewTabWindow(url: String, context: Context) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
     }
 
     companion object {

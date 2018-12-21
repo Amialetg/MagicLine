@@ -164,13 +164,10 @@ class MagicLineFragment : BaseFragment() {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
 
-        mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donations ->
-            // TODO refactor
+        mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             var donationText = 0.0
-            for (donation in donations) {
-                if (donation.donationsBcn != null && donation.donationsBcn.isNotEmpty() && donation.donationsBcn?.toDouble()!! > donationText) {
-                    donationText = donation.donationsBcn?.toDouble()
-                }
+            if (donation?.donationsBcn != null && donation.donationsBcn.isNotEmpty() && donation.donationsBcn?.toDouble()!! > donationText) {
+                donationText = donation.donationsBcn?.toDouble()
             }
             recaudats_num.text = donationText.toEuro()
         })

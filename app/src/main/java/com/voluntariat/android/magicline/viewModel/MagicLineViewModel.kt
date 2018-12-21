@@ -14,7 +14,7 @@ class MagicLineViewModel(application : Application, private val repository: Magi
         return repository.getPosts()
     }
 
-    fun getDonations() : LiveData<List<DonationsDBModel>> {
+    fun getDonations() : LiveData<DonationsDBModel> {
         return repository.getDonations()
     }
 }

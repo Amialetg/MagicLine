@@ -8,6 +8,6 @@ import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 @Dao interface DonationsDAO : BaseDao<DonationsDBModel> {
 
     @Query("select * from donations")
-    fun getDonations() : LiveData<List<DonationsDBModel>>
+    fun getDonations() : LiveData<DonationsDBModel>
 
 }

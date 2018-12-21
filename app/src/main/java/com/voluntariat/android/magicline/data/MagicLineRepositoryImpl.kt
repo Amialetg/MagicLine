@@ -18,7 +18,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
     private lateinit var mPostDao: PostDao
     private lateinit var donationsDAO: DonationsDAO
     private val mAllPosts: LiveData<List<PostsItem>>
-    private val donations: LiveData<List<DonationsDBModel>>
+    private val donations: LiveData<DonationsDBModel>
 
     init {
         val db = database
@@ -78,14 +78,15 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         return mPostDao.getAllPosts()
     }
 
-    override fun getDonations(): LiveData<List<DonationsDBModel>> {
+    override fun getDonations(): LiveData<DonationsDBModel> {
         MagicLineAPI.service.donations().enqueue(callback(
             {
                 result ->
                 if (result.isSuccessful) {
                     var donations = result.body()?.donations as Donations
-
-                    insertDonationsDBModelFromAPI(donations)
+                    if (donations != null && donations.barcelona?.amount != null) {
+                        insertDonationsDBModelFromAPI(donations)
+                    }
                 }
             }
         ))

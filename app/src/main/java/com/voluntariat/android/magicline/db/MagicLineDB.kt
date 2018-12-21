@@ -10,8 +10,6 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.Converters
-import com.voluntariat.android.magicline.data.models.posts.Post
-import com.voluntariat.android.magicline.data.models.posts.PostImageItem
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.dao.DonationsDAO
 import com.voluntariat.android.magicline.db.dao.PostDao
@@ -55,11 +53,7 @@ private class PopulateDbAsync internal constructor(db: MagicLineDB) : AsyncTask<
     private val donationsDAO: DonationsDAO = db.donationsDAO()
 
     override fun doInBackground(vararg params: Void): Void? {
-        var post = PostsItem(0, Post(title = "Noticia 1"), ArrayList<PostImageItem>())
-        mPostDao.insert(post)
-
-        var donation = DonationsDBModel(0, donationsVal = "1", donationsBcn = "2", donationsBml = "3", donationsMll = "4")
-        donationsDAO.insert(donation)
+        // Where to insert temp data
         return null
     }
 }

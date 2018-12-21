@@ -14,5 +14,5 @@ interface MagicLineRepository {
 
     fun getPosts() : LiveData<List<PostsItem>>
 
-    fun getDonations() : LiveData<List<DonationsDBModel>>
+    fun getDonations() : LiveData<DonationsDBModel>
 }

@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.about_us
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
@@ -28,14 +27,18 @@ import com.voluntariat.android.magicline.utils.toEuro
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
+
+import java.util.Calendar
+import java.util.Date
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class MagicLineFragment : BaseFragment() {
 
@@ -60,6 +63,7 @@ class MagicLineFragment : BaseFragment() {
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_magic_line, container, false)
+
     }
 
     override fun onStart() {
@@ -214,20 +218,27 @@ class MagicLineFragment : BaseFragment() {
 
         val dataModelEssential = DetailModel(
                 title = getString(R.string.essentials_title),
-                subtitle = getString(R.string.essentials_subtitle),
+                subtitle = "",
                 textBody = getString(R.string.essentials_body),
-                link = getString(R.string.essentials_viewOnWeb))
+                link = getString(R.string.essentials_viewOnWeb),
+                isBlack = false,
+               // toolbarImg = R.drawable.imprescindibles,
+                hasToolbarImg = true)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
-                subtitle = getString(R.string.donations_subtitle),
+                subtitle = "",
                 textBody = getString(R.string.donations_body),
-                link = getString(R.string.donations_viewOnWeb))
+                link = getString(R.string.donations_viewOnWeb),
+                isBlack = false,
+              //  toolbarImg = R.drawable.destidelfons,
+                hasToolbarImg = true)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
                 subtitle = getString(R.string.sjd_subtitle),
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
-                toolbarImg = about_us,
+                isBlack = false,
+              //  toolbarImg = R.drawable.laboratori,
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {

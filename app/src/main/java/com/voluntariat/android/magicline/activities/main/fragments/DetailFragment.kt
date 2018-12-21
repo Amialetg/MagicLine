@@ -12,16 +12,11 @@ import androidx.core.content.ContextCompat
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
-import kotlinx.android.synthetic.main.fragment_detail.view.detailBody
-import kotlinx.android.synthetic.main.fragment_detail.view.detailSubtitle
-import kotlinx.android.synthetic.main.fragment_detail.view.detailTitle
-import kotlinx.android.synthetic.main.fragment_detail.view.viewOnWeb
-import kotlinx.android.synthetic.main.layout_share.view.fb_button
-import kotlinx.android.synthetic.main.layout_share.view.insta_button
-import kotlinx.android.synthetic.main.layout_share.view.twitter_button
+import com.voluntariat.android.magicline.utils.htmlToSpanned
+import kotlinx.android.synthetic.main.fragment_detail.view.*
+import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbar
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.topToolbarImg
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class DetailFragment : BaseFragment() {
 
@@ -51,14 +46,15 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+
     }
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         detailLayoutView.detailTitle.text = detailModel.title
         detailLayoutView.detailSubtitle.text = detailModel.subtitle
-        detailLayoutView.detailBody.text = detailModel.textBody
+        detailLayoutView.detailBody.text = detailModel.textBody.htmlToSpanned()
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
@@ -82,7 +78,7 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun openNewTabWindow(url: String, context: Context) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://solidaritat.santjoandedeu.org")))
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
     }
 
     companion object {

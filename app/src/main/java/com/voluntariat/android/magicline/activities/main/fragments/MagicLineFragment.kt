@@ -170,7 +170,19 @@ class MagicLineFragment : BaseFragment() {
     private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
         val news : MutableList<NewsModel> = mutableListOf()
         for (item in list) {
-            news.add(NewsModel(title = item.post.title, description = item.post.text))
+            var detailModel = DetailModel(
+                    title = item.post.title.toString(),
+                    textBody = item.post.text.toString(),
+                    subtitle = "",
+                    hasToolbarImg = false,
+                    link = ""
+            )
+
+            news.add(NewsModel(
+                    title = item.post.title,
+                    description = item.post.text,
+                    detailModel = detailModel
+            ))
         }
         return news
     }

@@ -1,29 +1,33 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
+import com.voluntariat.android.magicline.R.color.light_red
+import com.voluntariat.android.magicline.R.color.mesque_background
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
+import com.voluntariat.android.magicline.R.string.walk_text_1
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
+
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 import com.voluntariat.android.magicline.R.string.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
-import android.graphics.Typeface
-import android.os.Build
 import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.color.light_red
-import com.voluntariat.android.magicline.R.color.mesque_background
-import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import com.voluntariat.android.magicline.utils.htmlToSpanned
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.BarData
 
 class MoreInfoMLFragment : BaseFragment() {
 
@@ -72,19 +76,15 @@ class MoreInfoMLFragment : BaseFragment() {
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize = 0f
         val colors = java.util.ArrayList<Int>()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            colors.add(this.requireActivity().getColor(light_red))
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            colors.add(this.requireActivity().getColor(mesque_background))
-        }
-
+        colors.add(ContextCompat.getColor(requireContext(), light_red))
+        colors.add(ContextCompat.getColor(requireContext(), mesque_background))
         dataSet.colors = colors
-        pieChart.animateY(5000)
+        pieChart.animateY(2000)
         val data = PieData(dataSet)
         pieChart.data = data
-        dataSet.sliceSpace = 2f
-
+        pieChart.rotationAngle = 0f
+        pieChart.isHighlightPerTapEnabled = false
+        pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
         pieChart.centerText = "13.000" + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
@@ -92,18 +92,43 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.setCenterTextTypeface(typeFace)
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
+        pieChart.onChartGestureListener = null
 
     }
 
     private fun setupBarChartData() {
 
-    }
+        val entries = arrayListOf<BarEntry>()
+        entries.add(BarEntry(0f, 30f))
+        entries.add(BarEntry(1f, 80f))
+        entries.add(BarEntry(2f, 60f))
+        entries.add(BarEntry(3f, 50f))
 
+        val dataSet = BarDataSet(entries, "")
+        val data = BarData(dataSet)
+        dataSet.color = ContextCompat.getColor(requireContext(), light_red)
+        data.barWidth = 0.15f // set custom bar width
+        barChart.data = data
+        barChart.legend.isEnabled = false
+        barChart.setGridBackgroundColor(Color.BLUE)
+        barChart.setDrawBorders(false)
+        barChart.description.isEnabled = false
+        barChart.setFitBars(true) // make the x-axis fit exactly all bars
+        barChart.isHighlightPerTapEnabled = false
+        barChart.isDoubleTapToZoomEnabled = false
+        barChart.isDragEnabled = false
+        barChart.isScaleXEnabled = false
+        barChart.isScaleYEnabled = false
+        barChart.animateY(2000)
+        barChart.invalidate() // refresh
+    }
     companion object {
         fun newInstance(): BaseFragment {
             return MoreInfoMLFragment()
         }
     }
-
-
 }
+
+
+
+

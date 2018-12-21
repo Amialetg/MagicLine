@@ -31,6 +31,7 @@ import java.util.*
 import java.util.Calendar
 import java.util.Date
 import com.voluntariat.android.magicline.data.Result
+import com.voluntariat.android.magicline.utils.htmlToSpanned
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
@@ -209,21 +210,21 @@ class MagicLineFragment : BaseFragment() {
                 subtitle = getString(R.string.essentials_subtitle),
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
-                toolbarImg = R.drawable.imprescindibles,
+               // toolbarImg = R.drawable.imprescindibles,
                 hasToolbarImg = true)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = getString(R.string.donations_subtitle),
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
-                toolbarImg = R.drawable.destidelfons,
+              //  toolbarImg = R.drawable.destidelfons,
                 hasToolbarImg = true)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
                 subtitle = getString(R.string.sjd_subtitle),
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
-                toolbarImg = R.drawable.laboratori,
+              //  toolbarImg = R.drawable.laboratori,
                 hasToolbarImg = true)
 
         info_essentials_button.setOnClickListener {

@@ -44,15 +44,6 @@
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminada solidaria:</string>
 
-    <!--URL's-->
-    <string name="url_facebook">http://www.facebook.com</string>
-    <string name="url_google">http://www.google.com</string>
-    <string name="url_twitter">http://www.twitter.com</string>
-    <string name="url_telegram">http://www.twitter.com</string>
-    <string name="url_whatsapp">http://www.whatsapp.com</string>
-
-
-
     <!--Section other values -->
     <string name="other_values_title">ALTRES VALORS</string>
 
@@ -78,6 +69,7 @@
     <string name="schedule_button_text">Veure més</string>
     <string name="schedule_header_name">activitats durant tot el dia</string>
     <string name="schedule_alldayopen_act">Museus Oberts</string>
+    <string name="schedule_header_total_duration">(Total ruta 6h)</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->

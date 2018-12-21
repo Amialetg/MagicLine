@@ -23,11 +23,13 @@ class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: Goo
                  val context: Context) : RecyclerView.Adapter<KmAdapter.ViewHolder>() {
 
     var selectedPosition : Int = 0
-    var kmlLayers : ArrayList<KmlLayer> = arrayListOf(KmlLayer(googleMap,R.raw.ml_barcelona_2018_10,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_15,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_20,context),
-            KmlLayer(googleMap,R.raw.ml_barcelona_2018_25,context)
-            ,KmlLayer(googleMap,R.raw.ml_barcelona_2018_30,context))
+    var kmlLayers : ArrayList<KmlLayer> = arrayListOf(
+            KmlLayer(googleMap, R.raw.ml_bcn_10km,context),
+            KmlLayer(googleMap, R.raw.ml_bcn_15km,context),
+            KmlLayer(googleMap,R.raw.ml_bcn_20km,context),
+            KmlLayer(googleMap,R.raw.ml_bcn_30km,context),
+            KmlLayer(googleMap,R.raw.ml_bcn_30km_ll,context),
+            KmlLayer(googleMap,R.raw.ml_bcn_40km,context))
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,23 +53,18 @@ class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: Goo
         } else {
             colorBg = ContextCompat.getColor(context, R.color.white)
             colorTxt = Color.parseColor("#80000000")
-            for(i:Int in 0..4){
+            for(i:Int in 0 until kmList.size){
                 if( i != selectedPosition && kmlLayers[i].isLayerOnMap) kmlLayers[i].removeLayerFromMap()
             }
         }
 
-        holder.km.text = km.toString()
-        holder.card?.setCardBackgroundColor(colorBg)
-        holder.km.setTextColor(colorTxt)
-        holder.kmText?.setTextColor(colorTxt)
+        holder.itemView.TextViewMapNumKm.text = km.toString()
+        holder.itemView.TextViewMapNumKm.setTextColor(colorTxt)
+        holder.itemView.TextViewMapTextKm.setTextColor(colorTxt)
+        holder.itemView.CardRoute.setCardBackgroundColor(colorBg)
     }
 
     class ViewHolder(itemView: View, adapter: KmAdapter) : RecyclerView.ViewHolder(itemView) {
-
-        val km: TextView = itemView.mapKm
-        val card: CardView = itemView.card
-        val kmText: TextView = itemView.mapKmText
-        
         init {
             itemView.setOnClickListener{
                 with(adapter){

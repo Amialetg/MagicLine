@@ -1,26 +1,33 @@
 package com.voluntariat.android.magicline.data
-import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 import android.util.Log
-import com.voluntariat.android.magicline.utils.callback
+import androidx.lifecycle.LiveData
 import com.voluntariat.android.magicline.data.api.MagicLineAPI
+import com.voluntariat.android.magicline.data.models.donations.Donations
+import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
+import com.voluntariat.android.magicline.db.dao.DonationsDAO
 import com.voluntariat.android.magicline.db.dao.PostDao
+import com.voluntariat.android.magicline.utils.callback
 
 
 class MagicLineRepositoryImpl(database: MagicLineDB?)
     : MagicLineRepository {
 
     private lateinit var mPostDao: PostDao
+    private lateinit var donationsDAO: DonationsDAO
     private val mAllPosts: LiveData<List<PostsItem>>
+    private val donations: LiveData<DonationsDBModel>
 
     init {
         val db = database
         if (db != null) {
             mPostDao = db.postDao()
+            donationsDAO = db.donationsDAO()
         }
         mAllPosts = mPostDao.getAllPosts()
+        donations = donationsDAO.getDonations()
     }
 
     private class InsertAsyncTask internal constructor(private val asyncPostDao: PostDao) : AsyncTask<PostsItem, Void, Void>() {
@@ -69,5 +76,29 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
             }))
 
         return mPostDao.getAllPosts()
+    }
+
+    override fun getDonations(): LiveData<DonationsDBModel> {
+        MagicLineAPI.service.donations().enqueue(callback(
+            {
+                result ->
+                if (result.isSuccessful) {
+                    var donations = result.body()?.donations
+                    if (donations != null && donations.barcelona?.amount != null) {
+                        insertDonationsDBModelFromAPI(donations)
+                    }
+                }
+            }
+        ))
+
+        return donationsDAO.getDonations()
+    }
+
+    private fun insertDonationsDBModelFromAPI(donations : Donations) {
+        donationsDAO.insert(DonationsDBModel(0,
+                                                donations.valencia?.amount,
+                                                donations.bml?.amount,
+                                                donations.barcelona?.amount,
+                                                donations.mallorca?.amount))
     }
 }

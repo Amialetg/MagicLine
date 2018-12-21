@@ -32,7 +32,7 @@
 
     <!--Section mes que-->
     <string name="mesque_title">más que una caminata</string>
-    <string name="mesque_dona">da a un equipo</string>
+    <string name="mesque_dona">dona a un equipo</string>
     <string name="mesque_demana">pide donativos</string>
     <string name="mesque_idees">ideas de captación</string>
 
@@ -45,13 +45,10 @@
     <string name="map_km">Km caminata solidaria:</string>
 
     <!--URL's-->
-    <string name="url_facebook">http://www.facebook.com</string>
-    <string name="url_google">http://www.google.com</string>
-    <string name="url_twitter">http://www.twitter.com</string>
-    <string name="url_telegram">http://www.twitter.com</string>
-    <string name="url_whatsapp">http://www.whatsapp.com</string>
-
-
+    <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
+    <string name="url_twitter" translatable="false">https://twitter.com/magiclineSJD</string>
+    <string name="url_telegram" translatable="false">https://t.me/magiclinesjd</string>
+    <string name="url_instagram" translatable="false">https://www.instagram.com/magiclinesjd/</string>
 
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>
@@ -77,6 +74,7 @@
     <string name="schedule_card_description">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the </string>
     <string name="schedule_button_text">Ver más</string>
     <string name="schedule_header_name">Actividades durante todo el día</string>
+    <string name="schedule_header_total_duration">(Total ruta 6h)</string>
     <string name="schedule_alldayopen_act">Museos Abiertos</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 

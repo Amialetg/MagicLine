@@ -62,7 +62,7 @@ class InviteFriendsFragment: BaseFragment() {
             waIntent.type = "text/plain"
             waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
             var text = "\n" + " Let me recommend you this application\n" + "\n"
-            text = text + "https://play.google.com/store/apps/details?id=" + "com.basetis.ecolocalapp" //Substituir por Magic Line
+            text += "https://play.google.com/store/apps/details?id=com.obrasocialsjd.magicline&hl=cat"
             //val screenshotUri = Uri.parse("android.resource://res/drawable/pantallasplash")
             //i.type = "image/png"
             //i.putExtra(Intent.EXTRA_STREAM, screenshotUri)

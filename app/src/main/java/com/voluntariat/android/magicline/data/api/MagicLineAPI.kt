@@ -3,13 +3,14 @@ package com.voluntariat.android.magicline.data.api
 import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.data.MagicLineInterceptor
 import com.voluntariat.android.magicline.data.models.login.LoginModel
-import com.voluntariat.android.magicline.data.models.posts.Response
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import com.voluntariat.android.magicline.data.models.donations.Response as DonationsResponse
+import com.voluntariat.android.magicline.data.models.posts.Response as PostsResponse
 
 object MagicLineAPI {
     private const val URL = "http://magiclinesjd.org/ws/" // PROD
@@ -31,11 +32,16 @@ object MagicLineAPI {
         fun testAPI(@Path("user") user: String): Call<List<Any>>
 
         @GET("posts.json")
-        fun posts(): Call<Response>
+        fun posts(): Call<PostsResponse>
+
+        @GET("marker_donations.json")
+        fun donations(): Call<DonationsResponse>
 
         @FormUrlEncoded
         @POST("oAuthLogin")
         fun oAuthLogin(@Field("username", encoded = true) username: String, @Field("password", encoded = true) password: String) : Call<LoginModel>
+
+
 
         /* MAGICLINE API
         @GET("posts.json")

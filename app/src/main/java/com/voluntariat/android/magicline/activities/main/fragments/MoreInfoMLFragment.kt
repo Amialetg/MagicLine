@@ -1,6 +1,5 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
-import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProviders
-import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.color.light_red
 import com.voluntariat.android.magicline.R.color.mesque_background
@@ -110,6 +111,12 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
         pieChart.onChartGestureListener = null
+    }
+
+    companion object {
+        fun newInstance(): BaseFragment {
+            return MoreInfoMLFragment()
+        }
     }
 }
 

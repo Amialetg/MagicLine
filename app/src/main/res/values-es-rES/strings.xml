@@ -32,7 +32,7 @@
 
     <!--Section mes que-->
     <string name="mesque_title">más que una caminata</string>
-    <string name="mesque_dona">da a un equipo</string>
+    <string name="mesque_dona">dona a un equipo</string>
     <string name="mesque_demana">pide donativos</string>
     <string name="mesque_idees">ideas de captación</string>
 
@@ -43,15 +43,6 @@
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminata solidaria:</string>
-
-    <!--URL's-->
-    <string name="url_facebook">http://www.facebook.com</string>
-    <string name="url_google">http://www.google.com</string>
-    <string name="url_twitter">http://www.twitter.com</string>
-    <string name="url_telegram">http://www.twitter.com</string>
-    <string name="url_whatsapp">http://www.whatsapp.com</string>
-
-
 
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>
@@ -78,6 +69,7 @@
     <string name="schedule_button_text">Ver más</string>
     <string name="schedule_header_name">Actividades durante todo el día</string>
     <string name="schedule_alldayopen_act">Museos Abiertos</string>
+    <string name="schedule_header_total_duration">(Total ruta 6h)</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->
@@ -105,7 +97,7 @@
 
 8. <b>PRODUCTOS MAGIC LINE SJD.</b>  Un recuerdo de la movilización solidaria que no es sólo para ti.<br/><br/>
 
-9. <b>EXPLICA TU EXPERIENCIA</b>  de #magicliner en las redes sociales. Que todo el mundo sepa que eres parte de la #MagicLine de @solidaridadsjd<br/><br/>v
+9. <b>EXPLICA TU EXPERIENCIA</b>  de #magicliner en las redes sociales. Que todo el mundo sepa que eres parte de la #MagicLine de @solidaridadsjd<br/><br/>
 
 10. <b>GRACIAS, GRACIAS, GRACIAS.</b>  Somos miles de personas solidarias llenando la ciudad! Juntas somos menos vulnerables!</html>]]>
        </string>

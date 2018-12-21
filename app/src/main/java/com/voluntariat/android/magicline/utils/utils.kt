@@ -37,11 +37,11 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true) {
+fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true) {
     val transaction = this.supportFragmentManager.beginTransaction()
     if(useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
     transaction.replace(R.id.frame_layout, fragment)
-    transaction.addToBackStack(fragment.javaClass.canonicalName)
+    if(addToBackStack) transaction.addToBackStack(fragment.javaClass.canonicalName)
     transaction.commit()
 }
 
@@ -51,4 +51,8 @@ fun String.htmlToSpanned() : Spanned {
     } else {
         Html.fromHtml(this)
     }
+}
+
+fun Double.toEuro() : String {
+    return this.toInt().toString() + "€"
 }

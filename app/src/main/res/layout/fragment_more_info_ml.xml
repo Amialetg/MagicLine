@@ -32,13 +32,15 @@
                     style="@style/walkText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
                     android:text="@string/info_ml" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -50,7 +52,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:paddingVertical="12dp">
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp">
 
                         <TextView
                             style="@style/walk_title"
@@ -81,8 +84,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="28dp">
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:paddingTop="28dp"
+                    android:paddingBottom="28dp">
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pieChart"
@@ -141,14 +146,23 @@
                     android:layout_height="1dp"
                     android:background="@drawable/grey_border" />
 
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
 
                 <TextView
                     android:id="@+id/walkTitle"
                     style="@style/walk_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
                     android:text="@string/walk_title" />
 
                 <TextView
@@ -179,8 +193,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/button_border"
-                        android:paddingHorizontal="15dp"
-                        android:paddingVertical="5dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:text="@string/ml_sjd"
                         android:textAlignment="center" />
 

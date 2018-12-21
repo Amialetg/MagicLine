@@ -4,7 +4,8 @@
     android:layout_height="@dimen/height_model_card"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <RelativeLayout
         android:layout_width="@dimen/width_relative"
@@ -38,7 +39,6 @@
             />
 
     </RelativeLayout>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_card"
@@ -50,43 +50,43 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/padding_left_card"
-            android:paddingEnd="@dimen/padding_top_card"
             android:paddingTop="@dimen/padding_right_card"
-
-            >
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
+                android:id="@+id/scheduleCardTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Picnik"
                 style="@style/scheduleCardTitle"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/scheduleCardTitle"
-
                 />
 
             <TextView
+                android:id="@+id/scheduleCardSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Equipaments culturals obren Les portes"
                 style="@style/scheduleCardSubTitle"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/scheduleCardSubtitle"
                 android:layout_below="@id/scheduleCardTitle"
                 />
 
             <TextView
+                android:id="@+id/scheduleCardDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/schedule_card_description"
+                tools:text="@string/lorem_ipsum"
                 style="@style/scheduleCardDescription"
+                android:maxLines="3"
+                android:ellipsize="end"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/scheduleCardDescription"
                 android:layout_below="@id/scheduleCardSubtitle"
                 />
 
             <Button
+                android:id="@+id/seeMoreBtn"
                 android:layout_width="@dimen/width_schedule_button"
                 android:layout_height="@dimen/height_schedule_button"
                 android:elevation="0dp"
@@ -96,8 +96,12 @@
                 android:layout_marginBottom="18dp"
                 android:layout_alignParentBottom="true"
                 />
+
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </LinearLayout>

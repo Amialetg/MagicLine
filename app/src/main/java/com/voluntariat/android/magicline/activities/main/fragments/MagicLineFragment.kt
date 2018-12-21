@@ -27,17 +27,14 @@ import com.voluntariat.android.magicline.utils.toEuro
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
-import java.text.SimpleDateFormat
-import java.util.*
-
-import java.util.Calendar
-import java.util.Date
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MagicLineFragment : BaseFragment() {

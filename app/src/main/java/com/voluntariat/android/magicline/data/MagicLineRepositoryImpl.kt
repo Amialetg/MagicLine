@@ -6,9 +6,13 @@ import com.voluntariat.android.magicline.data.api.MagicLineAPI
 import com.voluntariat.android.magicline.data.models.donations.Donations
 import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
+import com.voluntariat.android.magicline.data.models.teams.Markers
+import com.voluntariat.android.magicline.data.models.teams.TeamsDBModel
+import com.voluntariat.android.magicline.data.models.teams.TotalParticipantsDBModel
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.db.dao.DonationsDAO
 import com.voluntariat.android.magicline.db.dao.PostDao
+import com.voluntariat.android.magicline.db.dao.TeamsMarkersDAO
 import com.voluntariat.android.magicline.utils.callback
 
 
@@ -17,6 +21,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
 
     private lateinit var mPostDao: PostDao
     private lateinit var donationsDAO: DonationsDAO
+    private lateinit var teamsMarkersDAO: TeamsMarkersDAO
     private val mAllPosts: LiveData<List<PostsItem>>
     private val donations: LiveData<DonationsDBModel>
 
@@ -25,6 +30,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         if (db != null) {
             mPostDao = db.postDao()
             donationsDAO = db.donationsDAO()
+            teamsMarkersDAO = db.teamsMarkersDAO()
         }
         mAllPosts = mPostDao.getAllPosts()
         donations = donationsDAO.getDonations()
@@ -100,5 +106,32 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
                                                 donations.bml?.amount,
                                                 donations.barcelona?.amount,
                                                 donations.mallorca?.amount))
+    }
+
+    override fun getTeamsMarkers(): LiveData<TotalParticipantsDBModel> {
+        MagicLineAPI.service.markerTeams().enqueue(callback({
+            result ->
+            if (result.isSuccessful) {
+                var teamMarkers = result.body()?.markers
+                if (teamMarkers != null) {
+                    teamsMarkersDAO.nukeTable()
+                    insertTeamMarkers(teamMarkers)
+                }
+            }
+        }))
+
+        return teamsMarkersDAO.getParticipantsByCity("Bcn")
+    }
+
+    private fun insertTeamMarkers(teamMarkers : Markers) {
+        var markers = teamMarkers.barcelona
+        if (markers != null) {
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember4?.modalityText, markers.jsonMember4?.companies, markers.jsonMember4?.particulars))
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember5?.modalityText, markers.jsonMember5?.companies, markers.jsonMember5?.particulars))
+            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember6?.modalityText, markers.jsonMember6?.companies, markers.jsonMember6?.particulars))
+        }
     }
 }

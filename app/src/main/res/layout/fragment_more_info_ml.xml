@@ -121,10 +121,10 @@
                                 android:tint="@color/colorPrimary" />
 
                             <TextView
+                                android:id="@+id/currentParticipants"
                                 style="@style/participants"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="5.000"
                                 android:textAlignment="center" />
                         </LinearLayout>
 

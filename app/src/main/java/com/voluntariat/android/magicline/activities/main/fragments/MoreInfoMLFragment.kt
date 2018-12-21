@@ -1,48 +1,66 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
-import com.voluntariat.android.magicline.R.color.light_red
-import com.voluntariat.android.magicline.R.color.mesque_background
-import com.voluntariat.android.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.R.string.walk_text_1
-import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-
-import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import androidx.core.content.ContextCompat
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
-import com.voluntariat.android.magicline.R.string.*
-import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.ViewModelProviders
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.color.light_red
+import com.voluntariat.android.magicline.R.color.mesque_background
+import com.voluntariat.android.magicline.R.drawable.ic_black_cross
+import com.voluntariat.android.magicline.R.string.*
+import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
+import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
 import com.voluntariat.android.magicline.utils.htmlToSpanned
+import com.voluntariat.android.magicline.viewModel.MoreInfoViewModel
+import com.voluntariat.android.magicline.viewModel.MoreInfoViewModelFactory
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.data.BarData
+import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class MoreInfoMLFragment : BaseFragment() {
 
     private lateinit var moreInfoMLView: View
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel
+    private lateinit var moreInfoViewModel : MoreInfoViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         moreInfoMLView = inflater.inflate(R.layout.fragment_more_info_ml, container, false)
+
+        var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
+        moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
+
         return moreInfoMLView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requestChartData()
         createBarChart()
+    }
+
+    private fun requestChartData() {
+        moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
+            val total = participants.totalParticipants
+            val places = 13000
+            val currentConsumedPlaces = (total * 100) / places
+            val currentAvailablePlaces = 100 - currentConsumedPlaces
+
+            currentParticipants.text = total.toString()
+            configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
+        })
     }
 
     private fun initToolbar() {
@@ -66,12 +84,13 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun setUpPieChartData() {
+        configurePieChart(20f, 80f)
+    }
 
+    private fun configurePieChart(pieValue: Float, pieTotal: Float) {
         val yVals = ArrayList<PieEntry>()
-        yVals.add(PieEntry(20f))
-        yVals.add(PieEntry(80f))
-
-
+        yVals.add(PieEntry(pieValue))
+        yVals.add(PieEntry(pieTotal))
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize = 0f
         val colors = java.util.ArrayList<Int>()
@@ -92,7 +111,6 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
         pieChart.onChartGestureListener = null
-
     }
 
     companion object {

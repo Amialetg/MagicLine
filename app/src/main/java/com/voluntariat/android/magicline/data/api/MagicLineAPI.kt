@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 import com.voluntariat.android.magicline.data.models.donations.Response as DonationsResponse
 import com.voluntariat.android.magicline.data.models.posts.Response as PostsResponse
+import com.voluntariat.android.magicline.data.models.teams.Response as TeamsResponse
 
 object MagicLineAPI {
     private const val URL = "http://magiclinesjd.org/ws/" // PROD
@@ -41,7 +42,8 @@ object MagicLineAPI {
         @POST("oAuthLogin")
         fun oAuthLogin(@Field("username", encoded = true) username: String, @Field("password", encoded = true) password: String) : Call<LoginModel>
 
-
+        @GET("marker_teams.json")
+        fun markerTeams() : Call<TeamsResponse>
 
         /* MAGICLINE API
         @GET("posts.json")
@@ -49,9 +51,6 @@ object MagicLineAPI {
 
         @GET("teams.json")
         fun teams(accessToken:String, page:Int, limit:Int) : Call<Any>
-
-        @GET("marker_teams.json")
-        fun marker_teams(accessToken:String) : Call<Any>
 
         @GET("marker_donations.json")
         fun marker_donations(accessToken:String) : Call<Any>

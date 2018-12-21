@@ -239,7 +239,7 @@ class MagicLineFragment : BaseFragment() {
     private fun initRRSSListeners() {
 
         val urlFacebook = getString(R.string.url_facebook)
-        val urlGoogle = getString(R.string.url_google)
+        val urlInstagram = getString(R.string.url_instagram)
         val urlTwitter = getString(R.string.url_twitter)
 
 
@@ -248,7 +248,7 @@ class MagicLineFragment : BaseFragment() {
         }
 
         insta_button.setOnClickListener {
-            callIntent(urlGoogle)
+            callIntent(urlInstagram)
         }
 
         twitter_button.setOnClickListener {

@@ -45,13 +45,10 @@
     <string name="map_km">Km caminata solidaria:</string>
 
     <!--URL's-->
-    <string name="url_facebook">http://www.facebook.com</string>
-    <string name="url_google">http://www.google.com</string>
-    <string name="url_twitter">http://www.twitter.com</string>
-    <string name="url_telegram">http://www.twitter.com</string>
-    <string name="url_whatsapp">http://www.whatsapp.com</string>
-
-
+    <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
+    <string name="url_twitter" translatable="false">https://twitter.com/magiclineSJD</string>
+    <string name="url_telegram" translatable="false">https://t.me/magiclinesjd</string>
+    <string name="url_instagram" translatable="false">https://www.instagram.com/magiclinesjd/</string>
 
     <!--Section other values -->
     <string name="other_values_title">OTROS VALORES</string>

@@ -52,3 +52,7 @@ fun String.htmlToSpanned() : Spanned {
         Html.fromHtml(this)
     }
 }
+
+fun Double.toEuro() : String {
+    return this.toInt().toString() + "€"
+}

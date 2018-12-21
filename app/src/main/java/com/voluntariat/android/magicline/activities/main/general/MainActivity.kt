@@ -5,16 +5,11 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.activities.main.fragments.BaseFragment
-import com.voluntariat.android.magicline.activities.main.fragments.DonationsFragment
-import com.voluntariat.android.magicline.activities.main.fragments.InfoFragment
-import com.voluntariat.android.magicline.activities.main.fragments.InviteFriendsFragment
-import com.voluntariat.android.magicline.activities.main.fragments.MagicLineFragment
-import com.voluntariat.android.magicline.activities.main.fragments.MapFragment
-import com.voluntariat.android.magicline.activities.main.fragments.ScheduleFragment
+import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.ScheduleCardModel
 import com.voluntariat.android.magicline.models.ScheduleGeneralModel
@@ -123,8 +118,16 @@ class MainActivity : BaseActivity() {
         navigateFromIntentExtra(extra)
     }
     private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
+
+        val dataModelEssential = DetailModel(
+                title = getString(R.string.essentials_title),
+                subtitle = getString(R.string.essentials_subtitle),
+                textBody = getString(R.string.essentials_body),
+                link = getString(R.string.essentials_viewOnWeb))
+
+
         when (extra) {
-            "ultimaNoticia" -> this.transitionWithModalAnimation(InviteFriendsFragment()) //navigation to the las news TODO: cambiar Fragment
+            "ultimaNoticia" -> this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
             "ferDonacio" -> this.transitionWithModalAnimation(DonationsFragment())
             "detallsEsdeveniments" -> this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel)) //Especificar qué Fragment
             else -> if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())

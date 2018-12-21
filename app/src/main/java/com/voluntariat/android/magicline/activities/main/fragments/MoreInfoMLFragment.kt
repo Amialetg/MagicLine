@@ -62,7 +62,6 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun createBarChart() {
-        setupBarChartData()
         setUpPieChartData()
     }
 
@@ -96,32 +95,6 @@ class MoreInfoMLFragment : BaseFragment() {
 
     }
 
-    private fun setupBarChartData() {
-
-        val entries = arrayListOf<BarEntry>()
-        entries.add(BarEntry(0f, 30f))
-        entries.add(BarEntry(1f, 80f))
-        entries.add(BarEntry(2f, 60f))
-        entries.add(BarEntry(3f, 50f))
-
-        val dataSet = BarDataSet(entries, "")
-        val data = BarData(dataSet)
-        dataSet.color = ContextCompat.getColor(requireContext(), light_red)
-        data.barWidth = 0.15f // set custom bar width
-        barChart.data = data
-        barChart.legend.isEnabled = false
-        barChart.setGridBackgroundColor(Color.BLUE)
-        barChart.setDrawBorders(false)
-        barChart.description.isEnabled = false
-        barChart.setFitBars(true) // make the x-axis fit exactly all bars
-        barChart.isHighlightPerTapEnabled = false
-        barChart.isDoubleTapToZoomEnabled = false
-        barChart.isDragEnabled = false
-        barChart.isScaleXEnabled = false
-        barChart.isScaleYEnabled = false
-        barChart.animateY(2000)
-        barChart.invalidate() // refresh
-    }
     companion object {
         fun newInstance(): BaseFragment {
             return MoreInfoMLFragment()

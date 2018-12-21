@@ -1,93 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
-    <LinearLayout
+    android:orientation="vertical">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/news_title_height">
+        android:text="@string/news_title"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        style="@style/NewsTitle" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="@dimen/news_arrow_box_width"
+            android:layout_height="@dimen/news_item_height"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/left_arrow_relative"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/news_arrow_width"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_news_left_arrow"
+                android:id="@+id/news_left_arrow"
                 android:layout_centerInParent="true"
-                android:text="@string/news_title"
-                style="@style/NewsTitle"
                 />
+
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="10"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newsRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingBottom="5dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <RelativeLayout
+            android:layout_width="@dimen/news_arrow_box_width"
+            android:layout_height="@dimen/news_item_height"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/right_arrow_relative"
             >
-            <RelativeLayout
-                android:layout_width="@dimen/news_arrow_box_width"
-                android:layout_height="@dimen/news_item_height"
-                android:layout_weight="3"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/left_arrow_relative"
-                >
 
-                <ImageView
-                    android:layout_width="@dimen/news_arrow_width"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_news_left_arrow"
-                    android:id="@+id/news_left_arrow"
-                    android:layout_centerInParent="true"
-                    />
+            <ImageView
+                android:layout_width="@dimen/news_arrow_width"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_news_right_arrow"
+                android:id="@+id/news_right_arrow"
+                android:layout_centerInParent="true"
+                />
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/news_recycler_width"
-                android:layout_height="wrap_content"
-                android:layout_weight="7"
-                android:paddingBottom="5dp"
-                >
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/newsRecyclerView"
-                    android:layout_width="@dimen/news_recycler_width"
-                    android:layout_height="wrap_content"
-                    >
-                </androidx.recyclerview.widget.RecyclerView>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_weight="3"
-                android:layout_width="@dimen/news_arrow_box_width"
-                android:layout_height="@dimen/news_item_height"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/right_arrow_relative"
-                >
-
-                <ImageView
-                    android:layout_width="@dimen/news_arrow_width"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_news_right_arrow"
-                    android:id="@+id/news_right_arrow"
-                    android:layout_centerInParent="true"
-                    />
-
-            </RelativeLayout>
-        </LinearLayout>
-
+        </RelativeLayout>
     </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>

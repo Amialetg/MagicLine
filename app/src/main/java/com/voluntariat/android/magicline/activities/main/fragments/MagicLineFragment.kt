@@ -166,8 +166,9 @@ class MagicLineFragment : BaseFragment() {
 
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             var donationText = 0.0
-            if (donation?.donationsBcn != null && donation.donationsBcn.isNotEmpty() && donation.donationsBcn?.toDouble()!! > donationText) {
-                donationText = donation.donationsBcn?.toDouble()
+            donation.donationsBcn?.let { donations -> if (donations.toDouble() > donationText) {
+                    donationText = donation.donationsBcn?.toDouble()
+                }
             }
             recaudats_num.text = donationText.toEuro()
         })

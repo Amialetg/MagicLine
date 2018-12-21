@@ -108,7 +108,8 @@
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textAlignment">center</item>
-
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="NewsItemDesc" parent="Theme.AppCompat.Light.NoActionBar">
@@ -119,7 +120,7 @@
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:maxLines">4</item>
+        <item name="android:maxLines">3</item>
         <item name="android:ellipsize">end</item>
     </style>
     <!-- Principal - Més que-->

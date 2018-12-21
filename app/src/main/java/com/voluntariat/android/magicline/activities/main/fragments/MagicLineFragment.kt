@@ -139,6 +139,7 @@ class MagicLineFragment : BaseFragment() {
 
         newsRecyclerView.layoutManager = myNewsManager
         newsRecyclerView.adapter = myNewsAdapter
+        newsRecyclerView.setPadding(0,0,0,50)
 
         //Adding pager behaviour
         val snapHelper = PagerSnapHelper()

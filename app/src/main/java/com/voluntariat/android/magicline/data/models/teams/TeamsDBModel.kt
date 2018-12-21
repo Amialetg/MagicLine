@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "teams")
+@Entity(tableName = "teamsMarkers")
 data class TeamsDBModel (
 
         @PrimaryKey(autoGenerate = true)
@@ -14,11 +14,11 @@ data class TeamsDBModel (
         val city: String,
 
         @ColumnInfo(name = "modality")
-        val modality: String,
+        val modality: String?,
 
         @ColumnInfo(name = "companies")
-        val companies: Int,
+        val companies: Int?,
 
         @ColumnInfo(name = "particulars")
-        val particulars: Int
+        val particulars: Int?
 )

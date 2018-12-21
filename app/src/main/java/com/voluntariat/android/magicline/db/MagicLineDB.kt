@@ -11,14 +11,17 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.Converters
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
+import com.voluntariat.android.magicline.data.models.teams.TeamsDBModel
 import com.voluntariat.android.magicline.db.dao.DonationsDAO
 import com.voluntariat.android.magicline.db.dao.PostDao
+import com.voluntariat.android.magicline.db.dao.TeamsMarkersDAO
 
-@Database(entities = [PostsItem::class, DonationsDBModel::class], version = 1, exportSchema = false)
+@Database(entities = [PostsItem::class, DonationsDBModel::class, TeamsDBModel::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class MagicLineDB : RoomDatabase() {
     abstract fun postDao(): PostDao
     abstract fun donationsDAO(): DonationsDAO
+    abstract fun teamsMarkersDAO(): TeamsMarkersDAO
 
     companion object {
         @Volatile
@@ -51,6 +54,7 @@ private class PopulateDbAsync internal constructor(db: MagicLineDB) : AsyncTask<
 
     private val mPostDao: PostDao = db.postDao()
     private val donationsDAO: DonationsDAO = db.donationsDAO()
+    private val teamsMarkersDAO: TeamsMarkersDAO = db.teamsMarkersDAO()
 
     override fun doInBackground(vararg params: Void): Void? {
         // Where to insert temp data

@@ -3,6 +3,7 @@ package com.voluntariat.android.magicline.data
 import androidx.lifecycle.LiveData
 import com.voluntariat.android.magicline.data.models.donations.DonationsDBModel
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
+import com.voluntariat.android.magicline.data.models.teams.TotalParticipantsDBModel
 
 interface MagicLineRepository {
 
@@ -15,4 +16,6 @@ interface MagicLineRepository {
     fun getPosts() : LiveData<List<PostsItem>>
 
     fun getDonations() : LiveData<DonationsDBModel>
+
+    fun getTeamsMarkers() : LiveData<TotalParticipantsDBModel>
 }

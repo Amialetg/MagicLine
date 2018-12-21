@@ -7,10 +7,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
+        <!--android:background="@drawable/about_us"-->
+       <!--&gt;-->
 
-
-        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,14 +40,14 @@
             >
 
             <TextView
+                android:id="@+id/countdown_dies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CountDownNumbers"
                 tools:text="10"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginBottom="4dp"
-                android:id="@+id/countdown_dies"
+                style="@style/CountDownNumbers"
                 />
 
             <TextView
@@ -60,57 +60,55 @@
                 android:id="@+id/countdown_hores"
                 />
             <TextView
-                style="@style/CountDownNumbers"
+                android:id="@+id/countdown_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="10"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                android:id="@+id/countdown_min"
+                style="@style/CountDownNumbers"
                 />
             <TextView
-                style="@style/CountDownNumbers"
+                android:id="@+id/countdown_seg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="02"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
-                android:id="@+id/countdown_seg"
+                style="@style/CountDownNumbers"
                 />
 
             <TextView
                 style="@style/CountDownLetters"
-                android:layout_width="45dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:text="@string/text_countdown_dies" />
 
             <TextView
                 style="@style/CountDownLetters"
-                android:layout_width="45dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center"
+
                 android:text="@string/text_countdown_hores" />
 
             <TextView
                 style="@style/CountDownLetters"
-                android:layout_width="45dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
+                android:layout_gravity="center"
+
                 android:gravity="center_horizontal"
                 android:text="@string/text_countdown_minuts" />
 
             <TextView
                 style="@style/CountDownLetters"
-                android:layout_width="45dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:gravity="center_horizontal"
                 android:text="@string/text_countdown_segons" />
 

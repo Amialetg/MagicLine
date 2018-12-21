@@ -7,15 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.id.*
 import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
 import kotlinx.android.synthetic.main.fragment_invite_friends.facebookTextView
 import kotlinx.android.synthetic.main.fragment_invite_friends.messengerTextView
 import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
 import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 
 class InviteFriendsFragment: BaseFragment() {
+
+    private lateinit var inviteLayoutView: View
 
     override fun onStart() {
         super.onStart()
@@ -24,8 +30,21 @@ class InviteFriendsFragment: BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_invite_friends, container, false)
+        inviteLayoutView = inflater.inflate(R.layout.fragment_invite_friends, container, false)
+        return inviteLayoutView
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initToolbar()
+    }
+
+    private fun initToolbar(){
+        inviteLayoutView.topToolbar.background = ContextCompat.getDrawable(this.requireContext(), R.drawable.invite_friends)
+        inviteLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.white))
+        inviteLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
     }
 
     private fun initRRSSListeners(){

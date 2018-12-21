@@ -46,7 +46,7 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbarImg.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+            detailLayoutView.topToolbar.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
     }
 
     private fun initToolbar() {

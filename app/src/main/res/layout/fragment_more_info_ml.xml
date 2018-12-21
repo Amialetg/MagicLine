@@ -141,14 +141,6 @@
                     android:layout_height="1dp"
                     android:background="@drawable/grey_border" />
 
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/barChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp">
-
-                </com.github.mikephil.charting.charts.BarChart>
-
-
                 <TextView
                     android:id="@+id/walkTitle"
                     style="@style/walk_title"

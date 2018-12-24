@@ -3,23 +3,27 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
-import java.util.Locale
+import java.util.*
 
 fun Context.updateBaseContextLocale(language: String? = null): Context {
     if (language != null) {
-        val locale = Locale(language)
+        var lang = language.split("_")
+        var locale = Locale(lang[0], lang[1])
         Locale.setDefault(locale)
         return updateResourcesLocale(this, locale)
     }
     return this
 }
 
- fun getLocale(conf: Configuration): String {
+fun getLocaleString(conf: Configuration): String {
+    return getLocale(conf).toString()
+}
+fun getLocale(conf: Configuration): Locale {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        conf.locales.get(0).toString()
+        conf.locales.get(0)
     } else {
         @Suppress("DEPRECATION")
-        conf.locale.toString()
+        conf.locale
     }
 }
 
@@ -29,9 +33,13 @@ private fun updateResourcesLocale(context: Context, locale: Locale): Context {
     return context.createConfigurationContext(configuration)
 }
 
-fun getPreferencesLanguage(context: Context) :String{
+fun getPreferencesLanguage(context: Context) :String {
     val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
 
-    return preferences.getString("My_Lang", "")
+    return preferences.getString("My_Lang", "es_ES")
+}
 
+fun getCurrency() : String {
+    //return Currency.getInstance(Locale.getDefault()).symbol
+    return "€"
 }

@@ -20,6 +20,7 @@ import com.voluntariat.android.magicline.R.string.*
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.MoreInfoMLModel
+import com.voluntariat.android.magicline.utils.addThousandsSeparator
 import com.voluntariat.android.magicline.utils.htmlToSpanned
 import com.voluntariat.android.magicline.viewModel.MoreInfoViewModel
 import com.voluntariat.android.magicline.viewModel.MoreInfoViewModelFactory
@@ -53,12 +54,12 @@ class MoreInfoMLFragment : BaseFragment() {
 
     private fun requestChartData() {
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
-            val total = participants.totalParticipants
+            val total = participants.totalParticipants.toDouble()
             val places = 13000
             val currentConsumedPlaces = (total * 100) / places
             val currentAvailablePlaces = 100 - currentConsumedPlaces
 
-            currentParticipants.text = total.toString()
+            currentParticipants.text = total.addThousandsSeparator(requireContext())
             configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
         })
     }

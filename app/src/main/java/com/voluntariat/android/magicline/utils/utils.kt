@@ -1,5 +1,6 @@
 package com.voluntariat.android.magicline.utils
 
+import android.content.Context
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -10,6 +11,8 @@ import com.voluntariat.android.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.NumberFormat
+import java.util.*
 
 const val BARCELONA: String = "Barcelona"
 const val VALENCIA: String = "Valencia"
@@ -53,6 +56,10 @@ fun String.htmlToSpanned() : Spanned {
     }
 }
 
-fun Double.toEuro() : String {
-    return this.toInt().toString() + "€"
+fun Double.addCurrency(context: Context) : String {
+    return this.addThousandsSeparator(context).plus(getCurrency())
+}
+
+fun Double.addThousandsSeparator(context: Context) : String {
+    return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }

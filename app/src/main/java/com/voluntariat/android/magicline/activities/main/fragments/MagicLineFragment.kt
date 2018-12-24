@@ -23,7 +23,7 @@ import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
 import com.voluntariat.android.magicline.utils.MyCounter
 import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
-import com.voluntariat.android.magicline.utils.toEuro
+import com.voluntariat.android.magicline.utils.addCurrency
 import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
@@ -172,7 +172,7 @@ class MagicLineFragment : BaseFragment() {
                     donationText = donation.donationsBcn?.toDouble()
                 }
             }
-            recaudats_num.text = donationText.toEuro()
+            recaudats_num.text = donationText.addCurrency(requireContext())
         })
     }
 

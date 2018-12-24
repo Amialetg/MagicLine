@@ -39,7 +39,7 @@ class InfoFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString("My_Lang", "") == "ca"){
+        if(prefs.getString("My_Lang", "") == "ca_ES"){
             checkbox_catalan_text.isChecked = true
         }else{
             checkbox_spanish_text.isChecked = true
@@ -55,7 +55,7 @@ class InfoFragment: BaseFragment() {
                 }
 
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "es")
+                editor.putString("My_Lang", "es_ES")
                 editor.apply()
                 refresh()
             }
@@ -69,7 +69,7 @@ class InfoFragment: BaseFragment() {
 
                 }
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "ca")
+                editor.putString("My_Lang", "ca_ES")
                 editor.apply()
                 refresh()
             }
@@ -109,8 +109,7 @@ class InfoFragment: BaseFragment() {
 
     private fun callIntent(url : String){
 
-        var intent : Intent
-        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
 

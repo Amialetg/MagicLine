@@ -22,6 +22,13 @@ class MainActivity : BaseActivity() {
     private lateinit var currentFragment: Fragment
     private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
 
+    private val fromExtra = "From"
+    private val lastNewExtra = "ultimaNoticia"
+    private val makeDonationExtra = "ferDonacio"
+    private val eventDetailsExtra = "detallsEsdeveniments"
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,8 +41,8 @@ class MainActivity : BaseActivity() {
         if (savedInstanceState == null) {
             transitionWithModalAnimation(fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false)
-            if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
+            if (intent.hasExtra(fromExtra)) {
+                navigateFromIntentExtra(intent.extras?.get(fromExtra) as Serializable?, false)
             }
         }
         initNavigation()
@@ -112,8 +119,8 @@ class MainActivity : BaseActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        setIntent(Intent().apply { putExtra("From", "ferDonacio") })
-        val extra = intent?.getSerializableExtra("From")
+        setIntent(Intent().apply { putExtra(fromExtra, makeDonationExtra) })
+        val extra = intent?.getSerializableExtra(fromExtra)
         navigateFromIntentExtra(extra)
     }
     private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
@@ -126,17 +133,17 @@ class MainActivity : BaseActivity() {
 
 
         when (extra) {
-            "ultimaNoticia" -> {
+            lastNewExtra -> {
                 this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
                 var item = findViewById<View>(R.id.magicline_menu_id) as MenuItem
                 selectFragment(item)
             }
-            "ferDonacio" -> {
+            makeDonationExtra -> {
                 this.transitionWithModalAnimation(DonationsFragment())
                 var item = findViewById<View>(R.id.donations_menu_id) as MenuItem
                 selectFragment(item)
             }
-            "detallsEsdeveniments" -> {
+            eventDetailsExtra -> {
                 this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel)) //Especificar qué Fragment
                 var item = findViewById<View>(R.id.schedule_menu_id) as MenuItem
                 selectFragment(item)

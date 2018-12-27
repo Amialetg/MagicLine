@@ -5,9 +5,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import androidx.fragment.app.Fragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.fragments.*
 import com.voluntariat.android.magicline.models.DetailModel
@@ -58,7 +57,7 @@ class MainActivity : BaseActivity() {
         bottomBarView.setTextSize(9.0f)
     }
 
-    fun initNavigation() {
+    private fun initNavigation() {
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             floatingBtn.setColorFilter(Color.argb(255,74,74,74))
@@ -127,11 +126,29 @@ class MainActivity : BaseActivity() {
 
 
         when (extra) {
-            "ultimaNoticia" -> this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
-            "ferDonacio" -> this.transitionWithModalAnimation(DonationsFragment())
-            "detallsEsdeveniments" -> this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel)) //Especificar qué Fragment
-            else -> if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
+            "ultimaNoticia" -> {
+                this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
+                var item = findViewById<View>(R.id.magicline_menu_id) as MenuItem
+                selectFragment(item)
+            }
+            "ferDonacio" -> {
+                this.transitionWithModalAnimation(DonationsFragment())
+                var item = findViewById<View>(R.id.donations_menu_id) as MenuItem
+                selectFragment(item)
+            }
+            "detallsEsdeveniments" -> {
+                this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel)) //Especificar qué Fragment
+                var item = findViewById<View>(R.id.schedule_menu_id) as MenuItem
+                selectFragment(item)
+            }
+            else ->
+                if (openDefault) {
+                    this.transitionWithModalAnimation(MagicLineFragment())
+                    var item = findViewById<View>(R.id.magicline_menu_id) as MenuItem
+                    selectFragment(item)
+                }
         }
+
     }
 
     private fun getData() {

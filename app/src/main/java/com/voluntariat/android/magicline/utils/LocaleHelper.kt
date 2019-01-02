@@ -51,7 +51,7 @@ fun getAPILang(context: Context) : String {
     return when(preferencesLang) {
         "es_ES" -> "spa"
         "ca_ES" -> "cat"
-        else -> "eng"
+        else -> "spa"
     }
 }
 
@@ -59,7 +59,7 @@ fun getLocaleTagForString(locale: String) : String {
     return when (locale) {
         "es" -> "es_ES"
         "ca" -> "ca_ES"
-        else -> "en_US"
+        else -> "es_ES"
     }
 }
 

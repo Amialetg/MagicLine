@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.squareup.picasso.Picasso
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
@@ -18,6 +20,8 @@ import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
+
+
 class DetailFragment : BaseFragment() {
 
     private lateinit var detailLayoutView: View
@@ -26,6 +30,8 @@ class DetailFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailModel = arguments?.get("detailFragment") as DetailModel
+
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +52,15 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg) }
+          //  detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+            Picasso
+                    .get()
+                    .load(detailModel.toolbarImg)
+                    .resize(0,350)
+                    .centerInside()
+                    .into(topToolbarImg)
+        }
+
 
     }
 
@@ -58,6 +72,7 @@ class DetailFragment : BaseFragment() {
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
+
         }
     }
 

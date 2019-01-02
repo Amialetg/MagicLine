@@ -1,54 +1,40 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/detailLinearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.voluntariat.android.magicline.activities.main.fragments.DetailFragment">
-
-    <!-- appbar -->
-
-    <include layout="@layout/toolbar_appbar_top" />
-
-    <!-- body -->
-
-    <ScrollView
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="30dp"
                 android:orientation="vertical">
+
+                <include layout="@layout/toolbar_appbar_top"/>
 
                 <TextView
                     android:id="@+id/detailTitle"
                     style="@style/AFonsTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/news_arrow_width"
+                    android:layout_marginTop="@dimen/news_arrow_width"
+                    android:layout_marginEnd="@dimen/news_arrow_width"/>
 
                 <TextView
                     android:id="@+id/detailSubtitle"
                     style="@style/AFonsSubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp" />
+                    android:layout_marginStart="@dimen/news_arrow_width"
+                    android:layout_marginEnd="@dimen/news_arrow_width"/>
 
                 <TextView
                     android:id="@+id/detailBody"
                     style="@style/AFonsTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginStart="@dimen/news_arrow_width"
+                    android:layout_marginEnd="@dimen/news_arrow_width"/>
 
                 <TextView
                     android:id="@+id/viewOnWeb"
@@ -62,14 +48,12 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingStart="15dp"
-                    android:paddingEnd="15dp" />
+                    android:paddingEnd="15dp"
+                    android:layout_marginStart="@dimen/news_arrow_width"
+                    android:layout_marginTop="@dimen/news_arrow_width"
+                    android:layout_marginEnd="@dimen/news_arrow_width"/>
 
                 <include layout="@layout/layout_share" />
 
             </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

@@ -1,6 +1,7 @@
 package com.voluntariat.android.magicline.activities.main.fragments
 
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,8 +34,14 @@ import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import java.text.SimpleDateFormat
 import java.util.*
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.ScaleDrawable
+import com.squareup.picasso.Picasso
 
 
 class MagicLineFragment : BaseFragment() {
@@ -54,6 +61,7 @@ class MagicLineFragment : BaseFragment() {
         var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
+
 
     }
 
@@ -219,7 +227,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
                 isBlack = false,
-               // toolbarImg = R.drawable.imprescindibles,
+                toolbarImg = R.drawable.imprescindibles,
                 hasToolbarImg = true)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
@@ -227,7 +235,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
                 isBlack = false,
-              //  toolbarImg = R.drawable.destidelfons,
+                toolbarImg = R.drawable.destidelfons,
                 hasToolbarImg = true)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
@@ -235,8 +243,11 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
                 isBlack = false,
-              //  toolbarImg = R.drawable.laboratori,
+                toolbarImg = R.drawable.laboratori,
                 hasToolbarImg = true)
+
+
+
 
         info_essentials_button.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))

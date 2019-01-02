@@ -17,7 +17,7 @@
             android:background="@color/white"
             android:gravity="top"
             app:titleMarginTop="15dp"
-            app:titleTextAppearance="@style/toolbarTop" />
+            app:titleTextAppearance="@style/toolbarTop"/>
 
         <ImageView
             android:id="@+id/topToolbarImg"

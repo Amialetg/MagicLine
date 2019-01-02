@@ -15,6 +15,7 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.utils.htmlToSpanned
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
@@ -51,15 +52,30 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
-        if (detailModel.hasToolbarImg) {
           //  detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+
+        if (detailModel.hasToolbarImg) {
+            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
             Picasso
                     .get()
                     .load(detailModel.toolbarImg)
                     .resize(0,350)
                     .centerInside()
-                    .into(topToolbarImg)
+                    .into(imgDetail)
         }
+        else{
+            detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+            Picasso
+                    .get()
+                    .load(detailModel.toolbarImg)
+                    .resize(0,350)
+                    .centerInside()
+                    .into(imgDetail)
+        }
+
+
+
+
 
 
     }

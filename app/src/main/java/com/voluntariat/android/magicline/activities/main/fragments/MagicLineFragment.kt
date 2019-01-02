@@ -226,25 +226,25 @@ class MagicLineFragment : BaseFragment() {
                 subtitle = "",
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
-                isBlack = false,
+                isBlack = true,
                 toolbarImg = R.drawable.imprescindibles,
-                hasToolbarImg = true)
+                hasToolbarImg = false)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = "",
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
-                isBlack = false,
+                isBlack = true,
                 toolbarImg = R.drawable.destidelfons,
-                hasToolbarImg = true)
+                hasToolbarImg = false)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
                 subtitle = getString(R.string.sjd_subtitle),
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
-                isBlack = false,
+                isBlack = true,
                 toolbarImg = R.drawable.laboratori,
-                hasToolbarImg = true)
+                hasToolbarImg = false)
 
 
 

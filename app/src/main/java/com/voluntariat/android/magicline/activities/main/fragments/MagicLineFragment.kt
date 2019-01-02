@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
+import com.voluntariat.android.magicline.R.id.newsRecyclerView
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
@@ -21,14 +22,12 @@ import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
-import com.voluntariat.android.magicline.utils.MyCounter
-import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
-import com.voluntariat.android.magicline.utils.toEuro
-import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
+import com.voluntariat.android.magicline.utils.*
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
+import kotlinx.android.synthetic.main.layout_countdown.view.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
@@ -39,9 +38,8 @@ import java.util.*
 
 class MagicLineFragment : BaseFragment() {
 
-
+    private lateinit var mlView: View
     private lateinit var mMagicLineViewModel: MagicLineViewModel
-
     private lateinit var dateCursaString: String
     private lateinit var myNewsAdapter: NewsAdapter
 
@@ -59,7 +57,8 @@ class MagicLineFragment : BaseFragment() {
 
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_magic_line, container, false)
+        mlView = inflater.inflate(R.layout.fragment_magic_line, container, false)
+        return mlView
 
     }
 
@@ -113,20 +112,19 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
-
         //Utilitzem el formatter per aconseguir l'objecte Date
-        var formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
+        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
 
-        //Data actual y data de la cursa
-        var currentTime: Date = Calendar.getInstance().time
-        var dateCursa: Date = formatter.parse(dateCursaString)
+        //data actual y data de la cursa
+        val currentTime: Date = Calendar.getInstance().time
+        val dateCursa: Date = formatter.parse(dateCursaString)
 
         //pasem a long les dates
-        var currentLong: Long = currentTime.time
-        var cursaLong: Long = dateCursa.time
+        val currentLong: Long = currentTime.time
+        val cursaLong: Long = dateCursa.time
 
         //trobem el temps restant en long
-        var diff: Long = cursaLong - currentLong
+        val diff: Long = cursaLong - currentLong
 
         MyCounter(diff, 1000, txtDies).start()
 
@@ -272,7 +270,7 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun callIntent(url: String) {
-        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }

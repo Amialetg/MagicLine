@@ -33,7 +33,7 @@ object MagicLineAPI {
         fun testAPI(@Path("user") user: String): Call<List<Any>>
 
         @GET("posts.json")
-        fun posts(): Call<PostsResponse>
+        fun posts(@Query("lang") lang: String): Call<PostsResponse>
 
         @GET("marker_donations.json")
         fun donations(): Call<DonationsResponse>

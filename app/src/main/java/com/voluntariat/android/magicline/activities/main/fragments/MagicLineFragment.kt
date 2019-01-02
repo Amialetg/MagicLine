@@ -21,10 +21,7 @@ import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.models.NewsModel
-import com.voluntariat.android.magicline.utils.MyCounter
-import com.voluntariat.android.magicline.utils.URL_IDEAS_GUIDE
-import com.voluntariat.android.magicline.utils.addCurrency
-import com.voluntariat.android.magicline.utils.transitionWithModalAnimation
+import com.voluntariat.android.magicline.utils.*
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
@@ -162,7 +159,7 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun subscribeToPosts() {
-        mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+        mMagicLineViewModel.getPosts(getAPILang(requireContext())).observe(this, androidx.lifecycle.Observer {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
 

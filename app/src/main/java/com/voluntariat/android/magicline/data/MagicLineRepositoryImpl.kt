@@ -70,8 +70,8 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
         ))
     }
 
-    override fun getPosts() : LiveData<List<PostsItem>> {
-        MagicLineAPI.service.posts().enqueue(callback(
+    override fun getPosts(lang: String) : LiveData<List<PostsItem>> {
+        MagicLineAPI.service.posts(lang).enqueue(callback(
             { result ->
                 if (result.isSuccessful) {
                     var posts = result.body()?.posts as ArrayList<PostsItem>

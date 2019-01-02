@@ -43,11 +43,6 @@
                     android:layout_marginBottom="12dp"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/grey_border" />
-
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
@@ -82,11 +77,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="@color/lessGreyColor" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/grey_border" />
 
                 </LinearLayout>
 
@@ -150,11 +140,10 @@
 
                 </LinearLayout>
 
-
-                <ImageView
-                    android:layout_width="match_parent"
+                <View
+                    android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/grey_border" />
+                    android:background="@color/lessGreyColor" />
 
                 <TextView
                     android:id="@+id/walkTitle"
@@ -209,7 +198,6 @@
             <include layout="@layout/layout_rrss" />
 
         </LinearLayout>
-
 
     </ScrollView>
 

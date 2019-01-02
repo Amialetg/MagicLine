@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.id.newsRecyclerView
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
@@ -27,7 +26,6 @@ import com.voluntariat.android.magicline.viewModel.MagicLineViewModel
 import com.voluntariat.android.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
-import kotlinx.android.synthetic.main.layout_countdown.view.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
@@ -38,7 +36,6 @@ import java.util.*
 
 class MagicLineFragment : BaseFragment() {
 
-    private lateinit var mlView: View
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var dateCursaString: String
     private lateinit var myNewsAdapter: NewsAdapter
@@ -49,17 +46,14 @@ class MagicLineFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
 
     }
-
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mlView = inflater.inflate(R.layout.fragment_magic_line, container, false)
-        return mlView
-
+         return inflater.inflate(R.layout.fragment_magic_line, container, false)
     }
 
     override fun onStart() {
@@ -167,7 +161,7 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             var donationText = 0.0
             donation?.donationsBcn?.let { donations -> if (donations.toDouble() > donationText) {
-                    donationText = donation.donationsBcn?.toDouble()
+                    donationText = donation.donationsBcn.toDouble()
                 }
             }
             recaudats_num.text = donationText.toEuro()

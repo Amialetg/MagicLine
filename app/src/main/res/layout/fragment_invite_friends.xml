@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,54 +8,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:paddingBottom="20dp">
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/cartellBCNImageView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/moreinfo_amigos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cartell_cat_barcelona" />
-
-    <ImageView
-        android:id="@+id/imageView_inviteFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/moreinfo_amigos"
-        app:layout_constraintBottom_toBottomOf="@+id/cartellBCNImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/invite_friends" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/inviteFriends"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cartellBCNImageView"
-        app:layout_constraintEnd_toEndOf="@+id/cartellBCNImageView"
-        app:layout_constraintStart_toStartOf="@+id/cartellBCNImageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_inviteFriends"
-        tools:text="Invita a tus amigos\n a la app." />
+    <include layout="@layout/toolbar_appbar_top"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cartellBCNImageView">
-
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/emailTextView"
@@ -69,12 +30,10 @@
             android:textSize="14sp"
             tools:text="E-mail" />
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="@color/lessGreyColor" />
-
 
         <TextView
             android:id="@+id/facebookTextView"
@@ -106,12 +65,10 @@
             android:textSize="14sp"
             tools:text="Messenger" />
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="@color/lessGreyColor" />
-
 
         <TextView
             android:id="@+id/telegramTextView"
@@ -125,12 +82,10 @@
             android:textSize="14sp"
             tools:text="Telegram" />
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="@color/lessGreyColor" />
-
 
         <TextView
             android:id="@+id/whatsappTextView"
@@ -144,7 +99,6 @@
             android:textSize="14sp"
             tools:text="WhatsApp" />
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
@@ -152,4 +106,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

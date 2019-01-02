@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import com.voluntariat.android.magicline.BuildConfig
 import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.general.MainActivity
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
@@ -26,8 +27,8 @@ class SplashScreenActivity : Activity() {
     private fun authenticate() {
         val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(applicationContext))
         repo.authenticate(
-                "apiml",
-                "4p1ml2018"
+                BuildConfig.MLAPIUser,
+                BuildConfig.MLAPIPassword
         ) { result -> when (result) {
             is Result.Success -> {
                 authenticationSuccess()

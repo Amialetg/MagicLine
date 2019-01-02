@@ -142,7 +142,7 @@
     <string name="telegram" translatable="false">Telegram</string>
     <string name="messenger" translatable="false">Messenger</string>
     <string name="facebook" translatable="false">Facebook</string>
-    <string name="email">E-mail</string>
+    <string name="email" translatable="false">E-mail</string>
 
     <!-- Packages social media -->
 

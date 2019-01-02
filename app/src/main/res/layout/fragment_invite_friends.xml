@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/inviteFriendsLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <include layout="@layout/toolbar_appbar_top"/>
+    <include layout="@layout/toolbar_appbar_top" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,9 +23,8 @@
             android:drawablePadding="20dp"
             android:padding="25dp"
             android:text="@string/email"
-            android:textColor="#4c4c4c"
-            android:textSize="14sp"
-            tools:text="E-mail" />
+            android:layout_gravity="center"
+            style="@style/socialNetwork" />
 
         <View
             android:layout_width="fill_parent"
@@ -39,13 +35,12 @@
             android:id="@+id/facebookTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:drawableStart="@drawable/facebook_icon"
             android:drawablePadding="20dp"
             android:padding="25dp"
             android:text="@string/facebook"
-            android:textColor="#4c4c4c"
-            android:textSize="14sp"
-            tools:text="Facebook" />
+            style="@style/socialNetwork" />
 
         <View
             android:layout_width="fill_parent"
@@ -61,9 +56,7 @@
             android:drawablePadding="20dp"
             android:padding="25dp"
             android:text="@string/messenger"
-            android:textColor="#4c4c4c"
-            android:textSize="14sp"
-            tools:text="Messenger" />
+            style="@style/socialNetwork" />
 
         <View
             android:layout_width="fill_parent"
@@ -78,9 +71,7 @@
             android:drawablePadding="20dp"
             android:padding="25dp"
             android:text="@string/telegram"
-            android:textColor="#4c4c4c"
-            android:textSize="14sp"
-            tools:text="Telegram" />
+            style="@style/socialNetwork" />
 
         <View
             android:layout_width="fill_parent"
@@ -95,9 +86,7 @@
             android:drawablePadding="20dp"
             android:padding="25dp"
             android:text="@string/whatsapp"
-            android:textColor="#4c4c4c"
-            android:textSize="14sp"
-            tools:text="WhatsApp" />
+            style="@style/socialNetwork" />
 
         <View
             android:layout_width="fill_parent"

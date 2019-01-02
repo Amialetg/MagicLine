@@ -61,7 +61,6 @@ class MainActivity : BaseActivity() {
     fun initNavigation() {
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
-            floatingBtn
             floatingBtn.setColorFilter(Color.argb(255,74,74,74))
             selectFragment(item)
             true

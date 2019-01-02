@@ -16,7 +16,6 @@ import com.voluntariat.android.magicline.R
 import com.voluntariat.android.magicline.activities.main.adapters.NewsAdapter
 import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.data.MagicLineRepositoryImpl
-import com.voluntariat.android.magicline.data.Result
 import com.voluntariat.android.magicline.data.models.posts.PostsItem
 import com.voluntariat.android.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.models.DetailModel
@@ -151,14 +150,8 @@ class MagicLineFragment : BaseFragment() {
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
-        val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
-        repo.authenticate(
-                "apiml",
-                "4p1ml2018"
-        ) { result -> when (result) {
-            is Result.Success -> subscribeToPosts()
-        } }
 
+        subscribeToPosts()
     }
 
     private fun subscribeToPosts() {

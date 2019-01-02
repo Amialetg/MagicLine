@@ -25,6 +25,7 @@ import com.obrasocialsjd.magicline.utils.toEuro
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
+import com.voluntariat.android.magicline.R
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*

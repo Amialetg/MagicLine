@@ -9,6 +9,7 @@ import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.Result
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.voluntariat.android.magicline.BuildConfig
+import com.voluntariat.android.magicline.R
 
 /**
  * Created by hector on 26/06/18.

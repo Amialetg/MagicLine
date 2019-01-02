@@ -8,6 +8,7 @@ import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.Result
 import com.obrasocialsjd.magicline.db.MagicLineDB
+import com.voluntariat.android.magicline.BuildConfig
 
 /**
  * Created by hector on 26/06/18.
@@ -25,8 +26,8 @@ class SplashScreenActivity : Activity() {
     private fun authenticate() {
         val repo = MagicLineRepositoryImpl(MagicLineDB.getDatabase(applicationContext))
         repo.authenticate(
-                "apiml",
-                "4p1ml2018"
+                BuildConfig.MLAPIUser,
+                BuildConfig.MLAPIPassword
         ) { result -> when (result) {
             is Result.Success -> {
                 authenticationSuccess()

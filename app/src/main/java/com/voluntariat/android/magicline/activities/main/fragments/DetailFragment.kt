@@ -52,16 +52,10 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
-          //  detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
 
         if (detailModel.hasToolbarImg) {
             detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
-            Picasso
-                    .get()
-                    .load(detailModel.toolbarImg)
-                    .resize(0,350)
-                    .centerInside()
-                    .into(imgDetail)
+
         }
         else{
             detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.voluntariat.android.magicline.activities.main.fragments.MoreInfoMLFragment">
+    tools:context="com.obrasocialsjd.magicline.activities.main.fragments.MoreInfoMLFragment">
 
     <include layout="@layout/toolbar_appbar_top" />
 

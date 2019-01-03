@@ -23,11 +23,11 @@ android {
     flavorDimensions "default"
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.voluntariat.android.magicline"
+        applicationId "com.obrasocialsjd"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 10
+        versionName "2.9.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
@@ -38,15 +38,15 @@ android {
     }
     productFlavors {
         valencia {
-            applicationId "com.voluntariat.android.magicline.valencia"
+            applicationId "com.obrasocialsjd.magicline.valencia"
 
         }
         mallorca {
-            applicationId "com.voluntariat.android.magicline.mallorca"
+            applicationId "com.obrasocialsjd.magicline.mallorca"
 
         }
         barcelona {
-            applicationId "com.voluntariat.android.magicline.barcelona"
+            applicationId "com.obrasocialsjd.magicline"
 
         }
     }

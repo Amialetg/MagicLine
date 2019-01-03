@@ -16,7 +16,6 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
-import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
 import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.DetailModel
@@ -148,7 +147,7 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun subscribeToPosts() {
-        mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+        mMagicLineViewModel.getPosts(getAPILang(requireContext())).observe(this, androidx.lifecycle.Observer {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
 

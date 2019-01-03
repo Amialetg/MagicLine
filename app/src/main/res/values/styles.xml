@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -165,23 +165,19 @@
     </style>
 
     <style name="MoreInfoLanguagePressed" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:capitalize">words</item>
     </style>
 
     <style name="MoreInfoLanguageNotPressed" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/moreinfo_title_color</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:capitalize">words</item>
     </style>
 
     <!-- Schedule Header -->
@@ -334,6 +330,14 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Invite Friends -->
+    <style name="socialNetwork" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:capitalize">words</item>
     </style>
 
 </resources>

@@ -2,18 +2,20 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.app.Activity
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebViewClient
-import com.obrasocialsjd.magicline.R
-import android.webkit.WebView
-import android.graphics.Bitmap
-import android.os.Build
-import kotlinx.android.synthetic.main.fragment_donations.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.utils.CATALAN
+import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
+import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){
 
@@ -79,7 +81,7 @@ class DonationsFragment: BaseFragment(){
 
 
 
-        if(prefs.getString("My_Lang", "") == "ca"){
+        if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
             v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
         }else{
             v.webviewDonation.loadUrl("https://www.magiclinesjd.org/es/equipos/")

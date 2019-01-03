@@ -7,40 +7,52 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
-import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.facebookTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.messengerTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 
 class InviteFriendsFragment: BaseFragment() {
+    private lateinit var inviteFriendsView: View
 
     override fun onStart() {
         super.onStart()
+        initToolbar()
         initRRSSListeners()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_invite_friends, container, false)
+        inviteFriendsView = inflater.inflate(R.layout.fragment_invite_friends, container, false)
+        return inviteFriendsView
 
     }
 
+    private fun initToolbar(){
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        inviteFriendsView.topToolbar.setNavigationIcon(R.drawable.ic_black_cross)
+        inviteFriendsView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
+        inviteFriendsView.topToolbar.title = ""
+        inviteFriendsView.topToolbar.background = ContextCompat.getDrawable(requireContext(), R.drawable.invite_friends_bg)
+        inviteFriendsView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
+        }
+
     private fun initRRSSListeners(){
 
-        val facebookPkg = getString(R.string.facebook_packg)
-        val messengerPkg = getString(R.string.messenger_packg)
-        val emailPkg = getString(R.string.email_packg)
-        val telegramPkg = getString(R.string.telegram_packg)
-        val whatsappPkg = getString(R.string.whatsapp_packg)
+        val fbPkg = getString(R.string.fb_pkg)
+        val messengerPkg = getString(R.string.msn_pkg)
+        val emailPkg = getString(R.string.email_pkg)
+        val telegramPkg = getString(R.string.tel_pkg)
+        val whatsappPkg = getString(R.string.whats_pkg)
 
         emailTextView.setOnClickListener{
             callIntent(emailPkg)
         }
         facebookTextView.setOnClickListener{
-            callIntent(facebookPkg)
+            callIntent(fbPkg)
         }
         messengerTextView.setOnClickListener{
             callIntent(messengerPkg)
@@ -54,7 +66,7 @@ class InviteFriendsFragment: BaseFragment() {
 
     }
 
-    fun callIntent(pkg: String) {
+    private fun callIntent(pkg: String) {
 
         //val pm = context.packageManager//getPackageManager()
         try {

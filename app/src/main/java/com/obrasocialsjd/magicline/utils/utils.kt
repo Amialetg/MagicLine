@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
+import android.content.Context
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -10,12 +11,8 @@ import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-const val BARCELONA: String = "Barcelona"
-const val VALENCIA: String = "Valencia"
-const val MALLORCA: String = "Mallorca"
-//todo: mover a constants.kt
-const val URL_IDEAS_GUIDE: String = "http://www.magiclinesjd.org/files/froala/74e5144938f7c849173fe0347e213fd8052d5731.pdf"
+import java.text.NumberFormat
+import java.util.*
 
 // To use an specific code for each Flavor :
 fun isBarcelonaFlavor() : Boolean {
@@ -55,6 +52,10 @@ fun String.htmlToSpanned() : Spanned {
     }
 }
 
-fun Double.toEuro() : String {
-    return this.toInt().toString() + "€"
+fun Double.addCurrency(context: Context) : String {
+    return this.addThousandsSeparator(context).plus(getCurrency())
+}
+
+fun Double.addThousandsSeparator(context: Context) : String {
+    return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }

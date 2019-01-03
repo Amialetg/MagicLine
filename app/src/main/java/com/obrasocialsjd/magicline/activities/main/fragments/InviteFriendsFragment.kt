@@ -8,11 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.obrasocialsjd.magicline.R
-import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.facebookTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.messengerTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.*
 
 
 class InviteFriendsFragment: BaseFragment() {

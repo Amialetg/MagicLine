@@ -1,11 +1,11 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.app.Application
-import com.onesignal.OneSignal
 import com.obrasocialsjd.magicline.utils.ExampleNotificationOpenedHandler
 import com.obrasocialsjd.magicline.utils.getLocaleTagForString
 import com.obrasocialsjd.magicline.utils.updateBaseContextLocale
 import com.obrasocialsjd.magicline.utils.updatePreferencesLanguage
+import com.onesignal.OneSignal
 import java.util.*
 
 class MyApplication : Application() {

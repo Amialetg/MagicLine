@@ -2,18 +2,17 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.app.Activity
 import android.content.SharedPreferences
-
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
-import android.webkit.WebView
-import android.graphics.Bitmap
-import android.os.Build
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){

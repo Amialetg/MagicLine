@@ -5,9 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.fragments.*
 import com.obrasocialsjd.magicline.models.DetailModel

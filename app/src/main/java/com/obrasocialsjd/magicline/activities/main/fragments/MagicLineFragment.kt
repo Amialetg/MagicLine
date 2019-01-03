@@ -16,6 +16,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
+import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
 import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.DetailModel
@@ -31,7 +32,6 @@ import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 class MagicLineFragment : BaseFragment() {
 
@@ -153,7 +153,7 @@ class MagicLineFragment : BaseFragment() {
 
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
-                recaudats_num.text = getDonationsByCity(donation).toEuro()
+                recaudats_num.text = getDonationsByCity(donation).addCurrency(requireContext())
             }
         })
     }

@@ -59,7 +59,7 @@ class MoreInfoMLFragment : BaseFragment() {
             val currentConsumedPlaces = (total * 100) / places
             val currentAvailablePlaces = 100 - currentConsumedPlaces
 
-            currentParticipants.text = total.addThousandsSeparator(requireContext())
+            currentParticipants.text = total.addThousandsSeparator()
             configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
         })
     }

@@ -6,13 +6,6 @@ import android.content.res.Configuration
 import android.os.Build
 import java.util.*
 
-const val CATALAN : String = "ca_ES"
-const val SPANISH : String = "es_ES"
-
-const val EURO : String = "€"
-
-const val LANGUAGE : String = "My_Lang"
-
 fun Context.updateBaseContextLocale(language: String? = null): Context {
     if (!language.isNullOrEmpty()) {
         var lang = language!!.split("_")
@@ -43,9 +36,9 @@ private fun updateResourcesLocale(context: Context, locale: Locale): Context {
 }
 
 fun getLanguagePreferences(context: Context) :String {
-    val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
 
-    return preferences.getString(LANGUAGE, "")
+    return preferences.getString(PREF_LANGUAGE, "")
 }
 
 fun getCurrency() : String {
@@ -56,25 +49,25 @@ fun getCurrency() : String {
 fun getAPILang(context: Context) : String {
     val preferencesLang = getLanguagePreferences(context)
     return when(preferencesLang) {
-        SPANISH -> "spa"
-        CATALAN -> "cat"
-        else -> "spa"
+        SPANISH -> SPANISH_API
+        CATALAN -> CATALAN_API
+        else -> SPANISH_API
     }
 }
 
 fun getLocaleTagForString(locale: String) : String {
     return when (locale) {
-        "es" -> SPANISH
-        "ca" -> CATALAN
+        SPANISH_LOCALE -> SPANISH
+        CATALAN_LOCALE -> CATALAN
         else -> SPANISH
     }
 }
 
 fun updatePreferencesLanguage(context: Context, localeTag: String) {
-    val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
 
     val editor: SharedPreferences.Editor = preferences.edit()
 
-    editor.putString(LANGUAGE, localeTag)
+    editor.putString(PREF_LANGUAGE, localeTag)
     editor.apply()
 }

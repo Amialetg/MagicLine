@@ -11,6 +11,15 @@
 
                 <include layout="@layout/toolbar_appbar_top"/>
 
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imagesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+                </androidx.recyclerview.widget.RecyclerView>
+
+
                 <ImageView
                     android:id="@+id/imgDetail"
                     android:layout_width="match_parent"

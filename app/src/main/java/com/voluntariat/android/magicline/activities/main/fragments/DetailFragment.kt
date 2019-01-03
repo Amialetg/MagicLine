@@ -4,29 +4,35 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.squareup.picasso.Picasso
 import com.voluntariat.android.magicline.R
-import com.voluntariat.android.magicline.R.drawable.ic_black_cross
+import com.voluntariat.android.magicline.R.drawable.*
+import com.voluntariat.android.magicline.activities.main.adapters.SlideViewAdapter
+import com.voluntariat.android.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.voluntariat.android.magicline.models.DetailModel
 import com.voluntariat.android.magicline.utils.htmlToSpanned
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
+import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-
+import java.util.ArrayList
 
 
 class DetailFragment : BaseFragment() {
 
     private lateinit var detailLayoutView: View
     private lateinit var detailModel: DetailModel
+    private lateinit var myImagesAdapter: SlideViewAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +65,7 @@ class DetailFragment : BaseFragment() {
         }
         else{
             detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+
             Picasso
                     .get()
                     .load(detailModel.toolbarImg)
@@ -67,12 +74,10 @@ class DetailFragment : BaseFragment() {
                     .into(imgDetail)
         }
 
-
-
-
-
-
+        initImagesRecycler()
     }
+
+
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
@@ -84,6 +89,22 @@ class DetailFragment : BaseFragment() {
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
 
         }
+    }
+
+    private fun initImagesRecycler() {
+        val myImagesManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        myImagesAdapter = SlideViewAdapter(ArrayList())
+
+        newsRecyclerView.layoutManager = myImagesManager
+        newsRecyclerView.adapter = myImagesAdapter
+        newsRecyclerView.setPadding(0,0,0,50)
+
+        //Adding pager behaviour
+        val snapHelper = PagerSnapHelper()
+        newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
+        snapHelper.attachToRecyclerView(newsRecyclerView)
+        newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+
     }
 
     private fun initWidgets() {

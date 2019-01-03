@@ -4,19 +4,19 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import com.obrasocialsjd.magicline.BuildConfig
+import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.Result
 import com.obrasocialsjd.magicline.db.MagicLineDB
-import com.voluntariat.android.magicline.BuildConfig
-import com.voluntariat.android.magicline.R
 
 /**
  * Created by hector on 26/06/18.
  */
 class SplashScreenActivity : Activity() {
     private var handler: Handler? = null
-    private val splashDelay: Long = 200
+    private val SPLASH_DELAY: Long = 200
 
     private val mRunnable: Runnable = Runnable {
         if(!isFinishing){
@@ -43,7 +43,7 @@ class SplashScreenActivity : Activity() {
 
         handler = Handler()
 
-        handler!!.postDelayed(mRunnable, splashDelay)
+        handler!!.postDelayed(mRunnable, SPLASH_DELAY)
     }
 
     public override fun onDestroy() {

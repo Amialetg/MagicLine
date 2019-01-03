@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
@@ -25,7 +26,6 @@ import com.obrasocialsjd.magicline.utils.toEuro
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
-import com.voluntariat.android.magicline.R
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*

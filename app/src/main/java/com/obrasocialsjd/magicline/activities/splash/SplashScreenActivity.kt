@@ -16,7 +16,7 @@ import com.obrasocialsjd.magicline.db.MagicLineDB
  */
 class SplashScreenActivity : Activity() {
     private var handler: Handler? = null
-    private var SPLASH_DELAY: Long = 200
+    private val SPLASH_DELAY: Long = 200
 
     private val mRunnable: Runnable = Runnable {
         if(!isFinishing){

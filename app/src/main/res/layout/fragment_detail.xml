@@ -1,5 +1,18 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.obrasocialsjd.magicline.activities.main.fragments.DetailFragment">
+
+    <!-- appbar -->
+
+    <include layout="@layout/toolbar_appbar_top" />
+
+    <!-- body -->
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
@@ -9,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/toolbar_appbar_top"/>
+                <!--<include layout="@layout/toolbar_appbar_top"/>-->
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -72,4 +85,5 @@
                 <include layout="@layout/layout_share" />
 
             </LinearLayout>
-</ScrollView>
+    </ScrollView>
+ </LinearLayout>

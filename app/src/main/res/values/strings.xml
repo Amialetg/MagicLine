@@ -7,7 +7,7 @@
 
     <!--CountDown-->
     <string name="cursa_date">24.02.2019, 10:00</string>
-    <string name="ciutat">Barcelona</string>
+    <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="btn_fer_donacio">Hacer una donación</string>
     <string name="recaudats_text">recaudados</string>
     <string name="participants_text">participantes</string>
@@ -142,15 +142,15 @@
     <string name="telegram" translatable="false">Telegram</string>
     <string name="messenger" translatable="false">Messenger</string>
     <string name="facebook" translatable="false">Facebook</string>
-    <string name="email">E-mail</string>
+    <string name="email" translatable="false">E-mail</string>
 
     <!-- Packages social media -->
 
-    <string name="whatsapp_packg">com.whatsapp</string>
-    <string name="telegram_packg">org.telegram.messenger</string>
-    <string name="messenger_packg">com.facebook.orca</string>
-    <string name="facebook_packg">com.facebook.katana</string>
-    <string name="email_packg">com.google.android.gm</string>
+    <string name="whats_pkg">com.whatsapp</string>
+    <string name="tel_pkg">org.telegram.messenger</string>
+    <string name="msn_pkg">com.facebook.orca</string>
+    <string name="fb_pkg">com.facebook.katana</string>
+    <string name="email_pkg">com.google.android.gm</string>
 
     <!-- Magic Line web -->
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>

@@ -1,10 +1,10 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.obrasocialsjd.magicline.R
@@ -60,14 +60,17 @@ class MainActivity : BaseActivity() {
     fun initNavigation() {
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
-            floatingBtn.setColorFilter(Color.argb(255,74,74,74))
+            floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.unselected_indicator_color))
+            floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
+
             selectFragment(item)
             true
         }
 
         //Behaviour when clicked on the map item
         floatingBtn.setOnClickListener {
-            floatingBtn.setColorFilter(Color.argb(255,237,53,37))
+            floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.white))
+            floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
 
             //We set clicked on the none item in order to disable the rest of the items
             //but the fragment that is shown is the map fragment

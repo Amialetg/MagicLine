@@ -1,25 +1,31 @@
 package com.obrasocialsjd.magicline.utils
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Build
-import java.util.Locale
+import java.util.*
 
 fun Context.updateBaseContextLocale(language: String? = null): Context {
-    if (language != null) {
-        val locale = Locale(language)
+    if (!language.isNullOrEmpty()) {
+        var lang = language!!.split("_")
+        var locale = Locale(lang[0], lang[1])
         Locale.setDefault(locale)
         return updateResourcesLocale(this, locale)
     }
     return this
 }
 
- fun getLocale(conf: Configuration): String {
+fun getLocaleString(conf: Configuration): String {
+    return getLocale(conf).toString()
+}
+
+fun getLocale(conf: Configuration): Locale {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        conf.locales.get(0).toString()
+        conf.locales.get(0)
     } else {
         @Suppress("DEPRECATION")
-        conf.locale.toString()
+        conf.locale
     }
 }
 
@@ -29,9 +35,39 @@ private fun updateResourcesLocale(context: Context, locale: Locale): Context {
     return context.createConfigurationContext(configuration)
 }
 
-fun getPreferencesLanguage(context: Context) :String{
-    val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+fun getLanguagePreferences(context: Context) :String {
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
 
-    return preferences.getString("My_Lang", "")
+    return preferences.getString(PREF_LANGUAGE, "")
+}
 
+fun getCurrency() : String {
+    //return Currency.getInstance(Locale.getDefault()).symbol
+    return EURO
+}
+
+fun getAPILang(context: Context) : String {
+    val preferencesLang = getLanguagePreferences(context)
+    return when(preferencesLang) {
+        SPANISH -> SPANISH_API
+        CATALAN -> CATALAN_API
+        else -> SPANISH_API
+    }
+}
+
+fun getLocaleTagForString(locale: String) : String {
+    return when (locale) {
+        SPANISH_LOCALE -> SPANISH
+        CATALAN_LOCALE -> CATALAN
+        else -> SPANISH
+    }
+}
+
+fun updatePreferencesLanguage(context: Context, localeTag: String) {
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
+
+    val editor: SharedPreferences.Editor = preferences.edit()
+
+    editor.putString(PREF_LANGUAGE, localeTag)
+    editor.apply()
 }

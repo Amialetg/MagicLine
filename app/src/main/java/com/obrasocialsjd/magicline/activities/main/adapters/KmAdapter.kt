@@ -2,13 +2,11 @@ package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.GoogleMap
 import com.google.maps.android.data.kml.KmlLayer
 import com.obrasocialsjd.magicline.R

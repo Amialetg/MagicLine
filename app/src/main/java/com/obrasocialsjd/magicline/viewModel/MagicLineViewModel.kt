@@ -10,8 +10,8 @@ import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 
 class MagicLineViewModel(application : Application, private val repository: MagicLineRepository) : AndroidViewModel(application) {
 
-    fun getPosts() : LiveData<List<PostsItem>> {
-        return repository.getPosts()
+    fun getPosts(lang : String) : LiveData<List<PostsItem>> {
+        return repository.getPosts(lang)
     }
 
     fun getDonations() : LiveData<DonationsDBModel> {

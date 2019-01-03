@@ -11,19 +11,31 @@
     <TextView
         android:id="@+id/TextViewMapNumKm"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="31.1sp"
         android:textColor="@color/grey"
         android:layout_marginLeft="9dp"
+        android:layout_gravity="center_vertical"
         android:text="20"/>
 
     <TextView
         android:id="@+id/TextViewMapTextKm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="4dp"
         android:text="km"
-        android:layout_marginTop="33dp"
-        android:layout_marginLeft="45dp"/>
+        />
+
+    <TextView
+        android:id="@+id/ExtraTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="4dp"
+        style="@style/extraTxtViewCardMap" />
 
 </androidx.cardview.widget.CardView>

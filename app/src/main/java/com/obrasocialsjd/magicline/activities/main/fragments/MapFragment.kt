@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,14 +25,20 @@ import org.xmlpull.v1.XmlPullParserException
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlPoint
+import com.obrasocialsjd.magicline.R.string.st_boi
+import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.utils.KML_POINT
 import com.obrasocialsjd.magicline.utils.isBarcelonaFlavor
+import com.obrasocialsjd.magicline.utils.isValenciaFlavor
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_map_top.view.*
 import java.io.IOException
 import java.io.InputStream
 
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
 
+    private lateinit var mapView: View
     private lateinit var map: GoogleMap
     private var airLocation: AirLocation? = null
     private lateinit var kmlLayer: KmlLayer
@@ -49,8 +56,20 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        mapView = inflater.inflate(R.layout.fragment_map, container, false)
+        initToolbar()
+        initListeners()
+        return mapView
+    }
 
+    private fun initToolbar() {
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        mapView.mapToolbar.title = getString(R.string.toolbar_map)
+    }
+
+    private fun initListeners() {
+        mapView.userLocationBtn.setOnClickListener {  }
+        mapView.showMarkersBtn.setOnClickListener {  }
     }
 
     override fun onStart() {
@@ -64,8 +83,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(pathPoints[0], 17.0f))
-                // couldn't fetch location due to reason available in locationFailedEnum
-                // you may optionally do something to inform the user, even though the reason may be obvious
             }
 
         })
@@ -76,18 +93,17 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
 
-        //SETUP
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
 
-        //wait for map to load
+        //Prepare km cards
         initBcnKmCards()
 
         //INTEREST POINTS
         kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
 //        kmlLayer.addLayerToMap()
 
-        if (isBarcelonaFlavor()) addBcnKML()
+        if (isBarcelonaFlavor()) addBcnKML() else if (isValenciaFlavor()) addBcnKML() else addBcnKML()
     }
 
     private fun addBcnKML() {
@@ -96,8 +112,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 resources.openRawResource(R.raw.ml_bcn_10km),
                 resources.openRawResource(R.raw.ml_bcn_15km),
                 resources.openRawResource(R.raw.ml_bcn_20km),
-                resources.openRawResource(R.raw.ml_bcn_30km),
                 resources.openRawResource(R.raw.ml_bcn_30km_ll),
+                resources.openRawResource(R.raw.ml_bcn_30km),
                 resources.openRawResource(R.raw.ml_bcn_40km)
             )
 
@@ -146,14 +162,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
         kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
-        val kmList = ArrayList<Int>()
-
-        kmList.add(10)
-        kmList.add(15)
-        kmList.add(20)
-        kmList.add(30)
-        kmList.add(30)
-        kmList.add(40)
+        val kmList = arrayListOf<CardKm>(
+                CardKm(10),
+                CardKm(15),
+                CardKm(20),
+                CardKm(30, getString(st_boi)),
+                CardKm(30),
+                CardKm(40)
+        )
 
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)

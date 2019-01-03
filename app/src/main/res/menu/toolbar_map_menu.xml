@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/donations_menu_id"
+        android:icon="@drawable/ic_donations"
+        android:title="@string/nav_menu_donativos" />
+
+    <item
+        android:id="@+id/info_menu_id"
+        android:icon="@drawable/moreinfo"
+        android:title="@string/nav_menu_masinfo" />
+</menu>

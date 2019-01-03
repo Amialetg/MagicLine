@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="49dp"
-    android:paddingStart="0dp"
-    android:paddingEnd="0dp"
-    android:layout_marginStart="0dp"
-    android:layout_marginEnd="0dp"
-    android:background="@color/white"
-    >
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/toolbar_map"
-        android:gravity="center_vertical"
-        android:paddingStart="24dp"
-        style="@style/toolbarTop"
-        />
+        android:layout_height="wrap_content">
 
-    <View
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="60dp"
-        android:layout_width="1dp"
-        android:layout_height="33dp"
-        android:layout_centerVertical="true"
-        android:background="@color/line_color" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mapToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="top"
+            app:titleMarginTop="15dp"
+            app:titleTextAppearance="@style/toolbarTop" />
 
-    <ImageView
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/layer_1"
-        android:tint="@color/grey"
-        android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/userLocationBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_map_bottom_bar"
+            android:tint="@color/grey"
+            android:layout_centerVertical="true"/>
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/showMarkersBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_toolbar_map"
+            android:tint="@color/grey"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

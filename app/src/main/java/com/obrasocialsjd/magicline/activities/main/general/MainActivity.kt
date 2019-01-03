@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.fragments.*
 import com.obrasocialsjd.magicline.models.DetailModel
@@ -84,29 +85,35 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
-        val newFragment: BaseFragment
-        when (item.itemId) {
-            R.id.magicline_menu_id -> {
-                newFragment = MagicLineFragment()
-                Log.d("Main Activity", "magic line")
-            }
-            R.id.donations_menu_id -> {
-                newFragment = DonationsFragment()
-                Log.d("Main Activity", "donations")
-            }
-            R.id.info_menu_id -> {
+        if (!item.isChecked) {
 
-                newFragment = InfoFragment()
-                Log.d("Main Activity", "info")
+            // Those are fragments of the main view, so we don't need the back-stack
+            clearBackStack()
+
+            val newFragment: BaseFragment
+            when (item.itemId) {
+                R.id.magicline_menu_id -> {
+                    newFragment = MagicLineFragment()
+                    Log.d("Main Activity", "magic line")
+                }
+                R.id.donations_menu_id -> {
+                    newFragment = DonationsFragment()
+                    Log.d("Main Activity", "donations")
+                }
+                R.id.info_menu_id -> {
+
+                    newFragment = InfoFragment()
+                    Log.d("Main Activity", "info")
+                }
+                R.id.schedule_menu_id -> newFragment = ScheduleFragment.newInstance(scheduleModel)
+                R.id.none -> return
+                else -> newFragment = MagicLineFragment()
             }
-            R.id.schedule_menu_id -> newFragment = ScheduleFragment.newInstance(scheduleModel)
-            R.id.none -> return
-            else -> newFragment = MagicLineFragment()
+
+            transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
+                    addToBackStack = false)
+            currentFragment = newFragment
         }
-
-        transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
-                addToBackStack = false)
-        currentFragment = newFragment
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -166,5 +173,11 @@ class MainActivity : BaseActivity() {
                                 link = getString(R.string.essentials_viewOnWeb))
                 )
         )
+    }
+
+    private fun clearBackStack() {
+        while (supportFragmentManager.backStackEntryCount != 0) {
+            supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
     }
 }

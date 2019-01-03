@@ -28,6 +28,8 @@ fun isMallorcaFlavor() : Boolean {
     return  BuildConfig.FLAVOR.equals(MALLORCA, true)
 }
 
+fun getFlavor() = BuildConfig.FLAVOR.capitalize()
+
 fun String.capitalizeFirstLetter() : String = this.toLowerCase().capitalize()
 
 fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> Unit)? = null): Callback<T> {

@@ -42,6 +42,7 @@
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminada solidaria:</string>
+    <string name="toolbar_map">Recorregut</string>
 
     <!--Section other values -->
     <string name="other_values_title">ALTRES VALORS</string>

@@ -43,6 +43,7 @@
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="map_km">Km caminata solidaria:</string>
+    <string name="toolbar_map">Recorrido</string>
 
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>

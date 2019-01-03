@@ -1,10 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Rect
-import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,18 +15,33 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.maps.android.PolyUtil
 import com.google.maps.android.data.kml.KmlLayer
+import com.google.maps.android.data.kml.KmlPlacemark
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
 import mumayank.com.airlocationlibrary.AirLocation
+import org.xmlpull.v1.XmlPullParserException
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.data.kml.KmlLineString
+import com.google.maps.android.data.kml.KmlPoint
+import com.google.maps.android.data.Geometry
+import com.google.maps.android.data.kml.KmlContainer
+import com.obrasocialsjd.magicline.utils.BCN_NUM_KML
+import com.obrasocialsjd.magicline.utils.KML_POINT
+import com.obrasocialsjd.magicline.utils.isBarcelonaFlavor
+import java.io.IOException
+import java.io.InputStream
 
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
-    private var airLocation: AirLocation? = null // ADD THIS LINE ON TOP
+    private var airLocation: AirLocation? = null
     private lateinit var kmlLayer: KmlLayer
+    private val pathPoints = arrayListOf<LatLng>()
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         airLocation?.onActivityResult(requestCode, resultCode, data) // ADD THIS LINE INSIDE onActivityResult
@@ -43,8 +55,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var mapView: View = inflater.inflate(R.layout.fragment_map, container, false)
-        return mapView
+        return inflater.inflate(R.layout.fragment_map, container, false)
 
     }
 
@@ -58,7 +69,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             }
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
-
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(pathPoints[0], 17.0f))
                 // couldn't fetch location due to reason available in locationFailedEnum
                 // you may optionally do something to inform the user, even though the reason may be obvious
             }
@@ -74,15 +85,54 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         //SETUP
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
-//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.390205, 2.154007), 12.0f))
 
         //wait for map to load
-        initKmCards()
+        initBcnKmCards()
 
         //INTEREST POINTS
-//        loadMarkers()
         kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
-        kmlLayer.addLayerToMap()
+//        kmlLayer.addLayerToMap()
+
+        if (isBarcelonaFlavor()) addBcnKML()
+    }
+
+    private fun addBcnKML() {
+        try {
+            val arrayKmlBcn : ArrayList<InputStream> = arrayListOf(
+                resources.openRawResource(R.raw.ml_bcn_10km),
+                resources.openRawResource(R.raw.ml_bcn_15km),
+                resources.openRawResource(R.raw.ml_bcn_20km),
+                resources.openRawResource(R.raw.ml_bcn_30km),
+                resources.openRawResource(R.raw.ml_bcn_30km_ll),
+                resources.openRawResource(R.raw.ml_bcn_40km)
+            )
+
+            for (kmlInputStream: InputStream in arrayKmlBcn){
+                val kmlLayer = KmlLayer(map, kmlInputStream, requireContext())
+                kmlLayer.addLayerToMap()
+
+                if (kmlLayer.containers != null) {
+                    for (container in kmlLayer.containers) {
+                        if (container.hasPlacemarks()) {
+                            for (placemark in container.placemarks) {
+                                val geometry = placemark.geometry
+                                if (geometry.geometryType == KML_POINT) {
+                                    val point = placemark.geometry as KmlPoint
+                                    val latLng = LatLng(point.geometryObject.latitude, point.geometryObject.longitude)
+                                    pathPoints.add(latLng)
+                                }
+                            }
+                        }
+                    }
+                }
+                kmlLayer.removeLayerFromMap()
+            }
+
+        } catch (e: XmlPullParserException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
 
     }
 
@@ -97,15 +147,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     }
 
-    private fun getMarkerIconFromDrawable(drawable: Drawable): BitmapDescriptor {
-        val canvas = Canvas()
-        val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-        canvas.setBitmap(bitmap)
-        drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
-        drawable.draw(canvas)
-        return BitmapDescriptorFactory.fromBitmap(bitmap)
-    }
-    private fun initKmCards() {
+    //bcn flavor
+    private fun initBcnKmCards() {
 
         val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
         kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
@@ -118,39 +161,29 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         kmList.add(30)
         kmList.add(40)
 
-
         //Setting up the adapter and the layout manager for the recycler view
         kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = KmAdapter(kmList, map, this.requireContext())
+        val adapter = KmAdapter(pathPoints, kmList, map, this.requireContext())
         kmRecyclerView?.adapter = adapter
-    }
-
-    private fun loadMarkers(){
-        //TODO("waiting for official info to fill")
-        setMarker("Font", "", 41.41649, 2.15293, R.drawable.group_2)
-        setMarker("Font", "", 41.42317, 2.12254, R.drawable.group_3)
-        setMarker("Font", "", 41.41949, 2.16376, R.drawable.group_2)
-        setMarker("Font", "", 41.37281, 2.15025, R.drawable.group_4)
-        setMarker("Font", "", 41.36102, 2.16168, R.drawable.group_2)
-        setMarker("Font", "", 41.38462, 2.12367, R.drawable.group_3)
-        setMarker("Font", "", 41.38219, 2.12768, R.drawable.group_4)
     }
 
     class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(outRect: Rect, view: View,
                                     parent: RecyclerView, state: RecyclerView.State) {
             with(outRect) {
-                if(parent.getChildAdapterPosition(view) == 4){
-                    right = spaceHeight*2
-                    left = spaceHeight
-                }
-                else if(parent.getChildAdapterPosition(view) == 0){
-                    left = spaceHeight*2
-                    right = spaceHeight
-                }
-                else{
-                left =  spaceHeight
-                right = spaceHeight
+                when {
+                    parent.getChildAdapterPosition(view) == 4 -> {
+                        right = spaceHeight*2
+                        left = spaceHeight
+                    }
+                    parent.getChildAdapterPosition(view) == 0 -> {
+                        left = spaceHeight*2
+                        right = spaceHeight
+                    }
+                    else -> {
+                        left =  spaceHeight
+                        right = spaceHeight
+                    }
                 }
             }
         }

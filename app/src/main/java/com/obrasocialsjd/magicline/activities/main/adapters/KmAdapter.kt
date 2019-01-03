@@ -9,8 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlLayer
+import com.google.maps.android.data.kml.KmlLineString
+import com.google.maps.android.data.kml.KmlPoint
 import com.obrasocialsjd.magicline.R
 import kotlinx.android.synthetic.main.km_cards.view.*
 
@@ -19,18 +23,17 @@ import kotlinx.android.synthetic.main.km_cards.view.*
  * Created by hector on 27/06/18.
  */
 
-class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: GoogleMap,
+class KmAdapter (private val kmlPoints: ArrayList<LatLng>, private val kmList : ArrayList<Int>, private val googleMap: GoogleMap,
                  val context: Context) : RecyclerView.Adapter<KmAdapter.ViewHolder>() {
 
     var selectedPosition : Int = 0
-    var kmlLayers : ArrayList<KmlLayer> = arrayListOf(
+    private var kmlLayers : ArrayList<KmlLayer> = arrayListOf(
             KmlLayer(googleMap, R.raw.ml_bcn_10km,context),
             KmlLayer(googleMap, R.raw.ml_bcn_15km,context),
             KmlLayer(googleMap,R.raw.ml_bcn_20km,context),
             KmlLayer(googleMap,R.raw.ml_bcn_30km,context),
             KmlLayer(googleMap,R.raw.ml_bcn_30km_ll,context),
             KmlLayer(googleMap,R.raw.ml_bcn_40km,context))
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.km_cards, parent, false)
@@ -49,7 +52,10 @@ class KmAdapter (private val kmList : ArrayList<Int>, private val googleMap: Goo
         if (selectedPosition == position) {
             colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kmlPoints[selectedPosition], 11.5f))
+
             if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
+
         } else {
             colorBg = ContextCompat.getColor(context, R.color.white)
             colorTxt = Color.parseColor("#80000000")

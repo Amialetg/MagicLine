@@ -13,6 +13,9 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.models.DetailModel
+import com.obrasocialsjd.magicline.utils.CATALAN
+import com.obrasocialsjd.magicline.utils.LANGUAGE
+import com.obrasocialsjd.magicline.utils.SPANISH
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
@@ -39,7 +42,7 @@ class InfoFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString("My_Lang", "") == "ca_ES"){
+        if(prefs.getString(LANGUAGE, "") == CATALAN){
             checkbox_catalan_text.isChecked = true
         }else{
             checkbox_spanish_text.isChecked = true
@@ -55,7 +58,7 @@ class InfoFragment: BaseFragment() {
                 }
 
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "es_ES")
+                editor.putString(LANGUAGE, SPANISH)
                 editor.apply()
                 refresh()
             }
@@ -69,7 +72,7 @@ class InfoFragment: BaseFragment() {
 
                 }
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "ca_ES")
+                editor.putString(LANGUAGE, CATALAN)
                 editor.apply()
                 refresh()
             }

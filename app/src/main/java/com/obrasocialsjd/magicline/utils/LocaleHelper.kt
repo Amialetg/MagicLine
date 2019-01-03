@@ -6,6 +6,10 @@ import android.content.res.Configuration
 import android.os.Build
 import java.util.*
 
+const val CATALAN: String = "ca_ES"
+const val SPANISH: String = "es_ES"
+const val LANGUAGE : String = "My_Lang"
+
 fun Context.updateBaseContextLocale(language: String? = null): Context {
     if (!language.isNullOrEmpty()) {
         var lang = language!!.split("_")
@@ -38,7 +42,7 @@ private fun updateResourcesLocale(context: Context, locale: Locale): Context {
 fun getPreferencesLanguage(context: Context) :String {
     val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
 
-    return preferences.getString("My_Lang", "")
+    return preferences.getString(LANGUAGE, "")
 }
 
 fun getCurrency() : String {
@@ -49,17 +53,17 @@ fun getCurrency() : String {
 fun getAPILang(context: Context) : String {
     val preferencesLang = getPreferencesLanguage(context)
     return when(preferencesLang) {
-        "es_ES" -> "spa"
-        "ca_ES" -> "cat"
+        SPANISH -> "spa"
+        CATALAN -> "cat"
         else -> "spa"
     }
 }
 
 fun getLocaleTagForString(locale: String) : String {
     return when (locale) {
-        "es" -> "es_ES"
-        "ca" -> "ca_ES"
-        else -> "es_ES"
+        "es" -> SPANISH
+        "ca" -> CATALAN
+        else -> SPANISH
     }
 }
 
@@ -68,6 +72,6 @@ fun updatePreferencesLanguage(context: Context, localeTag: String) {
 
     val editor: SharedPreferences.Editor = preferences.edit()
 
-    editor.putString("My_Lang", localeTag)
+    editor.putString(LANGUAGE, localeTag)
     editor.apply()
 }

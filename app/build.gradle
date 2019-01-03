@@ -19,6 +19,9 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+def ML_API_USER = '"' + MLAPIUser + '"'
+def ML_API_PASSWORD = '"' + MLAPIPassword + '"'
+
 android {
     flavorDimensions "default"
     compileSdkVersion 28
@@ -35,6 +38,10 @@ android {
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE'
         ]
+
+        buildConfigField "String" , 'MLAPIUser', ML_API_USER
+        buildConfigField "String" , 'MLAPIPassword', ML_API_PASSWORD
+
     }
     productFlavors {
         valencia {

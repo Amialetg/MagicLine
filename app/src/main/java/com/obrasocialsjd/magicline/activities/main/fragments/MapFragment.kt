@@ -15,9 +15,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.maps.android.PolyUtil
 import com.google.maps.android.data.kml.KmlLayer
-import com.google.maps.android.data.kml.KmlPlacemark
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
@@ -25,11 +23,7 @@ import mumayank.com.airlocationlibrary.AirLocation
 import org.xmlpull.v1.XmlPullParserException
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.data.kml.KmlLineString
 import com.google.maps.android.data.kml.KmlPoint
-import com.google.maps.android.data.Geometry
-import com.google.maps.android.data.kml.KmlContainer
-import com.obrasocialsjd.magicline.utils.BCN_NUM_KML
 import com.obrasocialsjd.magicline.utils.KML_POINT
 import com.obrasocialsjd.magicline.utils.isBarcelonaFlavor
 import java.io.IOException

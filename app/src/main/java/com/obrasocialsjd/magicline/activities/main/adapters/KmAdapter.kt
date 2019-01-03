@@ -2,6 +2,7 @@ package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Typeface
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -46,27 +48,30 @@ class KmAdapter (private val kmlPoints: ArrayList<LatLng>, private val kmList : 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val km : Int =  kmList[position]
-        val colorBg : Int
-        val colorTxt : Int
+        var colorBg : Int = ContextCompat.getColor(context, R.color.white)
+        var colorTxt : Int = Color.parseColor("#80000000")
+        var typeFace: Typeface? = ResourcesCompat.getFont(context, R.font.lato_light)
 
         if (selectedPosition == position) {
             colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
+            typeFace = ResourcesCompat.getFont(context, R.font.lato_bold)
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kmlPoints[selectedPosition], 11.5f))
 
             if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
 
         } else {
-            colorBg = ContextCompat.getColor(context, R.color.white)
-            colorTxt = Color.parseColor("#80000000")
+
             for(i:Int in 0 until kmList.size){
                 if( i != selectedPosition && kmlLayers[i].isLayerOnMap) kmlLayers[i].removeLayerFromMap()
             }
         }
 
-        holder.itemView.TextViewMapNumKm.text = km.toString()
         holder.itemView.TextViewMapNumKm.setTextColor(colorTxt)
         holder.itemView.TextViewMapTextKm.setTextColor(colorTxt)
+        holder.itemView.TextViewMapTextKm.typeface = typeFace
+        holder.itemView.TextViewMapNumKm.typeface = typeFace
+        holder.itemView.TextViewMapNumKm.text = km.toString()
         holder.itemView.CardRoute.setCardBackgroundColor(colorBg)
     }
 

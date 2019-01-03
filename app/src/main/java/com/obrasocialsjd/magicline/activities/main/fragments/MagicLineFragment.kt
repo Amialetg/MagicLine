@@ -20,10 +20,7 @@ import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.NewsModel
-import com.obrasocialsjd.magicline.utils.MyCounter
-import com.obrasocialsjd.magicline.utils.URL_IDEAS_GUIDE
-import com.obrasocialsjd.magicline.utils.toEuro
-import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
+import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*

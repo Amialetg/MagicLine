@@ -6,8 +6,11 @@ import android.content.res.Configuration
 import android.os.Build
 import java.util.*
 
-const val CATALAN: String = "ca_ES"
-const val SPANISH: String = "es_ES"
+const val CATALAN : String = "ca_ES"
+const val SPANISH : String = "es_ES"
+
+const val EURO : String = "€"
+
 const val LANGUAGE : String = "My_Lang"
 
 fun Context.updateBaseContextLocale(language: String? = null): Context {
@@ -39,7 +42,7 @@ private fun updateResourcesLocale(context: Context, locale: Locale): Context {
     return context.createConfigurationContext(configuration)
 }
 
-fun getPreferencesLanguage(context: Context) :String {
+fun getLanguagePreferences(context: Context) :String {
     val preferences = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
 
     return preferences.getString(LANGUAGE, "")
@@ -47,11 +50,11 @@ fun getPreferencesLanguage(context: Context) :String {
 
 fun getCurrency() : String {
     //return Currency.getInstance(Locale.getDefault()).symbol
-    return "€"
+    return EURO
 }
 
 fun getAPILang(context: Context) : String {
-    val preferencesLang = getPreferencesLanguage(context)
+    val preferencesLang = getLanguagePreferences(context)
     return when(preferencesLang) {
         SPANISH -> "spa"
         CATALAN -> "cat"

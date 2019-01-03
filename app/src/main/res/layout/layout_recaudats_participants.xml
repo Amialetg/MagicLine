@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_recaudats"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:weightSum="100"
-    >
+    android:weightSum="100">
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -17,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="274.543€"
+            tools:text="274.543€"
             style="@style/recaudats_num"
             android:id="@+id/recaudats_num"
             />
@@ -48,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="38.543"
+            tools:text="38.543"
             style="@style/recaudats_num"
             android:id="@+id/participants_num"
             />

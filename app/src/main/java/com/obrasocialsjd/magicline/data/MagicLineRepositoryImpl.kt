@@ -101,7 +101,6 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
     private fun insertDonationsDBModelFromAPI(donations : Donations) {
         donationsDAO.insert(DonationsDBModel(0,
                                                 donations.valencia?.amount,
-                                                donations.bml?.amount,
                                                 donations.barcelona?.amount,
                                                 donations.mallorca?.amount))
     }

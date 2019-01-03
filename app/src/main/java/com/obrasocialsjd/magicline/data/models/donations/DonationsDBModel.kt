@@ -10,8 +10,6 @@ data class DonationsDBModel (
         val primaryKey: Int,
         @ColumnInfo(name = "donationsVal")
         val donationsVal: String?,
-        @ColumnInfo(name = "donationsBml")
-        val donationsBml: String?,
         @ColumnInfo(name = "donationsBcn")
         val donationsBcn: String?,
         @ColumnInfo(name = "donationsMll")

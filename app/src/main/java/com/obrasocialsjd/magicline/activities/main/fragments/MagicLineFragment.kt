@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,11 +27,10 @@ import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
-import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MagicLineFragment : BaseFragment() {
+class MagicLineFragment : BaseFragment(), FragmentActions {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var dateCursaString: String
@@ -73,7 +70,7 @@ class MagicLineFragment : BaseFragment() {
 
         initAfonsListeners()
 
-        initRRSSListeners()
+        initRRSS(requireActivity())
 
     }
 
@@ -88,7 +85,7 @@ class MagicLineFragment : BaseFragment() {
         }
 
         btnBrainStorm.setOnClickListener {
-            callIntent(URL_IDEAS_GUIDE)
+            callUriIntent(requireActivity(), URL_IDEAS_GUIDE)
         }
     }
 
@@ -239,32 +236,6 @@ class MagicLineFragment : BaseFragment() {
         }
     }
 
-    private fun initRRSSListeners() {
-
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-
-        fb_button.setOnClickListener {
-            callIntent(urlFacebook)
-        }
-
-        insta_button.setOnClickListener {
-            callIntent(urlInstagram)
-        }
-
-        twitter_button.setOnClickListener {
-            callIntent(urlTwitter)
-        }
-    }
-
-    private fun callIntent(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        this.requireContext().startActivity(intent)
-    }
-
     private fun getDonationsByCity(donation : DonationsDBModel) : Double {
         return when (getFlavor()) {
             BARCELONA -> donation.donationsBcn!!.toDouble()
@@ -273,4 +244,6 @@ class MagicLineFragment : BaseFragment() {
             else -> 0.0
         }
     }
+
+
 }

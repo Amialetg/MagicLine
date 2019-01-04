@@ -1,9 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.app.Activity
-import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
-class InfoFragment: BaseFragment() {
+class InfoFragment: BaseFragment(), FragmentActions {
 
     // 1--> SPANISH 2-->CATALAN
 
@@ -92,7 +90,7 @@ class InfoFragment: BaseFragment() {
         }
 
         webMagicLineTextView.setOnClickListener{
-            callIntent(urlMagicLine)
+            callUriIntent(requireActivity(), urlMagicLine)
         }
 
         aboutMLTextView.setOnClickListener{
@@ -108,14 +106,6 @@ class InfoFragment: BaseFragment() {
 
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelAboutMLApp))
         }
-    }
-
-    private fun callIntent(url : String){
-
-        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        this.requireContext().startActivity(intent)
-
     }
 
     companion object {

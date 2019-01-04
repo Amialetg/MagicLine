@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
-class MoreInfoMLFragment : BaseFragment() {
+class MoreInfoMLFragment : BaseFragment(), FragmentActions {
 
     private lateinit var moreInfoMLView: View
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel
@@ -43,6 +43,8 @@ class MoreInfoMLFragment : BaseFragment() {
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
+
+        initRRSS(requireActivity())
 
         return moreInfoMLView
     }

@@ -27,6 +27,10 @@ class MainActivity : BaseActivity() {
 
         setContentView(R.layout.activity_main)
 
+        //Prepare the mapFAB
+        floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
+        floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
+
         getData()
 
         initBottomBar()
@@ -67,7 +71,6 @@ class MainActivity : BaseActivity() {
             true
         }
 
-        //Behaviour when clicked on the map item
         floatingBtn.setOnClickListener {
             floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.white))
             floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)

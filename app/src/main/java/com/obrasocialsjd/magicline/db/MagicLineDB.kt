@@ -16,7 +16,7 @@ import com.obrasocialsjd.magicline.db.dao.DonationsDAO
 import com.obrasocialsjd.magicline.db.dao.PostDao
 import com.obrasocialsjd.magicline.db.dao.TeamsMarkersDAO
 
-@Database(entities = [PostsItem::class, DonationsDBModel::class, TeamsDBModel::class], version = 1, exportSchema = false)
+@Database(entities = [PostsItem::class, DonationsDBModel::class, TeamsDBModel::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class MagicLineDB : RoomDatabase() {
     abstract fun postDao(): PostDao
@@ -32,6 +32,7 @@ abstract class MagicLineDB : RoomDatabase() {
                 INSTANCE = Room.databaseBuilder(context.applicationContext,
                         MagicLineDB::class.java, "magicLine.db")
                         .addCallback(sRoomDatabaseCallback)
+                        .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .build()
             }

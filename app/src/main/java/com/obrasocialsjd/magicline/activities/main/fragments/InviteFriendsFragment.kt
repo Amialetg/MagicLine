@@ -10,11 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
-import kotlinx.android.synthetic.main.fragment_invite_friends.emailTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.facebookTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.messengerTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.telegramTextView
-import kotlinx.android.synthetic.main.fragment_invite_friends.whatsappTextView
+import kotlinx.android.synthetic.main.fragment_invite_friends.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 

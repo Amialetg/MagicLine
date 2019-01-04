@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
+import android.content.Context
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -10,27 +11,9 @@ import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import java.text.NumberFormat
 
-const val BARCELONA: String = "Barcelona"
-const val VALENCIA: String = "Valencia"
-const val MALLORCA: String = "Mallorca"
-
-const val KML_POINT: String = "Point"
-
-const val URL_IDEAS_GUIDE: String = "http://www.magiclinesjd.org/files/froala/74e5144938f7c849173fe0347e213fd8052d5731.pdf"
-
-// To use an specific code for each Flavor :
-fun isBarcelonaFlavor() : Boolean {
-    return BuildConfig.FLAVOR.equals(BARCELONA, true)
-}
-fun isValenciaFlavor() : Boolean {
-    return  BuildConfig.FLAVOR.equals(VALENCIA, true)
-}
-fun isMallorcaFlavor() : Boolean {
-    return  BuildConfig.FLAVOR.equals(MALLORCA, true)
-}
-
-fun String.capitalizeFirstLetter() : String = this.toLowerCase().capitalize()
 
 fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> Unit)? = null): Callback<T> {
     return object : Callback<T> {
@@ -55,6 +38,10 @@ fun String.htmlToSpanned() : Spanned {
     }
 }
 
-fun Double.toEuro() : String {
-    return this.toInt().toString() + "€"
+fun Double.addCurrency(context: Context) : String {
+    return this.addThousandsSeparator(context).plus(getCurrency())
+}
+
+fun Double.addThousandsSeparator(context: Context) : String {
+    return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }

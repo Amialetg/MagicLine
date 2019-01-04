@@ -2,19 +2,20 @@ package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.data.kml.KmlLayer
+import com.obrasocialsjd.magicline.R
 import android.graphics.Typeface
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.data.kml.KmlLayer
-import com.obrasocialsjd.magicline.R
 import kotlinx.android.synthetic.main.km_cards.view.*
+
 
 
 /**

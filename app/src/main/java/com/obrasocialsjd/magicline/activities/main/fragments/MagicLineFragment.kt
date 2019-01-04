@@ -20,10 +20,7 @@ import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.NewsModel
-import com.obrasocialsjd.magicline.utils.MyCounter
-import com.obrasocialsjd.magicline.utils.URL_IDEAS_GUIDE
-import com.obrasocialsjd.magicline.utils.toEuro
-import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
+import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
@@ -150,7 +147,7 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun subscribeToPosts() {
-        mMagicLineViewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+        mMagicLineViewModel.getPosts(getAPILang(requireContext())).observe(this, androidx.lifecycle.Observer {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
 
@@ -160,7 +157,7 @@ class MagicLineFragment : BaseFragment() {
                     donationText = donation.donationsBcn.toDouble()
                 }
             }
-            recaudats_num.text = donationText.toEuro()
+            recaudats_num.text = donationText.addCurrency(requireContext())
         })
     }
 

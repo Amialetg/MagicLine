@@ -28,8 +28,6 @@ import com.google.maps.android.data.kml.KmlPoint
 import com.obrasocialsjd.magicline.R.string.st_boi
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.utils.KML_POINT
-import com.obrasocialsjd.magicline.utils.isBarcelonaFlavor
-import com.obrasocialsjd.magicline.utils.isValenciaFlavor
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
 import java.io.IOException
@@ -105,7 +103,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
 //        kmlLayer.addLayerToMap()
 
-        if (isBarcelonaFlavor()) addBcnKML() else if (isValenciaFlavor()) addBcnKML() else addBcnKML()
+        //todo: getFlavor
+//        if (isBarcelonaFlavor()) addBcnKML() else if (isValenciaFlavor()) addBcnKML() else addBcnKML()
     }
 
     private fun addBcnKML() {

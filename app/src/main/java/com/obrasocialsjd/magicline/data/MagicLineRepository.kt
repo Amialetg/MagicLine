@@ -13,7 +13,7 @@ interface MagicLineRepository {
             onResult: (loginResult: Result<String>) -> Unit
     )
 
-    fun getPosts() : LiveData<List<PostsItem>>
+    fun getPosts(lang: String) : LiveData<List<PostsItem>>
 
     fun getDonations() : LiveData<DonationsDBModel>
 

@@ -13,6 +13,9 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.models.DetailModel
+import com.obrasocialsjd.magicline.utils.CATALAN
+import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
+import com.obrasocialsjd.magicline.utils.SPANISH
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
@@ -39,7 +42,7 @@ class InfoFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString("My_Lang", "") == "ca"){
+        if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
             checkbox_catalan_text.isChecked = true
         }else{
             checkbox_spanish_text.isChecked = true
@@ -55,7 +58,7 @@ class InfoFragment: BaseFragment() {
                 }
 
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "es")
+                editor.putString(PREF_LANGUAGE, SPANISH)
                 editor.apply()
                 refresh()
             }
@@ -69,7 +72,7 @@ class InfoFragment: BaseFragment() {
 
                 }
                 val editor = prefs.edit()
-                editor.putString("My_Lang", "ca")
+                editor.putString(PREF_LANGUAGE, CATALAN)
                 editor.apply()
                 refresh()
             }
@@ -109,8 +112,7 @@ class InfoFragment: BaseFragment() {
 
     private fun callIntent(url : String){
 
-        var intent : Intent
-        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
 

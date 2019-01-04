@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.obrasocialsjd.magicline.utils.getPreferencesLanguage
+import com.obrasocialsjd.magicline.utils.getLanguagePreferences
 import com.obrasocialsjd.magicline.utils.updateBaseContextLocale
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ abstract class BaseActivity : AppCompatActivity() {
      *  Forcing a language locale based on user preferences
      */
     override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(base.updateBaseContextLocale(getPreferencesLanguage(base)))
+        super.attachBaseContext(base.updateBaseContextLocale(getLanguagePreferences(base)))
     }
 
     /**

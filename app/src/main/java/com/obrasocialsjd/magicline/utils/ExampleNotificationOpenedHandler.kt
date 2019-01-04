@@ -1,12 +1,10 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.content.Context
-import com.onesignal.OSNotificationOpenResult
-import com.onesignal.OneSignal
 import android.content.Intent
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
-
-
+import com.onesignal.OSNotificationOpenResult
+import com.onesignal.OneSignal
 
 
 internal class ExampleNotificationOpenedHandler(context: Context) : OneSignal.NotificationOpenedHandler {

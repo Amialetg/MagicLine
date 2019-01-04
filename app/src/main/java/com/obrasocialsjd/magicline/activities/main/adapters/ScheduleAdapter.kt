@@ -8,7 +8,6 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
-import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 

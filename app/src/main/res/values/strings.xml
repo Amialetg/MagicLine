@@ -29,7 +29,7 @@
     <string name="nav_menu_home">Home</string>
     <string name="nav_menu_programacion">Programación</string>
     <string name="nav_menu_donativos">Donativos</string>
-    <string name="nav_menu_masinfo">Más info</string>
+    <string name="nav_menu_options">Opciones</string>
 
     <!--Section mes que-->
     <string name="mesque_title">más que una caminata</string>

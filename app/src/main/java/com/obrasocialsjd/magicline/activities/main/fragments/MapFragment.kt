@@ -43,6 +43,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var airLocation: AirLocation? = null
     private lateinit var kmlLayer: KmlLayer
     private val pathPoints = arrayListOf<LatLng>()
+    private lateinit var userLocation: Location
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         airLocation?.onActivityResult(requestCode, resultCode, data) // ADD THIS LINE INSIDE onActivityResult
@@ -77,6 +78,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onStart()
         airLocation = AirLocation(requireActivity(), true, true, object: AirLocation.Callbacks {
             override fun onSuccess(location: Location) {
+                userLocation = location
                 setMarker("", "", location.latitude, location.longitude, user_location_icon)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
             }

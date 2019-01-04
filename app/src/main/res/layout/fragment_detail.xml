@@ -22,9 +22,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--<include layout="@layout/toolbar_appbar_top"/>-->
-
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/imagesRecyclerView"
                     android:layout_width="match_parent"

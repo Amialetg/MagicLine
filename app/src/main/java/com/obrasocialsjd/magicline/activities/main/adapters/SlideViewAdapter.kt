@@ -1,16 +1,18 @@
 package com.voluntariat.android.magicline.activities.main.adapters
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
+import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class SlideViewAdapter(private var dataSet : List<ImageView> = listOf()) : RecyclerView.Adapter<SlideViewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    //    val image: ImageView = itemView.newsItemTitle
+        var image: ImageView = itemView.imgDetail
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,12 +22,11 @@ class SlideViewAdapter(private var dataSet : List<ImageView> = listOf()) : Recyc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.title.text = dataSet[position].title
-//        holder.desc.text = dataSet[position].description?.htmlToSpanned()
+        holder.image = dataSet[position]
     }
     override fun getItemCount() = dataSet.size
 
-//    fun loadItems (news: List<NewsModel>) {
-//       // dataSet = news
-//    }
+    fun loadItems (images: List<ImageView>) {
+        dataSet = images
+    }
 }

@@ -2,17 +2,21 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
+import com.obrasocialsjd.magicline.R.drawable.*
 import com.voluntariat.android.magicline.activities.main.adapters.SlideViewAdapter
 import kotlinx.android.synthetic.main.fragment_detail.*
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
@@ -73,7 +77,7 @@ class DetailFragment : BaseFragment() {
                     .into(imgDetail)
         }
 
-//        initImagesRecycler()
+        initImagesRecycler()
     }
 
 
@@ -91,18 +95,34 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun initImagesRecycler() {
-        val myImagesManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val myImagesManager =
+                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         myImagesAdapter = SlideViewAdapter(ArrayList())
 
-        newsRecyclerView.layoutManager = myImagesManager
-        newsRecyclerView.adapter = myImagesAdapter
-        newsRecyclerView.setPadding(0,0,0,50)
+        imagesRecyclerView.layoutManager = myImagesManager
+        imagesRecyclerView.adapter = myImagesAdapter
+        imagesRecyclerView.setPadding(0,0,0,50)
 
         //Adding pager behaviour
         val snapHelper = PagerSnapHelper()
-        newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
+        imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
-        newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+        imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+
+        //fill the recyclerView with info
+        val list: List<Int> = listOf(destidelfons, sliderimage2, sliderimage3, laboratori)
+        val images : MutableList<ImageView> = mutableListOf()
+
+        for(i in list){
+         //  images[i].setImageDrawable().
+
+
+
+        }
+
+//        images.add(detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg))
+//        myImagesAdapter.loadItems(images)
+//      (ContextCompat.getDrawable(this.requireContext(), images[0]))
 
     }
 

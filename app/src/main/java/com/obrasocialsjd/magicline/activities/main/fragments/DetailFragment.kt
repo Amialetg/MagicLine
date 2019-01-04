@@ -2,11 +2,8 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,6 +45,7 @@ class DetailFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         detailLayoutView = inflater.inflate(R.layout.fragment_detail, container, false)
         initToolbar()
+        initContent()
         initWidgets()
         return detailLayoutView
     }
@@ -63,18 +61,8 @@ class DetailFragment : BaseFragment() {
         }
 
         if (detailModel.hasToolbarImg) {
-            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+//            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
 
-        }
-        else{
-            detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
-
-            Picasso
-                    .get()
-                    .load(detailModel.toolbarImg)
-                    .resize(0,350)
-                    .centerInside()
-                    .into(imgDetail)
         }
 
         initImagesRecycler()
@@ -84,14 +72,18 @@ class DetailFragment : BaseFragment() {
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        detailLayoutView.detailTitle.text = detailModel.title
-        detailLayoutView.detailSubtitle.text = detailModel.subtitle
-        detailLayoutView.detailBody.text = detailModel.textBody.htmlToSpanned()
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
         detailLayoutView.topToolbar.title = detailModel.title
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
 
         }
+    }
+
+    private fun initContent() {
+        detailLayoutView.detailTitle.text = detailModel.title
+        detailLayoutView.detailSubtitle.text = detailModel.subtitle
+        detailLayoutView.detailBody.text = detailModel.textBody.htmlToSpanned()
+
     }
 
     private fun initImagesRecycler() {
@@ -103,26 +95,21 @@ class DetailFragment : BaseFragment() {
         imagesRecyclerView.adapter = myImagesAdapter
         imagesRecyclerView.setPadding(0,0,0,50)
 
-        //Adding pager behaviour
-        val snapHelper = PagerSnapHelper()
-        imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
-        snapHelper.attachToRecyclerView(newsRecyclerView)
-        imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+        if(detailModel.toolbarImg.size != 1){
+            //Adding pager behaviour
+            val snapHelper = PagerSnapHelper()
+            imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
+            snapHelper.attachToRecyclerView(imagesRecyclerView)
+            imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
 
-        //fill the recyclerView with info
-        val list: List<Int> = listOf(destidelfons, sliderimage2, sliderimage3, laboratori)
-        val images : MutableList<ImageView> = mutableListOf()
-
-        for(i in list){
-         //  images[i].setImageDrawable().
-
-
-
+//             add pager behavior
+//            val snapHelper = PagerSnapHelper()
+//            snapHelper.attachToRecyclerView(imagesRecyclerView)
+//            imagesRecyclerView.addItemDecoration(LinePagerIndicatorDecoration())
         }
 
-//        images.add(detailLayoutView.imgDetail.background = ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg))
-//        myImagesAdapter.loadItems(images)
-//      (ContextCompat.getDrawable(this.requireContext(), images[0]))
+        //load data inside the RecyclerView
+        myImagesAdapter.loadItems(detailModel.toolbarImg)
 
     }
 

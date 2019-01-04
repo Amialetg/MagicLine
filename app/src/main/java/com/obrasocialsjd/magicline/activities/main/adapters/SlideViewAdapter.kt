@@ -7,26 +7,35 @@ import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
+import kotlinx.android.synthetic.main.item_details.view.*
 
-class SlideViewAdapter(private var dataSet : List<ImageView> = listOf()) : RecyclerView.Adapter<SlideViewAdapter.ViewHolder>() {
+class SlideViewAdapter(private var dataSet : List<Int> = listOf()) : RecyclerView.Adapter<SlideViewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.imgDetail
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_detail, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_details, parent, false)
 
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.image = dataSet[position]
+
+        Picasso
+                .get()
+                .load(dataSet[position])
+                .resize(0,350)
+                .centerInside()
+                .into(holder.image)
     }
     override fun getItemCount() = dataSet.size
 
-    fun loadItems (images: List<ImageView>) {
+    fun loadItems (images: List<Int>) {
         dataSet = images
     }
 }

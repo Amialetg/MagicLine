@@ -215,7 +215,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
                 isBlack = true,
-                toolbarImg = R.drawable.imprescindibles,
+                toolbarImg = listOf(R.drawable.imprescindibles),
                 hasToolbarImg = false)
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
@@ -223,7 +223,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
                 isBlack = true,
-                toolbarImg = R.drawable.destidelfons,
+                toolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori),
                 hasToolbarImg = false)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
@@ -231,7 +231,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
                 isBlack = true,
-                toolbarImg = R.drawable.laboratori,
+                toolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
                 hasToolbarImg = false)
 
 

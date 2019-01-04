@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cityFlavor" translatable="false">Mallorca</string>
+
+    <string name="cityParticipants" translatable="false">123</string>
+
+    <!-- MAGIC LINE INFO -->
+    <string name="walk_text_2">2km, 10km, 20km</string>
+    <string name="walk_text_3">de la Magic Line en Mallorca discurren por la Serra de na Burguesa y contemplan un descanso en el Castillo de Bellver. Las tres distancias comparten la llegada en el Parc de la Mar, donde se celebrará  una fiesta final.</string>
+    <string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>
 </resources>

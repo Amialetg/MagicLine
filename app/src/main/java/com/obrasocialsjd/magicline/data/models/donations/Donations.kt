@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class Donations(
 
-	@field:SerializedName("bml")
-	val bml: Bml? = null,
-
 	@field:SerializedName("val")
 	val valencia: Val? = null,
 

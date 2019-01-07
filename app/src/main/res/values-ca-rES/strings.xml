@@ -105,19 +105,20 @@
     <string name="donations_title">Destí dels fons</string>
     <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
     <string name="donations_body">
-<![CDATA[<html>
-   La Magic Line SJD permet finançar programes de suport a <b>infants, adults i persones grans que pateixen situacions de vulnerabilitat</b>. Aquí i arreu del món. Gràcies a les aportacions econòmiques dels equips i al suport de les institucions i empreses treballem en garantir:<br/>
-<ul>
-<li><b>LLAR.</b> Oferir pisos amb acompanyament psico social a famílies amb pocs recursos, a persones en situació de sense llar, a joves migrants i a persones que demanen refugi.</li><br/>
+        <![CDATA[<html>
 
-<li><b>OCUPACIÓ.</b> Acompanyar en el procés de recerca de feina a persones amb trastorn mental, amb discapacitat i en situació de sense llar.</li><br/>
+   La Magic Line SJD permet finançar programes de suport a <b>infants, adults i persones grans que pateixen situacions de vulnerabilitat</b>. Aquí i arreu del món. Gràcies a les aportacions econòmiques dels equips i al suport de les institucions i empreses treballem en garantir:<br/><br/>
 
-<li><b>SALUT.</b> Cuidar les persones que atenem més enllà de l\'assistència bàsica, donant-los petits ajuts econòmics si ho requereixen, teràpies parassistencials com musicoteràpia, teràpies amb animals o horticultura i invertint en la cura del futur amb projectes de recerca social i biomèdica.</li><br/>
+<p><b>\t LLAR.</b> Oferir pisos amb acompanyament psico social a famílies amb pocs recursos, a persones en situació de sense llar, a joves migrants i a persones que demanen refugi.</p>
 
-<li><b>COOPERACIÓ INTERNACIONAL.</b> Facilitar l\'atenció a països en desenvolupament fent acompanyament entre professionals i aportant alguns materials especialitzats.</li><br/>
-   </ul>
+<p><b>\t OCUPACIÓ.</b> Acompanyar en el procés de recerca de feina a persones amb trastorn mental, amb discapacitat i en situació de sense llar.</p>
+
+<p><b>\t SALUT.</b> Cuidar les persones que atenem més enllà de l\'assistència bàsica, donant-los petits ajuts econòmics si ho requereixen, teràpies parassistencials com musicoteràpia, teràpies amb animals o horticultura i invertint en la cura del futur amb projectes de recerca social i biomèdica.</p>
+
+<p><b>\tCOOPERACIÓ INTERNACIONAL.</b> Facilitar l\'atenció a països en desenvolupament fent acompanyament entre professionals i aportant alguns materials especialitzats.</p>
+
 </html>]]>
-      </string>
+    </string>
     <string name="donations_viewOnWeb">http://www.magiclinesjd.org/ca/a_qui_ajudem</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->

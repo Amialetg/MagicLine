@@ -7,25 +7,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.R.drawable.*
+import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.voluntariat.android.magicline.activities.main.adapters.SlideViewAdapter
 import kotlinx.android.synthetic.main.fragment_detail.*
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
+import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail.view.*
-import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 import java.util.ArrayList
+
 
 class DetailFragment : BaseFragment() {
 
@@ -60,10 +60,10 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
 
-        if (detailModel.hasToolbarImg) {
-//            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
-
-        }
+//        if (detailModel.hasToolbarImg) {
+////            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
+//
+//        }
 
         initImagesRecycler()
     }
@@ -96,16 +96,13 @@ class DetailFragment : BaseFragment() {
         imagesRecyclerView.setPadding(0,0,0,50)
 
         if(detailModel.toolbarImg.size != 1){
+
             //Adding pager behaviour
             val snapHelper = PagerSnapHelper()
+
             imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
             snapHelper.attachToRecyclerView(imagesRecyclerView)
-            imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
-
-//             add pager behavior
-//            val snapHelper = PagerSnapHelper()
-//            snapHelper.attachToRecyclerView(imagesRecyclerView)
-//            imagesRecyclerView.addItemDecoration(LinePagerIndicatorDecoration())
+            imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecorationForDetailPage())
         }
 
         //load data inside the RecyclerView

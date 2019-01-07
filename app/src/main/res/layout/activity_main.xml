@@ -5,13 +5,18 @@
     android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frame_layout"
         android:layout_marginBottom="50dp"
         >
-    </FrameLayout>
 
+        <LinearLayout
+            android:id="@+id/shareContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
+    </FrameLayout>
     <include
         layout="@layout/toolbar_bottom_nav"
         />

@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import kotlinx.android.synthetic.main.layout_rrss.*
 
-class ShareFragment : BaseFragment(), FragmentActions {
+class ShareFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.layout_rrss, container, false)
@@ -26,15 +27,15 @@ class ShareFragment : BaseFragment(), FragmentActions {
 
 
         fb_button.setOnClickListener {
-            callUriIntent(requireActivity(), urlFacebook)
+            if (activity is MainActivity) (activity as MainActivity).callUriIntent(urlFacebook)
         }
 
         insta_button.setOnClickListener {
-            callUriIntent(requireActivity(), urlInstagram)
+            if (activity is MainActivity) (activity as MainActivity).callUriIntent(urlInstagram)
         }
 
         twitter_button.setOnClickListener {
-            callUriIntent(requireActivity(), urlTwitter)
+            if (activity is MainActivity) (activity as MainActivity).callUriIntent(urlTwitter)
         }
     }
 }

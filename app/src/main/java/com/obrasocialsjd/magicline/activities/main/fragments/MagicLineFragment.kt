@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
@@ -30,7 +31,7 @@ import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MagicLineFragment : BaseFragment(), FragmentActions {
+class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var dateCursaString: String
@@ -70,8 +71,6 @@ class MagicLineFragment : BaseFragment(), FragmentActions {
 
         initAfonsListeners()
 
-        initRRSS(requireActivity())
-
     }
 
     private fun initMesQueListeners() {
@@ -85,7 +84,7 @@ class MagicLineFragment : BaseFragment(), FragmentActions {
         }
 
         btnBrainStorm.setOnClickListener {
-            callUriIntent(requireActivity(), URL_IDEAS_GUIDE)
+            if (activity is MainActivity) (activity as MainActivity).callUriIntent(URL_IDEAS_GUIDE)
         }
     }
 

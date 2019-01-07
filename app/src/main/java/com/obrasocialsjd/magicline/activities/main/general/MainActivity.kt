@@ -1,6 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -17,7 +18,7 @@ import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
 import java.io.Serializable
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), ShareActions {
 
     private lateinit var currentFragment: Fragment
     private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
@@ -43,6 +44,8 @@ class MainActivity : BaseActivity() {
             }
         }
         initNavigation()
+
+        initRRSS(this)
     }
 
     override fun onBackPressed() {
@@ -101,15 +104,21 @@ class MainActivity : BaseActivity() {
                 R.id.magicline_menu_id -> {
                     newFragment = MagicLineFragment()
                     Log.d("Main Activity", "magic line")
+
+                    initRRSS(this)
                 }
                 R.id.donations_menu_id -> {
                     newFragment = DonationsFragment()
                     Log.d("Main Activity", "donations")
+
+                    removeRRSS(this)
                 }
                 R.id.info_menu_id -> {
 
                     newFragment = InfoFragment()
                     Log.d("Main Activity", "info")
+
+                    initRRSS(this)
                 }
                 R.id.schedule_menu_id -> newFragment = ScheduleFragment.newInstance(scheduleModel)
                 R.id.none -> return
@@ -185,5 +194,11 @@ class MainActivity : BaseActivity() {
         while (supportFragmentManager.backStackEntryCount != 0) {
             supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
+    }
+
+    fun callUriIntent(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }

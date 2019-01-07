@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.CATALAN
 import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
-class InfoFragment: BaseFragment(), FragmentActions {
+class InfoFragment: BaseFragment() {
 
     // 1--> SPANISH 2-->CATALAN
 
@@ -90,7 +91,7 @@ class InfoFragment: BaseFragment(), FragmentActions {
         }
 
         webMagicLineTextView.setOnClickListener{
-            callUriIntent(requireActivity(), urlMagicLine)
+            if (activity is MainActivity) (activity as MainActivity).callUriIntent(urlMagicLine)
         }
 
         aboutMLTextView.setOnClickListener{

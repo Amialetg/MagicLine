@@ -120,7 +120,6 @@ class MainActivity : BaseActivity() {
             transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
                     addToBackStack = false)
             currentFragment = newFragment
-
         }
     }
 

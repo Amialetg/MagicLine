@@ -25,10 +25,10 @@ import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
-import kotlinx.android.synthetic.main.layout_countdown.*
+import kotlinx.android.synthetic.main.layout_countdown_bottom.*
+import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
-import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,7 +36,7 @@ import java.util.*
 class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
-    private lateinit var dateCursaString: String
+    private lateinit var magicLineDate: String
     private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
@@ -104,10 +104,9 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initWidgets(): Array<TextView> {
 
-        //cursa date
-        dateCursaString = getString(R.string.magicLineDate)
+        magicLineDate = getString(R.string.magicLineDate)
 
-        return arrayOf(countdown_dies, countdown_hores, countdown_min, countdown_seg)
+        return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
@@ -116,14 +115,14 @@ class MagicLineFragment : BaseFragment() {
 
         //data actual y data de la cursa
         val currentTime: Date = Calendar.getInstance().time
-        val dateCursa: Date = formatter.parse(dateCursaString)
+        val date: Date = formatter.parse(magicLineDate)
 
         //pasem a long les dates
         val currentLong: Long = currentTime.time
-        val cursaLong: Long = dateCursa.time
+        val dateLong: Long = date.time
 
         //trobem el temps restant en long
-        val diff: Long = cursaLong - currentLong
+        val diff: Long = dateLong - currentLong
 
         MyCounter(diff, 1000, txtDies).start()
 

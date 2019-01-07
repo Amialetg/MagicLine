@@ -44,12 +44,12 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var userLocation: Location
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        airLocation?.onActivityResult(requestCode, resultCode, data) // ADD THIS LINE INSIDE onActivityResult
+        airLocation?.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        airLocation?.onRequestPermissionsResult(requestCode, permissions, grantResults) // ADD THIS LINE INSIDE onRequestPermissionResult
+        airLocation?.onRequestPermissionsResult(requestCode, permissions, grantResults)
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
@@ -85,9 +85,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             }
 
         })
+
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -95,8 +95,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
 
-        //Prepare km cards
-        initBcnKmCards()
+        //Prepare KM CARDS
+        initKmCards()
 
         //ADD KML & INTEREST POINTS
         addKML()
@@ -147,15 +147,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     }
 
-    //bcn flavor
-    private fun initBcnKmCards() {
+    private fun initKmCards() {
 
         recyclerViewMap?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmListInt = resources.getIntArray(R.array.arrayKm)
         val kmList: ArrayList<CardKm> = arrayListOf()
         for (i in 0 until kmListInt.size) {
             kmList.add(CardKm(kmListInt[i]))
-            //Setting up the adapter and the layout manager for the recycler view
         }
 
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)

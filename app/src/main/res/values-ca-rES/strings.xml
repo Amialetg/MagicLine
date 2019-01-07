@@ -27,7 +27,7 @@
     <string name="nav_menu_home">Home</string>
     <string name="nav_menu_programacion">Programació</string>
     <string name="nav_menu_donativos">Donatius</string>
-    <string name="nav_menu_masinfo">Més info</string>
+    <string name="nav_menu_options">Opcions</string>
 
     <!--Section mes que-->
     <string name="mesque_title">més que una caminada</string>

@@ -33,12 +33,9 @@ class DetailFragment : BaseFragment() {
     private lateinit var detailModel: DetailModel
     private lateinit var myImagesAdapter: SlideViewAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailModel = arguments?.get("detailFragment") as DetailModel
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -59,12 +56,6 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
-
-//        if (detailModel.hasToolbarImg) {
-////            detailLayoutView.topToolbar.background= ContextCompat.getDrawable(this.requireContext(), detailModel.toolbarImg)
-//
-//        }
-
         initImagesRecycler()
     }
 

@@ -55,8 +55,6 @@ class MagicLineFragment : BaseFragment() {
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
-
-
     }
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

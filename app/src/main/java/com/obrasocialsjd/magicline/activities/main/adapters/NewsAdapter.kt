@@ -14,7 +14,7 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.newsItemTitle
-        val desc: TextView = itemView.newsItemDesc
+        val subtitle: TextView = itemView.newsItemDesc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +25,7 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = dataSet[position].title
-        holder.desc.text = dataSet[position].description?.htmlToSpanned()
+        holder.subtitle.text = dataSet[position].subtitle?.htmlToSpanned()
     }
     override fun getItemCount() = dataSet.size
 

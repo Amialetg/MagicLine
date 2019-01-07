@@ -97,7 +97,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
 
-        //Prepare KM CARDS
         initKmCards()
 
         //ADD KML & PLACEMARKERS (INTEREST POINTS)

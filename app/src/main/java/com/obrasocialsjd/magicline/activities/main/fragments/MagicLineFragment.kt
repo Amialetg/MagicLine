@@ -99,7 +99,7 @@ class MagicLineFragment : BaseFragment() {
     private fun initWidgets(): Array<TextView> {
 
         //cursa date
-        dateCursaString = getString(R.string.cursa_date)
+        dateCursaString = getString(R.string.magicLineDate)
 
         return arrayOf(countdown_dies, countdown_hores, countdown_min, countdown_seg)
     }

@@ -18,6 +18,4 @@ interface ShareActions {
         transaction.remove(fragment)
         transaction.commit()
     }
-
-
 }

@@ -243,6 +243,4 @@ class MagicLineFragment : BaseFragment() {
             else -> 0.0
         }
     }
-
-
 }

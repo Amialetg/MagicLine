@@ -13,7 +13,6 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.CATALAN
 import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import com.obrasocialsjd.magicline.utils.SPANISH
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
@@ -42,10 +41,12 @@ class InfoFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
+        if(prefs.getString(PREF_LANGUAGE, "") != SPANISH){
             checkbox_catalan_text.isChecked = true
+
         }else{
             checkbox_spanish_text.isChecked = true
+
         }
 
 
@@ -72,7 +73,7 @@ class InfoFragment: BaseFragment() {
 
                 }
                 val editor = prefs.edit()
-                editor.putString(PREF_LANGUAGE, CATALAN)
+                editor.putString(PREF_LANGUAGE, "_")
                 editor.apply()
                 refresh()
             }

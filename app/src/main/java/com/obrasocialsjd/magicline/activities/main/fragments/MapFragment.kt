@@ -32,6 +32,8 @@ import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
 import java.io.IOException
 import java.io.InputStream
+import kotlin.math.absoluteValue
+import kotlin.math.sign
 
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
@@ -107,7 +109,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         try {
             val arrayKml  = resources.obtainTypedArray(R.array.arrayKml)
             for (i in 0 until arrayKml.length()){
-                var kml: InputStream = resources.openRawResource(arrayKml.getResourceId(i, -1))
+                val kml: InputStream = resources.openRawResource(arrayKml.getResourceId(i, -1))
                 val kmlLayer = KmlLayer(map, kml, requireContext())
                 kmlLayer.addLayerToMap()
                 if (kmlLayer.containers != null){
@@ -153,7 +155,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         val kmListInt = resources.getIntArray(R.array.arrayKm)
         val kmList: ArrayList<CardKm> = arrayListOf()
         for (i in 0 until kmListInt.size) {
-            kmList.add(CardKm(kmListInt[i]))
+            //to diff st boi, we use negative sign on xml file (bcn flavor)
+            if(kmListInt[i].sign < 0 ) kmList.add(CardKm(kmListInt[i].absoluteValue, getString(R.string.st_boi)))
+            else kmList.add(CardKm(kmListInt[i]))
         }
 
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)

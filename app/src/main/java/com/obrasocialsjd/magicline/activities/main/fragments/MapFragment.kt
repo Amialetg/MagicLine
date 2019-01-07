@@ -25,9 +25,9 @@ import org.xmlpull.v1.XmlPullParserException
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlPoint
-import com.obrasocialsjd.magicline.R.string.st_boi
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
-import com.obrasocialsjd.magicline.utils.KML_POINT
+import com.obrasocialsjd.magicline.utils.*
+import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
 import java.io.IOException
@@ -52,7 +52,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         airLocation?.onRequestPermissionsResult(requestCode, permissions, grantResults) // ADD THIS LINE INSIDE onRequestPermissionResult
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
@@ -99,30 +98,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         //Prepare km cards
         initBcnKmCards()
 
-        //INTEREST POINTS
+        //ADD KML & INTEREST POINTS
+        addKML()
         kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
-//        kmlLayer.addLayerToMap()
-
-        //todo: getFlavor
-//        if (isBarcelonaFlavor()) addBcnKML() else if (isValenciaFlavor()) addBcnKML() else addBcnKML()
     }
 
-    private fun addBcnKML() {
+    private fun addKML() {
         try {
-            val arrayKmlBcn : ArrayList<InputStream> = arrayListOf(
-                resources.openRawResource(R.raw.ml_bcn_10km),
-                resources.openRawResource(R.raw.ml_bcn_15km),
-                resources.openRawResource(R.raw.ml_bcn_20km),
-                resources.openRawResource(R.raw.ml_bcn_30km_ll),
-                resources.openRawResource(R.raw.ml_bcn_30km),
-                resources.openRawResource(R.raw.ml_bcn_40km)
-            )
-
-            for (kmlInputStream: InputStream in arrayKmlBcn){
-                val kmlLayer = KmlLayer(map, kmlInputStream, requireContext())
+            val arrayKml  = resources.obtainTypedArray(R.array.arrayKml)
+            for (i in 0 until arrayKml.length()){
+                var kml: InputStream = resources.openRawResource(arrayKml.getResourceId(i, -1))
+                val kmlLayer = KmlLayer(map, kml, requireContext())
                 kmlLayer.addLayerToMap()
-
-                if (kmlLayer.containers != null) {
+                if (kmlLayer.containers != null){
                     for (container in kmlLayer.containers) {
                         if (container.hasPlacemarks()) {
                             for (placemark in container.placemarks) {
@@ -138,6 +126,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 }
                 kmlLayer.removeLayerFromMap()
             }
+            arrayKml.recycle()
 
         } catch (e: XmlPullParserException) {
             e.printStackTrace()
@@ -161,21 +150,17 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     //bcn flavor
     private fun initBcnKmCards() {
 
-        val kmRecyclerView = view?.findViewById<RecyclerView>(R.id.rv_map)
-        kmRecyclerView?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
-        val kmList = arrayListOf<CardKm>(
-                CardKm(10),
-                CardKm(15),
-                CardKm(20),
-                CardKm(30, getString(st_boi)),
-                CardKm(30),
-                CardKm(40)
-        )
+        recyclerViewMap?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
+        val kmListInt = resources.getIntArray(R.array.arrayKm)
+        val kmList: ArrayList<CardKm> = arrayListOf()
+        for (i in 0 until kmListInt.size) {
+            kmList.add(CardKm(kmListInt[i]))
+            //Setting up the adapter and the layout manager for the recycler view
+        }
 
-        //Setting up the adapter and the layout manager for the recycler view
-        kmRecyclerView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
+        recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         val adapter = KmAdapter(pathPoints, kmList, map, this.requireContext())
-        kmRecyclerView?.adapter = adapter
+        recyclerViewMap?.adapter = adapter
     }
 
     class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {

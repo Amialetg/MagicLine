@@ -17,7 +17,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import kotlinx.android.synthetic.main.km_cards.view.*
 
 
-
 /**
  * Created by hector on 27/06/18.
  */
@@ -44,12 +43,14 @@ class KmAdapter (private val kmlPoints: ArrayList<LatLng>, private val kmList: A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val km : CardKm =  kmList[position]
         var colorBg : Int = ContextCompat.getColor(context, R.color.white)
         var colorTxt : Int = Color.parseColor("#80000000")
         var typeFace: Typeface? = ResourcesCompat.getFont(context, R.font.lato_light)
 
         if (selectedPosition == position) {
+
             colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
             typeFace = ResourcesCompat.getFont(context, R.font.lato_bold)

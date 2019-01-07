@@ -28,7 +28,7 @@
         android:alpha="0.7"
         android:background="@color/grey" />
 
-    <include layout="@layout/maps_km_layout" />
+    <include layout="@layout/layout_map_km" />
 
 
 

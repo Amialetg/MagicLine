@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="arrayKml">
+        <item>@raw/ml_mallorca_2019_02</item>
+        <item>@raw/ml_mallorca_2019_10</item>
+        <item>@raw/ml_mallorca_2019_20</item>
+    </integer-array>
+    <integer-array name="arrayKm">
+        <item>2</item>
+        <item>10</item>
+        <item>20</item>
+    </integer-array>
+</resources>

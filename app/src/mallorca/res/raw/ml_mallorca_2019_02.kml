@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+	<Document>
+		<name>GPS Visualizer data</name>
+		<Style id="waypoint">
+			<IconStyle>
+				<color>ffffffff</color>
+				<scale>1</scale>
+				<Icon><href>http://maps.google.com/mapfiles/kml/pal4/icon56.png</href></Icon>
+				<hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
+			</IconStyle>
+			<BalloonStyle>
+				<text><![CDATA[<p align="left" style="white-space:nowrap;"><font size="+1"><b>$[name]</b></font></p> <p align="left">$[description]</p>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id="track">
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>3</width>
+			</LineStyle>
+		</Style>
+		<Style id="polygon">
+			<LineStyle>
+				<color>ffff0000</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ff0000</color>
+				<colorMode>normal</colorMode>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+		</Style>
+		<Folder>
+			<name>Tracks</name>
+			<Placemark>
+				<name>Magic Line Mallorca 2019, 02 Km</name>
+				<description>Length: 1.603 km (0.996 mi)</description>
+				<visibility>1</visibility>
+				<open>0</open>
+				<styleUrl>#track</styleUrl>
+				<Style>
+					<LineStyle>
+						<color>e5e60000</color>
+						<width>3</width>
+					</LineStyle>
+				</Style>
+				<LineString>
+					<extrude>0</extrude>
+					<tessellate>1</tessellate>
+					<altitudeMode>clampedToGround</altitudeMode>
+					<coordinates>
+						2.6303484,39.566682 2.6299602,39.5669568 2.6306538,39.5675739 2.6313849,39.5680061 2.6320174,39.5682713 2.6328446,39.5684995 2.6339884,39.5685954 2.6395842,39.569299 2.6404774,39.5693427 2.6408556,39.5691258 2.6414109,39.5692295 2.642347,39.5689164 2.6436908,39.567983 2.6440039,39.5681554 2.6448621,39.5675816 2.6460368,39.5672022 2.6459829,39.5670574 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

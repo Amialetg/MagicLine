@@ -55,11 +55,13 @@ class MoreInfoMLFragment : BaseFragment() {
     private fun requestChartData() {
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
             val total = participants.totalParticipants.toDouble()
+
+            // TODO dynamic value
             val places = 13000
             val currentConsumedPlaces = (total * 100) / places
             val currentAvailablePlaces = 100 - currentConsumedPlaces
 
-            currentParticipants.text = total.addThousandsSeparator(requireContext())
+            currentParticipants.text = total.addThousandsSeparator()
             configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
         })
     }
@@ -105,6 +107,7 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.isHighlightPerTapEnabled = false
         pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
+        // TODO dynamic value
         pieChart.centerText = "13.000" + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
         var typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)

@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.data
 import android.os.AsyncTask
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.obrasocialsjd.magicline.data.api.MagicLineAPI
 import com.obrasocialsjd.magicline.data.models.donations.Donations
@@ -13,7 +12,7 @@ import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.db.dao.DonationsDAO
 import com.obrasocialsjd.magicline.db.dao.PostDao
 import com.obrasocialsjd.magicline.db.dao.TeamsMarkersDAO
-import com.obrasocialsjd.magicline.utils.callback
+import com.obrasocialsjd.magicline.utils.*
 
 
 class MagicLineRepositoryImpl(database: MagicLineDB?)
@@ -75,7 +74,6 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
             { result ->
                 if (result.isSuccessful) {
                     var posts = result.body()?.posts as ArrayList<PostsItem>
-                    Log.d("###", posts.toString())
                     mPostDao.nukeTable()
                     mPostDao.insertList(posts)
                 }
@@ -103,7 +101,6 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
     private fun insertDonationsDBModelFromAPI(donations : Donations) {
         donationsDAO.insert(DonationsDBModel(0,
                                                 donations.valencia?.amount,
-                                                donations.bml?.amount,
                                                 donations.barcelona?.amount,
                                                 donations.mallorca?.amount))
     }
@@ -120,18 +117,39 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
             }
         }))
 
-        return teamsMarkersDAO.getParticipantsByCity("Bcn")
+        return teamsMarkersDAO.getParticipantsByCity(getFlavor())
     }
 
     private fun insertTeamMarkers(teamMarkers : Markers) {
-        var markers = teamMarkers.barcelona
-        if (markers != null) {
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember4?.modalityText, markers.jsonMember4?.companies, markers.jsonMember4?.particulars))
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember5?.modalityText, markers.jsonMember5?.companies, markers.jsonMember5?.particulars))
-            teamsMarkersDAO.insert(TeamsDBModel(0, "Bcn", markers.jsonMember6?.modalityText, markers.jsonMember6?.companies, markers.jsonMember6?.particulars))
+        when (getFlavor()) {
+            BARCELONA -> {
+                var markers = teamMarkers.barcelona
+                if (markers != null) {
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember4?.modalityText, markers.jsonMember4?.companies, markers.jsonMember4?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember5?.modalityText, markers.jsonMember5?.companies, markers.jsonMember5?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember6?.modalityText, markers.jsonMember6?.companies, markers.jsonMember6?.particulars))
+                }
+            }
+            MALLORCA -> {
+                var markers = teamMarkers.mallorca
+                if (markers != null) {
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+                }
+            }
+            VALENCIA -> {
+                var markers = teamMarkers.valencia
+                if (markers != null) {
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+                }
+            }
         }
     }
+
 }

@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.utils
 
-import android.content.Context
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -14,6 +13,18 @@ import retrofit2.Response
 import java.util.*
 import java.text.NumberFormat
 
+// To use an specific code for each Flavor :
+fun isBarcelonaFlavor() : Boolean {
+    return BuildConfig.FLAVOR.equals(BARCELONA, true)
+}
+fun isValenciaFlavor() : Boolean {
+    return  BuildConfig.FLAVOR.equals(VALENCIA, true)
+}
+fun isMallorcaFlavor() : Boolean {
+    return  BuildConfig.FLAVOR.equals(MALLORCA, true)
+}
+
+fun getFlavor() = BuildConfig.FLAVOR.capitalize()
 
 fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> Unit)? = null): Callback<T> {
     return object : Callback<T> {
@@ -38,10 +49,14 @@ fun String.htmlToSpanned() : Spanned {
     }
 }
 
-fun Double.addCurrency(context: Context) : String {
-    return this.addThousandsSeparator(context).plus(getCurrency())
+fun Double.addCurrency() : String {
+    return this.addThousandsSeparator().plus(getCurrency())
 }
 
-fun Double.addThousandsSeparator(context: Context) : String {
+fun String.addThousandsSeparator() : String {
+    return this.toDouble().addThousandsSeparator()
+}
+
+fun Double.addThousandsSeparator() : String {
     return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }

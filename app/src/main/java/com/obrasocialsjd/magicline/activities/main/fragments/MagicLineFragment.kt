@@ -16,6 +16,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
+import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
 import com.obrasocialsjd.magicline.data.models.posts.PostsItem
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.DetailModel
@@ -31,7 +32,6 @@ import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 class MagicLineFragment : BaseFragment() {
 
@@ -62,6 +62,8 @@ class MagicLineFragment : BaseFragment() {
         val txtArray = initWidgets()
 
         initCountDown(txtArray)
+
+        initStaticContent()
 
         initMoreInfoMLListener()
 
@@ -94,6 +96,10 @@ class MagicLineFragment : BaseFragment() {
         moreInfoML.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
         }
+    }
+
+    private fun initStaticContent() {
+        participants_num.text = getString(R.string.cityParticipants).addThousandsSeparator()
     }
 
     private fun initWidgets(): Array<TextView> {
@@ -152,12 +158,9 @@ class MagicLineFragment : BaseFragment() {
             myNewsAdapter.notifyDataSetChanged()})
 
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
-            var donationText = 0.0
-            donation?.donationsBcn?.let { donations -> if (donations.toDouble() > donationText) {
-                    donationText = donation.donationsBcn.toDouble()
-                }
+            if (donation != null) {
+                recaudats_num.text = getDonationsByCity(donation).addCurrency()
             }
-            recaudats_num.text = donationText.addCurrency(requireContext())
         })
     }
 
@@ -260,5 +263,14 @@ class MagicLineFragment : BaseFragment() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
+    }
+
+    private fun getDonationsByCity(donation : DonationsDBModel) : Double {
+        return when (getFlavor()) {
+            BARCELONA -> donation.donationsBcn!!.toDouble()
+            MALLORCA -> donation.donationsMll!!.toDouble()
+            VALENCIA -> donation.donationsVal!!.toDouble()
+            else -> 0.0
+        }
     }
 }

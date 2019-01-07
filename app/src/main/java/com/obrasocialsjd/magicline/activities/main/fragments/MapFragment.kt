@@ -100,9 +100,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         //Prepare KM CARDS
         initKmCards()
 
-        //ADD KML & INTEREST POINTS
+        //ADD KML & PLACEMARKERS (INTEREST POINTS)
         addKML()
-        kmlLayer  = KmlLayer(map, R.raw.ml_bcn_placemarkers, context)
+        kmlLayer  = KmlLayer(map, R.raw.ml_placemarkers, context)
+        kmlLayer.setOnFeatureClickListener {  }
+        kmlLayer.addLayerToMap()
     }
 
     private fun addKML() {
@@ -129,7 +131,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 kmlLayer.removeLayerFromMap()
             }
             arrayKml.recycle()
-
         } catch (e: XmlPullParserException) {
             e.printStackTrace()
         } catch (e: IOException) {

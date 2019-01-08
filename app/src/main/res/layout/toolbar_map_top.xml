@@ -25,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_map_bottom_bar"
-            android:backgroundTint="@color/grey"
             android:layout_centerVertical="true"/>
 
         <ImageButton
@@ -35,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_toolbar_map"
-            android:backgroundTint="@color/grey"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>

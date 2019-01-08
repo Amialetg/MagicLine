@@ -10,4 +10,14 @@
         <item>10</item>
         <item>20</item>
     </integer-array>
+    <array name="arrayLatitude">
+        <item>39.46728</item>
+        <item>39.46702</item>
+        <item>39.48152</item>
+    </array>
+    <array name="arrayLongitude">
+        <item>-0.36474</item>
+        <item>-0.35080</item>
+        <item>-0.35080</item>
+    </array>
 </resources>

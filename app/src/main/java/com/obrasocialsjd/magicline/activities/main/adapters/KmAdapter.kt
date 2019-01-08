@@ -16,22 +16,10 @@ import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import kotlinx.android.synthetic.main.km_cards.view.*
 
-
-/**
- * Created by hector on 27/06/18.
- */
-
-class KmAdapter (private val kmlPoints: ArrayList<LatLng>, private val kmList: ArrayList<CardKm>, private val googleMap: GoogleMap,
+class KmAdapter (private var kmlLayers: ArrayList<KmlLayer>, private val coordinatesArrayList: ArrayList<LatLng>, private val kmList: ArrayList<CardKm>, private val googleMap: GoogleMap,
                  val context: Context) : RecyclerView.Adapter<KmAdapter.ViewHolder>() {
 
     var selectedPosition : Int = 0
-    private var kmlLayers : ArrayList<KmlLayer> = arrayListOf(
-            KmlLayer(googleMap, R.raw.ml_bcn_10km,context),
-            KmlLayer(googleMap, R.raw.ml_bcn_15km,context),
-            KmlLayer(googleMap,R.raw.ml_bcn_20km,context),
-            KmlLayer(googleMap,R.raw.ml_bcn_30km_ll,context),
-            KmlLayer(googleMap,R.raw.ml_bcn_30km,context),
-            KmlLayer(googleMap,R.raw.ml_bcn_40km,context))
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val cardView = LayoutInflater.from(parent.context).inflate(R.layout.km_cards, parent, false)
@@ -43,19 +31,16 @@ class KmAdapter (private val kmlPoints: ArrayList<LatLng>, private val kmList: A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val km : CardKm =  kmList[position]
         var colorBg : Int = ContextCompat.getColor(context, R.color.white)
         var colorTxt : Int = Color.parseColor("#80000000")
         var typeFace: Typeface? = ResourcesCompat.getFont(context, R.font.lato_light)
 
         if (selectedPosition == position) {
-
             colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
             typeFace = ResourcesCompat.getFont(context, R.font.lato_bold)
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kmlPoints[selectedPosition], 11.5f))
-
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinatesArrayList[selectedPosition], 12.5f))
             if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
 
         } else {

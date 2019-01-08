@@ -85,14 +85,14 @@
                 android:layout_below="@id/scheduleCardSubtitle"
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seeMoreBtn"
                 android:layout_width="@dimen/width_schedule_button"
                 android:layout_height="@dimen/height_schedule_button"
                 android:elevation="0dp"
                 android:text="@string/schedule_button_text"
                 style="@style/scheduleSeeMoreBtn"
-                android:background="@drawable/btn_see_more_not_pressed"
+                app:background="@drawable/btn_see_more_not_pressed"
                 android:layout_marginBottom="18dp"
                 android:layout_alignParentBottom="true"
                 />

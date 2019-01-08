@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +12,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
@@ -29,7 +28,6 @@ import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
-import kotlinx.android.synthetic.main.layout_rrss.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -52,7 +50,7 @@ class MagicLineFragment : BaseFragment() {
     }
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         return inflater.inflate(R.layout.fragment_magic_line, container, false)
+        return inflater.inflate(R.layout.fragment_magic_line, container, false)
     }
 
     override fun onStart() {
@@ -73,8 +71,6 @@ class MagicLineFragment : BaseFragment() {
 
         initAfonsListeners()
 
-        initRRSSListeners()
-
     }
 
     private fun initMesQueListeners() {
@@ -88,13 +84,13 @@ class MagicLineFragment : BaseFragment() {
         }
 
         btnBrainStorm.setOnClickListener {
-            callIntent(URL_IDEAS_GUIDE)
+            if (activity is MainActivity) (activity as MainActivity).callIntent(URL_IDEAS_GUIDE)
         }
     }
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(fragment = MoreInfoMLFragment.newInstance(), showShareView = true)
         }
     }
 
@@ -237,32 +233,6 @@ class MagicLineFragment : BaseFragment() {
         info_sjd_button.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelSantJoan))
         }
-    }
-
-    private fun initRRSSListeners() {
-
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-
-        fb_button.setOnClickListener {
-            callIntent(urlFacebook)
-        }
-
-        insta_button.setOnClickListener {
-            callIntent(urlInstagram)
-        }
-
-        twitter_button.setOnClickListener {
-            callIntent(urlTwitter)
-        }
-    }
-
-    private fun callIntent(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        this.requireContext().startActivity(intent)
     }
 
     private fun getDonationsByCity(donation : DonationsDBModel) : Double {

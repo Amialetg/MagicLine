@@ -36,6 +36,10 @@ class DetailFragment : BaseFragment() {
         return detailLayoutView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     override fun onResume() {
         super.onResume()
         if (!detailModel.isBlack){

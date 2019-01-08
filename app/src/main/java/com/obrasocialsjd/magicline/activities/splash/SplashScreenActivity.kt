@@ -34,6 +34,8 @@ class SplashScreenActivity : Activity() {
                 authenticationSuccess()
             }
         } }
+
+        authenticationSuccess()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

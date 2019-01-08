@@ -1,6 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -38,11 +39,12 @@ class MainActivity : BaseActivity() {
 
         if (savedInstanceState == null) {
             transitionWithModalAnimation(fragment = MagicLineFragment(),
-                    useModalAnimation = false, addToBackStack = false)
+                    useModalAnimation = false, addToBackStack = false, showShareView = true)
             if (intent.hasExtra("From")) {
                 navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
             }
         }
+
         initNavigation()
     }
 
@@ -92,6 +94,8 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
+        var showShareView = false
+
         if (!item.isChecked) {
 
             // Those are fragments of the main view, so we don't need the back-stack
@@ -101,6 +105,7 @@ class MainActivity : BaseActivity() {
             when (item.itemId) {
                 R.id.magicline_menu_id -> {
                     newFragment = MagicLineFragment()
+                    showShareView = true
                     Log.d("Main Activity", "magic line")
                 }
                 R.id.donations_menu_id -> {
@@ -108,7 +113,6 @@ class MainActivity : BaseActivity() {
                     Log.d("Main Activity", "donations")
                 }
                 R.id.info_menu_id -> {
-
                     newFragment = InfoFragment()
                     Log.d("Main Activity", "info")
                 }
@@ -118,7 +122,7 @@ class MainActivity : BaseActivity() {
             }
 
             transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
-                    addToBackStack = false)
+                    addToBackStack = false, showShareView = showShareView)
             currentFragment = newFragment
         }
     }
@@ -187,6 +191,12 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    fun callIntent(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
+
     fun manageBottomBar(isModal : Boolean) {
 
         if (isModal) {
@@ -196,5 +206,18 @@ class MainActivity : BaseActivity() {
             bottomBarView.visibility = View.VISIBLE
             bottomBarFloatingButton.show()
         }
+    }
+
+    fun manageShareView(hasShareView : Boolean) {
+
+        val fragment = ShareFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        if (hasShareView) {
+            transaction.add(R.id.frame_layout, fragment)
+        } else {
+            transaction.remove(fragment)
+        }
+
+        transaction.commit()
     }
 }

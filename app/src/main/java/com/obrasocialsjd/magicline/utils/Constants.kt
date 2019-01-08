@@ -40,3 +40,4 @@ const val EURO : String = "€"
  */
 
 const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
+const val SHOW_SHARE_VIEW_TAG : String = "SHOW_SHARE_VIEW"

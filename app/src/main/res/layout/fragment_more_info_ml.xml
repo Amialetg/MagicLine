@@ -196,8 +196,6 @@
 
             </LinearLayout>
 
-            <include layout="@layout/layout_rrss" />
-
         </LinearLayout>
 
 

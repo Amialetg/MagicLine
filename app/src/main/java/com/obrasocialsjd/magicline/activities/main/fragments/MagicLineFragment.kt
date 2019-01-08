@@ -215,7 +215,7 @@ class MagicLineFragment : BaseFragment() {
                 isBlack = true,
                 toolbarImg = listOf(R.drawable.imprescindibles),
                 hasToolbarImg = false,
-                titleToolbar = getString(R.string.essentials_title).substring(3, 19))
+                titleToolbar = getString(R.string.title_toolbar_imprs))
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = "",

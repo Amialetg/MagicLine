@@ -28,7 +28,6 @@ class InfoFragment: BaseFragment() {
         return inflater.inflate(R.layout.fragment_info, container,  false)
     }
 
-
     override fun onStart() {
 
         super.onStart()
@@ -43,13 +42,9 @@ class InfoFragment: BaseFragment() {
 
         if(prefs.getString(PREF_LANGUAGE, "") != SPANISH){
             checkbox_catalan_text.isChecked = true
-
         }else{
             checkbox_spanish_text.isChecked = true
-
         }
-
-
         checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
             if(checkbox_spanish_text.isChecked){
@@ -57,7 +52,6 @@ class InfoFragment: BaseFragment() {
                 if (checkbox_catalan_text.isChecked){
                     checkbox_catalan_text.isChecked = false
                 }
-
                 val editor = prefs.edit()
                 editor.putString(PREF_LANGUAGE, SPANISH)
                 editor.apply()
@@ -70,7 +64,6 @@ class InfoFragment: BaseFragment() {
             if(checkbox_catalan_text.isChecked){
                 if (checkbox_spanish_text.isChecked){
                     checkbox_spanish_text.isChecked = false
-
                 }
                 val editor = prefs.edit()
                 editor.putString(PREF_LANGUAGE, "_")
@@ -91,11 +84,9 @@ class InfoFragment: BaseFragment() {
         moreInfoFriendsTextView.setOnClickListener{
             (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
-
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)
         }
-
         aboutMLTextView.setOnClickListener{
 
             val dataModelAboutMLApp = DetailModel(
@@ -116,7 +107,6 @@ class InfoFragment: BaseFragment() {
         var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
-
     }
 
     companion object {

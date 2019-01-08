@@ -333,4 +333,9 @@
         <item name="android:capitalize">words</item>
     </style>
 
+    <style name="bottomFAB">
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
 </resources>

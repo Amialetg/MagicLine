@@ -2,6 +2,7 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -141,8 +142,10 @@ class MagicLineFragment : BaseFragment() {
         val snapHelper = PagerSnapHelper()
         newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
-        newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
 
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+        }
         //Adding the page indicators
         // TODO re-DO news slider
 

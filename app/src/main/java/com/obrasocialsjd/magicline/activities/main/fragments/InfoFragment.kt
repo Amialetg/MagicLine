@@ -48,7 +48,6 @@ class InfoFragment: BaseFragment() {
             checkbox_spanish_text.isChecked = true
         }
 
-
         checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
             if(checkbox_spanish_text.isChecked){

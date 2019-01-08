@@ -34,29 +34,39 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
         }
     }
 
-    override fun getItemViewType(position: Int): Int = if (dataSet[position].type==1) 1 else 2
+    override fun getItemViewType(position: Int): Int = if (dataSet[position].type==1) 1 else 2 //OJO
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {//OJO
 
         return when(viewType){
             1 -> {
-                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text, parent, false)
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text_first, parent, false)
                 ViewHolderText(itemView)
-            } else -> {
-                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
-                ViewHolderCard(itemView)
+            }
+//            2 ->{
+//                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text, parent, false)
+//                ViewHolderText(itemView)
+//            }
+//            3 ->{
+//                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
+//                ViewHolderCard(itemView)
+//            }
+            else -> {
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_last, parent, false)
+                ViewHolderText(itemView)
             }
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {//OJO
         when(getItemViewType(position)){
-            1 -> {
+            1-> {
                 val textViewHolder = holder as ViewHolderText
                 val textModel = dataSet[position] as ScheduleTextModel
                 textViewHolder.hour.text = textModel.hour
                 textViewHolder.text.text = textModel.text
-            } else -> {
+            }
+            else -> {
                 val cardModel = dataSet[position] as ScheduleCardModel
                 if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
                 holder.itemView.scheduleCardTitle.text = cardModel.title

@@ -78,6 +78,10 @@ class ScheduleFragment : BaseFragment() {
     }
 
     private fun initScheduleRecycler() {
+        //pintar en el schedule la bolita de roja dependiendo si nos encontramos en la hora
+
+
+
         val myScheduleManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         val myScheduleAdapter = ScheduleAdapter(scheduleModel, getListeners())
 

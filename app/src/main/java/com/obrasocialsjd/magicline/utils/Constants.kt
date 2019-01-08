@@ -34,3 +34,11 @@ const val CATALAN_LOCALE : String = "ca"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
+
+/**
+ * ROOM QUERIES
+ */
+
+const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
+        " SUM(total * 100 / percentage) as spots " +
+        "from teamsMarkers where city = :city"

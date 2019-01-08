@@ -1,9 +1,12 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -17,6 +20,7 @@ import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
 import java.io.Serializable
 
+
 class MainActivity : BaseActivity() {
 
     private lateinit var currentFragment: Fragment
@@ -26,6 +30,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        setStatusBarColor()
 
         //Prepare the mapFAB
         floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
@@ -59,6 +65,14 @@ class MainActivity : BaseActivity() {
         bottomBarView.enableShiftingMode(false)
         bottomBarView.enableItemShiftingMode(false)
         bottomBarView.setTextSize(9.0f)
+    }
+
+    private fun setStatusBarColor() {
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = Color.TRANSPARENT
+        }
     }
 
     fun initNavigation() {

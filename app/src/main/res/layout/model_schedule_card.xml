@@ -92,7 +92,7 @@
                 android:elevation="0dp"
                 android:text="@string/schedule_button_text"
                 style="@style/scheduleSeeMoreBtn"
-                app:background="@drawable/btn_see_more_not_pressed"
+                android:background="@drawable/btn_see_more_not_pressed"
                 android:layout_marginBottom="18dp"
                 android:layout_alignParentBottom="true"
                 />

@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.obrasocialsjd.magicline.utils.KM
 import kotlinx.android.synthetic.main.km_cards.view.*
 
 class KmAdapter (private var kmlLayers: ArrayList<KmlLayer>, private val coordinatesArrayList: ArrayList<LatLng>, private val kmList: ArrayList<CardKm>, private val googleMap: GoogleMap,
@@ -23,6 +24,7 @@ class KmAdapter (private var kmlLayers: ArrayList<KmlLayer>, private val coordin
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val cardView = LayoutInflater.from(parent.context).inflate(R.layout.km_cards, parent, false)
+        cardView.TextViewMapTextKm.text = KM
         return ViewHolder(cardView, this)
     }
 

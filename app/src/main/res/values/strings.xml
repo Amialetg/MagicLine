@@ -1,41 +1,41 @@
 <resources>
-    <string name="app_name">MagicLine</string>
-    <string name="principal_top_toolbar">#MagicLine</string>
-    <string name="OValues1">Utilización de envases ecológicos</string>
-    <string name="OValues2">Puntos de reciclaje</string>
-    <string name="OValues3">Respeto al medioambiente</string>
+    <string name="app_name" translatable="false">MagicLine</string>
+    <string name="principal_top_toolbar" translatable="false">#MagicLine</string>
+    <string name="OValues1" translatable="false">Utilizació d\'envasos ecològics</string>
+    <string name="OValues2" translatable="false">Punts de reciclatge</string>
+    <string name="OValues3" translatable="false">Respecte amb el medi ambient</string>
 
     <!--CountDown-->
-    <string name="cursa_date">24.02.2019, 10:00</string>
+    <string name="cursa_date" translatable="false">24.02.2019, 10:00</string>
     <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="cityParticipants" translatable="false">6260</string>
-    <string name="btn_fer_donacio">Hacer una donación</string>
-    <string name="recaudats_text">recaudados</string>
-    <string name="participants_text">participantes</string>
-    <string name="mes_info">Más info</string>
+    <string name="btn_fer_donacio" translatable="false">Fer una donació</string>
+    <string name="recaudats_text" translatable="false">recaudats</string>
+    <string name="participants_text" translatable="false">participants</string>
+    <string name="mes_info" translatable="false">Més info</string>
 
     <!--Section News-->
-    <string name="news_title">NOTICIAS</string>
+    <string name="news_title" translatable="false">NOTICIES</string>
 
     <!--Section Programming-->
-    <string name="Programming_title">PROGRAMACIÓN</string>
+    <string name="Programming_title" translatable="false">PROGRAMACIÓ</string>
     <string name="text_nav_map">Mapa</string>
-    <string name="text_countdown_dies">DÍAS</string>
-    <string name="text_countdown_hores">HORAS</string>
-    <string name="text_countdown_minuts">MINUTOS</string>
-    <string name="text_countdown_segons">SEGUNDOS</string>
-    <string name="text_rrss">DIFUNDE LA MAGIC LINE SJD</string>
-    <string name="text_otros_valores">OTROS VALORES</string>
+    <string name="text_countdown_dies">DIES</string>
+    <string name="text_countdown_hores">HORES</string>
+    <string name="text_countdown_minuts">MINUTS</string>
+    <string name="text_countdown_segons">SEGONS</string>
+    <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
+    <string name="text_otros_valores">ALTRES VALORS</string>
     <string name="nav_menu_home">Home</string>
-    <string name="nav_menu_programacion">Programación</string>
-    <string name="nav_menu_donativos">Donativos</string>
-    <string name="nav_menu_options">Opciones</string>
+    <string name="nav_menu_programacion">Programació</string>
+    <string name="nav_menu_donativos">Donatius</string>
+    <string name="nav_menu_options">Opcions</string>
 
     <!--Section mes que-->
-    <string name="mesque_title">más que una caminata</string>
-    <string name="mesque_dona">dona a un equipo</string>
-    <string name="mesque_demana">pide donativos</string>
-    <string name="mesque_idees">ideas de captación</string>
+    <string name="mesque_title">més que una caminada</string>
+    <string name="mesque_dona">dóna a un equip</string>
+    <string name="mesque_demana">demana donatius</string>
+    <string name="mesque_idees">idees de captació</string>
 
     <!--Section a fons-->
     <string name="afons_title">la magic line a fons</string>
@@ -43,7 +43,7 @@
 
     <!--MAPS -->
     <string name="google_maps_API_key">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
-    <string name="map_km">Km caminata solidaria:</string>
+    <string name="map_km">Km caminada solidaria:</string>
 
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
@@ -52,98 +52,97 @@
     <string name="url_instagram" translatable="false">https://www.instagram.com/magiclinesjd/</string>
 
     <!--Section other values -->
-    <string name="other_values_title">OTROS VALORES</string>
+    <string name="other_values_title">ALTRES VALORS</string>
 
     <!--Bottom navigation layout-->
     <string name="magic_line_var_title">MagicLine</string>
-    <string name="schedule_var_title">Programación</string>
-    <string name="donation_var_title">Donativos</string>
-    <string name="info_var_title">Más info</string>
+    <string name="schedule_var_title">Programació</string>
+    <string name="donation_var_title">Donatius</string>
+    <string name="info_var_title">Més info</string>
 
     <!--More info fragment-->
-    <string name="moreinfo_title">configuración</string>
-    <string name="moreinfo_sobre_la_ml">Todo sobre la magic line</string>
-    <string name="moreinfo_sitio_web">Ir al sitio web</string>
-    <string name="moreinfo_idioma">Idioma</string>
-    <string name="moreinfo_amigos">Invita a tus amigos</string>
-    <string name="moreinfo_sj">Sant Joan de Deu</string>
-    <string name="castellano">castellano</string>
-    <string name="catalan">catalán</string>
+    <string name="moreinfo_title">configuració</string>
+    <string name="moreinfo_sobre_la_ml">Tot sobre la magic line</string>
+    <string name="moreinfo_sitio_web" translatable="false">Anar al lloc web</string>
+    <string name="moreinfo_idioma" translatable="false">Idioma</string>
+    <string name="moreinfo_amigos" translatable="false">Convida als teus amics</string>
+    <string name="moreinfo_sj">San Joan de Deu</string>
+    <string name="castellano">castellà</string>
+    <string name="catalan">català</string>
 
     <!-- schedule fragment -->
-    <string name="schedule_title">Programación</string>
+    <string name="schedule_title">Programació</string>
     <string name="schedule_card_description">In recent years people have realized the importance of proper diet and exercise, and recent surveys show that over the </string>
-    <string name="schedule_button_text">Ver más</string>
-    <string name="schedule_header_name">Actividades durante todo el día</string>
+    <string name="schedule_button_text">Veure més</string>
+    <string name="schedule_header_name">activitats durant tot el dia</string>
+    <string name="schedule_alldayopen_act">Museus Oberts</string>
     <string name="schedule_header_total_duration">(Total ruta 6h)</string>
-    <string name="schedule_alldayopen_act">Museos Abiertos</string>
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->
-    <string name="viewOnWeb">Ver la web</string>
+    <string name="viewOnWeb">Veure la web</string>
 
     <!-- Essentials Detail Fragment -->
     <string name="essentials_title">10 imprescindibles Magic Line SJD</string>
     <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
     <string name="essentials_body">
         <![CDATA[<html>
-        1.<b> MUCHO MÁS QUE UNA CAMINATA.</b> Las acciones solidarias de los equipos se convierten en ayudas para personas en situación vulnerable atendidas en centros de San Juan de Dios y otras entidades cercanas.<br/><br/>
+        \t 1. <b>MOLT MÉS QUE UNA CAMINADA.</b> Les accions solidàries dels equips es converteixen en ajudes per persones en situació vulnerable ateses a centres de Sant Joan de Déu i altres entitats properes.<br/><br/>
 
-2. <b>OTRO PUNTO DE VISTA DE LA CIUDAD.</b> Levante la cabeza, la Magic Line SJD os acerca a montaña, parques naturales y urbanos, calles y plazas de la ciudad.<br/><br/>
+\t 2.<b>UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b>  Aixequeu el cap, la Magic Line SJD us acosta a muntanya, parcs naturals i urbans, carrers i places de la ciutat.<br/><br/>
 
-3. <b>QUIÉN AYUDAS TE AYUDA.</b> Ofrecemos puntos de avituallamiento, alimento complementario para la caminata, que le facilitarán personas atendidas en nuestros centros.<br/><br/>
+\t 3.<b>QUI AJUDES T’AJUDA.</b>  Us oferim punts d\’avituallament, aliment complementari per la caminada, que us facilitaran persones ateses als nostres centres.<br/><br/>
 
-4. <b>VOLUNTARIADO.</b> Cientos de personas y empresas aportan su tiempo y servicios para hacer posible el evento.<br/><br/>
+\t 4.<b>VOLUNTARIAT.</b>  Centenars de persones i empreses aporten el seu temps i serveis per a fer possible l\’esdeveniment.<br/><br/>
 
-5. <b>CULTURA INCLUSIVA.</b> Durante el recorrido se encontrará propuestas de música y teatro de calle, así como los museos de Montjuïc abiertos para vosotros. Disfrute de la compañía!<br/><br/>
+\t 5.<b>CULTURA INCLUSIVA.</b>  Durant el recorregut us trobareu propostes de música i teatre de carrer, així com els museus de Montjuïc oberts per a vosaltres. Gaudiu de la companyia!<br/><br/>
 
-6. <b>PICNIC EN EL CASTILLO.</b> En el foso del castillo de Montjuïc tiene una zona para comer, con música y actividades para los más pequeños.<br/><br/>
+\t 6.<b>PICNIC AL CASTELL.</b>  Al fossar del castell de Montjuïc hi teniu una zona per a dinar, amb música i activitats per als més petits.<br/><br/>
 
-7. <b>FIESTA SOLIDARIA A LA LLEGADA.</b> En la plaza de la Catedral os espera una celebración de esta enorme movilización.<br/><br/>
+\t 7.<b>FESTA SOLIDÀRIA A L\’ARRIBADA.</b>  A la plaça de la Catedral us hi espera una celebració d’aquesta enorme mobilització.<br/><br/>
 
-8. <b>PRODUCTOS MAGIC LINE SJD.</b> Un recuerdo de la movilización solidaria que no es sólo para ti.<br/><br/>
+\t 8.<b>PRODUCTES MAGIC LINE SJD.</b>  Un record de la mobilització solidària que no és només per a tu.<br/><br/>
 
-9. <b>EXPLICA TU EXPERIENCIA</b> de #magicliner en las redes sociales. Que todo el mundo sepa que eres parte de la #MagicLine de @solidaridadsjd<br/><br/>
+\t 9.<b>EXPLICA LA TEVA EXPERIÈNCIA</b>  de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
 
-10. <b>GRACIAS, GRACIAS, GRACIAS.</b> Somos miles de personas solidarias llenando la ciudad! Juntas somos menos vulnerables! </html>]]>
-       </string>
-    <string name="essentials_viewOnWeb">https://www.magiclinesjd.org/es/</string>
+\t 10.<b>GRÀCIES, GRÀCIES, GRÀCIES.</b>  Som milers de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
+        </string>
+    <string name="essentials_viewOnWeb">https://www.magiclinesjd.org/ca/</string>
 
     <!-- Donations Destiny Detail Fragment -->
     <string name="donations_title">Destí dels fons</string>
     <string name="donations_subtitle">Suport a infants, adults i persones grans</string>
     <string name="donations_body">
         <![CDATA[<html>
-        La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y personas mayores que sufren situaciones de vulnerabilidad.</b> Aquí y en todo el mundo. Gracias a las aportaciones económicas de los equipos y al apoyo de las instituciones y empresas trabajamos en garantizar:<br/>
 
-<ul>
-<li> <b>HOGAR.</b> Ofrecer pisos con acompañamiento psico social a familias con pocos recursos, a personas en situación de sin hogar, jóvenes migrantes y personas que piden refugio.</li><br/>
+   La Magic Line SJD permet finançar programes de suport a <b>infants, adults i persones grans que pateixen situacions de vulnerabilitat</b>. Aquí i arreu del món. Gràcies a les aportacions econòmiques dels equips i al suport de les institucions i empreses treballem en garantir:<br/><br/>
 
-<li><b>EMPLEO.</b> Acompañar en el proceso de búsqueda de trabajo a personas con trastorno mental, con discapacidad y en situación de sin hogar.</li><br/>
+<p><b>\t LLAR.</b> Oferir pisos amb acompanyament psico social a famílies amb pocs recursos, a persones en situació de sense llar, a joves migrants i a persones que demanen refugi.</p>
 
-<li><b>SALUD.</b> Cuidar las personas que atendemos más allá de la asistencia básica, dándoles pequeños ayudas económicas si lo requieren, terapias parassistencials como musicoterapia, terapias con animales o horticultura e invirtiendo en el cuidado del futuro con proyectos de investigación social y biomédica.</li><br/>
+<p><b>\t OCUPACIÓ.</b> Acompanyar en el procés de recerca de feina a persones amb trastorn mental, amb discapacitat i en situació de sense llar.</p>
 
-<li><b>COOPERACIÓN INTERNACIONAL.</b> Facilitar la atención a países en desarrollo haciendo acompañamiento entre profesionales y aportando algunos materiales especializados.</li><br/>
-</ul>
-        </html>]]>
+<p><b>\t SALUT.</b> Cuidar les persones que atenem més enllà de l\'assistència bàsica, donant-los petits ajuts econòmics si ho requereixen, teràpies parassistencials com musicoteràpia, teràpies amb animals o horticultura i invertint en la cura del futur amb projectes de recerca social i biomèdica.</p>
 
+<p><b>\tCOOPERACIÓ INTERNACIONAL.</b> Facilitar l\'atenció a països en desenvolupament fent acompanyament entre professionals i aportant alguns materials especialitzats.</p>
+
+</html>]]>
     </string>
-    <string name="donations_viewOnWeb">http://www.magiclinesjd.org/es/a_quien_ayudamos</string>
+    <string name="donations_viewOnWeb">http://www.magiclinesjd.org/ca/a_qui_ajudem</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->
-    <string name="sjd_title" translatable="false">Sant Joan de Déu</string>
-    <string name="sjd_subtitle">La Obra Social San Juan de Dios promueve la solidaridad para sensibilizar e implicar a la ciudadanía en torno a las realidades de vulnerabilidad social que genera la sociedad.</string>
+    <string name="sjd_title" translatable="false">Solidaritat Sant Joan de Déu</string>
+    <string name="sjd_subtitle">L\’Obra Social Sant Joan de Déu promou la solidaritat per sensibilitzar i implicar la ciutadania entorn a les realitats de vulnerabilitat social que genera la societat.</string>
     <string name="sjd_body">
         <![CDATA[<html>
-        Desde los centros sociales y sanitarios de la Orden Hospitalaria SJD cuidamos a quien lo necesita: niños, jóvenes, adultos y personas mayores en situación de sin hogar o dependencia, con trastorno mental, con discapacidad intelectual. <br/><br/>
-        Lo hacemos aquí y en todo el mundo a través de hermanamientos con centros de países en situación de pobreza. Y lo hacemos de manera integral, incorporando una mirada sanitaria, así como emocional y social en el cuidado de las personas que atendemos.
+        Des dels centres socials i sanitaris de l\’Orde Hospitalari SJD cuidem a qui ho necessita: infants, joves, adults i persones grans en situació de sense llar o dependència, amb trastorn mental, amb discapacitat intel·lectual.<br/><br/>
+        Ho fem aquí i arreu del món a través d\’agermanaments amb centres de països en situació de pobresa. I ho fem de manera integral, incorporant una mirada sanitària, així com emocional i social a la cura de les persones que atenem.
         </html>]]>
     </string>
-    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/es</string>
+    <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/ca</string>
 
     <!-- Share -->
     <string name="share">Share your experiences:</string>
-    <string name="inviteFriends">Invita a tus amigos \n a la app.</string>
+    <string name="inviteFriends">Convida als teus amics \n a l\'app.</string>
     <string name="whatsapp" translatable="false">WhatsApp</string>
     <string name="telegram" translatable="false">Telegram</string>
     <string name="messenger" translatable="false">Messenger</string>
@@ -160,16 +159,18 @@
 
     <!-- Magic Line web -->
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
-    <string name="donationText">Donativo</string>
+
+    <string name="donationText">Donatiu</string>
     <string name="magicLineTitle">MagicLine</string>
-    <string name="textDonateCause">Haz un donativo y ayudarás a los equipos de la Magic Line conseguir su reto solidario! El 100% de los fondos captados por los equipos se destinan a programas de atención a personas en situación vulnerable.</string>
+    <string name="textDonateCause">Fes un donatiu i ajudaràs als equips de la Magic Line a aconseguir el seu repte solidari! El 100% dels fons captats pels equips es destinen a programes d’atenció a persones en situació vulnerable.</string>
     <string name="particularText">Particular</string>
-    <string name="EntityText">Entidad</string>
-    <string name="importText">No quiero publicar el importe</string>
-    <string name="nameImportText">No quiero publicar el nombre</string>
+    <string name="EntityText">Entitat</string>
+    <string name="importText">No vull publicar l\'import</string>
+    <string name="nameImportText">No vull publicar el nom</string>
 
     <!-- LOREMIPSUM -->
     <string name="lorem_ipsum" translatable="false">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
 
     <!-- todo: put real texts -->
     <!-- MAGIC LINE INFO -->
@@ -201,4 +202,6 @@
     <string name="aboutTheAppTitle">Sobre Magic Line</string>
     <string name="aboutTheAppSubTitle">Compromís social</string>
     <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
+    <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
 </resources>
+

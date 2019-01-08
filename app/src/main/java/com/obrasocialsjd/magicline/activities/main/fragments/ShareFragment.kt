@@ -46,15 +46,15 @@ class ShareFragment : Fragment() {
         val urlInstagram = getString(R.string.url_instagram)
         val urlTwitter = getString(R.string.url_twitter)
 
-        fb_button.setOnClickListener {
+        fbButton.setOnClickListener {
             if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook)
         }
 
-        insta_button.setOnClickListener {
+        instaButton.setOnClickListener {
             if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram)
         }
 
-        twitter_button.setOnClickListener {
+        twitterButton.setOnClickListener {
             if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter)
         }
     }

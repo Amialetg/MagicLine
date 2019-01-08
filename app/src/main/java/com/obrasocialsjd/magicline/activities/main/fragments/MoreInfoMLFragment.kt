@@ -24,6 +24,7 @@ import com.obrasocialsjd.magicline.utils.addThousandsSeparator
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
+import kotlinx.android.synthetic.main.fragment_magic_line.rrssView
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
@@ -43,6 +44,8 @@ class MoreInfoMLFragment : BaseFragment() {
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
+
+        initRrss()
 
         return moreInfoMLView
     }
@@ -80,6 +83,12 @@ class MoreInfoMLFragment : BaseFragment() {
 
         var infoText = text + text2 + text3 + text4
         textView.text = infoText.htmlToSpanned()
+    }
+
+    private fun initRrss() {
+        rrssView.fbListener = { TODO() }
+        rrssView.instaListener = { TODO() }
+        rrssView.twitterListener = { TODO() }
     }
 
     private fun createBarChart() {

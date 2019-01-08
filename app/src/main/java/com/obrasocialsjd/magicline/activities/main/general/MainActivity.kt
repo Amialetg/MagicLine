@@ -210,7 +210,7 @@ class MainActivity : BaseActivity() {
 
     fun manageShareView(hasShareView : Boolean) {
 
-        val fragment = ShareFragment()
+        /*val fragment = ShareFragment()
         val transaction = supportFragmentManager.beginTransaction()
         if (hasShareView) {
             transaction.add(R.id.frame_layout, fragment)
@@ -218,6 +218,6 @@ class MainActivity : BaseActivity() {
             transaction.remove(fragment)
         }
 
-        transaction.commit()
+        transaction.commit()*/
     }
 }

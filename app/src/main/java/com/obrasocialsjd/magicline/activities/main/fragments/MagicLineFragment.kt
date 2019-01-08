@@ -14,6 +14,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
+import com.obrasocialsjd.magicline.activities.main.otherui.RrssView
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
 import com.obrasocialsjd.magicline.data.models.posts.PostsItem
@@ -23,6 +24,7 @@ import com.obrasocialsjd.magicline.models.NewsModel
 import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
+import kotlinx.android.synthetic.main.fragment_magic_line.rrssView
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
@@ -71,6 +73,13 @@ class MagicLineFragment : BaseFragment() {
 
         initAfonsListeners()
 
+        initRrss()
+    }
+
+    private fun initRrss() {
+        rrssView.fbListener = { TODO() }
+        rrssView.instaListener = { TODO() }
+        rrssView.twitterListener = { TODO() }
     }
 
     private fun initMesQueListeners() {

@@ -34,6 +34,7 @@ const val CATALAN_LOCALE : String = "ca"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
+const val KM : String = "km"
 
 /**
  * MAP - KML

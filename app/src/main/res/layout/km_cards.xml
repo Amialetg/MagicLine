@@ -8,26 +8,30 @@
     app:cardElevation="10dp"
     android:layout_marginTop="11dp">
 
-    <TextView
-        android:id="@+id/TextViewMapNumKm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="31.1sp"
-        android:textColor="@color/grey"
-        android:layout_marginLeft="9dp"
-        android:layout_gravity="center_vertical"
-        android:text="20"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/TextViewMapTextKm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="4dp"
-        android:text="km"
-        />
+        <TextView
+            android:id="@+id/TextViewMapNumKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:layout_gravity="center_vertical"
+            style="@style/TxtViewCardMap"/>
+
+        <TextView
+            android:id="@+id/TextViewMapTextKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="6dp"
+            />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/ExtraTxtView"

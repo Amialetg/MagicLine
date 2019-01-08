@@ -341,6 +341,12 @@
     </style>
 
     <!-- MAP-->
+    <style name="TxtViewCardMap">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">31sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
     <style name="extraTxtViewCardMap">
         <item name="android:textColor">@color/grey</item>
         <item name="android:textSize">10sp</item>

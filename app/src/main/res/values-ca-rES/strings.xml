@@ -123,7 +123,12 @@
     <!-- Sant Joan de Déu Detail Fragment -->
     <string name="sjd_title" translatable="false">Solidaritat Sant Joan de Déu</string>
     <string name="sjd_subtitle">L\’Obra Social Sant Joan de Déu promou la solidaritat per sensibilitzar i implicar la ciutadania entorn a les realitats de vulnerabilitat social que genera la societat.</string>
-    <string name="sjd_body">Des dels centres socials i sanitaris de l\’Orde Hospitalari SJD cuidem a qui ho necessita: infants, joves, adults i persones grans en situació de sense llar o dependència, amb trastorn mental, amb discapacitat intel·lectual. Ho fem aquí i arreu del món a través d\’agermanaments amb centres de països en situació de pobresa. I ho fem de manera integral, incorporant una mirada sanitària, així com emocional i social a la cura de les persones que atenem.</string>
+    <string name="sjd_body">
+        <![CDATA[<html>
+        Des dels centres socials i sanitaris de l\’Orde Hospitalari SJD cuidem a qui ho necessita: infants, joves, adults i persones grans en situació de sense llar o dependència, amb trastorn mental, amb discapacitat intel·lectual.<br/><br/>
+        Ho fem aquí i arreu del món a través d\’agermanaments amb centres de països en situació de pobresa. I ho fem de manera integral, incorporant una mirada sanitària, així com emocional i social a la cura de les persones que atenem.
+        </html>]]>
+    </string>
     <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/ca</string>
 
     <!-- Share -->
@@ -153,6 +158,5 @@
     <string name="aboutTheAppTitle">Sobre Magic Line</string>
     <string name="aboutTheAppSubTitle">Compromís social</string>
     <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
-
 
 </resources>

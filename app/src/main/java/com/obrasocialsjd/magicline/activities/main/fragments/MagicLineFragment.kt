@@ -1,7 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,14 +30,8 @@ import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import java.text.SimpleDateFormat
 import java.util.*
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.ScaleDrawable
-import com.squareup.picasso.Picasso
 
 class MagicLineFragment : BaseFragment() {
 
@@ -68,8 +61,6 @@ class MagicLineFragment : BaseFragment() {
         val txtArray = initWidgets()
 
         initCountDown(txtArray)
-
-        initStaticContent()
 
         initMoreInfoMLListener()
 
@@ -102,10 +93,6 @@ class MagicLineFragment : BaseFragment() {
         moreInfoML.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
         }
-    }
-
-    private fun initStaticContent() {
-        participants_num.text = getString(R.string.cityParticipants).addThousandsSeparator()
     }
 
     private fun initWidgets(): Array<TextView> {
@@ -166,6 +153,12 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
                 recaudats_num.text = getDonationsByCity(donation).addCurrency()
+            }
+        })
+
+        mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
+            if (participants != null) {
+                participants_num.text = participants.totalParticipants.toString().addThousandsSeparator()
             }
         })
     }

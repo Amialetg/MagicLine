@@ -162,5 +162,6 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="aboutTheAppSubTitle">Compromiso social</string>
     <!-- todo: toTranslate-->
     <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
+    <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
 
 </resources>

@@ -13,8 +13,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.utils.CATALAN
-import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
+import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){
@@ -79,12 +78,16 @@ class DonationsFragment: BaseFragment(){
             }
         }
 
-
-
         if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
+
+            v.webviewDonation.loadUrl(getDonationsUrlByCity())
             v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
+            //https://www.magiclinesjd.org/ca/equips_valencia
+            //https://www.magiclinesjd.org/ca/equips_mallorca
         }else{
             v.webviewDonation.loadUrl("https://www.magiclinesjd.org/es/equipos/")
+            //https://www.magiclinesjd.org/es/equipos_valencia
+            //https://www.magiclinesjd.org/es/equipos_mallorca
         }
         v.webviewDonation.clearCache(true)
 
@@ -92,18 +95,11 @@ class DonationsFragment: BaseFragment(){
 
     }
 
-
     private fun testApi() {
         /*val loginModelClient = OkHttpClient().newBuilder()
                 .addInterceptor(MagicLineInterceptor("acces_token"))
                 .build()
-
-
-
-
         val magicLineService = retrofit.create(MagicLineService::class.java)
-
-
         val call = magicLineService.testAPI("Test")
         val result = call.execute().body()
         Log.e("API",result.toString())*/
@@ -114,7 +110,22 @@ class DonationsFragment: BaseFragment(){
             return DonationsFragment()
         }
     }
-
+    private fun getDonationsUrlByCity() : String {
+        return when (getFlavor()) {
+            BARCELONA -> {
+                return ""
+            }
+            MALLORCA -> {
+                return ""
+            }
+            VALENCIA -> {
+                return ""
+            }
+            else -> {
+                return ""
+            }
+        }
+    }
 
 
 }

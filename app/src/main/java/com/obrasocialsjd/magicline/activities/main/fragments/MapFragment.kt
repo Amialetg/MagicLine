@@ -1,14 +1,17 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
+import android.content.res.TypedArray
 import android.graphics.Rect
 import android.location.Location
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,9 +27,7 @@ import mumayank.com.airlocationlibrary.AirLocation
 import org.xmlpull.v1.XmlPullParserException
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.data.kml.KmlPoint
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
-import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
@@ -41,9 +42,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var mapView: View
     private lateinit var map: GoogleMap
     private var airLocation: AirLocation? = null
-    private lateinit var kmlLayer: KmlLayer
-    private val pathPoints = arrayListOf<LatLng>()
+    private var arrayKmlLayers: ArrayList<KmlLayer> = arrayListOf()
+    private lateinit var kmlMarkers: KmlLayer
+    private var arrayListCoordinates = arrayListOf<LatLng>()
     private lateinit var userLocation: Location
+    private var isLocationActive: Boolean = false
+    private var areMarkersActive: Boolean = true
+    private lateinit var arrayKml: TypedArray
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         airLocation?.onActivityResult(requestCode, resultCode, data)
@@ -59,7 +64,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
         initToolbar()
         initListeners()
+        initCoordinates()
         return mapView
+
     }
 
     private fun initToolbar() {
@@ -68,8 +75,69 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun initListeners() {
-        mapView.userLocationBtn.setOnClickListener {  }
-        mapView.showMarkersBtn.setOnClickListener {  }
+        mapView.userLocationBtn.setOnClickListener {
+            if (isLocationActive){
+//                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(userLocation.latitude, userLocation.longitude), 12.5f))
+            }
+            changeUserLocation()
+        }
+        mapView.showMarkersBtn.setOnClickListener {
+            changeMarkers(areMarkersActive)
+        }
+    }
+
+    private fun initCoordinates() {
+        val arrayLat: TypedArray = resources.obtainTypedArray(R.array.arrayLatitude)
+        val arrayLon: TypedArray = resources.obtainTypedArray(R.array.arrayLongitude)
+
+        for (i in 0 until arrayLat.length()){
+            val lat = arrayLat.getFloat(i, Float.MAX_VALUE)
+            val lon = arrayLon.getFloat(i, Float.MAX_VALUE)
+            val latLon = LatLng(lat.toDouble(), lon.toDouble())
+            arrayListCoordinates.add(latLon)
+        }
+
+        arrayLat.recycle()
+        arrayLon.recycle()
+    }
+
+    private fun changeMarkers(active: Boolean) {
+
+        kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
+
+        if (active) {
+            kmlMarkers.addLayerToMap()
+            areMarkersActive = false
+        }
+        else {
+            areMarkersActive = true
+            map.clear()
+            initKmCards()
+        }
+        tintMarkerButton()
+    }
+
+    private fun changeUserLocation() {
+        isLocationActive = !isLocationActive
+        tintUserLocationButton()
+    }
+
+    private fun tintUserLocationButton() {
+        if (isLocationActive){
+            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+
+        }else{
+            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
+        }
+    }
+
+    private fun tintMarkerButton() {
+        if (!areMarkersActive){
+            mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+
+        }else{
+            mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
+        }
     }
 
     override fun onStart() {
@@ -77,17 +145,20 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onStart()
         airLocation = AirLocation(requireActivity(), true, true, object: AirLocation.Callbacks {
             override fun onSuccess(location: Location) {
+                isLocationActive = true
+                tintUserLocationButton()
                 userLocation = location
                 setMarker("", "", location.latitude, location.longitude, user_location_icon)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
             }
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(pathPoints[0], 17.0f))
+                isLocationActive = false
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
+                tintUserLocationButton()
             }
 
         })
-
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
     }
@@ -101,35 +172,16 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         //ADD KML & PLACEMARKERS (INTEREST POINTS)
         addKML()
-        kmlLayer  = KmlLayer(map, R.raw.ml_placemarkers, context)
-        kmlLayer.setOnFeatureClickListener {  }
-        kmlLayer.addLayerToMap()
+        changeMarkers(true)
     }
 
     private fun addKML() {
         try {
-            val arrayKml  = resources.obtainTypedArray(R.array.arrayKml)
             for (i in 0 until arrayKml.length()){
                 val kml: InputStream = resources.openRawResource(arrayKml.getResourceId(i, -1))
                 val kmlLayer = KmlLayer(map, kml, requireContext())
-                kmlLayer.addLayerToMap()
-                if (kmlLayer.containers != null){
-                    for (container in kmlLayer.containers) {
-                        if (container.hasPlacemarks()) {
-                            for (placemark in container.placemarks) {
-                                val geometry = placemark.geometry
-                                if (geometry.geometryType == KML_POINT) {
-                                    val point = placemark.geometry as KmlPoint
-                                    val latLng = LatLng(point.geometryObject.latitude, point.geometryObject.longitude)
-                                    pathPoints.add(latLng)
-                                }
-                            }
-                        }
-                    }
-                }
-                kmlLayer.removeLayerFromMap()
+                arrayKmlLayers.add(kmlLayer)
             }
-            arrayKml.recycle()
         } catch (e: XmlPullParserException) {
             e.printStackTrace()
         } catch (e: IOException) {
@@ -146,11 +198,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         val markerOptions = MarkerOptions().position(LatLng(lat, lon)).title(title)
                 .snippet(text).icon(icon)
         map.addMarker(markerOptions)
-
     }
 
     private fun initKmCards() {
-
+        arrayKml  = resources.obtainTypedArray(R.array.arrayKml)
         recyclerViewMap?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmListInt = resources.getIntArray(R.array.arrayKm)
         val kmList: ArrayList<CardKm> = arrayListOf()
@@ -161,7 +212,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        val adapter = KmAdapter(pathPoints, kmList, map, this.requireContext())
+
+        val adapter = KmAdapter(arrayKmlLayers, arrayListCoordinates, kmList, map, this.requireContext())
         recyclerViewMap?.adapter = adapter
     }
 

@@ -20,5 +20,11 @@ data class TeamsDBModel (
         val companies: Int?,
 
         @ColumnInfo(name = "particulars")
-        val particulars: Int?
+        val particulars: Int?,
+
+        @ColumnInfo(name = "total")
+        val total: Int?,
+
+        @ColumnInfo(name = "percentage")
+        val percentage: Double?
 )

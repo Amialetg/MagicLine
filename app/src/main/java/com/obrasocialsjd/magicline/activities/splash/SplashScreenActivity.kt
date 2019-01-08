@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import com.obrasocialsjd.magicline.BuildConfig
+import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.Result

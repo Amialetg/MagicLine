@@ -14,7 +14,6 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
-import com.obrasocialsjd.magicline.activities.main.otherui.RrssView
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
 import com.obrasocialsjd.magicline.data.models.posts.PostsItem
@@ -24,15 +23,10 @@ import com.obrasocialsjd.magicline.models.NewsModel
 import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
-import kotlinx.android.synthetic.main.fragment_magic_line.rrssView
+import kotlinx.android.synthetic.main.fragment_magic_line.*
 import kotlinx.android.synthetic.main.layout_a_fons.*
-import kotlinx.android.synthetic.main.layout_countdown_bottom.*
-import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
-import kotlinx.android.synthetic.main.layout_rrss.*
-import kotlinx.android.synthetic.main.layout_recaudats_participants.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {

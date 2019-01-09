@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.models
 
-import com.obrasocialsjd.magicline.R
 import java.io.Serializable
 
 //By default the colors of the toolbar are black, if you want to set it to white you have to use the "isBlack" boolean when you call the DetailModel()

@@ -10,8 +10,15 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.R.layout.toolbar_appbar_top
+import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import kotlinx.android.synthetic.main.fragment_donations.view.*
+import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class DonationsFragment: BaseFragment(){
 
@@ -21,6 +28,14 @@ class DonationsFragment: BaseFragment(){
         val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
+
+
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        v.topToolbar.title = getString(R.string.ml)
+        v.topToolbar.navigationIcon = ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_black_cross)
+        v.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
+
+
 
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO
@@ -71,6 +86,7 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.clearCache(true)
         return v
     }
+
 
     private fun testApi() {
         /*val loginModelClient = OkHttpClient().newBuilder()

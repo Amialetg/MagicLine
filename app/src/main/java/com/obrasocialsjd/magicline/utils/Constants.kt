@@ -24,13 +24,11 @@ const val PREF_LANGUAGE : String = "My_Lang"
  * LOCALE
  */
 
-const val CATALAN : String = "ca_ES"
 const val SPANISH : String = "es_ES"
 
 const val CATALAN_API : String = "cat"
 const val SPANISH_API : String = "spa"
 
-const val CATALAN_LOCALE : String = "ca"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"

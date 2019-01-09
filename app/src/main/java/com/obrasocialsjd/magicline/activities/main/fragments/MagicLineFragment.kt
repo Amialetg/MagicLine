@@ -26,9 +26,11 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.fragment_magic_line.rrssView
 import kotlinx.android.synthetic.main.layout_a_fons.*
-import kotlinx.android.synthetic.main.layout_countdown.*
+import kotlinx.android.synthetic.main.layout_countdown_bottom.*
+import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
+import kotlinx.android.synthetic.main.layout_rrss.*
 import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,7 +38,6 @@ import java.util.*
 class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
-    private lateinit var dateCursaString: String
     private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
@@ -48,7 +49,6 @@ class MagicLineFragment : BaseFragment() {
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MagicLineViewModelFactory(requireActivity().application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
-
     }
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -108,30 +108,14 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initWidgets(): Array<TextView> {
-
-        //cursa date
-        dateCursaString = getString(R.string.cursa_date)
-
-        return arrayOf(countdown_dies, countdown_hores, countdown_min, countdown_seg)
+        return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
-        //Utilitzem el formatter per aconseguir l'objecte Date
-        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
-
-        //data actual y data de la cursa
-        val currentTime: Date = Calendar.getInstance().time
-        val dateCursa: Date = formatter.parse(dateCursaString)
-
-        //pasem a long les dates
-        val currentLong: Long = currentTime.time
-        val cursaLong: Long = dateCursa.time
-
-        //trobem el temps restant en long
-        val diff: Long = cursaLong - currentLong
-
+        val currentTime: Long = Calendar.getInstance().timeInMillis
+        val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
+        val diff: Long = dateLong - currentTime
         MyCounter(diff, 1000, txtDies).start()
-
     }
 
     private fun initNewsRecycler() {
@@ -147,9 +131,6 @@ class MagicLineFragment : BaseFragment() {
         newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
         newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
-
-        //Adding the page indicators
-        // TODO re-DO news slider
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
@@ -172,7 +153,7 @@ class MagicLineFragment : BaseFragment() {
     private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
         val news : MutableList<NewsModel> = mutableListOf()
         for (item in list) {
-            news.add(NewsModel(title = item.post.title, description = item.post.text))
+            news.add(NewsModel(title = item.post.title, subtitle = item.post.teaser, description = item.post.text))
         }
         return news
     }
@@ -211,25 +192,26 @@ class MagicLineFragment : BaseFragment() {
                 subtitle = "",
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
-                isBlack = false,
-               // toolbarImg = R.drawable.imprescindibles,
-                hasToolbarImg = true)
+                isBlack = true,
+                toolbarImg = listOf(R.drawable.imprescindibles),
+                hasToolbarImg = false,
+                titleToolbar = getString(R.string.title_toolbar_imprs))
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = "",
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
-                isBlack = false,
-              //  toolbarImg = R.drawable.destidelfons,
-                hasToolbarImg = true)
+                isBlack = true,
+                toolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori),
+                hasToolbarImg = false)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
                 subtitle = getString(R.string.sjd_subtitle),
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
-                isBlack = false,
-              //  toolbarImg = R.drawable.laboratori,
-                hasToolbarImg = true)
+                isBlack = true,
+                toolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
+                hasToolbarImg = false)
 
         info_essentials_button.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))

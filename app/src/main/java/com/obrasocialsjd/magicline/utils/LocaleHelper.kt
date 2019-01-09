@@ -50,16 +50,14 @@ fun getAPILang(context: Context) : String {
     val preferencesLang = getLanguagePreferences(context)
     return when(preferencesLang) {
         SPANISH -> SPANISH_API
-        CATALAN -> CATALAN_API
-        else -> SPANISH_API
+        else -> CATALAN_API
     }
 }
 
 fun getLocaleTagForString(locale: String) : String {
     return when (locale) {
         SPANISH_LOCALE -> SPANISH
-        CATALAN_LOCALE -> CATALAN
-        else -> SPANISH
+        else -> ""
     }
 }
 

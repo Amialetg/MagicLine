@@ -1,7 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,24 +25,17 @@ import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
-import kotlinx.android.synthetic.main.layout_countdown.*
+import kotlinx.android.synthetic.main.layout_countdown_bottom.*
+import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
-import kotlinx.android.synthetic.main.layout_recaudats_participants.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import java.text.SimpleDateFormat
 import java.util.*
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.ScaleDrawable
-import com.squareup.picasso.Picasso
 
 class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
-    private lateinit var dateCursaString: String
     private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
@@ -109,30 +101,14 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initWidgets(): Array<TextView> {
-
-        //cursa date
-        dateCursaString = getString(R.string.cursa_date)
-
-        return arrayOf(countdown_dies, countdown_hores, countdown_min, countdown_seg)
+        return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
-        //Utilitzem el formatter per aconseguir l'objecte Date
-        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
-
-        //data actual y data de la cursa
-        val currentTime: Date = Calendar.getInstance().time
-        val dateCursa: Date = formatter.parse(dateCursaString)
-
-        //pasem a long les dates
-        val currentLong: Long = currentTime.time
-        val cursaLong: Long = dateCursa.time
-
-        //trobem el temps restant en long
-        val diff: Long = cursaLong - currentLong
-
+        val currentTime: Long = Calendar.getInstance().timeInMillis
+        val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
+        val diff: Long = dateLong - currentTime
         MyCounter(diff, 1000, txtDies).start()
-
     }
 
     private fun initNewsRecycler() {
@@ -148,9 +124,6 @@ class MagicLineFragment : BaseFragment() {
         newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
         newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
-
-        //Adding the page indicators
-        // TODO re-DO news slider
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)

@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.app.Activity
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
@@ -13,8 +11,6 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
-import com.obrasocialsjd.magicline.utils.SPANISH
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){
@@ -26,15 +22,11 @@ class DonationsFragment: BaseFragment(){
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
 
-        val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
-
-
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO
 
         v.webviewDonation.webViewClient = WebViewClient()
         v.webviewDonation.webChromeClient = WebChromeClient()
-
 
         // Enable zooming in web view
         settings.setSupportZoom(true)
@@ -64,47 +56,27 @@ class DonationsFragment: BaseFragment(){
 
             override fun onLoadResource(view: WebView?, url: String?) {
                 v.webviewDonation.evaluateJavascript(js, null)
-
                 super.onLoadResource(view, url)
-
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
-
                 v.progressBar.visibility = View.GONE
                 v.webviewDonation.evaluateJavascript(js, null)
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
             }
         }
-
-
-
-        if(prefs.getString(PREF_LANGUAGE, "") == SPANISH){
-            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/es/equipos/")
-        }else{
-            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
-
-        }
+         v.webviewDonation.loadUrl(getString(R.string.donation_url))
         v.webviewDonation.clearCache(true)
-
         return v
-
     }
-
 
     private fun testApi() {
         /*val loginModelClient = OkHttpClient().newBuilder()
                 .addInterceptor(MagicLineInterceptor("acces_token"))
                 .build()
-
-
-
-
         val magicLineService = retrofit.create(MagicLineService::class.java)
-
-
         val call = magicLineService.testAPI("Test")
         val result = call.execute().body()
         Log.e("API",result.toString())*/
@@ -115,7 +87,4 @@ class DonationsFragment: BaseFragment(){
             return DonationsFragment()
         }
     }
-
-
-
 }

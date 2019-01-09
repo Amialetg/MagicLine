@@ -39,3 +39,15 @@ const val KM : String = "km"
  */
 
 const val KML_POINT: String = "Point"
+/**
+ * BOTTONAVIGATIONBAR ITEM POSITIONS
+ */
+
+const val HOME : Int = 0
+const val SCHEDULE : Int = 1
+const val DONATIONS : Int = 3
+const val OPTIONS : Int = 4
+/** VIEW MANAGEMENT TAGS**/
+
+const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
+

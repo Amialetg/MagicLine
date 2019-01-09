@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_menu"
         app:itemTextAppearance="@style/menu_text_style"
-        android:background="@color/bottom_toolbar_background"
-        />
+        android:background="@color/bottom_toolbar_background" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

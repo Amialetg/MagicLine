@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.app.Activity
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
@@ -23,8 +21,6 @@ class DonationsFragment: BaseFragment(){
         val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
-
-        val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO

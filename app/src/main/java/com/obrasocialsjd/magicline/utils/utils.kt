@@ -1,6 +1,7 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.os.Build
+import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,13 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
 
 fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true) {
     val transaction = this.supportFragmentManager.beginTransaction()
+
+    // Adds button bar management (show/hide) bundle's argument
+    var bundle = fragment.arguments ?: Bundle()
+    bundle.putBoolean(SHOW_BOTTOM_BAR_TAG, useModalAnimation)
+    fragment.arguments = bundle
+
+    if(useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
 
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
         if (useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)

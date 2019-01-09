@@ -73,7 +73,7 @@ class DonationsFragment: BaseFragment(){
                 super.onPageFinished(view, url)
             }
         }
-         v.webviewDonation.loadUrl(getDonationsUrlByCity())
+         v.webviewDonation.loadUrl(getString(R.string.donation_url))
         v.webviewDonation.clearCache(true)
         return v
     }
@@ -93,22 +93,4 @@ class DonationsFragment: BaseFragment(){
             return DonationsFragment()
         }
     }
-    private fun getDonationsUrlByCity() : String {
-        return when (getFlavor()) {
-            BARCELONA -> {
-                return getString(R.string.donation_url)
-            }
-            MALLORCA -> {
-                return getString(R.string.donation_url)
-            }
-            VALENCIA -> {
-                return getString(R.string.donation_url)
-            }
-            else -> {
-                return getString(R.string.donation_url)
-            }
-        }
-    }
-
-
 }

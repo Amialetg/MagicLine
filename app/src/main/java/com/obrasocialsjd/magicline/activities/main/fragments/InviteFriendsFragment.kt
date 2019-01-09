@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.*
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.R.string.fb_pkg
 import kotlinx.android.synthetic.main.fragment_invite_friends.*
+import kotlinx.android.synthetic.main.fragment_invite_friends.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
@@ -31,44 +34,35 @@ class InviteFriendsFragment: BaseFragment() {
 
     }
 
-    private fun initToolbar(){
+    private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        inviteFriendsView.topToolbar.setNavigationIcon(R.drawable.ic_black_cross)
-        inviteFriendsView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
-        inviteFriendsView.topToolbar.title = ""
-        inviteFriendsView.topToolbar.background = ContextCompat.getDrawable(requireContext(), R.drawable.invite_friends_bg)
-        inviteFriendsView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
-        }
+        inviteFriendsView.crossBtn.setBackgroundResource(R.drawable.ic_black_cross)
+        inviteFriendsView.crossBtn.setOnClickListener { this.requireActivity().onBackPressed() }
+        inviteFriendsView.textViewHeader.setText(R.string.inviteFriends)
+    }
 
     private fun initRRSSListeners(){
 
-        val fbPkg = getString(R.string.fb_pkg)
-        val messengerPkg = getString(R.string.msn_pkg)
-        val emailPkg = getString(R.string.email_pkg)
-        val telegramPkg = getString(R.string.tel_pkg)
-        val whatsappPkg = getString(R.string.whats_pkg)
-
         emailTextView.setOnClickListener{
-            callIntent(emailPkg)
+            callIntent(getString(R.string.email_pkg))
         }
-        facebookTextView.setOnClickListener{
-            callIntent(fbPkg)
+        fbTextView.setOnClickListener{
+            callIntent(getString(R.string.fb_pkg))
         }
-        messengerTextView.setOnClickListener{
-            callIntent(messengerPkg)
+        msnTextView.setOnClickListener{
+            callIntent(getString(R.string.msn_pkg))
         }
         telegramTextView.setOnClickListener{
-            callIntent(telegramPkg)
+            callIntent(getString(R.string.tel_pkg))
         }
-        whatsappTextView.setOnClickListener{
-            callIntent(whatsappPkg)
+        whatsTextView.setOnClickListener{
+            callIntent(getString(R.string.whats_pkg))
         }
 
     }
 
     private fun callIntent(pkg: String) {
 
-        //val pm = context.packageManager//getPackageManager()
         try {
             val waIntent = Intent(Intent.ACTION_SEND)
             waIntent.type = "text/plain"

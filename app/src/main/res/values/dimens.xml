@@ -4,4 +4,7 @@
     <dimen name="textSize_24">24sp</dimen>
     <dimen name="subtitle_donation">20sp</dimen>
     <dimen name="textSize_14">14sp</dimen>
+    <dimen name="crossBtn">18dp</dimen>
+    <dimen name="inviteBtnMargin">28dp</dimen>
+    <dimen name="inviteBtnImg">28dp</dimen>
 </resources>

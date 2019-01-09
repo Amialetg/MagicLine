@@ -32,13 +32,7 @@ const val SPANISH_API : String = "spa"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
-const val KM : String = "km"
 
-/**
- * MAP - KML
- */
-
-const val KML_POINT: String = "Point"
 /**
  * BOTTONAVIGATIONBAR ITEM POSITIONS
  */
@@ -58,3 +52,14 @@ const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
 const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
         " SUM(total * 100 / percentage) as spots " +
         "from teamsMarkers where city = :city"
+
+/**
+ * MAP
+ */
+const val KM : String = "km"
+
+/**
+ * MAP - KML
+ */
+
+const val KML_POINT: String = "Point"

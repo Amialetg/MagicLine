@@ -6,7 +6,6 @@
 <string name="OValues3">Respeto al medioambiente</string>
 
 <!--CountDown-->
-<string name="cursa_date">24.02.2019, 10:00</string>
 <string name="cityFlavor" translatable="false">Barcelona</string>
 <string name="cityParticipants" translatable="false">6260</string>
 <string name="btn_fer_donacio">Hacer una donación</string>
@@ -86,6 +85,7 @@
 <string name="essentials_title">10 imprescindibles Magic Line SJD</string>
 <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
 <string name="essentials_body">
+>>>>>>> Develop
         <![CDATA[<html>
         \t 1.<b> MUCHO MÁS QUE UNA CAMINATA.</b> Las acciones solidarias de los equipos se convierten en ayudas para personas en situación vulnerable atendidas en centros de San Juan de Dios y otras entidades cercanas.<br/><br/>
 
@@ -201,5 +201,6 @@
 <string name="aboutTheAppSubTitle">Compromís social</string>
 <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
+    <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
 
 </resources>

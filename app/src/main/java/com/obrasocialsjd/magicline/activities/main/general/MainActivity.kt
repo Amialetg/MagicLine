@@ -13,6 +13,9 @@ import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
+import com.obrasocialsjd.magicline.utils.DONATIONS
+import com.obrasocialsjd.magicline.utils.HOME
+import com.obrasocialsjd.magicline.utils.SCHEDULE
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
 import java.io.Serializable
@@ -92,10 +95,8 @@ class MainActivity : BaseActivity() {
     private fun selectFragment(item: MenuItem) {
 
         if (!item.isChecked) {
-
             // Those are fragments of the main view, so we don't need the back-stack
             clearBackStack()
-
             val newFragment: BaseFragment
             when (item.itemId) {
                 R.id.magicline_menu_id -> {
@@ -136,12 +137,23 @@ class MainActivity : BaseActivity() {
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb))
 
-
         when (extra) {
-            "ultimaNoticia" -> this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
-            "ferDonacio" -> this.transitionWithModalAnimation(DonationsFragment())
-            "detallsEsdeveniments" -> this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel)) //Especificar qué Fragment
-            else -> if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
+            "ultimaNoticia" -> {
+                this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))
+            }
+            "ferDonacio" -> {
+                bottomBarView.menu.getItem(DONATIONS).isChecked = true
+                this.transitionWithModalAnimation(DonationsFragment())
+            }
+            "detallsEsdeveniments" -> {
+                bottomBarView.menu.getItem(SCHEDULE).isChecked = true
+
+                this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel))
+            } //Especificar qué Fragment
+            else -> {
+                bottomBarView.menu.getItem(HOME).isChecked = true
+                if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
+            }
         }
     }
 

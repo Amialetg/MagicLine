@@ -32,3 +32,12 @@ const val SPANISH_API : String = "spa"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
+
+/**
+ * BOTTONAVIGATIONBAR ITEM POSITIONS
+ */
+
+const val HOME : Int = 0
+const val SCHEDULE : Int = 1
+const val DONATIONS : Int = 3
+const val OPTIONS : Int = 4

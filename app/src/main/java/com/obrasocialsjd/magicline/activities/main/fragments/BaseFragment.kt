@@ -15,9 +15,9 @@ abstract class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (arguments != null) {
-            isModal = arguments!!.getBoolean(SHOW_BOTTOM_BAR_TAG, false)
-            hasShareView = arguments!!.getBoolean(SHOW_SHARE_VIEW_TAG, false)
+        arguments?.let { arguments ->
+            isModal = arguments.getBoolean(SHOW_BOTTOM_BAR_TAG, false)
+            hasShareView = arguments.getBoolean(SHOW_SHARE_VIEW_TAG, false)
         }
     }
 
@@ -26,7 +26,6 @@ abstract class BaseFragment : Fragment() {
         (activity as MainActivity).manageBottomBar(isModal)
         (activity as MainActivity).manageShareView(hasShareView)
     }
-
 }
 
 

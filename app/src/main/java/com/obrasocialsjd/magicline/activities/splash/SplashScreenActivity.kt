@@ -8,7 +8,6 @@ import com.obrasocialsjd.magicline.BuildConfig
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
-import com.obrasocialsjd.magicline.data.Result
 import com.obrasocialsjd.magicline.db.MagicLineDB
 
 /**
@@ -29,13 +28,7 @@ class SplashScreenActivity : Activity() {
         repo.authenticate(
                 BuildConfig.MLAPIUser,
                 BuildConfig.MLAPIPassword
-        ) { result -> when (result) {
-            is Result.Success -> {
-                authenticationSuccess()
-            }
-        } }
-
-        authenticationSuccess()
+        ) { authenticationSuccess() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

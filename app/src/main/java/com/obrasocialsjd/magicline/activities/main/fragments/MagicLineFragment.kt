@@ -110,22 +110,30 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initWidgets(): Array<TextView> {
 
-        magicLineDate = getString(R.string.magicLineDate)
+//        magicLineDate = getString(R.string.magicLineDate)
+        var mlDate =
 
         return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
         //Utilitzem el formatter per aconseguir l'objecte Date
-        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
+//        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
 
         //data actual y data de la cursa
         val currentTime: Date = Calendar.getInstance().time
-        val date: Date = formatter.parse(magicLineDate)
-
-        //pasem a long les dates
+//        val date: Date = formatter.parse(magicLineDate)
+//
+//        //pasem a long les dates
         val currentLong: Long = currentTime.time
-        val dateLong: Long = date.time
+//        val dateLong: Long = date.time
+        var dateLong: Long = ML_DATE_BCN
+
+        when (getFlavor()) {
+            BARCELONA -> dateLong = ML_DATE_BCN
+            VALENCIA -> dateLong = ML_DATE_VLC
+            MALLORCA -> dateLong = ML_DATE_MLC
+        }
 
         //trobem el temps restant en long
         val diff: Long = dateLong - currentLong

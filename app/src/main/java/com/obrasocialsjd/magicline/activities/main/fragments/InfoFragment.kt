@@ -13,7 +13,6 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.CATALAN
 import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import com.obrasocialsjd.magicline.utils.SPANISH
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
@@ -29,7 +28,6 @@ class InfoFragment: BaseFragment() {
         return inflater.inflate(R.layout.fragment_info, container,  false)
     }
 
-
     override fun onStart() {
 
         super.onStart()
@@ -42,13 +40,11 @@ class InfoFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
+        if(prefs.getString(PREF_LANGUAGE, "") != SPANISH){
             checkbox_catalan_text.isChecked = true
         }else{
             checkbox_spanish_text.isChecked = true
         }
-
-
         checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
             if(checkbox_spanish_text.isChecked){
@@ -56,7 +52,6 @@ class InfoFragment: BaseFragment() {
                 if (checkbox_catalan_text.isChecked){
                     checkbox_catalan_text.isChecked = false
                 }
-
                 val editor = prefs.edit()
                 editor.putString(PREF_LANGUAGE, SPANISH)
                 editor.apply()
@@ -69,10 +64,9 @@ class InfoFragment: BaseFragment() {
             if(checkbox_catalan_text.isChecked){
                 if (checkbox_spanish_text.isChecked){
                     checkbox_spanish_text.isChecked = false
-
                 }
                 val editor = prefs.edit()
-                editor.putString(PREF_LANGUAGE, CATALAN)
+                editor.putString(PREF_LANGUAGE, "_")
                 editor.apply()
                 refresh()
             }
@@ -90,11 +84,9 @@ class InfoFragment: BaseFragment() {
         moreInfoFriendsTextView.setOnClickListener{
             (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
-
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)
         }
-
         aboutMLTextView.setOnClickListener{
 
             val dataModelAboutMLApp = DetailModel(
@@ -102,7 +94,7 @@ class InfoFragment: BaseFragment() {
                     subtitle = getString(aboutTheAppSubTitle),
                     textBody = getString(aboutTheAppBody),
                     link = getString(essentials_viewOnWeb),
-                    toolbarImg = about_us,
+                    toolbarImg = listOf(about_us),
                     isBlack = false,
                     hasToolbarImg = true)
 
@@ -115,7 +107,6 @@ class InfoFragment: BaseFragment() {
         var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
-
     }
 
     companion object {

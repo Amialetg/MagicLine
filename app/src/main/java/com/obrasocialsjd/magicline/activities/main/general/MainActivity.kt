@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -14,7 +15,7 @@ import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
-import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 
 class MainActivity : BaseActivity() {
@@ -28,8 +29,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         //Prepare the mapFAB
-        floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
-        floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
+        bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
+        bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
 
         getData()
 
@@ -64,16 +65,16 @@ class MainActivity : BaseActivity() {
     fun initNavigation() {
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
-            floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
-            floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
+            bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
+            bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
 
             selectFragment(item)
             true
         }
 
-        floatingBtn.setOnClickListener {
-            floatingBtn.setColorFilter(ContextCompat.getColor(this, R.color.white))
-            floatingBtn.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
+        bottomBarFloatingButton.setOnClickListener {
+            bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
+            bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
 
             //We set clicked on the none item in order to disable the rest of the items
             //but the fragment that is shown is the map fragment
@@ -136,7 +137,6 @@ class MainActivity : BaseActivity() {
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb))
 
-
         when (extra) {
             "ultimaNoticia" -> this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential)) //navigation to the las news TODO: cambiar Fragment
             "ferDonacio" -> this.transitionWithModalAnimation(DonationsFragment())
@@ -184,6 +184,17 @@ class MainActivity : BaseActivity() {
     private fun clearBackStack() {
         while (supportFragmentManager.backStackEntryCount != 0) {
             supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
+    }
+
+    fun manageBottomBar(isModal : Boolean) {
+
+        if (isModal) {
+            bottomBarView.visibility = View.GONE
+            bottomBarFloatingButton.hide()
+        } else {
+            bottomBarView.visibility = View.VISIBLE
+            bottomBarFloatingButton.show()
         }
     }
 }

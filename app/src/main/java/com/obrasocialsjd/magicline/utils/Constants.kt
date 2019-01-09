@@ -32,3 +32,9 @@ const val SPANISH_API : String = "spa"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
+
+/**
+ * VIEW MANAGEMENT TAGS
+ */
+
+const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"

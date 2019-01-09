@@ -51,3 +51,10 @@ const val OPTIONS : Int = 4
 
 const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
 
+/**
+ * ROOM QUERIES
+ */
+
+const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
+        " SUM(total * 100 / percentage) as spots " +
+        "from teamsMarkers where city = :city"

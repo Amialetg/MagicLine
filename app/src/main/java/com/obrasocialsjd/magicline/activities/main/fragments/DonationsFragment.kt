@@ -13,8 +13,6 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.utils.*
-import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){

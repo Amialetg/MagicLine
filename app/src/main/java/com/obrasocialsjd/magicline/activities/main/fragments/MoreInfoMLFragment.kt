@@ -17,11 +17,11 @@ import com.obrasocialsjd.magicline.R.color.light_red
 import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.obrasocialsjd.magicline.R.string.*
-import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
 import com.obrasocialsjd.magicline.utils.addThousandsSeparator
+import com.obrasocialsjd.magicline.utils.callIntent
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
@@ -89,9 +89,9 @@ class MoreInfoMLFragment : BaseFragment() {
         val urlInstagram = getString(R.string.url_instagram)
         val urlTwitter = getString(R.string.url_twitter)
 
-        moreInfoMLView.rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
-        moreInfoMLView.rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
-        moreInfoMLView.rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
+        moreInfoMLView.rrssView.fbListener = { activity?.callIntent(urlFacebook) }
+        moreInfoMLView.rrssView.instaListener = { activity?.callIntent(urlInstagram) }
+        moreInfoMLView.rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
     private fun createBarChart() {

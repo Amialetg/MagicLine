@@ -1,7 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -199,12 +198,6 @@ class MainActivity : BaseActivity() {
         while (supportFragmentManager.backStackEntryCount != 0) {
             supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
-    }
-
-    fun callIntent(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
     }
 
     fun manageBottomBar(isModal : Boolean) {

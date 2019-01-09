@@ -77,9 +77,9 @@ class MagicLineFragment : BaseFragment() {
         val urlInstagram = getString(R.string.url_instagram)
         val urlTwitter = getString(R.string.url_twitter)
 
-        rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
-        rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
-        rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
+        rrssView.fbListener = { activity?.callIntent(urlFacebook) }
+        rrssView.instaListener = { activity?.callIntent(urlInstagram) }
+        rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
     private fun initMesQueListeners() {

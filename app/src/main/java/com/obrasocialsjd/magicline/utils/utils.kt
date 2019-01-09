@@ -1,5 +1,8 @@
 package com.obrasocialsjd.magicline.utils
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -50,6 +53,12 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
     transaction.commit()
 
     supportFragmentManager.executePendingTransactions()
+}
+
+fun Activity.callIntent(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    startActivity(intent)
 }
 
 fun String.htmlToSpanned() : Spanned {

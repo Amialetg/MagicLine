@@ -59,8 +59,6 @@ class MagicLineFragment : BaseFragment() {
 
         initCountDown(txtArray)
 
-        initStaticContent()
-
         initMoreInfoMLListener()
 
         initNewsRecycler()
@@ -92,10 +90,6 @@ class MagicLineFragment : BaseFragment() {
         moreInfoML.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
         }
-    }
-
-    private fun initStaticContent() {
-        participants_num.text = getString(R.string.cityParticipants).addThousandsSeparator()
     }
 
     private fun initWidgets(): Array<TextView> {
@@ -142,6 +136,12 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
                 recaudats_num.text = getDonationsByCity(donation).addCurrency()
+            }
+        })
+
+        mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
+            participants?.let {
+                participants_num.text = it.totalParticipants.toString().addThousandsSeparator()
             }
         })
     }

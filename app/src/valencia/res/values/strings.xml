@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cityFlavor" translatable="false">Valencia</string>
-
     <string name="cityParticipants" translatable="false">110</string>
 
     <!-- MAGIC LINE INFO -->

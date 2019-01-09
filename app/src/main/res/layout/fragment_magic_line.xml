@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/layout_countdown_recaudats_participants" />
+                <include layout="@layout/layout_countdown" />
 
                 <include layout="@layout/layout_news" />
 

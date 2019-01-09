@@ -1,119 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/countdown_timer_height">
+    android:layout_height="@dimen/countdown_parent_height"
+    android:orientation="vertical"
+    android:background="@drawable/countdown_background"
+    >
 
-    <RelativeLayout
+    <include layout="@layout/layout_countdown_top" />
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!--android:background="@drawable/about_us"-->
-       <!--&gt;-->
+        android:layout_height="1dp"
+        android:background="@color/white"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/principal_top_toolbar"
-            style="@style/TopTitle"
-            android:layout_marginTop="34dp"
-            android:id="@+id/ml_title_text"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cityFlavor"
-            android:layout_below="@id/ml_title_text"
-            android:fontFamily="@font/lato_regular"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_centerHorizontal="true"
-            />
+    <include layout="@layout/layout_countdown_bottom" />
 
-        <GridLayout
-            android:layout_marginTop="@dimen/margin_top_grid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:rowCount="2"
-            android:columnCount="4"
-            android:layout_centerHorizontal="true"
-            >
 
-            <TextView
-                android:id="@+id/countdown_dies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="10"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginBottom="4dp"
-                style="@style/CountDownNumbers"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/CountDownNumbers"
-                tools:text="60"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:id="@+id/countdown_hores"
-                />
-            <TextView
-                android:id="@+id/countdown_min"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="10"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                style="@style/CountDownNumbers"
-                />
-            <TextView
-                android:id="@+id/countdown_seg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="02"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                style="@style/CountDownNumbers"
-                />
 
-            <TextView
-                style="@style/CountDownLetters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_gravity="center"
-                android:text="@string/text_countdown_dies" />
-
-            <TextView
-                style="@style/CountDownLetters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-
-                android:text="@string/text_countdown_hores" />
-
-            <TextView
-                style="@style/CountDownLetters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-
-                android:gravity="center_horizontal"
-                android:text="@string/text_countdown_minuts" />
-
-            <TextView
-                style="@style/CountDownLetters"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/text_countdown_segons" />
-
-        </GridLayout>
-
-    </RelativeLayout>
-
-</RelativeLayout>
+</LinearLayout>

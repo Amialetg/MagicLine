@@ -8,7 +8,7 @@
     <!--CountDown-->
     <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="cityParticipants" translatable="false">6260</string>
-    <string name="btn_fer_donacio" translatable="false">Fer una donació</string>
+    <string name="btn_fer_donacio" translatable="false">Fer una  donació</string>
     <string name="recaudats_text" translatable="false">recaptat</string>
     <string name="participants_text" translatable="false">participants</string>
     <string name="mes_info" translatable="false">Més info</string>

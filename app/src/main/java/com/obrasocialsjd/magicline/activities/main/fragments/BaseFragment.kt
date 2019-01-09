@@ -11,8 +11,9 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null && arguments!!.getBoolean(SHOW_BOTTOM_BAR_TAG)) {
-            isModal = arguments!!.getBoolean(SHOW_BOTTOM_BAR_TAG)
+
+        arguments?.let { arguments ->
+            isModal = arguments.getBoolean(SHOW_BOTTOM_BAR_TAG, false)
         }
     }
 

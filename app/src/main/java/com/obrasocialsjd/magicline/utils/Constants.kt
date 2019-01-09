@@ -32,11 +32,3 @@ const val SPANISH_API : String = "spa"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
-
-
-/**
- * FLAVOR MAGIC LINE DATES
- */
-const val ML_DATE_BCN : Long = 1550966400000
-const val ML_DATE_VLC : Long = 1550361600000
-const val ML_DATE_MLC : Long = 1554595200000

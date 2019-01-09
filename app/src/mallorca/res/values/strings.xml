@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cityFlavor" translatable="false">Mallorca</string>
-    <string name="magicLineDate" translatable="false">07.04.2019, 00:00</string>
     <string name="cityParticipants" translatable="false">123</string>
 
     <!-- MAGIC LINE INFO -->

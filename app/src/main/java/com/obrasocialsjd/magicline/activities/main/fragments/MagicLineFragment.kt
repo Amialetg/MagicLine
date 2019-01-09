@@ -43,7 +43,6 @@ import com.squareup.picasso.Picasso
 class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
-    private lateinit var magicLineDate: String
     private lateinit var myNewsAdapter: NewsAdapter
 
     //Programming section widgets
@@ -109,37 +108,14 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initWidgets(): Array<TextView> {
-
-//        magicLineDate = getString(R.string.magicLineDate)
-        var mlDate =
-
         return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
-        //Utilitzem el formatter per aconseguir l'objecte Date
-//        val formatter = SimpleDateFormat("dd.MM.yyyy, HH:mm")
-
-        //data actual y data de la cursa
-        val currentTime: Date = Calendar.getInstance().time
-//        val date: Date = formatter.parse(magicLineDate)
-//
-//        //pasem a long les dates
-        val currentLong: Long = currentTime.time
-//        val dateLong: Long = date.time
-        var dateLong: Long = ML_DATE_BCN
-
-        when (getFlavor()) {
-            BARCELONA -> dateLong = ML_DATE_BCN
-            VALENCIA -> dateLong = ML_DATE_VLC
-            MALLORCA -> dateLong = ML_DATE_MLC
-        }
-
-        //trobem el temps restant en long
-        val diff: Long = dateLong - currentLong
-
+        val currentTime: Long = Calendar.getInstance().timeInMillis
+        val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
+        val diff: Long = dateLong - currentTime
         MyCounter(diff, 1000, txtDies).start()
-
     }
 
     private fun initNewsRecycler() {
@@ -155,9 +131,6 @@ class MagicLineFragment : BaseFragment() {
         newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
         newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
-
-        //Adding the page indicators
-        // TODO re-DO news slider
 
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)

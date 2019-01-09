@@ -6,7 +6,6 @@
     <string name="OValues3" translatable="false">Respecte amb el medi ambient</string>
 
     <!--CountDown-->
-    <string name="magicLineDate" translatable="false">24.02.2019, 00:00</string>
     <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="cityParticipants" translatable="false">6260</string>
     <string name="btn_fer_donacio" translatable="false">Fer una donació</string>

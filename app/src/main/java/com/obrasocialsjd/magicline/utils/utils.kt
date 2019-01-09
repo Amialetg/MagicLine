@@ -11,8 +11,8 @@ import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 import java.text.NumberFormat
+import java.util.*
 
 // To use an specific code for each Flavor :
 fun isBarcelonaFlavor() : Boolean {

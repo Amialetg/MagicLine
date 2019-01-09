@@ -30,7 +30,6 @@ import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {

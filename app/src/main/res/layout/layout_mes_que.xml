@@ -4,8 +4,7 @@
     android:layout_height="148dp"
     android:orientation="vertical"
     android:paddingTop="25dp"
-    android:background="@drawable/mes_que_border"
-    >
+    android:background="@drawable/mes_que_border">
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
         android:paddingEnd="12dp"
         >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnDonateTeam"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -42,7 +41,7 @@
                 style="@style/btn_mes_que"
                 android:layout_weight="1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRequestDonates"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -58,7 +57,7 @@
                 style="@style/btn_mes_que"
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnBrainStorm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

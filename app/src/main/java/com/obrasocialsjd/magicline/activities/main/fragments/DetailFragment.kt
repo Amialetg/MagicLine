@@ -15,16 +15,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
-import com.voluntariat.android.magicline.activities.main.adapters.SlideViewAdapter
-import kotlinx.android.synthetic.main.fragment_detail.*
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.voluntariat.android.magicline.activities.main.adapters.SlideViewAdapter
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-import java.util.ArrayList
+import java.util.*
 
 class DetailFragment : BaseFragment() {
 

@@ -2,6 +2,7 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,6 @@ import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {
@@ -60,8 +60,6 @@ class MagicLineFragment : BaseFragment() {
         val txtArray = initWidgets()
 
         initCountDown(txtArray)
-
-        initStaticContent()
 
         initMoreInfoMLListener()
 
@@ -96,10 +94,6 @@ class MagicLineFragment : BaseFragment() {
         }
     }
 
-    private fun initStaticContent() {
-        participants_num.text = getString(R.string.cityParticipants).addThousandsSeparator()
-    }
-
     private fun initWidgets(): Array<TextView> {
         return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
@@ -125,6 +119,11 @@ class MagicLineFragment : BaseFragment() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
         newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
 
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+        }
+
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
 
@@ -139,6 +138,12 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
                 recaudats_num.text = getDonationsByCity(donation).addCurrency()
+            }
+        })
+
+        mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
+            participants?.let {
+                participants_num.text = it.totalParticipants.toString().addThousandsSeparator()
             }
         })
     }

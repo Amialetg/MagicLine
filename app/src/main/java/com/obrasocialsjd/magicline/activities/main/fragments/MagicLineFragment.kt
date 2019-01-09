@@ -136,8 +136,8 @@ class MagicLineFragment : BaseFragment() {
         })
 
         mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
-            if (participants != null) {
-                participants_num.text = participants.totalParticipants.toString().addThousandsSeparator()
+            participants?.let {
+                participants_num.text = it.totalParticipants.toString().addThousandsSeparator()
             }
         })
     }

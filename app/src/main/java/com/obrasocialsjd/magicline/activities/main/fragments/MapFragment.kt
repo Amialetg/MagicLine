@@ -85,8 +85,32 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             changeUserLocation()
         }
         mapView.showMarkersBtn.setOnClickListener {
-            changeMarkers(areMarkersActive)
+            //changeMarkers(areMarkersActive)
+
+            if (areMarkersActive) {
+                hideInterestMarkers()
+            } else {
+                showInterestMarkers()
+            }
         }
+    }
+
+    private fun hideInterestMarkers() {
+        // remove all markers
+        map.clear()
+        // Show route
+        addCurrentModalityLayerToMap()
+        // TODO Show markers
+    }
+
+    private fun showInterestMarkers() {
+        // TODO ask Andrea
+    }
+
+    private fun addCurrentModalityLayerToMap() {
+        kmAdapter.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+            if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap() }
+
     }
 
     private fun initCoordinates() {
@@ -115,7 +139,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         else {
             areMarkersActive = true
             map.clear()
-            initKmCards()
+            //initKmCards()
         }
         tintMarkerButton()
     }

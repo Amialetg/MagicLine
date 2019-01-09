@@ -2,18 +2,17 @@ package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Typeface
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlLayer
 import com.obrasocialsjd.magicline.R
-import android.graphics.Typeface
-import androidx.core.content.ContextCompat
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.obrasocialsjd.magicline.utils.KM
 import kotlinx.android.synthetic.main.km_cards.view.*
 
@@ -42,8 +41,10 @@ class KmAdapter (private var kmlLayers: ArrayList<KmlLayer>, private val coordin
             colorBg = ContextCompat.getColor(holder.itemView.context, R.color.colorPrimary)
             colorTxt = ContextCompat.getColor(context, R.color.white)
             typeFace = ResourcesCompat.getFont(context, R.font.lato_bold)
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinatesArrayList[selectedPosition], 12.5f))
-            if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
+
+            // TODO remove this behaviour from bindViewHolder, I think it belongs to onClickListener
+            //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinatesArrayList[selectedPosition], 12.5f))
+            //if (!kmlLayers[selectedPosition].isLayerOnMap) kmlLayers[selectedPosition].addLayerToMap()
 
         } else {
             for(i:Int in 0 until kmList.size){
@@ -51,6 +52,7 @@ class KmAdapter (private var kmlLayers: ArrayList<KmlLayer>, private val coordin
             }
         }
 
+        // TODO refactor, try to make a component for the cards and give it a selected status
         holder.itemView.TextViewMapNumKm.setTextColor(colorTxt)
         holder.itemView.TextViewMapTextKm.setTextColor(colorTxt)
         holder.itemView.TextViewMapTextKm.typeface = typeFace

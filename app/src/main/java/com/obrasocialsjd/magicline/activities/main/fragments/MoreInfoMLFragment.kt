@@ -25,7 +25,6 @@ import com.obrasocialsjd.magicline.utils.addThousandsSeparator
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
-import kotlinx.android.synthetic.main.fragment_magic_line.rrssView
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
 import kotlinx.android.synthetic.main.fragment_more_info_ml.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
@@ -45,7 +44,6 @@ class MoreInfoMLFragment : BaseFragment() {
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
-
         initRrss()
 
         return moreInfoMLView
@@ -91,9 +89,9 @@ class MoreInfoMLFragment : BaseFragment() {
         val urlInstagram = getString(R.string.url_instagram)
         val urlTwitter = getString(R.string.url_twitter)
 
-        rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
-        rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
-        rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
+        moreInfoMLView.rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
+        moreInfoMLView.rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
+        moreInfoMLView.rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
     }
 
     private fun createBarChart() {

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <FrameLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,9 +28,8 @@
                 android:id="@+id/crossBtn"
                 android:layout_width="@dimen/crossBtn"
                 android:layout_height="@dimen/crossBtn"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_margin="16dp"
+                android:layout_gravity="top|start"
                 android:backgroundTint="@color/white" />
 
             <TextView
@@ -38,12 +37,11 @@
                 style="@style/whiteText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
                 android:drawableTop="@drawable/invite_friends" />
 
 
-        </RelativeLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

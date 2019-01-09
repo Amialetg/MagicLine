@@ -1,7 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,14 +30,8 @@ import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import java.text.SimpleDateFormat
 import java.util.*
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.ScaleDrawable
-import com.squareup.picasso.Picasso
 
 class MagicLineFragment : BaseFragment() {
 

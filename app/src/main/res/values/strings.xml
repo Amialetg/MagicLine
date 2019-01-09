@@ -202,5 +202,7 @@
     <string name="aboutTheAppSubTitle">Compromís social</string>
     <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
+    <string name="donation_url">https://www.magiclinesjd.org/ca/equips/</string>
+
 </resources>
 

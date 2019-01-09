@@ -60,7 +60,11 @@ class DetailFragment : BaseFragment() {
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
-        detailLayoutView.topToolbar.title = detailModel.title
+        if(detailModel.titleToolbar.isNullOrEmpty()){
+            detailLayoutView.topToolbar.title = detailModel.title
+        }else{
+            detailLayoutView.topToolbar.title = detailModel.titleToolbar
+        }
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
 
         }

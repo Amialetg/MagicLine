@@ -14,6 +14,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.utils.*
+import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){
@@ -78,7 +79,7 @@ class DonationsFragment: BaseFragment(){
             }
         }
 
-        if(prefs.getString(PREF_LANGUAGE, "") == CATALAN){
+        if(prefs.getString(PREF_LANGUAGE, "") == SPANISH){
 
             v.webviewDonation.loadUrl(getDonationsUrlByCity())
             v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")

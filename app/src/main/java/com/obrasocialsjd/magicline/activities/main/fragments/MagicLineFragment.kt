@@ -207,7 +207,8 @@ class MagicLineFragment : BaseFragment() {
                 link = getString(R.string.essentials_viewOnWeb),
                 isBlack = true,
                 toolbarImg = listOf(R.drawable.imprescindibles),
-                hasToolbarImg = false)
+                hasToolbarImg = false,
+                titleToolbar = getString(R.string.title_toolbar_imprs))
         val dataModelDestiny = DetailModel(
                 title = getString(R.string.donations_title),
                 subtitle = "",
@@ -224,9 +225,6 @@ class MagicLineFragment : BaseFragment() {
                 isBlack = true,
                 toolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
                 hasToolbarImg = false)
-
-
-
 
         info_essentials_button.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))

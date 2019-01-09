@@ -150,6 +150,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun tintUserLocationButton() {
+        // TODO Compat
         if (isLocationActive){
             mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
 
@@ -159,6 +160,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun tintMarkerButton() {
+        // TODO compat
         if (!areMarkersActive){
             mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
 
@@ -166,6 +168,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
         }
     }
+
 
     override fun onStart() {
 

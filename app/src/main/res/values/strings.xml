@@ -6,7 +6,7 @@
     <string name="OValues3" translatable="false">Respecte amb el medi ambient</string>
 
     <!--CountDown-->
-    <string name="cursa_date" translatable="false">24.02.2019, 10:00</string>
+    <string name="cursa_date">24.02.2019, 10:00</string>
     <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="cityParticipants" translatable="false">6260</string>
     <string name="btn_fer_donacio" translatable="false">Fer una donació</string>
@@ -203,5 +203,7 @@
     <string name="aboutTheAppSubTitle">Compromís social</string>
     <string name="aboutTheAppBody">Aplicació desenvolupada per BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
+    <string name="donation_url">https://www.magiclinesjd.org/ca/equips/</string>
+
 </resources>
 

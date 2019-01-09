@@ -9,7 +9,7 @@
     <string name="cityFlavor" translatable="false">Barcelona</string>
     <string name="cityParticipants" translatable="false">6260</string>
     <string name="btn_fer_donacio" translatable="false">Fer una donació</string>
-    <string name="recaudats_text" translatable="false">recaudats</string>
+    <string name="recaudats_text" translatable="false">recaptat</string>
     <string name="participants_text" translatable="false">participants</string>
     <string name="mes_info" translatable="false">Més info</string>
 
@@ -140,7 +140,7 @@
     <string name="sjd_viewOnWeb">https://solidaritat.santjoandedeu.org/ca</string>
 
     <!-- Share -->
-    <string name="share">Share your experiences:</string>
+    <string name="share">Comparteix la teva experiència:</string>
     <string name="inviteFriends">Convida als teus amics \n a l\'app.</string>
     <string name="whatsapp" translatable="false">WhatsApp</string>
     <string name="telegram" translatable="false">Telegram</string>

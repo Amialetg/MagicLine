@@ -5,7 +5,6 @@ import android.content.res.TypedArray
 import android.graphics.Rect
 import android.location.Location
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,15 +21,13 @@ import com.google.android.gms.maps.model.*
 import com.google.maps.android.data.kml.KmlLayer
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
-import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
-import mumayank.com.airlocationlibrary.AirLocation
-import org.xmlpull.v1.XmlPullParserException
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.LatLng
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
+import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
+import mumayank.com.airlocationlibrary.AirLocation
+import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
 import kotlin.math.absoluteValue
@@ -49,6 +46,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var isLocationActive: Boolean = false
     private var areMarkersActive: Boolean = true
     private lateinit var arrayKml: TypedArray
+    private lateinit var kmAdapter: KmAdapter
+
+    private var userMarker : Marker? = null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         airLocation?.onActivityResult(requestCode, resultCode, data)
@@ -78,6 +78,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         mapView.userLocationBtn.setOnClickListener {
             if (isLocationActive){
 //                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(userLocation.latitude, userLocation.longitude), 12.5f))
+                hideUserLocation()
+            } else {
+                showUserLocation()
             }
             changeUserLocation()
         }
@@ -148,8 +151,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 isLocationActive = true
                 tintUserLocationButton()
                 userLocation = location
-                setMarker("", "", location.latitude, location.longitude, user_location_icon)
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+                showUserLocation()
             }
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
@@ -161,6 +163,22 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         })
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
+    }
+
+    private fun showUserLocation() {
+        userLocation.let { location ->
+            userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+        }
+    }
+
+    private fun hideUserLocation() {
+        userMarker?.remove()
+        userMarker = null
+        kmAdapter.let {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+        }
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -190,14 +208,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     }
 
-    private fun setMarker(title: String, text: String, lat: Double, lon: Double, resourceId: Int) {
-        setMarker(title, text, lat, lon, BitmapDescriptorFactory.fromResource(resourceId))
+    private fun setMarker(title: String, text: String, lat: Double, lon: Double, resourceId: Int): Marker? {
+        return setMarker(title, text, lat, lon, BitmapDescriptorFactory.fromResource(resourceId))
     }
 
-    private fun setMarker(title: String, text: String, lat: Double, lon: Double, icon: BitmapDescriptor) {
+    private fun setMarker(title: String, text: String, lat: Double, lon: Double, icon: BitmapDescriptor): Marker? {
         val markerOptions = MarkerOptions().position(LatLng(lat, lon)).title(title)
                 .snippet(text).icon(icon)
-        map.addMarker(markerOptions)
+        return map.addMarker(markerOptions)
     }
 
     private fun initKmCards() {
@@ -213,8 +231,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
 
-        val adapter = KmAdapter(arrayKmlLayers, arrayListCoordinates, kmList, map, this.requireContext())
-        recyclerViewMap?.adapter = adapter
+        kmAdapter = KmAdapter(arrayKmlLayers, arrayListCoordinates, kmList, map, this.requireContext())
+        recyclerViewMap?.adapter = kmAdapter
     }
 
     class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {

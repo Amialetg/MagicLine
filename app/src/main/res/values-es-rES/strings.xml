@@ -124,7 +124,7 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="donations_viewOnWeb">"http://www.magiclinesjd.org/es/a_quien_ayudamos"</string>
 
     <!-- Sant Joan de Déu Detail Fragment -->
-    <string name="sjd_title">"Sant Joan de Déu"</string>
+    <string name="sjd_title">"Solidaridad SJD"</string>
     <string name="sjd_subtitle">"La Obra Social San Juan de Dios promueve la solidaridad para sensibilizar e implicar a la ciudadanía en torno a las realidades de vulnerabilidad social que genera la sociedad."</string>
     <string name="sjd_body">
         <![CDATA[<html>
@@ -194,7 +194,7 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <!-- ABOUT ML APP -->
     <string name="aboutTheAppTitle">Sobre Magic Line</string>
     <string name="aboutTheAppSubTitle">Compromíso social</string>
-    <string name="aboutTheAppBody">Aplicación desarrollada por Hector Pascual y Albert Risco, estudiantes de la UPC, junto a Basetis, un equipo de apasionados por las tecnologías de la información que cree que debemos tener una responsabilidad social y ética en todos los ámbitos en los que intervienen.</string>
+    <string name="aboutTheAppBody">Aplicación desarrollada por Hector Pascual y Albert Risco, estudiantes de Enginyeria de Tecnologies i Serveis de Telecomunicació en la UPC, junto a Basetis, un equipo de apasionados por las tecnologías de la información que cree que debemos tener una responsabilidad social y ética en todos los ámbitos en los que intervienen.</string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
 

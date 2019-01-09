@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.item_details.view.*
 
 class SlideViewAdapter(private var dataSet : List<Int> = listOf()) : RecyclerView.Adapter<SlideViewAdapter.ViewHolder>() {
 

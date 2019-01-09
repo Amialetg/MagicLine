@@ -28,13 +28,11 @@ class DonationsFragment: BaseFragment(){
 
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO
 
         v.webviewDonation.webViewClient = WebViewClient()
         v.webviewDonation.webChromeClient = WebChromeClient()
-
 
         // Enable zooming in web view
         settings.setSupportZoom(true)
@@ -64,36 +62,20 @@ class DonationsFragment: BaseFragment(){
 
             override fun onLoadResource(view: WebView?, url: String?) {
                 v.webviewDonation.evaluateJavascript(js, null)
-
                 super.onLoadResource(view, url)
-
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
-
                 v.progressBar.visibility = View.GONE
                 v.webviewDonation.evaluateJavascript(js, null)
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
             }
         }
-
-        if(prefs.getString(PREF_LANGUAGE, "") == SPANISH){
-
-            v.webviewDonation.loadUrl(getDonationsUrlByCity())
-            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/ca/equips/")
-            //https://www.magiclinesjd.org/ca/equips_valencia
-            //https://www.magiclinesjd.org/ca/equips_mallorca
-        }else{
-            v.webviewDonation.loadUrl("https://www.magiclinesjd.org/es/equipos/")
-            //https://www.magiclinesjd.org/es/equipos_valencia
-            //https://www.magiclinesjd.org/es/equipos_mallorca
-        }
+         v.webviewDonation.loadUrl(getDonationsUrlByCity())
         v.webviewDonation.clearCache(true)
-
         return v
-
     }
 
     private fun testApi() {
@@ -114,16 +96,16 @@ class DonationsFragment: BaseFragment(){
     private fun getDonationsUrlByCity() : String {
         return when (getFlavor()) {
             BARCELONA -> {
-                return ""
+                return getString(R.string.donation_url)
             }
             MALLORCA -> {
-                return ""
+                return getString(R.string.donation_url)
             }
             VALENCIA -> {
-                return ""
+                return getString(R.string.donation_url)
             }
             else -> {
-                return ""
+                return getString(R.string.donation_url)
             }
         }
     }

@@ -26,12 +26,9 @@ import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.layout_a_fons.*
-import kotlinx.android.synthetic.main.layout_countdown_bottom.*
-import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import kotlinx.android.synthetic.main.layout_rrss.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {

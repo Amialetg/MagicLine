@@ -48,11 +48,11 @@ class DetailFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        if (!detailModel.hasToolbarImg){
+        if (!detailModel.hasToolbarImg) {
             initImagesRecycler()
         }
 
-        if (!detailModel.isBlack){
+        if (!detailModel.isBlack) {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.white))
         } else {
@@ -65,16 +65,16 @@ class DetailFragment : BaseFragment() {
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         if (detailModel.hasToolbarImg) {
-            var layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            layoutParams.bottomMargin = 50
+            val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            layoutParams.bottomMargin = resources.getDimension(R.dimen.aboutAppMargin).toInt()
             detailLayoutView.topToolbar.setBackgroundResource(detailModel.toolbarImg[0])
             detailLayoutView.appbar.layoutParams = layoutParams
         }
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
 
-        if(detailModel.titleToolbar.isNullOrEmpty()){
+        if(detailModel.titleToolbar.isNullOrEmpty()) {
             detailLayoutView.topToolbar.title = detailModel.title
-        }else{
+        } else {
             detailLayoutView.topToolbar.title = detailModel.titleToolbar
         }
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
@@ -98,7 +98,7 @@ class DetailFragment : BaseFragment() {
         imagesRecyclerView.adapter = myImagesAdapter
         imagesRecyclerView.setPadding(0,0,0,50)
 
-        if(detailModel.toolbarImg.size != 1){
+        if(detailModel.toolbarImg.size != 1) {
 
             //Adding pager behaviour
             val snapHelper = PagerSnapHelper()

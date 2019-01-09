@@ -25,6 +25,8 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.fragment_magic_line.*
 import kotlinx.android.synthetic.main.layout_a_fons.*
+import kotlinx.android.synthetic.main.layout_countdown_bottom.*
+import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import java.util.*
@@ -71,9 +73,13 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        rrssView.fbListener = { TODO() }
-        rrssView.instaListener = { TODO() }
-        rrssView.twitterListener = { TODO() }
+        val urlFacebook = getString(R.string.url_facebook)
+        val urlInstagram = getString(R.string.url_instagram)
+        val urlTwitter = getString(R.string.url_twitter)
+
+        rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
+        rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
+        rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
     }
 
     private fun initMesQueListeners() {

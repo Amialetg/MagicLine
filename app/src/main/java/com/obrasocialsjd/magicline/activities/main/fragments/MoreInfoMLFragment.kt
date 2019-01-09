@@ -17,6 +17,7 @@ import com.obrasocialsjd.magicline.R.color.light_red
 import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.obrasocialsjd.magicline.R.string.*
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
@@ -86,9 +87,13 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        rrssView.fbListener = { TODO() }
-        rrssView.instaListener = { TODO() }
-        rrssView.twitterListener = { TODO() }
+        val urlFacebook = getString(R.string.url_facebook)
+        val urlInstagram = getString(R.string.url_instagram)
+        val urlTwitter = getString(R.string.url_twitter)
+
+        rrssView.fbListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlFacebook) }
+        rrssView.instaListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlInstagram) }
+        rrssView.twitterListener = { if (activity is MainActivity) (activity as MainActivity).callIntent(urlTwitter) }
     }
 
     private fun createBarChart() {

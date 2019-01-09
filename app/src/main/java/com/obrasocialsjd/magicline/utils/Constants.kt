@@ -34,7 +34,6 @@ const val SPANISH_LOCALE : String = "es"
 const val EURO : String = "€"
 
 /**
-<<<<<<< HEAD
  * BOTTONAVIGATIONBAR ITEM POSITIONS
  */
 

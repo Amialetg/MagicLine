@@ -10,10 +10,8 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
 import kotlinx.android.synthetic.main.fragment_donations.view.*
-import kotlinx.android.synthetic.main.toolbar_bottom_nav.*
 
 class DonationsFragment: BaseFragment(){
 

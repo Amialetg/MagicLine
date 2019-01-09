@@ -36,14 +36,6 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, showShareView : Boolean = false) {
-    // Adds share view management (show/hide) bundle's argument
-    var bundle = fragment.arguments ?: Bundle()
-    bundle.putBoolean(SHOW_SHARE_VIEW_TAG, showShareView)
-    fragment.arguments = bundle
-    transitionWithModalAnimation(fragment, useModalAnimation, addToBackStack)
-}
-
 fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true) {
     val transaction = this.supportFragmentManager.beginTransaction()
 

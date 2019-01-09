@@ -99,7 +99,7 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(fragment = MoreInfoMLFragment.newInstance(), showShareView = true)
+            (activity as AppCompatActivity).transitionWithModalAnimation(fragment = MoreInfoMLFragment.newInstance())
         }
     }
 

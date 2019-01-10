@@ -49,8 +49,7 @@ class DetailFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        initImagesRecycler()
-
+        if (!detailModel.hasToolbarImg){ initImagesRecycler()}
         if (!detailModel.isBlack) {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.white), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.white))
@@ -68,13 +67,13 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.setBackgroundResource(detailModel.listToolbarImg[0])
             detailLayoutView.appbar.layoutParams = layoutParams
         }
-        detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
-
         if (detailModel.titleToolbar.isEmpty()) {
             detailLayoutView.topToolbar.title = detailModel.title
         } else {
             detailLayoutView.topToolbar.title = detailModel.titleToolbar
         }
+        detailLayoutView.topToolbar.setNavigationIcon(R.drawable.ic_black_cross)
+
         detailLayoutView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed()
 
         }

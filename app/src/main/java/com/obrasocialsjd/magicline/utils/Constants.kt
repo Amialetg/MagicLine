@@ -44,6 +44,7 @@ const val OPTIONS : Int = 4
 /** VIEW MANAGEMENT TAGS**/
 
 const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
+const val IS_MODAL: String = "isModal"
 
 /**
  * ROOM QUERIES

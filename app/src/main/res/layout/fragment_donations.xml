@@ -9,7 +9,7 @@
 
     <include layout="@layout/toolbar_appbar_top" />
 
-<RelativeLayout
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <WebView
@@ -24,6 +24,6 @@
         android:layout_gravity="center"
         android:layout_centerInParent="true"
         android:indeterminateTint="@color/light_red"/>
-</RelativeLayout>
+</FrameLayout>
 
 </LinearLayout>

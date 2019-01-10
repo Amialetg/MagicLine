@@ -50,9 +50,10 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
         if (useModalAnimation) transaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_down, R.anim.slide_out_down)
     }
 
-    if(useModalAnimation){
-        transaction.replace(R.id.frame_layout, fragment, "isModal")
-    }else{
+    if (useModalAnimation) {
+        transaction.replace(R.id.frame_layout, fragment, IS_MODAL)
+    }
+    else {
         transaction.replace(R.id.frame_layout, fragment)
     }
 

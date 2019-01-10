@@ -27,7 +27,7 @@ class DonationsFragment: BaseFragment(){
 
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         v.topToolbar.title = getString(R.string.donation_var_title)
-        if(this.tag == IS_MODAL) v.topToolbar.navigationIcon = ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_black_cross)
+        if(this.tag == IS_MODAL) v.topToolbar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_black_cross)
         v.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val settings = v.webviewDonation.settings
@@ -79,6 +79,7 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.clearCache(true)
         return v
     }
+
     private fun testApi() {
         /*val loginModelClient = OkHttpClient().newBuilder()
                 .addInterceptor(MagicLineInterceptor("acces_token"))
@@ -88,6 +89,7 @@ class DonationsFragment: BaseFragment(){
         val result = call.execute().body()
         Log.e("API",result.toString())*/
     }
+
     companion object {
         fun newInstance() : BaseFragment {
             return DonationsFragment()

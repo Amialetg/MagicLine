@@ -1,9 +1,11 @@
 package com.obrasocialsjd.magicline.utils
 
+import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.BuildConfig
 import com.obrasocialsjd.magicline.R
@@ -51,6 +53,17 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
     transaction.replace(R.id.frame_layout, fragment)
     if(addToBackStack) transaction.addToBackStack(fragment.javaClass.canonicalName)
     transaction.commit()
+}
+
+fun Activity.funNotAvailableDialog() {
+    let {context ->
+        val builder = AlertDialog.Builder(context)
+        builder.setMessage(R.string.fun_not_available_text)
+        builder.setNeutralButton(R.string.close){_,_->}
+        val dialog = builder.create()
+
+        dialog.show()
+    }
 }
 
 fun String.htmlToSpanned() : Spanned {

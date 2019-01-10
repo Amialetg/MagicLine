@@ -23,6 +23,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
+import com.obrasocialsjd.magicline.utils.funNotAvailableDialog
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
@@ -98,7 +99,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
         mapView.showMarkersBtn.setOnClickListener {
-            setInterestMarkersVisibility()
+
+            activity?.funNotAvailableDialog()
+            // TODO: Uncomment when kml markers are updated to 2019
+            //setInterestMarkersVisibility()
         }
     }
 
@@ -160,9 +164,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         //ADD KML & PLACEMARKERS (INTEREST POINTS)
         addKML()
-        initInterestPlaces()
 
-        setInterestMarkersVisibility(true)
+        // TODO: Uncomment when kml markers are updated to 2019
+        //initInterestPlaces()
+        //setInterestMarkersVisibility(true)
+
         addCurrentModalityLayerToMap()
     }
 

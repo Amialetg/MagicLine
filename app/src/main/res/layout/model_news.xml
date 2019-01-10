@@ -16,7 +16,7 @@
         />
 
     <TextView
-        android:id="@+id/newsItemDesc"
+        android:id="@+id/newsItemSubtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/NewsItemDesc"

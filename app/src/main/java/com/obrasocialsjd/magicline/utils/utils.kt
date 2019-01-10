@@ -43,7 +43,7 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
     val transaction = this.supportFragmentManager.beginTransaction()
 
     // Adds button bar management (show/hide) bundle's argument
-    var bundle = fragment.arguments ?: Bundle()
+    val bundle = fragment.arguments ?: Bundle()
     bundle.putBoolean(SHOW_BOTTOM_BAR_TAG, useModalAnimation)
     fragment.arguments = bundle
 

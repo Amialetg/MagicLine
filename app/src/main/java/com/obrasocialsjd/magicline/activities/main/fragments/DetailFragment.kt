@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.app.ActionBar
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -59,7 +58,6 @@ class DetailFragment : BaseFragment() {
             detailLayoutView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
             detailLayoutView.topToolbar.setTitleTextColor(ContextCompat.getColor(this.requireContext(), R.color.black))
         }
-
     }
 
     private fun initToolbar() {
@@ -67,7 +65,7 @@ class DetailFragment : BaseFragment() {
         if (detailModel.hasToolbarImg) {
             val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             layoutParams.bottomMargin = resources.getDimension(R.dimen.aboutAppMargin).toInt()
-            detailLayoutView.topToolbar.setBackgroundResource(detailModel.toolbarImg[0])
+            detailLayoutView.topToolbar.setBackgroundResource(detailModel.listToolbarImg[0])
             detailLayoutView.appbar.layoutParams = layoutParams
         }
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
@@ -98,7 +96,7 @@ class DetailFragment : BaseFragment() {
         imagesRecyclerView.adapter = myImagesAdapter
         imagesRecyclerView.setPadding(0,0,0,50)
 
-        if(detailModel.toolbarImg.size != 1) {
+        if(detailModel.listToolbarImg.size != 1) {
 
             //Adding pager behaviour
             val snapHelper = PagerSnapHelper()
@@ -109,7 +107,7 @@ class DetailFragment : BaseFragment() {
         }
 
         //load data inside the RecyclerView
-        myImagesAdapter.loadItems(detailModel.toolbarImg)
+        myImagesAdapter.loadItems(detailModel.listToolbarImg)
 
     }
 

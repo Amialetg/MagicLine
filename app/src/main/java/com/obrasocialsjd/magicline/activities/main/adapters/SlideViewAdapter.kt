@@ -23,7 +23,4 @@ class SlideViewAdapter(private var dataSet : List<Int> = listOf()) : RecyclerVie
         Picasso.get().load(dataSet[position]).resize(0,350).centerInside().into(holder.image)
     }
     override fun getItemCount() = dataSet.size
-    fun loadItems (images: List<Int>) {
-        dataSet = images
-    }
 }

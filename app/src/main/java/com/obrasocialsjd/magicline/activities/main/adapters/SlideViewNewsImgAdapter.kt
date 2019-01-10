@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.adapters
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +21,6 @@ class SlideViewNewsImgAdapter(private var dataSet: List<PostImageItem> ) : Recyc
         val uri: String? = dataSet[position].img
         Picasso.get().load(uri).resize(0,350).centerInside().into(holder.image)
     }
-
-    fun loadItems (images: List<PostImageItem>) { dataSet = images }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.imgDetail

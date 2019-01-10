@@ -115,7 +115,6 @@
         <item name="android:maxLines">3</item>
         <item name="android:ellipsize">end</item>
     </style>
-
     <!-- Principal - Més que-->
     <style name="btn_mes_que">
         <item name="android:textColor">@color/grey</item>
@@ -126,7 +125,6 @@
         <item name="android:lines">2</item>
 
     </style>
-
     <!-- Principal a fons -->
     <style name="afons_cards_txt" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
@@ -350,4 +348,16 @@
         <item name="android:paddingBottom">0dp</item>
     </style>
 
+    <!-- MAP-->
+    <style name="TxtViewCardMap">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">31sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="extraTxtViewCardMap">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
 </resources>

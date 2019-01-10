@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="arrayKml">
+        <item>@raw/ml_bcn_10km</item>
+        <item>@raw/ml_bcn_15km</item>
+        <item>@raw/ml_bcn_20km</item>
+        <item>@raw/ml_bcn_30km</item>
+        <item>@raw/ml_bcn_30km_ll</item>
+        <item>@raw/ml_bcn_40km</item>
+    </integer-array>
+    <integer-array name="arrayKm">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>-30</item>
+        <item>30</item>
+        <item>40</item>
+    </integer-array>
+    <array name="arrayLatitude">
+        <item>41.37179</item>
+        <item>41.37323</item>
+        <item>41.38681</item>
+        <item>41.36042</item>
+        <item>41.39382</item>
+        <item>41.40969</item>
+    </array>
+    <array name="arrayLongitude">
+        <item>2.16190</item>
+        <item>2.14015</item>
+        <item>2.13661</item>
+        <item>2.09426</item>
+        <item>2.13661</item>
+        <item>2.13705</item>
+    </array>
+</resources>

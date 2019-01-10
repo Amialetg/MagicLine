@@ -57,6 +57,11 @@ const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
         "from teamsMarkers where city = :city"
 
 /**
+ * MAP
+ */
+const val KM : String = "km"
+
+/**
  * ONESIGNAL
  */
 const val LOCATION: String = "location"

@@ -1,52 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="49dp"
-    android:paddingStart="0dp"
-    android:paddingEnd="0dp"
-    android:layout_marginStart="0dp"
-    android:layout_marginEnd="0dp"
-    android:background="@color/white"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/left_arrow_map"
-        android:layout_marginStart="17dp"
-        android:layout_centerVertical="true"/>
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
-    <View
-        android:layout_marginStart="50dp"
-        android:layout_width="1dp"
-        android:layout_height="33dp"
-        android:layout_centerVertical="true"
-        android:background="#979797" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="RECORREGUT"
-        android:gravity="center_vertical"
-        android:paddingStart="67dp"
-        android:textSize="14sp"
-        android:textColor="#4c4c4c"
-        />
+        android:layout_height="wrap_content">
 
-    <View
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="60dp"
-        android:layout_width="1dp"
-        android:layout_height="33dp"
-        android:layout_centerVertical="true"
-        android:background="#979797" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mapToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="top"
+            app:titleMarginTop="15dp"
+            app:titleTextAppearance="@style/toolbarTop" />
 
-    <ImageView
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/layer_1"
-        android:layout_centerVertical="true"/>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/userLocationBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_map_bottom_bar"
+            android:layout_centerVertical="true"/>
 
-</RelativeLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/showMarkersBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_toolbar_map"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

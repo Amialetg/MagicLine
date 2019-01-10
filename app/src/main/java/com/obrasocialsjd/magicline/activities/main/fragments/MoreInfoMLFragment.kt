@@ -72,6 +72,7 @@ class MoreInfoMLFragment : BaseFragment() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         moreInfoMLView.topToolbar.title = getString(R.string.ml)
         moreInfoMLView.topToolbar.navigationIcon = ContextCompat.getDrawable(this.requireContext(), ic_black_cross)
+        moreInfoMLView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
         moreInfoMLView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val text: String = getString(walk_text_1) + " "

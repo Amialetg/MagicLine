@@ -94,7 +94,7 @@ class InfoFragment: BaseFragment() {
                     subtitle = getString(aboutTheAppSubTitle),
                     textBody = getString(aboutTheAppBody),
                     link = getString(aboutTheAppLink),
-                    toolbarImg = listOf(about_us),
+                    listToolbarImg = listOf(about_us),
                     isBlack = false,
                     hasToolbarImg = true)
 

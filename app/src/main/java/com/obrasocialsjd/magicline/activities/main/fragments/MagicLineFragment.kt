@@ -158,8 +158,27 @@ class MagicLineFragment : BaseFragment() {
 
     private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
         val news : MutableList<NewsModel> = mutableListOf()
+        val onClickListener: (NewsModel) -> Unit = { newsModel ->
+            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(newsModel.detailModel))
+        }
+
         for (item in list) {
-            news.add(NewsModel(title = item.post.title, subtitle = item.post.teaser, description = item.post.text))
+            val detailModel = DetailModel(
+                    title = item.post.title.toString(),
+                    subtitle = item.post.teaser.toString(),
+                    textBody = item.post.text.toString(),
+                    listToolbarImg = emptyList(),
+                    listPostImg = item.postImages,
+                    hasToolbarImg = false,
+                    link = item.post.url.toString()
+            )
+
+            news.add(NewsModel(
+                    title = detailModel.title,
+                    subtitle = detailModel.subtitle,
+                    detailModel = detailModel,
+                    listener = onClickListener
+            ))
         }
         return news
     }
@@ -199,7 +218,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.essentials_body),
                 link = getString(R.string.essentials_viewOnWeb),
                 isBlack = true,
-                toolbarImg = listOf(R.drawable.imprescindibles),
+                listToolbarImg = listOf(R.drawable.imprescindibles),
                 hasToolbarImg = false,
                 titleToolbar = getString(R.string.title_toolbar_imprs))
         val dataModelDestiny = DetailModel(
@@ -208,7 +227,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
                 isBlack = true,
-                toolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori),
+                listToolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori),
                 hasToolbarImg = false)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
@@ -216,7 +235,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
                 isBlack = true,
-                toolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
+                listToolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
                 hasToolbarImg = false)
 
         info_essentials_button.setOnClickListener {

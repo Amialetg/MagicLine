@@ -11,14 +11,12 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.utils.JS
 import kotlinx.android.synthetic.main.fragment_donations.view.*
 
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        val css = "header, #results, body > div > h3 { display: none; }"
-        val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
 
@@ -49,20 +47,20 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 super.onPageStarted(view, url, favicon)
 
             }
 
             override fun onLoadResource(view: WebView?, url: String?) {
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 super.onLoadResource(view, url)
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
                 v.progressBar.visibility = View.GONE
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
             }

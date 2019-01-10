@@ -53,3 +53,15 @@ const val SHOW_SHARE_VIEW_TAG : String = "SHOW_SHARE_VIEW"
 const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
         " SUM(total * 100 / percentage) as spots " +
         "from teamsMarkers where city = :city"
+
+/**
+ * ONESIGNAL
+ */
+const val LOCATION: String = "location"
+
+/**
+ * DONATION
+ */
+
+const val CSS = "header, #results, body > div > h3 { display: none; }"
+const val JS = "var style = document.createElement('style'); style.innerHTML = '$CSS'; document.head.appendChild(style);"

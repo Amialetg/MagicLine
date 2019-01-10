@@ -1,10 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
 import android.app.Application
-import com.obrasocialsjd.magicline.utils.ExampleNotificationOpenedHandler
-import com.obrasocialsjd.magicline.utils.getLocaleTagForString
-import com.obrasocialsjd.magicline.utils.updateBaseContextLocale
-import com.obrasocialsjd.magicline.utils.updatePreferencesLanguage
+import com.obrasocialsjd.magicline.utils.*
 import com.onesignal.OneSignal
 import java.util.*
 
@@ -17,6 +14,18 @@ class MyApplication : Application() {
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .setNotificationOpenedHandler(ExampleNotificationOpenedHandler(this))
                 .init()
+
+        when (getFlavor()) {
+            BARCELONA -> {
+                OneSignal.sendTag(LOCATION, BARCELONA)
+            }
+            MALLORCA -> {
+                OneSignal.sendTag(LOCATION, MALLORCA)
+            }
+            VALENCIA -> {
+                OneSignal.sendTag(LOCATION, VALENCIA)
+            }
+        }
 
         val language = getLocaleTagForString(Locale.getDefault().language)
         updatePreferencesLanguage(this, language)

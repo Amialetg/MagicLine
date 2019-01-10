@@ -15,21 +15,17 @@ class SlideViewNewsImgAdapter(private var dataSet: List<PostImageItem> ) : Recyc
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SlideViewNewsImgAdapter.ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_details, parent, false)
-        return SlideViewNewsImgAdapter.ViewHolder(itemView)
+        return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: SlideViewNewsImgAdapter.ViewHolder, position: Int) {
         val uri: String? = dataSet[position].img
         Picasso.get().load(uri).resize(0,350).centerInside().into(holder.image)
-//        Picasso.get().load(dataSet[position]).resize(0,350).centerInside().into(holder.image)
     }
 
-    fun loadItems (images: List<PostImageItem>) {
-        dataSet = images
-    }
+    fun loadItems (images: List<PostImageItem>) { dataSet = images }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         var image: ImageView = itemView.imgDetail
     }
 

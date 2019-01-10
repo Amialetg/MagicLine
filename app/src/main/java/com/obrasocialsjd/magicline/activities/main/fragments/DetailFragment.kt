@@ -95,10 +95,8 @@ class DetailFragment : BaseFragment() {
         val snapHelper = PagerSnapHelper()
 
         if (detailModel.listToolbarImg.isNotEmpty()) {
-            myImagesAdapter = SlideViewAdapter(ArrayList())
+            myImagesAdapter = SlideViewAdapter(detailModel.listToolbarImg)
             imagesRecyclerView.adapter = myImagesAdapter
-            //load data inside the RecyclerView
-            myImagesAdapter.loadItems(detailModel.listToolbarImg)
 
             if (detailModel.listToolbarImg.size > 1) {
                 imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
@@ -106,9 +104,8 @@ class DetailFragment : BaseFragment() {
                 imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecorationForDetailPage())
             }
         } else if (detailModel.listPostImg.isNotEmpty()) {
-            myNewsImgAdapter = SlideViewNewsImgAdapter(ArrayList())
+            myNewsImgAdapter = SlideViewNewsImgAdapter(detailModel.listPostImg)
             imagesRecyclerView.adapter = myNewsImgAdapter
-            myNewsImgAdapter.loadItems(detailModel.listPostImg)
 
             if (detailModel.listPostImg.size > 1) {
                 imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background

@@ -98,11 +98,12 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
         mapView.showMarkersBtn.setOnClickListener {
-
-            hideInterestMarkersAndShowsRoute()
-
-            changeMarkers(areMarkersActive)
+            setInterestMarkersVisibility()
         }
+    }
+
+    private fun initInterestPlaces() {
+        kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
     }
 
     private fun initCoordinates() {
@@ -138,7 +139,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         var itemClickListener: (Int) -> Unit = { adapterPosition ->
             with(kmAdapter){
                 selectedPosition = adapterPosition
-                notifyItemChanged(selectedPosition)
                 addCurrentModalityLayerToMap()
                 removeOtherModalityLayerForMap()
                 notifyDataSetChanged()
@@ -160,7 +160,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         //ADD KML & PLACEMARKERS (INTEREST POINTS)
         addKML()
-        changeMarkers(true)
+        initInterestPlaces()
+
+        setInterestMarkersVisibility(true)
         addCurrentModalityLayerToMap()
     }
 
@@ -173,6 +175,25 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 .snippet(text).icon(icon)
         return map.addMarker(markerOptions)
     }
+    // endregion
+
+    // region interest markers
+    private fun setInterestMarkersVisibility(forceShow : Boolean = false) {
+        if (forceShow) {
+            kmlMarkers.addLayerToMap()
+        } else {
+            areMarkersActive = if (!areMarkersActive) {
+                kmlMarkers.addLayerToMap()
+                true
+            } else {
+                kmlMarkers.removeLayerFromMap()
+                // adds the current route (deleted with map.clear)
+                false
+            }
+            tintMarkersButton()
+        }
+    }
+
     // endregion
 
     // region user location
@@ -206,44 +227,18 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
     }
-    // endregion
 
-    // region userPosition
-    private fun tintUserPositionButton() {
+    private fun tintMarkersButton() {
         // TODO compat
-        if (!areMarkersActive){
+        if (areMarkersActive){
             mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
-
         }else{
             mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
         }
     }
-
-    private fun changeMarkers(active: Boolean) {
-
-        kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
-
-        if (active) {
-            kmlMarkers.addLayerToMap()
-            areMarkersActive = false
-        }
-        else {
-            areMarkersActive = true
-            map.clear()
-            //initKmCards()
-        }
-        tintUserPositionButton()
-    }
     // endregion
 
     // region map layers
-    private fun hideInterestMarkersAndShowsRoute() {
-        if (areMarkersActive) {
-            map.clear()
-            addCurrentModalityLayerToMap()
-        }
-    }
-
     private fun addCurrentModalityLayerToMap() {
         kmAdapter.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
             if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()

@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +13,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
@@ -25,12 +24,12 @@ import com.obrasocialsjd.magicline.models.NewsModel
 import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
+import kotlinx.android.synthetic.main.fragment_magic_line.*
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown_bottom.*
 import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
-import kotlinx.android.synthetic.main.layout_rrss.*
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {
@@ -50,7 +49,7 @@ class MagicLineFragment : BaseFragment() {
     }
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         return inflater.inflate(R.layout.fragment_magic_line, container, false)
+        return inflater.inflate(R.layout.fragment_magic_line, container, false)
     }
 
     override fun onStart() {
@@ -69,8 +68,17 @@ class MagicLineFragment : BaseFragment() {
 
         initAfonsListeners()
 
-        initRRSSListeners()
+        initRrss()
+    }
 
+    private fun initRrss() {
+        val urlFacebook = getString(R.string.url_facebook)
+        val urlInstagram = getString(R.string.url_instagram)
+        val urlTwitter = getString(R.string.url_twitter)
+
+        rrssView.fbListener = { activity?.callIntent(urlFacebook) }
+        rrssView.instaListener = { activity?.callIntent(urlInstagram) }
+        rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
     private fun initMesQueListeners() {
@@ -84,13 +92,13 @@ class MagicLineFragment : BaseFragment() {
         }
 
         btnBrainStorm.setOnClickListener {
-            callIntent(URL_IDEAS_GUIDE)
+            if (activity is MainActivity) (activity as MainActivity).callIntent(URL_IDEAS_GUIDE)
         }
     }
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(MoreInfoMLFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(fragment = MoreInfoMLFragment.newInstance())
         }
     }
 
@@ -222,32 +230,6 @@ class MagicLineFragment : BaseFragment() {
         info_sjd_button.setOnClickListener {
             (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelSantJoan))
         }
-    }
-
-    private fun initRRSSListeners() {
-
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-
-        fb_button.setOnClickListener {
-            callIntent(urlFacebook)
-        }
-
-        insta_button.setOnClickListener {
-            callIntent(urlInstagram)
-        }
-
-        twitter_button.setOnClickListener {
-            callIntent(urlTwitter)
-        }
-    }
-
-    private fun callIntent(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        this.requireContext().startActivity(intent)
     }
 
     private fun getDonationsByCity(donation : DonationsDBModel) : Double {

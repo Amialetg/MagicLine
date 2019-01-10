@@ -49,6 +49,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var arrayKml: TypedArray
     private lateinit var kmAdapter: KmAdapter
 
+    private var mapInitialized = false
+
     private var userMarker : Marker? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -64,16 +66,21 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onStart()
         airLocation = AirLocation(requireActivity(), true, true, object: AirLocation.Callbacks {
             override fun onSuccess(location: Location) {
-                isLocationActive = true
-                tintUserLocationButton()
                 userLocation = location
-                showUserLocation()
+
+                if (map != null) {
+                    isLocationActive = true
+                    tintUserLocationButton()
+                    showUserLocation()
+                }
             }
 
             override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
-                isLocationActive = false
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
-                tintUserLocationButton()
+                if (map != null) {
+                    isLocationActive = false
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
+                    tintUserLocationButton()
+                }
             }
 
         })
@@ -156,20 +163,23 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     // region map
     override fun onMapReady(googleMap: GoogleMap) {
+        if (!mapInitialized) {
+            map = googleMap
+            map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
 
-        map = googleMap
-        map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
+            initKmCards()
 
-        initKmCards()
+            //ADD KML & PLACEMARKERS (INTEREST POINTS)
+            addKML()
 
-        //ADD KML & PLACEMARKERS (INTEREST POINTS)
-        addKML()
+            // TODO: Uncomment when kml markers are updated to 2019
+            //initInterestPlaces()
+            //setInterestMarkersVisibility(true)
 
-        // TODO: Uncomment when kml markers are updated to 2019
-        //initInterestPlaces()
-        //setInterestMarkersVisibility(true)
+            addCurrentModalityLayerToMap()
 
-        addCurrentModalityLayerToMap()
+            mapInitialized = true
+        }
     }
 
     private fun setMarker(title: String, text: String, lat: Double, lon: Double, resourceId: Int): Marker? {

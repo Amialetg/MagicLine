@@ -10,15 +10,25 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.utils.IS_MODAL
 import com.obrasocialsjd.magicline.utils.JS
 import kotlinx.android.synthetic.main.fragment_donations.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
+
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        v.topToolbar.title = getString(R.string.donation_var_title)
+        if(this.tag == IS_MODAL) v.topToolbar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_black_cross)
+        v.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO

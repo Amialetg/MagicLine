@@ -12,11 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
-import com.obrasocialsjd.magicline.R.id.topToolbar
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
@@ -27,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class DetailFragment : BaseFragment() {
@@ -74,7 +70,7 @@ class DetailFragment : BaseFragment() {
         }
         detailLayoutView.topToolbar.setNavigationIcon(ic_black_cross)
 
-        if(detailModel.titleToolbar.isNullOrEmpty()) {
+        if (detailModel.titleToolbar.isEmpty()) {
             detailLayoutView.topToolbar.title = detailModel.title
         } else {
             detailLayoutView.topToolbar.title = detailModel.titleToolbar
@@ -104,18 +100,17 @@ class DetailFragment : BaseFragment() {
             //load data inside the RecyclerView
             myImagesAdapter.loadItems(detailModel.listToolbarImg)
 
-            if(detailModel.listToolbarImg.size > 1){
+            if (detailModel.listToolbarImg.size > 1) {
                 imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
                 snapHelper.attachToRecyclerView(imagesRecyclerView)
                 imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecorationForDetailPage())
             }
-        }else if(detailModel.listPostImg.isNotEmpty()){
+        } else if (detailModel.listPostImg.isNotEmpty()) {
             myNewsImgAdapter = SlideViewNewsImgAdapter(ArrayList())
             imagesRecyclerView.adapter = myNewsImgAdapter
-            //load data inside the RecyclerView
             myNewsImgAdapter.loadItems(detailModel.listPostImg)
 
-            if(detailModel.listPostImg.size > 1){
+            if (detailModel.listPostImg.size > 1) {
                 imagesRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
                 snapHelper.attachToRecyclerView(imagesRecyclerView)
                 imagesRecyclerView.addItemDecoration(CirclePagerIndicatorDecorationForDetailPage())

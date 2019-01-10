@@ -36,6 +36,9 @@ class MoreInfoMLFragment : BaseFragment() {
     private lateinit var moreInfoMLDataModel: MoreInfoMLModel
     private lateinit var moreInfoViewModel : MoreInfoViewModel
 
+    private var totalParticipants: Double = 0.0
+    private var availableSpots: Int = 0
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         moreInfoMLView = inflater.inflate(R.layout.fragment_more_info_ml, container, false)
@@ -56,15 +59,12 @@ class MoreInfoMLFragment : BaseFragment() {
 
     private fun requestChartData() {
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
-            val total = participants.totalParticipants.toDouble()
+            totalParticipants = participants.totalParticipants.toDouble()
+            availableSpots = participants.spots
+            val currentAvailablePlaces = availableSpots - totalParticipants
 
-            // TODO dynamic value
-            val places = 13000
-            val currentConsumedPlaces = (total * 100) / places
-            val currentAvailablePlaces = 100 - currentConsumedPlaces
-
-            currentParticipants.text = total.addThousandsSeparator()
-            configurePieChart(currentConsumedPlaces.toFloat(), currentAvailablePlaces.toFloat())
+            currentParticipants.text = totalParticipants.addThousandsSeparator()
+            configurePieChart(totalParticipants.toFloat(), currentAvailablePlaces.toFloat())
         })
     }
 
@@ -119,8 +119,7 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.isHighlightPerTapEnabled = false
         pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
-        // TODO dynamic value
-        pieChart.centerText = "13.000" + "\n" + getString(R.string.vacancy)
+        pieChart.centerText = availableSpots.toString().addThousandsSeparator() + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
         var typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)
         pieChart.setCenterTextTypeface(typeFace)

@@ -45,3 +45,11 @@ const val OPTIONS : Int = 4
 /** VIEW MANAGEMENT TAGS**/
 const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
 const val SHOW_SHARE_VIEW_TAG : String = "SHOW_SHARE_VIEW"
+
+/**
+ * ROOM QUERIES
+ */
+
+const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
+        " SUM(total * 100 / percentage) as spots " +
+        "from teamsMarkers where city = :city"

@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,8 +60,6 @@ class MagicLineFragment : BaseFragment() {
 
         initCountDown(txtArray)
 
-        initStaticContent()
-
         initMoreInfoMLListener()
 
         initNewsRecycler()
@@ -103,10 +102,6 @@ class MagicLineFragment : BaseFragment() {
         }
     }
 
-    private fun initStaticContent() {
-        participants_num.text = getString(R.string.cityParticipants).addThousandsSeparator()
-    }
-
     private fun initWidgets(): Array<TextView> {
         return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
     }
@@ -132,6 +127,11 @@ class MagicLineFragment : BaseFragment() {
         snapHelper.attachToRecyclerView(newsRecyclerView)
         newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
 
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+        }
+
         //Adding buttons listeners
         initArrowsListeners(myNewsManager)
 
@@ -146,6 +146,12 @@ class MagicLineFragment : BaseFragment() {
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
                 recaudats_num.text = getDonationsByCity(donation).addCurrency()
+            }
+        })
+
+        mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
+            participants?.let {
+                participants_num.text = it.totalParticipants.toString().addThousandsSeparator()
             }
         })
     }

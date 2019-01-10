@@ -21,7 +21,6 @@
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-
     <!--Principal Countdown-->
     <style name="CountDownNumbers" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -32,8 +31,6 @@
         <item name="android:textSize">43.2sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
     </style>
-
-
 
     <!--Princial Recaudats-->
     <style name="recaudats_num" parent="Theme.AppCompat.Light.NoActionBar">
@@ -68,8 +65,6 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-
-
     <style name="CountDownLetters" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -86,15 +81,12 @@
         <item name="android:textColor">@color/grey</item>
     </style>
 
-
-
     <!--Principal News-->
     <style name="NewsTitle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.13</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -123,6 +115,7 @@
         <item name="android:maxLines">3</item>
         <item name="android:ellipsize">end</item>
     </style>
+
     <!-- Principal - Més que-->
     <style name="btn_mes_que">
         <item name="android:textColor">@color/grey</item>
@@ -132,6 +125,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:maxLines">2</item>
     </style>
+
     <!-- Principal a fons -->
     <style name="afons_cards_txt" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
@@ -186,6 +180,7 @@
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/lato_blackitalic</item>
     </style>
+
     <!-- Schedule fragment -->
     <style name="scheduleSeeMoreBtn" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -277,7 +272,6 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.13</item>
         <item name="android:text">@string/text_rrss</item>
         <item name="android:gravity"></item>
     </style>
@@ -323,7 +317,6 @@
         <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.02</item>
     </style>
 
     <style name="participants" parent="Theme.AppCompat.Light.NoActionBar">
@@ -333,11 +326,23 @@
     </style>
 
     <!-- Invite Friends -->
+    <style name="whiteText" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:capitalize">sentences</item>
+        <item name="android:textAlignment">center</item>
+    </style>
     <style name="socialNetwork" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/grey</item>
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:capitalize">words</item>
+    </style>
+
+    <style name="bottomFAB">
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
     </style>
 
 </resources>

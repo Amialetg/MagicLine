@@ -11,5 +11,12 @@ data class JsonMember1(
 	val modalityText: String? = null,
 
 	@field:SerializedName("particulars")
-	val particulars: Int? = null
+	val particulars: Int? = null,
+
+	@field:SerializedName("total")
+	val total: Int? = null,
+
+	@field:SerializedName("percentage")
+	val percentage: Double? = null
+
 )

@@ -62,6 +62,4 @@ const val LOCATION: String = "location"
 /**
  * DONATION
  */
-
-const val CSS = "header, #results, body > div > h3 { display: none; }"
-const val JS = "var style = document.createElement('style'); style.innerHTML = '$CSS'; document.head.appendChild(style);"
+const val JS = "var style = document.createElement('style'); style.innerHTML = 'header, #results, body > div > h3 { display: none; }'; document.head.appendChild(style);"

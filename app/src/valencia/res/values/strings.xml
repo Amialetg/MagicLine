@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cityFlavor" translatable="false">Valencia</string>
+    <string name="cityParticipants" translatable="false">110</string>
+
+    <!-- MAGIC LINE INFO -->
+    <string name="walk_text_2">5km, 10km, 20km</string>
+    <string name="walk_text_3">de la Magic Line en Valencia tendrán como meta la Plaza del Ayuntamiento de Valencia, donde se llevará a cabo una fiesta final. El recorrido de 20Km tendrá salida desde Alboraya y pasará por la emblemática huerta valenciana. El recorrido de 10Km tendrá salida desde el Hospital Valencia al Mar y recorrerà la Malvarosa, y el de 5Km desde la Ciudad de las Artes y las Ciencias para enlazar distintos museos de la ciudad.</string>
+    <string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar</string>
+    <string name="donation_url">https://www.magiclinesjd.org/ca/equips_valencia</string>
+
+</resources>

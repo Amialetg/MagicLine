@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.voluntariat.android.magicline.activities.main.fragments.MoreInfoMLFragment">
+    tools:context="com.obrasocialsjd.magicline.activities.main.fragments.MoreInfoMLFragment">
 
     <include layout="@layout/toolbar_appbar_top" />
 
@@ -121,10 +122,10 @@
                                 android:tint="@color/colorPrimary" />
 
                             <TextView
+                                android:id="@+id/currentParticipants"
                                 style="@style/participants"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="5.000"
                                 android:textAlignment="center" />
                         </LinearLayout>
 
@@ -145,7 +146,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/grey_border" />
-
 
                 <TextView
                     android:id="@+id/walkTitle"
@@ -197,7 +197,12 @@
 
             </LinearLayout>
 
-            <include layout="@layout/layout_rrss" />
+            <com.obrasocialsjd.magicline.activities.main.otherui.RrssView
+                android:id="@+id/rrssView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:background="@color/black"
+                android:paddingBottom="32dp"/>
 
         </LinearLayout>
 

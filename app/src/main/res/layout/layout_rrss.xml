@@ -3,9 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/black"
-    android:orientation="vertical"
-    android:paddingBottom="32dp">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -22,7 +20,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/fb_button"
+            android:id="@+id/fbButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/share_fb"
@@ -30,7 +28,7 @@
             android:tint="@color/white"
             />
         <ImageButton
-            android:id="@+id/insta_button"
+            android:id="@+id/instaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/share_insta"
@@ -41,7 +39,7 @@
             />
 
         <ImageButton
-            android:id="@+id/twitter_button"
+            android:id="@+id/twitterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/share_twitter"
@@ -50,5 +48,4 @@
             />
 
     </LinearLayout>
-
 </LinearLayout>

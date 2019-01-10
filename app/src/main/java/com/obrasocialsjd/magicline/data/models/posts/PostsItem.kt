@@ -14,5 +14,5 @@ data class PostsItem(
         @SerializedName("Post")
         val post : Post,
         @SerializedName("PostImage")
-        val postImages : MutableList<PostImageItem>
+        val postImages : List<PostImageItem>
 )

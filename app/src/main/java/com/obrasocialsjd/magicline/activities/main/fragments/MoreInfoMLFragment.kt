@@ -21,6 +21,7 @@ import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
 import com.obrasocialsjd.magicline.utils.addThousandsSeparator
+import com.obrasocialsjd.magicline.utils.callIntent
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
@@ -46,6 +47,7 @@ class MoreInfoMLFragment : BaseFragment() {
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
+        initRrss()
 
         return moreInfoMLView
     }
@@ -80,6 +82,16 @@ class MoreInfoMLFragment : BaseFragment() {
 
         var infoText = text + text2 + text3 + text4
         textView.text = infoText.htmlToSpanned()
+    }
+
+    private fun initRrss() {
+        val urlFacebook = getString(R.string.url_facebook)
+        val urlInstagram = getString(R.string.url_instagram)
+        val urlTwitter = getString(R.string.url_twitter)
+
+        moreInfoMLView.rrssView.fbListener = { activity?.callIntent(urlFacebook) }
+        moreInfoMLView.rrssView.instaListener = { activity?.callIntent(urlInstagram) }
+        moreInfoMLView.rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
     private fun createBarChart() {

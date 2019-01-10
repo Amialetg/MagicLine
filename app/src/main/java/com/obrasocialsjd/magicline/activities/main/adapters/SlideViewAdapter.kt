@@ -1,4 +1,4 @@
-package com.voluntariat.android.magicline.activities.main.adapters
+package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.view.LayoutInflater
 import android.view.View

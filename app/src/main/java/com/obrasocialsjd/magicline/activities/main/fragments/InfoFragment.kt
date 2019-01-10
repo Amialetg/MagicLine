@@ -93,7 +93,7 @@ class InfoFragment: BaseFragment() {
                     title = getString(aboutTheAppTitle),
                     subtitle = getString(aboutTheAppSubTitle),
                     textBody = getString(aboutTheAppBody),
-                    link = getString(essentials_viewOnWeb),
+                    link = getString(aboutTheAppLink),
                     toolbarImg = listOf(about_us),
                     isBlack = false,
                     hasToolbarImg = true)

@@ -41,10 +41,12 @@ const val HOME : Int = 0
 const val SCHEDULE : Int = 1
 const val DONATIONS : Int = 3
 const val OPTIONS : Int = 4
-/** VIEW MANAGEMENT TAGS**/
 
+/** VIEW MANAGEMENT TAGS**/
 const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
+const val SHOW_SHARE_VIEW_TAG : String = "SHOW_SHARE_VIEW"
 const val IS_MODAL: String = "isModal"
+
 
 /**
  * ROOM QUERIES
@@ -53,3 +55,13 @@ const val IS_MODAL: String = "isModal"
 const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
         " SUM(total * 100 / percentage) as spots " +
         "from teamsMarkers where city = :city"
+
+/**
+ * ONESIGNAL
+ */
+const val LOCATION: String = "location"
+
+/**
+ * DONATION
+ */
+const val JS = "var style = document.createElement('style'); style.innerHTML = 'header, #results, body > div > h3 { display: none; }'; document.head.appendChild(style);"

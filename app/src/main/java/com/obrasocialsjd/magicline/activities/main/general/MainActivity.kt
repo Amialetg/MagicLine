@@ -46,6 +46,7 @@ class MainActivity : BaseActivity() {
                 navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
             }
         }
+
         initNavigation()
     }
 
@@ -109,7 +110,6 @@ class MainActivity : BaseActivity() {
                     Log.d("Main Activity", "donations")
                 }
                 R.id.info_menu_id -> {
-
                     newFragment = InfoFragment()
                     Log.d("Main Activity", "info")
                 }

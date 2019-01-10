@@ -123,7 +123,8 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:maxLines">2</item>
+        <item name="android:lines">2</item>
+
     </style>
 
     <!-- Principal a fons -->
@@ -133,6 +134,10 @@
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">middle</item>
 
     </style>
 

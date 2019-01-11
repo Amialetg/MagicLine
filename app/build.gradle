@@ -108,7 +108,6 @@ dependencies {
     //ONE SIGNAL - NOTIFICATIONS
     implementation 'com.onesignal:OneSignal:[3.9.1, 3.99.99]'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation "com.github.mumayank:AirLocation:1.2"
     //Scale an Image - Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 }

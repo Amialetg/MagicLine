@@ -60,18 +60,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var grantedPermission : Boolean = false
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        context?.let {context ->
-            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-        }
-
-        checkPermissions()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
+
+        initUserLocation()
         initToolbar()
         initListeners()
         initCoordinates()
@@ -214,6 +206,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     // endregion
 
     // region user location
+    private fun initUserLocation() {
+        context?.let {context ->
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+        }
+
+        checkPermissions()
+    }
+
     private fun changeUserLocation() {
         isLocationActive = !isLocationActive
         tintUserLocationButton()

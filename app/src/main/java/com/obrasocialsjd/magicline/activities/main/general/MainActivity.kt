@@ -31,8 +31,6 @@ class MainActivity : BaseActivity() {
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var myNewsAdapter: NewsAdapter
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,7 +39,6 @@ class MainActivity : BaseActivity() {
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
         val factory = MagicLineViewModelFactory(this.application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
-
 
         //Prepare the mapFAB
         bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
@@ -138,27 +135,23 @@ class MainActivity : BaseActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        setIntent(Intent().apply { putExtra("From", "ferDonacio") })
-        val extra = intent?.getSerializableExtra("From")
+        setIntent(Intent().apply { putExtra(FROM, DONATION) })
+        val extra = intent?.getSerializableExtra(FROM)
         navigateFromIntentExtra(extra)
     }
     private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
 
-
-
-
-
         when (extra) {
-            "ultimaNoticia" -> { getNotificationNews() }
-            "ferDonacio" -> {
+            LAST_NEWS -> { getNotificationNews() }
+            DONATION -> {
                 bottomBarView.menu.getItem(DONATIONS).isChecked = true
                 this.transitionWithModalAnimation(DonationsFragment())
             }
-            "detallsEsdeveniments" -> {
+            EVENT -> {
                 bottomBarView.menu.getItem(SCHEDULE).isChecked = true
 
                 this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel))
-            } //Especificar qué Fragment
+            }
             else -> {
                 bottomBarView.menu.getItem(HOME).isChecked = true
                 if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
@@ -179,13 +172,13 @@ class MainActivity : BaseActivity() {
         val onClickListener: (NewsModel) -> Unit = {}
 
             val detailModel = DetailModel(
-                    title = list[0].post.title.toString(),
-                    subtitle = list[0].post.teaser.toString(),
-                    textBody = list[0].post.text.toString(),
+                    title = list[INITIAL_POSITION].post.title.toString(),
+                    subtitle = list[INITIAL_POSITION].post.teaser.toString(),
+                    textBody = list[INITIAL_POSITION].post.text.toString(),
                     listToolbarImg = emptyList(),
-                    listPostImg = list[0].postImages,
+                    listPostImg = list[INITIAL_POSITION].postImages,
                     hasToolbarImg = false,
-                    link = list[0].post.url.toString()
+                    link = list[INITIAL_POSITION].post.url.toString()
             )
 
             news.add(NewsModel(

@@ -65,6 +65,15 @@ const val KM : String = "km"
  * ONESIGNAL
  */
 const val LOCATION: String = "location"
+const val LAST_NEWS: String = "ultimaNoticia"
+const val DONATION: String = "ferDonacio"
+const val EVENT: String = "detallsEsdeveniments"
+const val FROM: String = "From"
+const val INITIAL_POSITION : Int = 0
+
+
+
+
 
 /**
  * DONATION

@@ -1,6 +1,8 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.TypedArray
 import android.graphics.Rect
 import android.location.Location
@@ -11,8 +13,11 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,11 +28,11 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
+import com.obrasocialsjd.magicline.utils.MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.obrasocialsjd.magicline.utils.funNotAvailableDialog
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
-import mumayank.com.airlocationlibrary.AirLocation
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
@@ -39,7 +44,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var mapView: View
     private lateinit var map: GoogleMap
-    private var airLocation: AirLocation? = null
     private var arrayKmlLayers: ArrayList<KmlLayer> = arrayListOf()
     private lateinit var kmlMarkers: KmlLayer
     private var arrayListCoordinates = arrayListOf<LatLng>()
@@ -53,6 +57,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private var userMarker : Marker? = null
 
+    private var grantedPermission : Boolean = false
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        context?.let {context ->
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+        }
+
+        checkPermissions()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
         initToolbar()
@@ -64,26 +81,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onStart() {
 
         super.onStart()
-        airLocation = AirLocation(requireActivity(), true, true, object: AirLocation.Callbacks {
-            override fun onSuccess(location: Location) {
-                userLocation = location
-
-                if (map != null) {
-                    isLocationActive = true
-                    tintUserLocationButton()
-                    showUserLocation()
-                }
-            }
-
-            override fun onFailed(locationFailedEnum: AirLocation.LocationFailedEnum) {
-                if (map != null) {
-                    isLocationActive = false
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
-                    tintUserLocationButton()
-                }
-            }
-
-        })
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
     }
@@ -96,13 +93,17 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun initListeners() {
         mapView.userLocationBtn.setOnClickListener {
-            if (isLocationActive){
-//                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(userLocation.latitude, userLocation.longitude), 12.5f))
-                hideUserLocation()
+
+            if (grantedPermission) {
+                if (isLocationActive) {
+                    hideUserLocation()
+                } else {
+                    showUserLocation()
+                }
+                changeUserLocation()
             } else {
-                showUserLocation()
+                requestPermissions()
             }
-            changeUserLocation()
         }
 
         mapView.showMarkersBtn.setOnClickListener {
@@ -311,13 +312,71 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     // endregion
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        airLocation?.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    // region location permissions
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        airLocation?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (grantResults[0]) {
+            PackageManager.PERMISSION_GRANTED -> {
+                grantedPermission = true
+                getUserCurrentLocation()
+            }
+            PackageManager.PERMISSION_DENIED -> {
+                grantedPermission = false
+            }
+
+        }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
+    private fun requestPermissions() {
+        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION)
+    }
+
+    private fun getUserCurrentLocation() {
+        try {
+            fusedLocationClient.lastLocation
+                    .addOnSuccessListener { location: Location? ->
+                        if (location != null) {
+                            userLocation = location
+
+                            map.let {
+                                isLocationActive = true
+                                tintUserLocationButton()
+                                showUserLocation()
+                            }
+                        } else {
+                            map.let {
+                                isLocationActive = false
+                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
+                                tintUserLocationButton()
+                            }
+                        }
+                    }
+        } catch (exception : SecurityException) {
+            // TODO do nothing
+        }
+
+    }
+
+    private fun checkPermissions() {
+        context?.let { context ->
+            var permissionCheck = checkSelfPermission(context,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+
+            when (permissionCheck) {
+                PackageManager.PERMISSION_GRANTED -> {
+                    grantedPermission = true
+                    tintUserLocationButton()
+                }
+                PackageManager.PERMISSION_DENIED -> {
+                    requestPermissions()
+                }
+            }
+        }
+    }
+    // endregion
+
 
 }

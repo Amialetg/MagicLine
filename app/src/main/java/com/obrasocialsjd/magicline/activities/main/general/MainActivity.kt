@@ -77,15 +77,19 @@ class MainActivity : BaseActivity() {
         }
 
         bottomBarFloatingButton.setOnClickListener {
-            bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
-            bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
+            var mapButton = bottomBarView.menu.getItem(2)
 
-            //We set clicked on the none item in order to disable the rest of the items
-            //but the fragment that is shown is the map fragment
-            bottomBarView.menu.getItem(2).isChecked = true
+            if (!mapButton.isChecked) {
+                bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
+                bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
 
-            transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false,
-                    addToBackStack = false)
+                //We set clicked on the none item in order to disable the rest of the items
+                //but the fragment that is shown is the map fragment
+                mapButton.isChecked = true
+
+                transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false,
+                        addToBackStack = false)
+            }
         }
     }
 
@@ -117,6 +121,8 @@ class MainActivity : BaseActivity() {
                 R.id.none -> return
                 else -> newFragment = MagicLineFragment()
             }
+
+
 
             transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
                     addToBackStack = false)

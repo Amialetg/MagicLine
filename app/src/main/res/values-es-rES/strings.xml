@@ -162,10 +162,11 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="vacancy">plazas</string>
     <string name="vacancy_km">Plazas por traom</string>
     <string name="walk_title">La caminata</string>
-    <string name="walk_text_1">Los recorridos de</string>
-    <string name="walk_text_2">10, 15, 20, 30 y 40KM</string>
-    <string name="walk_text_3">de la Magic Line en Barcelona empiezan en Nou Barris, cruzan Collserola y contemplan un descanso en Montjuïc y una fiesta solidaria en la Plaza de la Catedral de Barcelona.</string>
-    <string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>
+    <string name="walk_text_1">El recorrido Colinas de Barcelona recorre las colinas más emblemáticas de la ciudad. El recorrido Llobregat sale de Sant Boi de Llobregat y sigue el río para enlazar, en Montjuïc, con el recorrido de las Colinas de Barcelona. Todos contemplan un descanso en el Castillo de Montjuïc y una fiesta final en la plaza de la Catedral de Barcelona. Cuando os inscribáis, deberéis elegir cuantos kilómetros deseáis caminar.</string>
+    <!--<string name="walk_text_1">Los recorridos de</string>-->
+    <!--<string name="walk_text_2">10, 15, 20, 30 y 40KM</string>-->
+    <!--<string name="walk_text_3">de la Magic Line en Barcelona empiezan en Nou Barris, cruzan Collserola y contemplan un descanso en Montjuïc y una fiesta solidaria en la Plaza de la Catedral de Barcelona.</string>-->
+    <!--<string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>-->
     <string name="walk_10km">10 km</string>
     <string name="walk_10km_place">FUENTES DE MONTJUÏC</string>
     <string name="walk_15km">15 km</string>

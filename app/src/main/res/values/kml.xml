@@ -32,4 +32,12 @@
         <item>2.13661</item>
         <item>2.13705</item>
     </array>
+    <string-array name="arrayMoreInfoML">
+        <item name="walk_10km">&lt;p>&lt;b>10 km (real: 9,55 km). FUENTES DE MONTJUÏC &lt;/b>Desnivel +228m -241m (Track 10km)&lt;/p></item>
+        <item name="walk_15km">&lt;p>&lt;b>15 km (real: 16,1 km). HOSPITAL SAN JUAN DE DIOS &lt;/b>Desnivel +228m -281m (Track 15km)&lt;/p></item>
+        <item name="walk_20km">&lt;p>&lt;b>20 km (real: 21,8 km). VALLVIDRERA &lt;/b>Desnivel +409m -746m (Track 20 km)&lt;/p></item>
+        <item name="walk_30km_ll">&lt;p>&lt;b>30 km (real: 30,03 km). Llobregat - SANT BOI DE LLOBREGAT &lt;/b>Desnivel: +526, - 531m (Track 30 km Llobregat)&lt;/p></item>
+        <item name="walk_30km">&lt;p>&lt;b>30 km (real: 32,0 km). PARC DE LES AIGÜES&lt;/b>Desnivel +1.079m -1.157m (Track 30 km)&lt;/p></item>
+        <item name="walk_40km">&lt;p>&lt;b>40 km (real: 41,9 km). CAN CUYÁS&lt;/b>Desnivel +1.561m -1.637m (Track 40 km)&lt;/p></item>
+    </string-array>
 </resources>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">MagicLine</string>
     <string name="principal_top_toolbar" translatable="false">MagicLine</string>
@@ -165,26 +166,23 @@
     <!-- MAGIC LINE INFO -->
     <string name="ml" translatable="false">Magic Line</string>
     <string name="ml_sjd" translatable="false">Magic Line sjd</string>
-    <string name="info_ml">La Magic Line es más que una caminata, es un compromiso con quienes más lo necesitan. Por ello, para participar hay que ponerse un reto económico y organizar actividades solidarias para conseguirlo.</string>
+    <string name="info_ml">La Magic Line és més que una caminada, és un compromís amb els qui més ho necessiten. Per això, per participar-hi cal posar-se un repte econòmic i organitzar activitats solidàries per aconseguir-lo.</string>
     <string name="counter">Marcador</string>
     <string name="participants">Participants inscrits</string>
     <string name="vacancy">plaçes</string>
     <string name="vacancy_km">Plaçes per tram</string>
-    <string name="walk_title">La caminata</string>
-    <string name="walk_text_1">Los recorridos de</string>
-    <string name="walk_text_2">10, 15, 20, 30 y 40km</string>
-    <string name="walk_text_3">de la Magic Line en Barcelona empiezan en Nou Barris, cruzan Collserola y contemplan un descanso en Montjuïc y una fiesta solidaria en la Plaza de la Catedral de Barcelona.</string>
-    <string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>
-    <string name="walk_10km">10 km</string>
-    <string name="walk_10km_place">FUENTES DE MONTJUÏC</string>
-    <string name="walk_15km">15 km</string>
-    <string name="walk_15km_place">HOSPITAL SAN JUAN DE DIOS</string>
-    <string name="walk_15km_track">Desnivel +228m -281m (Track 15km)</string>
-    <string name="walk_20km">20 km</string>
-    <string name="walk_20km_place">VALLVIDRERA</string>
-    <string name="walk_20km_track">track</string>
-    <string name="walk_30km">30 km</string>
-    <string name="walk_40km">40 km</string>
+    <string name="walk_title">La caminada</string>
+    <string name="walk_text_1">El Recorregut Turons de Barcelona recorre els turons més emblemàtics de la ciutat. El recorregut Llobregat surt dels turons de Sant Boi de Llobregat i segueix el riu per enllaçar, a Montjuïc, amb el recorregut dels Turons de Barcelona. Tots contemplen un descans al Castell de Montjuïc i una festa final a la plaça de la Catedral de Barcelona. Quan us inscriviu cal que escolliu quants quilòmetres voldreu caminar.</string>
+    <!--<string name="walk_text_1">Los recorridos de</string>-->
+    <!--<string name="walk_text_2">10, 15, 20, 30 y 40km</string>-->
+    <!--<string name="walk_text_3">de la Magic Line en Barcelona empiezan en Nou Barris, cruzan Collserola y contemplan un descanso en Montjuïc y una fiesta solidaria en la Plaza de la Catedral de Barcelona.</string>-->
+    <!--<string name="walk_text_4">Al inscribirse hay que escoger cuántos kilómetros deseáis caminar.</string>-->
+    <string name="walk_10km">&lt;b>10 km (real: 9,55 km). FUENTES DE MONTJUÏC &lt;/b><br>Desnivel +228m -241m (Track 10km)</br></string>
+    <string name="walk_15km">&lt;b>15 km (real: 16,1 km). HOSPITAL SAN JUAN DE DIOS &lt;/b><br>Desnivel +228m -281m (Track 15km)</br></string>
+    <string name="walk_20km">&lt;b>20 km (real: 21,8 km). VALLVIDRERA&lt;/b><br>Desnivel +409m -746m (Track 20 km)</br></string>
+    <string name="walk_30km_ll">&lt;b>30 km (real: 30,03 km). Llobregat - SANT BOI DE LLOBREGAT&lt;/b><br>Desnivel: +526, - 531m (Track 30 km Llobregat)</br></string>
+    <string name="walk_30km">&lt;b>30 km (real: 32,0 km). PARC DE LES AIGÜES&lt;/b><br>Desnivel +1.079m -1.157m (Track 30 km)</br></string>
+    <string name="walk_40km">&lt;b>40 km (real: 41,9 km). CAN CUYÁS&lt;/b><br>Desnivel +1.561m -1.637m (Track 40 km)</br></string>
     <string name="more_info_on">Més info a:</string>
 
     <string name="more_info_web_barcelona">https://www.magiclinesjd.org/ca/participar_barcelona</string>

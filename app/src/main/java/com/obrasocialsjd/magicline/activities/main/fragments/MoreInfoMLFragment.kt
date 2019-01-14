@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.R.array.arrayMoreInfoML
 import com.obrasocialsjd.magicline.R.color.light_red
 import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
@@ -77,14 +78,22 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        val text: String = getString(walk_text_1) + " "
-        val text2: String = "<b>" + getString(walk_text_2) + "</b>" + " "
-        val text3: String = getString(walk_text_3) + " "
-        val text4: String = "<b>" + getString(walk_text_4) + "</b>"
-        val walkInfo = moreInfoMLView.firstWalkText
+//        var stringArray  = resources.obtainTypedArray(arrayMoreInfoML)
+        val stringArray  = resources.getStringArray(arrayMoreInfoML)
+//        val routeList  = arrayListOf<String>()
+        var endString: String = "\n"
+        for (string in stringArray){
+            endString += string
+        }
+//        val text: String = getString(walk_text_1) + " "
+//        val text2: String = "<b>" + getString(walk_text_2) + "</b>" + " "
+//        val text3: String = getString(walk_text_3) + " "
+//        val text4: String = "<b>" + getString(walk_text_4) + "</b>"
 
-        var infoText = text + text2 + text3 + text4
-        walkInfo.text = infoText.htmlToSpanned()
+//        var infoText = text
+//        var infoText = text + text2 + text3 + text4
+//        endString.htmlToSpanned()
+        moreInfoMLView.firstWalkText.text = endString.htmlToSpanned()
     }
 
     private fun initRrss() {

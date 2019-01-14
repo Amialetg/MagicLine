@@ -47,7 +47,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var arrayKmlLayers: ArrayList<KmlLayer> = arrayListOf()
     private lateinit var kmlMarkers: KmlLayer
     private var arrayListCoordinates = arrayListOf<LatLng>()
-    private lateinit var userLocation: Location
+    private var userLocation: Location? = null
     private var isLocationActive: Boolean = false
     private var areMarkersActive: Boolean = true
     private lateinit var arrayKml: TypedArray
@@ -60,10 +60,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var grantedPermission : Boolean = false
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    // region lifecycle
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
 
-        initUserLocation()
         initToolbar()
         initListeners()
         initCoordinates()
@@ -71,11 +71,15 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onStart() {
-
         super.onStart()
+
+        initUserLocation()
+
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
+
     }
+    // endregion
 
     // region init
     private fun initToolbar() {
@@ -84,49 +88,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun initListeners() {
-        mapView.userLocationBtn.setOnClickListener {
+        mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
 
-            if (grantedPermission) {
-                if (isLocationActive) {
-                    hideUserLocation()
-                } else {
-                    showUserLocation()
-                }
-                changeUserLocation()
-            } else {
-                requestPermissions()
-            }
-        }
-
-        mapView.showMarkersBtn.setOnClickListener {
-
-            activity?.funNotAvailableDialog()
-            // TODO: Uncomment when kml markers are updated to 2019
-            //setInterestMarkersVisibility()
-        }
+        mapView.showMarkersBtn.setOnClickListener {switchInterestMarkers()}
     }
 
-    private fun initInterestPlaces() {
-        kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
-    }
-
-    private fun initCoordinates() {
-        val arrayLat: TypedArray = resources.obtainTypedArray(R.array.arrayLatitude)
-        val arrayLon: TypedArray = resources.obtainTypedArray(R.array.arrayLongitude)
-
-        for (i in 0 until arrayLat.length()){
-            val lat = arrayLat.getFloat(i, Float.MAX_VALUE)
-            val lon = arrayLon.getFloat(i, Float.MAX_VALUE)
-            val latLon = LatLng(lat.toDouble(), lon.toDouble())
-            arrayListCoordinates.add(latLon)
-        }
-
-        arrayLat.recycle()
-        arrayLon.recycle()
-    }
-    // endregion
-
-    // region layout
     private fun initKmCards() {
         arrayKml  = resources.obtainTypedArray(R.array.arrayKml)
         recyclerViewMap?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
@@ -161,16 +127,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             map.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_map))
 
             initKmCards()
-
-            //ADD KML & PLACEMARKERS (INTEREST POINTS)
             addKML()
 
-            // TODO: Uncomment when kml markers are updated to 2019
-            //initInterestPlaces()
-            //setInterestMarkersVisibility(true)
-
-            addCurrentModalityLayerToMap()
-
+            addMapElements()
             mapInitialized = true
         }
     }
@@ -184,9 +143,91 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 .snippet(text).icon(icon)
         return map.addMarker(markerOptions)
     }
+
+    private fun initCoordinates() {
+        val arrayLat: TypedArray = resources.obtainTypedArray(R.array.arrayLatitude)
+        val arrayLon: TypedArray = resources.obtainTypedArray(R.array.arrayLongitude)
+
+        for (i in 0 until arrayLat.length()){
+            val lat = arrayLat.getFloat(i, Float.MAX_VALUE)
+            val lon = arrayLon.getFloat(i, Float.MAX_VALUE)
+            val latLon = LatLng(lat.toDouble(), lon.toDouble())
+            arrayListCoordinates.add(latLon)
+        }
+
+        arrayLat.recycle()
+        arrayLon.recycle()
+    }
+
+    private fun addMapElements() {
+
+        // TODO: Uncomment when kml markers are updated to 2019
+        //initInterestPlaces()
+        //setInterestMarkersVisibility(true)
+
+        addCurrentModalityLayerToMap()
+    }
     // endregion
 
-    // region interest markers
+    // region user location
+    private fun switchUserLocation() {
+        if (grantedPermission) {
+            if (isLocationActive) {
+                hideUserLocation()
+            } else {
+                showUserLocation()
+            }
+            switchUserLocationButton()
+        } else {
+            requestPermissions()
+        }
+    }
+
+    private fun initUserLocation() {
+        context?.let {context ->
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+        }
+
+        checkPermissions()
+    }
+
+    private fun switchUserLocationButton() {
+        isLocationActive = !isLocationActive
+        tintUserLocationButton()
+    }
+
+    private fun tintUserLocationButton() {
+        // TODO Compat
+        if (isLocationActive){
+            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+
+        }else{
+            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
+        }
+    }
+
+    private fun showUserLocation() {
+        userLocation?.let { location ->
+            createUserMarker(location)
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+        }
+    }
+
+    private fun createUserMarker(location: Location) {
+        userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+    }
+
+    private fun hideUserLocation() {
+        userMarker?.remove()
+        userMarker = null
+        kmAdapter.let {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+        }
+
+    }
+    // endregion
+
+    // region interesting places
     private fun setInterestMarkersVisibility(forceShow : Boolean = false) {
         if (forceShow) {
             kmlMarkers.addLayerToMap()
@@ -203,46 +244,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
     }
 
-    // endregion
-
-    // region user location
-    private fun initUserLocation() {
-        context?.let {context ->
-            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-        }
-
-        checkPermissions()
+    private fun switchInterestMarkers() {
+        activity?.funNotAvailableDialog()
+        // TODO: Uncomment when kml markers are updated to 2019
+        //setInterestMarkersVisibility()
     }
 
-    private fun changeUserLocation() {
-        isLocationActive = !isLocationActive
-        tintUserLocationButton()
-    }
-
-    private fun tintUserLocationButton() {
-        // TODO Compat
-        if (isLocationActive){
-            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
-
-        }else{
-            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
-        }
-    }
-
-    private fun showUserLocation() {
-        userLocation.let { location ->
-            userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
-        }
-    }
-
-    private fun hideUserLocation() {
-        userMarker?.remove()
-        userMarker = null
-        kmAdapter.let {
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
-        }
-
+    private fun initInterestPlaces() {
+        kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
     }
 
     private fun tintMarkersButton() {
@@ -257,7 +266,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     // region map layers
     private fun addCurrentModalityLayerToMap() {
-        kmAdapter.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+        kmAdapter.let {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
             if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()
         }
     }
@@ -319,11 +329,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (grantResults[0]) {
             PackageManager.PERMISSION_GRANTED -> {
-                grantedPermission = true
+                onPermissionGranted()
                 getUserCurrentLocation()
             }
             PackageManager.PERMISSION_DENIED -> {
-                grantedPermission = false
+                onPermissionNotGranted()
             }
 
         }
@@ -342,15 +352,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                             userLocation = location
 
                             map.let {
+                                showUserLocation()
                                 isLocationActive = true
                                 tintUserLocationButton()
-                                showUserLocation()
                             }
                         } else {
                             map.let {
-                                isLocationActive = false
                                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
-                                tintUserLocationButton()
                             }
                         }
                     }
@@ -367,14 +375,32 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
             when (permissionCheck) {
                 PackageManager.PERMISSION_GRANTED -> {
-                    grantedPermission = true
-                    tintUserLocationButton()
+                    onPermissionGranted()
                 }
                 PackageManager.PERMISSION_DENIED -> {
+                    onPermissionNotGranted()
                     requestPermissions()
                 }
             }
         }
+    }
+
+    private fun onPermissionGranted() {
+        if (userLocation != null) {
+            grantedPermission = true
+
+            showUserLocation()
+            isLocationActive = true
+            tintUserLocationButton()
+        } else {
+            getUserCurrentLocation()
+        }
+    }
+
+    private fun onPermissionNotGranted() {
+        grantedPermission = false
+        isLocationActive = false
+        tintUserLocationButton()
     }
     // endregion
 

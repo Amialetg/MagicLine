@@ -35,6 +35,10 @@
     <string name="mesque_demana">"pide donativos"</string>
     <string name="mesque_idees">"ideas de captación"</string>
 
+    <string name="pdf_donations_collecting_guide_barcelona">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Barcelona_ES.pdf</string>
+    <string name="pdf_donations_collecting_guide_mallorca">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Mallorca_ES.pdf</string>
+    <string name="pdf_donations_collecting_guide_valencia">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Valencia_ES.pdf</string>
+
     <!-- Section a fons -->
     <string name="afons_title">"la magic line a fondo"</string>
     <string name="afons_imprescindibles">"Imprescindibles ML"</string>

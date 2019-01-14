@@ -92,7 +92,11 @@ class MagicLineFragment : BaseFragment() {
         }
 
         btnBrainStorm.setOnClickListener {
-            if (activity is MainActivity) (activity as MainActivity).callIntent(URL_IDEAS_GUIDE)
+            when (getFlavor()) {
+                BARCELONA -> {if (activity is MainActivity) (activity as MainActivity).callIntent(getString(R.string.pdf_donations_collecting_guide_barcelona))}
+                MALLORCA -> {if (activity is MainActivity) (activity as MainActivity).callIntent(getString(R.string.pdf_donations_collecting_guide_mallorca))}
+                VALENCIA -> {if (activity is MainActivity) (activity as MainActivity).callIntent(getString(R.string.pdf_donations_collecting_guide_valencia))}
+            }
         }
     }
 

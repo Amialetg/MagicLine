@@ -181,8 +181,8 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <!-- ABOUT ML APP -->
     <string name="aboutTheAppTitle">Sobre la App</string>
     <string name="aboutTheAppSubTitle">Compromiso social</string>
-    <strinºg name="aboutTheAppLink">https://www.basetis.com/es/</strinºg>
-    <string name="aboutTheAppBody"><![CDATA[<html> Aplicación desarrollada por <a href ="https://www.linkedin.com/in/hectorpascualh/">Hector Pascual</a> y <a href ="Albert : https://www.linkedin.com/in/albertrisco/">Albert Risco</a>, estudiantes de Enginyeria de Tecnologies i Serveis de Telecomunicació en la UPC, junto a Basetis, un equipo de apasionados por las tecnologías de la información que cree que debemos tener una responsabilidad social y ética en todos los ámbitos en los que intervienen. </html>]]> </string>
+    <string name="aboutTheAppLink">https://www.basetis.com/es/</string>
+    <string name="aboutTheAppBody"><![CDATA[<html> Aplicación desarrollada por <a href ="https://www.linkedin.com/in/hectorpascualh/">Hector Pascual</a> y <a href ="https://www.linkedin.com/in/albertrisco/">Albert Risco</a>, estudiantes de Enginyeria de Tecnologies i Serveis de Telecomunicació en la UPC, junto a Basetis, un equipo de apasionados por las tecnologías de la información que cree que debemos tener una responsabilidad social y ética en todos los ámbitos en los que intervienen. </html>]]> </string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
 

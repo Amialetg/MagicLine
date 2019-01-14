@@ -60,13 +60,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var grantedPermission : Boolean = false
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    // region lifecycle
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
 
         initToolbar()
         initListeners()
         initCoordinates()
+
         return mapView
     }
 
@@ -77,11 +77,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
-
     }
-    // endregion
 
-    // region init
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         mapView.mapToolbar.title = getString(R.string.toolbar_map)
@@ -89,7 +86,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun initListeners() {
         mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
-
         mapView.showMarkersBtn.setOnClickListener {switchInterestMarkers()}
     }
 
@@ -98,6 +94,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         recyclerViewMap?.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.margin_km).toInt()))
         val kmListInt = resources.getIntArray(R.array.arrayKm)
         val kmList: ArrayList<CardKm> = arrayListOf()
+
         for (i in 0 until kmListInt.size) {
             //to diff st boi, we use negative sign on xml file (bcn flavor)
             if(kmListInt[i].sign < 0 ) kmList.add(CardKm(kmListInt[i].absoluteValue, getString(R.string.st_boi)))
@@ -107,20 +104,18 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
 
         var itemClickListener: (Int) -> Unit = { adapterPosition ->
-                with(kmAdapter) {
-                    selectedPosition = adapterPosition
-                    addCurrentModalityLayerToMap()
-                    removeOtherModalityLayerForMap()
-                    notifyDataSetChanged()
-                }
+            with(kmAdapter) {
+                selectedPosition = adapterPosition
+                addCurrentModalityLayerToMap()
+                removeOtherModalityLayerForMap()
+                notifyDataSetChanged()
+            }
         }
 
         kmAdapter = KmAdapter(kmList, itemClickListener , this.requireContext() )
         recyclerViewMap?.adapter = kmAdapter
     }
-    // endregion
 
-    // region map
     override fun onMapReady(googleMap: GoogleMap) {
         if (!mapInitialized) {
             map = googleMap
@@ -160,16 +155,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun addMapElements() {
-
         // TODO: Uncomment when kml markers are updated to 2019
         //initInterestPlaces()
         //setInterestMarkersVisibility(true)
 
         addCurrentModalityLayerToMap()
     }
-    // endregion
 
-    // region user location
     private fun switchUserLocation() {
         if (grantedPermission) {
             if (isLocationActive) {
@@ -187,7 +179,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         context?.let {context ->
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
         }
-
         checkPermissions()
     }
 
@@ -200,7 +191,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         // TODO Compat
         if (isLocationActive){
             mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
-
         }else{
             mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
         }
@@ -225,9 +215,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
     }
-    // endregion
 
-    // region interesting places
     private fun setInterestMarkersVisibility(forceShow : Boolean = false) {
         if (forceShow) {
             kmlMarkers.addLayerToMap()
@@ -262,9 +250,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
         }
     }
-    // endregion
 
-    // region map layers
     private fun addCurrentModalityLayerToMap() {
         try {
             kmAdapter.let {
@@ -303,7 +289,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
     }
 
     class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDecoration() {
@@ -327,13 +312,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             }
         }
     }
-    // endregion
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    // region location permissions
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (grantResults[0]) {
             PackageManager.PERMISSION_GRANTED -> {
@@ -343,7 +326,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             PackageManager.PERMISSION_DENIED -> {
                 onPermissionNotGranted()
             }
-
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -410,7 +392,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         isLocationActive = false
         tintUserLocationButton()
     }
-    // endregion
 
 
 }

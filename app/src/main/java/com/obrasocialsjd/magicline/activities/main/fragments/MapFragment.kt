@@ -107,12 +107,12 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         recyclerViewMap?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
 
         var itemClickListener: (Int) -> Unit = { adapterPosition ->
-            with(kmAdapter){
-                selectedPosition = adapterPosition
-                addCurrentModalityLayerToMap()
-                removeOtherModalityLayerForMap()
-                notifyDataSetChanged()
-            }
+                with(kmAdapter) {
+                    selectedPosition = adapterPosition
+                    addCurrentModalityLayerToMap()
+                    removeOtherModalityLayerForMap()
+                    notifyDataSetChanged()
+                }
         }
 
         kmAdapter = KmAdapter(kmList, itemClickListener , this.requireContext() )
@@ -266,20 +266,28 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     // region map layers
     private fun addCurrentModalityLayerToMap() {
-        kmAdapter.let {
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
-            if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()
+        try {
+            kmAdapter.let {
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+                if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()
+            }
+        } catch (multitouch: IndexOutOfBoundsException) {
+            // FIXME
         }
     }
 
     private fun removeOtherModalityLayerForMap() {
-        kmAdapter.let {
-            var selectedKmLayer = arrayKmlLayers[it.selectedPosition]
-            for (kmLayer in arrayKmlLayers) {
-                if (kmLayer.isLayerOnMap && kmLayer != selectedKmLayer) {
-                    kmLayer.removeLayerFromMap()
+        try {
+            kmAdapter.let {
+                var selectedKmLayer = arrayKmlLayers[it.selectedPosition]
+                for (kmLayer in arrayKmlLayers) {
+                    if (kmLayer.isLayerOnMap && kmLayer != selectedKmLayer) {
+                        kmLayer.removeLayerFromMap()
+                    }
                 }
             }
+        } catch (multitouch : IndexOutOfBoundsException) {
+            // FIXME
         }
     }
 

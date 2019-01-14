@@ -8,4 +8,7 @@
     <dimen name="inviteBtnMargin">28dp</dimen>
     <dimen name="inviteBtnImg">28dp</dimen>
     <dimen name="aboutAppMargin">32dp</dimen>
+    <dimen name="height_news">100dp</dimen>
+    <dimen name="top_news">16dp</dimen>
+    <dimen name="LinearLayout_news">120dp</dimen>
 </resources>

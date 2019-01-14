@@ -5,65 +5,40 @@
     android:orientation="vertical">
 
     <TextView
+        style="@style/NewsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/news_title"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        style="@style/NewsTitle" />
+        android:layout_marginTop="@dimen/top_news"
+        android:layout_marginBottom="@dimen/margin_programming"
+        android:text="@string/news_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:paddingBottom="8dp"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/LinearLayout_news"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/margin_programming">
 
-        <RelativeLayout
-            android:layout_width="@dimen/news_arrow_box_width"
-            android:layout_height="@dimen/news_item_height"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/left_arrow_relative"
-            >
+        <ImageView
+            android:id="@+id/news_left_arrow"
+            android:layout_width="@dimen/news_arrow_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_news_left_arrow" />
 
-            <ImageView
-                android:layout_width="@dimen/news_arrow_width"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_news_left_arrow"
-                android:id="@+id/news_left_arrow"
-                android:layout_centerInParent="true"
-                />
-
-        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newsRecyclerView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_weight="1" />
 
 
-        <RelativeLayout
-            android:layout_width="@dimen/news_arrow_box_width"
-            android:layout_height="@dimen/news_item_height"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/right_arrow_relative"
-            >
+        <ImageView
+            android:id="@+id/news_right_arrow"
+            android:layout_width="@dimen/news_arrow_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_news_right_arrow" />
 
-            <ImageView
-                android:layout_width="@dimen/news_arrow_width"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_news_right_arrow"
-                android:id="@+id/news_right_arrow"
-                android:layout_centerInParent="true"
-                />
-
-        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

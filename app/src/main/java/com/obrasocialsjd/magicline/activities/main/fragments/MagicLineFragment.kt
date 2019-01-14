@@ -185,7 +185,7 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
 
-        right_arrow_relative.setOnClickListener {
+        news_left_arrow.setOnClickListener {
             val totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
@@ -197,7 +197,7 @@ class MagicLineFragment : BaseFragment() {
             mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
         }
 
-        left_arrow_relative.setOnClickListener {
+        news_right_arrow.setOnClickListener {
             val totalItemCount = newsRecyclerView.adapter?.itemCount ?:0
 
             if (totalItemCount < 0) return@setOnClickListener

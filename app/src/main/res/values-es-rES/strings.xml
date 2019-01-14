@@ -177,6 +177,9 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="walk_30km">30 km</string>
     <string name="walk_40km">40 km</string>
     <string name="more_info_on">Més info a:</string>
+    <string name="more_info_web_barcelona">https://www.magiclinesjd.org/es/participar_barcelona</string>
+    <string name="more_info_web_mallorca">https://www.magiclinesjd.org/es/participar_mallorca</string>
+    <string name="more_info_web_valencia">https://www.magiclinesjd.org/es/participar_valencia</string>
 
     <!-- ABOUT ML APP -->
     <string name="aboutTheAppTitle">Sobre la App</string>

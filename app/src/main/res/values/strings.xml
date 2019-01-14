@@ -187,6 +187,11 @@
     <string name="walk_40km">40 km</string>
     <string name="more_info_on">Més info a:</string>
 
+    <string name="more_info_web_barcelona">https://www.magiclinesjd.org/ca/participar_barcelona</string>
+    <string name="more_info_web_mallorca">https://www.magiclinesjd.org/ca/participar_mallorca</string>
+    <string name="more_info_web_valencia">https://www.magiclinesjd.org/ca/participar_valencia</string>
+
+
     <!-- ABOUT ML APP -->
     <string name="aboutTheAppTitle">Sobre L\'App</string>
     <string name="aboutTheAppSubTitle">Compromís social</string>

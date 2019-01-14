@@ -33,6 +33,24 @@
 				<outline>1</outline>
 			</PolyStyle>
 		</Style>
+		<Placemark>
+          <name>Inici de la ruta Magic Line Valencia 2019, 10 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              -0.3307988,39.4765761,0
+            </coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Fi de la ruta Magic Line Valencia 2019, 10 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              -0.3767986,39.4698891,0
+            </coordinates>
+          </Point>
+        </Placemark>
 		<Folder>
 			<name>Tracks</name>
 			<Placemark>

@@ -33,6 +33,24 @@
 				<outline>1</outline>
 			</PolyStyle>
 		</Style>
+		<Placemark>
+          <name>Inici de la ruta Magic Line Mallorca 2019, 20 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              2.6265269,39.5884891,0
+            </coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Fi de la ruta Magic Line Mallorca 2019, 20 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              2.6459976,39.5670647,0
+            </coordinates>
+          </Point>
+        </Placemark>
 		<Folder>
 			<name>Tracks</name>
 			<Placemark>

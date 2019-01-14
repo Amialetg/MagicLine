@@ -20,9 +20,7 @@ import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
-import com.obrasocialsjd.magicline.utils.addThousandsSeparator
-import com.obrasocialsjd.magicline.utils.callIntent
-import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
@@ -47,7 +45,9 @@ class MoreInfoMLFragment : BaseFragment() {
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
+        initViews()
         initRrss()
+        initListeners()
 
         return moreInfoMLView
     }
@@ -74,15 +74,17 @@ class MoreInfoMLFragment : BaseFragment() {
         moreInfoMLView.topToolbar.navigationIcon = ContextCompat.getDrawable(this.requireContext(), ic_black_cross)
         moreInfoMLView.topToolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this.requireContext(), R.color.black), android.graphics.PorterDuff.Mode.SRC_ATOP)
         moreInfoMLView.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
+    }
 
+    private fun initViews() {
         val text: String = getString(walk_text_1) + " "
         val text2: String = "<b>" + getString(walk_text_2) + "</b>" + " "
         val text3: String = getString(walk_text_3) + " "
         val text4: String = "<b>" + getString(walk_text_4) + "</b>"
-        val textView = moreInfoMLView.firstWalkText
+        val walkInfo = moreInfoMLView.firstWalkText
 
         var infoText = text + text2 + text3 + text4
-        textView.text = infoText.htmlToSpanned()
+        walkInfo.text = infoText.htmlToSpanned()
     }
 
     private fun initRrss() {
@@ -95,6 +97,16 @@ class MoreInfoMLFragment : BaseFragment() {
         moreInfoMLView.rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
+    private fun initListeners() {
+        moreInfoMLView.moreInfoWeb.setOnClickListener{
+            when (getFlavor()) {
+                BARCELONA -> {activity?.callIntent(getString(R.string.more_info_web_barcelona))}
+                MALLORCA -> {activity?.callIntent(getString(R.string.more_info_web_mallorca))}
+                VALENCIA -> {activity?.callIntent(getString(R.string.more_info_web_valencia))}
+            }
+        }
+    }
+
     private fun createBarChart() {
         setUpPieChartData()
     }
@@ -104,16 +116,18 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun configurePieChart(pieValue: Float, pieTotal: Float) {
-        val yVals = ArrayList<PieEntry>()
-        yVals.add(PieEntry(pieValue))
-        yVals.add(PieEntry(pieTotal))
-        val dataSet = PieDataSet(yVals, "")
+        val chartValues = ArrayList<PieEntry>()
+        chartValues.add(PieEntry(pieValue))
+        chartValues.add(PieEntry(pieTotal))
+
+        val dataSet = PieDataSet(chartValues, "")
         dataSet.valueTextSize = 0f
+
         val colors = java.util.ArrayList<Int>()
         colors.add(ContextCompat.getColor(requireContext(), light_red))
         colors.add(ContextCompat.getColor(requireContext(), mesque_background))
         dataSet.colors = colors
-        pieChart.animateY(2000)
+
         val data = PieData(dataSet)
         pieChart.data = data
         pieChart.rotationAngle = 0f
@@ -122,6 +136,8 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.holeRadius = 80f
         pieChart.centerText = availableSpots.toString().addThousandsSeparator() + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
+        pieChart.animateY(2000)
+
         var typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)
         pieChart.setCenterTextTypeface(typeFace)
         pieChart.legend.isEnabled = false

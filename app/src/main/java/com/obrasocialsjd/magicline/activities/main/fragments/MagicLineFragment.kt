@@ -235,7 +235,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
                 isBlack = true,
-                listToolbarImg = listOf(R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori, R.drawable.destidelfons),
+                listToolbarImg = listOf(R.drawable.sliderimage3, R.drawable.sliderimage2, R.drawable.laboratori, R.drawable.destidelfons),
                 hasToolbarImg = false)
 
         info_essentials_button.setOnClickListener {

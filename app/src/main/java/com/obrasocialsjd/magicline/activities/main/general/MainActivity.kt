@@ -5,31 +5,40 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProviders
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.fragments.*
-import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.models.ScheduleCardModel
-import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
-import com.obrasocialsjd.magicline.models.ScheduleTextModel
-import com.obrasocialsjd.magicline.utils.DONATIONS
-import com.obrasocialsjd.magicline.utils.HOME
-import com.obrasocialsjd.magicline.utils.SCHEDULE
-import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
+import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
+import com.obrasocialsjd.magicline.data.models.posts.PostsItem
+import com.obrasocialsjd.magicline.db.MagicLineDB
+import com.obrasocialsjd.magicline.models.*
+import com.obrasocialsjd.magicline.utils.*
+import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
+import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
+import java.util.ArrayList
 
 class MainActivity : BaseActivity() {
 
     private lateinit var currentFragment: Fragment
     private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
+    private lateinit var mMagicLineViewModel: MagicLineViewModel
+    private lateinit var myNewsAdapter: NewsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
+        val factory = MagicLineViewModelFactory(this.application, repository)
+        mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
 
         //Prepare the mapFAB
         bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
@@ -77,15 +86,19 @@ class MainActivity : BaseActivity() {
         }
 
         bottomBarFloatingButton.setOnClickListener {
-            bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
-            bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
+            var mapButton = bottomBarView.menu.getItem(2)
 
-            //We set clicked on the none item in order to disable the rest of the items
-            //but the fragment that is shown is the map fragment
-            bottomBarView.menu.getItem(2).isChecked = true
+            if (!mapButton.isChecked) {
+                bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
+                bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.colorPrimary)
 
-            transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false,
-                    addToBackStack = false)
+                //We set clicked on the none item in order to disable the rest of the items
+                //but the fragment that is shown is the map fragment
+                mapButton.isChecked = true
+
+                transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false,
+                        addToBackStack = false)
+            }
         }
     }
 
@@ -118,6 +131,8 @@ class MainActivity : BaseActivity() {
                 else -> newFragment = MagicLineFragment()
             }
 
+
+
             transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
                     addToBackStack = false)
             currentFragment = newFragment
@@ -126,36 +141,59 @@ class MainActivity : BaseActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        setIntent(Intent().apply { putExtra("From", "ferDonacio") })
-        val extra = intent?.getSerializableExtra("From")
+        setIntent(Intent().apply { putExtra(FROM, DONATION) })
+        val extra = intent?.getSerializableExtra(FROM)
         navigateFromIntentExtra(extra)
     }
     private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
 
-        val dataModelEssential = DetailModel(
-                title = getString(R.string.essentials_title),
-                subtitle = getString(R.string.essentials_subtitle),
-                textBody = getString(R.string.essentials_body),
-                link = getString(R.string.essentials_viewOnWeb))
-
         when (extra) {
-            "ultimaNoticia" -> {
-                this.transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))
-            }
-            "ferDonacio" -> {
+            LAST_NEWS -> { getNotificationNews() }
+            DONATION -> {
                 bottomBarView.menu.getItem(DONATIONS).isChecked = true
                 this.transitionWithModalAnimation(DonationsFragment())
             }
-            "detallsEsdeveniments" -> {
+            EVENT -> {
                 bottomBarView.menu.getItem(SCHEDULE).isChecked = true
 
                 this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel))
-            } //Especificar qué Fragment
+            }
             else -> {
                 bottomBarView.menu.getItem(HOME).isChecked = true
                 if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
             }
         }
+    }
+
+    private fun getNotificationNews(){
+        myNewsAdapter = NewsAdapter(ArrayList())
+
+        mMagicLineViewModel.getPosts(getAPILang(context = applicationContext)).observe(this, androidx.lifecycle.Observer {
+            myNewsAdapter.loadItems(toNewsModel(it))
+            myNewsAdapter.notifyDataSetChanged()})
+    }
+
+    private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
+        val news : MutableList<NewsModel> = mutableListOf()
+        val onClickListener: (NewsModel) -> Unit = {}
+
+            val detailModel = DetailModel(
+                    title = list[INITIAL_POSITION].post.title.toString(),
+                    subtitle = list[INITIAL_POSITION].post.teaser.toString(),
+                    textBody = list[INITIAL_POSITION].post.text.toString(),
+                    listToolbarImg = emptyList(),
+                    listPostImg = list[INITIAL_POSITION].postImages,
+                    hasToolbarImg = false,
+                    link = list[INITIAL_POSITION].post.url.toString()
+            )
+
+            news.add(NewsModel(
+                    detailModel = detailModel,
+                    listener = onClickListener
+            ))
+        this.transitionWithModalAnimation(DetailFragment.newInstance(detailModel))
+
+        return news
     }
 
     private fun getData() {

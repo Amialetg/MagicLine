@@ -59,14 +59,30 @@ const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
 /**
  * MAP
  */
-const val KM : String = "km"
+const val KM
+        : String = "km"
 
 /**
  * ONESIGNAL
  */
 const val LOCATION: String = "location"
+const val LAST_NEWS: String = "ultimaNoticia"
+const val DONATION: String = "ferDonacio"
+const val EVENT: String = "detallsEsdeveniments"
+const val FROM: String = "From"
+const val INITIAL_POSITION : Int = 0
+
+
+
+
 
 /**
  * DONATION
  */
 const val JS = "var style = document.createElement('style'); style.innerHTML = 'header, #results, body > div > h3 { display: none; }'; document.head.appendChild(style);"
+
+/**
+ * PERMISSIONS CONSTANTS
+ */
+
+const val MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 13

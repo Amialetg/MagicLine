@@ -93,6 +93,7 @@ class MoreInfoMLFragment : BaseFragment() {
 //        var infoText = text
 //        var infoText = text + text2 + text3 + text4
 //        endString.htmlToSpanned()
+        moreInfoMLView.walkText.text = getString(walk_text_1)
         moreInfoMLView.firstWalkText.text = endString.htmlToSpanned()
     }
 

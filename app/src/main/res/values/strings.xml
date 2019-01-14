@@ -46,6 +46,9 @@
     <string name="st_boi" translatable="false">"ST.BOI"</string>
     <string name="map_km">Km caminada solidaria:</string>
 
+    <string name="gps_not_available_title">GPS no disponible</string>
+    <string name="gps_not_available_text">Por favor, habilita el sensor GPS</string>
+
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
     <string name="url_twitter" translatable="false">https://twitter.com/magiclineSJD</string>

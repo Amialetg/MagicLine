@@ -43,6 +43,9 @@
     <string name="google_maps_API_key">"AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY"</string>
     <string name="map_km">"KM caminata solidaria:"</string>
 
+    <string name="gps_not_available_title">GPS no disponible</string>
+    <string name="gps_not_available_text">Por favor, habilita el sensor GPS</string>
+
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
     <string name="url_twitter" translatable="false">https://twitter.com/magiclineSJD</string>

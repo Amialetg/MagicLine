@@ -6,7 +6,7 @@
       <IconStyle>
         <scale>1.1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+          <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
@@ -21,7 +21,7 @@
       <IconStyle>
         <scale>1.1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+          <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
@@ -46,7 +46,7 @@
       <IconStyle>
         <scale>1.1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
+          <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
@@ -61,7 +61,7 @@
       <IconStyle>
         <scale>1.1</scale>
         <Icon>
-          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
+          <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>

@@ -62,7 +62,7 @@
     <string name="info_var_title">Més info</string>
 
     <!--More info fragment-->
-    <string name="moreinfo_title">configuració</string>
+    <string name="moreinfo_title">opcions</string>
     <string name="moreinfo_sobre_la_ml">Tot sobre la magic line</string>
     <string name="moreinfo_sitio_web" translatable="false">Anar al lloc web</string>
     <string name="moreinfo_idioma" translatable="false">Idioma</string>

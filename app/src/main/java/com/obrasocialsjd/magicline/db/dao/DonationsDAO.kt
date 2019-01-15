@@ -10,4 +10,6 @@ import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
     @Query("select * from donations")
     fun getDonations() : LiveData<DonationsDBModel>
 
+    @Query("DELETE FROM donations")
+    fun nukeTable()
 }

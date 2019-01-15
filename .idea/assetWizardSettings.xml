@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="78" />
+                                                <entry key="scalingPercent" value="85" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -37,6 +37,7 @@
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="e41b13" />
                                       <entry key="foregroundImage" value="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher.png" />
+                                      <entry key="previewDensity" value="HIGH" />
                                     </map>
                                   </option>
                                 </PersistentState>

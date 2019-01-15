@@ -68,7 +68,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
     }
 
@@ -104,8 +103,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         mapView.mapToolbar.title = getString(R.string.toolbar_map)
     }
-
-
 
     private fun initListeners() {
         mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
@@ -152,6 +149,12 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         kmAdapter = KmAdapter(kmList, itemClickListener , this.requireContext() )
         recyclerViewMap?.adapter = kmAdapter
+    }
+
+    private fun initializePositionListener() {
+        try {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener)
+        } catch (securityException : SecurityException) { }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -221,7 +224,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         context?.let {context ->
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
         }
-
         checkPermissions()
     }
 
@@ -261,9 +263,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun hideUserLocation() {
         userMarker?.remove()
         userMarker = null
-        kmAdapter.let {
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
-        }
+        kmAdapter.let {map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f)) }
 
     }
 
@@ -308,9 +308,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
                 if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()
             }
-        } catch (multitouch: IndexOutOfBoundsException) {
-            // FIXME
-        }
+        } catch (multitouch: IndexOutOfBoundsException) { }
     }
 
     private fun removeOtherModalityLayerForMap() {
@@ -323,9 +321,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                     }
                 }
             }
-        } catch (multitouch : IndexOutOfBoundsException) {
-            // FIXME
-        }
+        } catch (multitouch : IndexOutOfBoundsException) { }
     }
 
     private fun addKML() {
@@ -374,9 +370,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 onPermissionGranted()
                 initializePositionListener()
             }
-            PackageManager.PERMISSION_DENIED -> {
-                onPermissionNotGranted()
-            }
+            PackageManager.PERMISSION_DENIED -> onPermissionNotGranted()
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -384,7 +378,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun requestPermissions() {
         requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION)
     }
-
 
     private fun getUserLocation() {
         try {
@@ -399,14 +392,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                                 tintUserLocationButton()
                             }
                         } else {
-                            map.let {
-                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f))
-                            }
+                            map.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f)) }
                         }
                     }
-        } catch (exception : SecurityException) {
-            // TODO do nothing
-        }
+        } catch (exception : SecurityException) {}
 
     }
 
@@ -451,14 +440,5 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun isGPSAvailable() : Boolean {
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-    }
-
-    private fun initializePositionListener() {
-        try {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener)
-        } catch (securityException : SecurityException) {
-
-        }
-
     }
 }

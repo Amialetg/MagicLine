@@ -62,7 +62,7 @@
     <string name="info_var_title">"Más info"</string>
 
     <!-- More info fragment -->
-    <string name="moreinfo_title">"configuración"</string>
+    <string name="moreinfo_title">"opciones"</string>
     <string name="moreinfo_sobre_la_ml">"Todo sobre la Magic Line"</string>
     <string name="moreinfo_sitio_web">"Ir al sitio web"</string>
     <string name="moreinfo_idioma">"Idioma"</string>

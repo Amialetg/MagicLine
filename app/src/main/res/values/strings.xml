@@ -37,6 +37,8 @@
     <string name="mesque_demana">demana donatius</string>
     <string name="mesque_idees">idees de captació</string>
 
+    <string name="pdf_donations_collecting_guide">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Barcelona.pdf</string>
+
     <!--Section a fons-->
     <string name="afons_title">la magic line a fons</string>
     <string name="afons_imprescindibles">Imprescindibles ML</string>
@@ -46,6 +48,9 @@
     <string name="toolbarMap">Recorregut</string>
     <string name="st_boi" translatable="false">"ST.BOI"</string>
     <string name="map_km">Km caminada solidaria:</string>
+
+    <string name="gps_not_available_title">GPS no disponible</string>
+    <string name="gps_not_available_text">Por favor, habilita el sensor GPS</string>
 
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
@@ -63,7 +68,7 @@
     <string name="info_var_title">Més info</string>
 
     <!--More info fragment-->
-    <string name="moreinfo_title">configuració</string>
+    <string name="moreinfo_title">opcions</string>
     <string name="moreinfo_sobre_la_ml">Tot sobre la magic line</string>
     <string name="moreinfo_sitio_web" translatable="false">Anar al lloc web</string>
     <string name="moreinfo_idioma" translatable="false">Idioma</string>

@@ -1,11 +1,13 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.Manifest
+import android.content.Context.LOCATION_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.TypedArray
 import android.graphics.Rect
 import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +32,7 @@ import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
 import com.obrasocialsjd.magicline.utils.MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.obrasocialsjd.magicline.utils.funNotAvailableDialog
+import com.obrasocialsjd.magicline.utils.gpsNotAvailableDialog
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
@@ -49,7 +52,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var arrayListCoordinates = arrayListOf<LatLng>()
     private var userLocation: Location? = null
     private var isLocationActive: Boolean = false
-    private var areMarkersActive: Boolean = true
+    private var areMarkersActive: Boolean = false
     private lateinit var arrayKml: TypedArray
     private lateinit var kmAdapter: KmAdapter
 
@@ -57,7 +60,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private var userMarker : Marker? = null
 
-    private var grantedPermission : Boolean = false
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -67,13 +69,21 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         initListeners()
         initCoordinates()
 
+        tintUserLocationButton()
+        tintMarkersButton()
+
         return mapView
     }
 
     override fun onStart() {
         super.onStart()
 
-        initUserLocation()
+        if (isGPSAvailable()) {
+            initUserLocation()
+        } else {
+            isLocationActive = false
+            tintUserLocationButton()
+        }
 
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
@@ -163,15 +173,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun switchUserLocation() {
-        if (grantedPermission) {
-            if (isLocationActive) {
-                hideUserLocation()
+        if (isGPSAvailable()) {
+            if (isPermissionGranted()) {
+                if (isLocationActive) {
+                    hideUserLocation()
+                } else {
+                    showUserLocation()
+                }
+                switchUserLocationButton()
             } else {
-                showUserLocation()
+                requestPermissions()
             }
-            switchUserLocationButton()
         } else {
-            requestPermissions()
+            activity?.gpsNotAvailableDialog()
         }
     }
 
@@ -375,9 +389,15 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
     }
 
+    private fun isPermissionGranted() : Boolean {
+        var permissionCheck = context?.let {  checkSelfPermission(it,
+                    Manifest.permission.ACCESS_FINE_LOCATION)}
+
+        return permissionCheck?.equals(PackageManager.PERMISSION_GRANTED) ?: false
+    }
+
     private fun onPermissionGranted() {
         if (userLocation != null) {
-            grantedPermission = true
 
             showUserLocation()
             isLocationActive = true
@@ -388,10 +408,12 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun onPermissionNotGranted() {
-        grantedPermission = false
         isLocationActive = false
         tintUserLocationButton()
     }
 
-
+    private fun isGPSAvailable() : Boolean {
+        var locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
 }

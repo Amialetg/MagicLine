@@ -13,66 +13,77 @@
         android:padding="@dimen/margin_top_circle"
         android:text="@string/moreinfo_title" />
 
-    <View
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/moreInfoFriendsTextView"
-        style="@style/MoreInfoSections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/sectionHeight"
-        android:text="@string/moreinfo_amigos" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/moreinfo_bars" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars" />
+            <TextView
+                android:id="@+id/moreInfoFriendsTextView"
+                style="@style/MoreInfoSections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/sectionHeight"
+                android:text="@string/moreinfo_amigos" />
 
-    <TextView
-        android:id="@+id/titleLanguage"
-        style="@style/MoreInfoSections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/sectionHeight"
-        android:text="@string/moreinfo_idioma" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/moreinfo_bars" />
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        layout="@layout/layout_checkboxs_info" />
+            <TextView
+                android:id="@+id/titleLanguage"
+                style="@style/MoreInfoSections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/sectionHeight"
+                android:text="@string/moreinfo_idioma" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars" />
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                layout="@layout/layout_checkboxs_info" />
 
-    <TextView
-        android:id="@+id/aboutMLTextView"
-        style="@style/MoreInfoSections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/sectionHeight"
-        android:text="@string/aboutTheAppTitle" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/moreinfo_bars" />
 
-    <TextView
-        android:id="@+id/webMagicLineTextView"
-        style="@style/MoreInfoSections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/sectionHeight"
-        android:text="@string/moreinfo_sitio_web" />
+            <TextView
+                android:id="@+id/aboutMLTextView"
+                style="@style/MoreInfoSections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/sectionHeight"
+                android:text="@string/aboutTheAppTitle" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/moreinfo_bars" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/moreinfo_bars" />
+            <TextView
+                android:id="@+id/webMagicLineTextView"
+                style="@style/MoreInfoSections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/sectionHeight"
+                android:text="@string/moreinfo_sitio_web" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/moreinfo_bars" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

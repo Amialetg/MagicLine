@@ -1,17 +1,17 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.app.Activity
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.net.Uri
-import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
 import android.os.Build
+import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.BuildConfig
+import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,6 +67,17 @@ fun Activity.funNotAvailableDialog() {
         builder.setNeutralButton(R.string.closeText){ _, _->}
         val dialog = builder.create()
 
+        dialog.show()
+    }
+}
+
+fun Activity.gpsNotAvailableDialog() {
+    let {context ->
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(R.string.gps_not_available_title)
+        builder.setMessage(R.string.gps_not_available_text)
+        builder.setNeutralButton(R.string.closeText){_,_->}
+        val dialog = builder.create()
         dialog.show()
     }
 }

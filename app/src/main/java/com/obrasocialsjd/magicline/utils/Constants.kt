@@ -1,12 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
 /**
- * URLS
- */
-
-const val URL_IDEAS_GUIDE: String = "http://www.magiclinesjd.org/files/froala/74e5144938f7c849173fe0347e213fd8052d5731.pdf"
-
-/**
  * FLAVORS
  */
 const val BARCELONA: String = "Barcelona"

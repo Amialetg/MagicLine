@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="arrayKml">
+        <item>@raw/ml_bcn_10km</item>
+        <item>@raw/ml_bcn_15km</item>
+        <item>@raw/ml_bcn_20km</item>
+        <item>@raw/ml_bcn_30km</item>
+        <item>@raw/ml_bcn_30km_ll</item>
+        <item>@raw/ml_bcn_40km</item>
+    </integer-array>
+    <integer-array name="arrayKm">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>-30</item>
+        <item>30</item>
+        <item>40</item>
+    </integer-array>
+    <array name="arrayLatitude">
+        <item>41.37179</item>
+        <item>41.37323</item>
+        <item>41.38681</item>
+        <item>41.36042</item>
+        <item>41.39382</item>
+        <item>41.40969</item>
+    </array>
+    <array name="arrayLongitude">
+        <item>2.16190</item>
+        <item>2.14015</item>
+        <item>2.13661</item>
+        <item>2.09426</item>
+        <item>2.13661</item>
+        <item>2.13705</item>
+    </array>
+    <string-array name="arrayMoreInfoML">
+        <item>&lt;p>&lt;b>10 km (real: 9,55 km). FUENTES DE MONTJUÏC &lt;/b>&lt;br/>Desnivel +228m -241m&lt;/p></item>
+        <item>&lt;p>&lt;b>15 km (real: 16,1 km). HOSPITAL SAN JUAN DE DIOS &lt;/b>&lt;br/>Desnivel +228m -281m&lt;/p></item>
+        <item>&lt;p>&lt;b>20 km (real: 21,8 km). VALLVIDRERA &lt;/b>&lt;br/>Desnivel +409m -746m (Track 20 km)&lt;/p></item>
+        <item>&lt;p>&lt;b>30 km (real: 30,03 km). Llobregat - SANT BOI DE LLOBREGAT &lt;/b>&lt;br/>Desnivel: +526, - 531m&lt;/p></item>
+        <item>&lt;p>&lt;b>30 km (real: 32,0 km). PARC DE LES AIGÜES&lt;/b>&lt;br/>Desnivel +1.079m -1.157m&lt;/p></item>
+        <item>&lt;p>&lt;b>40 km (real: 41,9 km). CAN CUYÁS&lt;/b>&lt;br/>Desnivel +1.561m -1.637m&lt;/p></item>
+        <item>&lt;p>Al inscribiros os asignaremos un horario de salida. Consultad el correo electrónico de la inscripción.&lt;br/>&lt;br/>
+            &lt;b>Los participantes en la Magic Line tendrán acceso gratuito a los equipamientos de Montjuic el día de la caminata y durante todo el mes de marzo, mostrando la credencial de la Magic Line.&lt;/b>&lt;br/>&lt;br/>
+            Los recorridos de 10 y 15 km son totalmente accesibles para &lt;b>personas con movilidad reducida.&lt;/b>&lt;/p></item>
+    </string-array>
+</resources>

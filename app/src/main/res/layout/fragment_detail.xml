@@ -45,7 +45,7 @@
 
                 <TextView
                     android:id="@+id/detailBody"
-                    style="@style/AFonsTextBody"
+                    style="@style/defaultTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/news_arrow_width"

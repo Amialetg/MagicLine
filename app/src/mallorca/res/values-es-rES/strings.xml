@@ -5,6 +5,8 @@
     <string name="cityParticipants" translatable="false">123</string>
 
     <!-- MAGIC LINE INFO -->
-    <string name="walk_text_1">El recorrido de 20 km discurre por la Serra de na Burguesa. Los de 20 y 10 km contemplan un descanso en el Castillo de Bellver. Las tres distancias comparten la llegada en el Parc de la Mar, donde se celebrará  una fiesta final. Al inscribirse hay que escoger cuantos kilómetros desea caminar.</string>
+    <string name="walk_text">El recorrido de 20 km discurre por la Serra de na Burguesa. Los de 20 y 10 km contemplan un descanso en el Castillo de Bellver. Las tres distancias comparten la llegada en el Parc de la Mar, donde se celebrará  una fiesta final. Al inscribirse hay que escoger cuantos kilómetros desea caminar.</string>
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos_mallorca</string>
+    <string name="more_info_web">https://www.magiclinesjd.org/es/participar_mallorca</string>
+
 </resources>

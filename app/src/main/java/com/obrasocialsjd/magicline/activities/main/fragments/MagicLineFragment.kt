@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.R.id.*
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
@@ -91,9 +92,7 @@ class MagicLineFragment : BaseFragment() {
             (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
 
-        btnBrainStorm.setOnClickListener {
-            if (activity is MainActivity) (activity as MainActivity).callIntent(URL_IDEAS_GUIDE)
-        }
+        btnBrainStorm.setOnClickListener { (activity as MainActivity).callIntent(getString(R.string.pdf_donations_collecting_guide)) }
     }
 
     private fun initMoreInfoMLListener() {

@@ -33,13 +33,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/infoML"
+                    android:padding="@dimen/moreInfo"
                     style="@style/walkText" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="@dimen/marginMoreInfo"
+                    android:layout_marginBottom="@dimen/marginMoreInfo"
                     android:orientation="vertical">
 
                     <ImageView
@@ -83,15 +84,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="32dp"
-                    android:paddingTop="28dp"
-                    android:paddingBottom="28dp">
+                    android:padding="@dimen/moreInfo">
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pieChart"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp" />
+                        android:layout_width="@dimen/widthPieChart"
+                        android:layout_height="@dimen/widthPieChart" />
 
                     <View
                         android:layout_width="24dp"
@@ -145,33 +143,49 @@
                     android:layout_height="1dp"
                     android:background="@drawable/grey_border" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginMoreInfo"
+                    android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/walkTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/walkTitle"
+                    android:paddingStart="@dimen/moreInfo"
+                    android:paddingEnd="@dimen/moreInfo"
+                    android:layout_marginTop="@dimen/marginMoreInfo"
+                    android:layout_marginBottom="@dimen/marginMoreInfo"
                     style="@style/walkTitle" />
 
                 <TextView
                     android:id="@+id/walkText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:bufferType="spannable"
+                    android:layout_marginBottom="@dimen/marginMoreInfo"
+                    android:paddingStart="@dimen/moreInfo"
+                    android:paddingEnd="@dimen/moreInfo"
                     style="@style/walkText" />
 
                 <TextView
                     android:id="@+id/firstWalkText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:bufferType="spannable"
+                    android:paddingStart="@dimen/moreInfo"
+                    android:paddingEnd="@dimen/moreInfo"
                     style="@style/walkText" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="24dp"
-                    android:paddingBottom="12dp">
+                    android:paddingStart="@dimen/moreInfo"
+                    android:paddingEnd="@dimen/moreInfo"
+                    android:layout_marginBottom="@dimen/marginMoreInfo">
 
                     <TextView
                         android:layout_width="wrap_content"

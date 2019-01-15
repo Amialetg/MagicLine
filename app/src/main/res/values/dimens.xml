@@ -8,4 +8,7 @@
     <dimen name="inviteBtnMargin">28dp</dimen>
     <dimen name="inviteBtnImg">28dp</dimen>
     <dimen name="aboutAppMargin">32dp</dimen>
+    <dimen name="moreInfo">32dp</dimen>
+    <dimen name="marginMoreInfo">12dp</dimen>
+    <dimen name="widthPieChart">160dp</dimen>
 </resources>

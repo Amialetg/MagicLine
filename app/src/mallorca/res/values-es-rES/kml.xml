@@ -21,8 +21,8 @@
         <item>2.60464</item>
     </array>
     <string-array name="arrayMoreInfoML">
-        <item>&lt;p>&lt;b>2 km (real 1,6km). ESTACIÓN MARÍTIMA DE TRÁFICO LOCAL - Muelle de Golondrinas&lt;/b>&lt;br/>Desnivel: +00m, -00m Track 2 km&lt;br/>Horarios salida: 12h&lt;/p></item>
-        <item>&lt;p>&lt;b>10 km (real: 8,89km). ESTACIÓN MARÍTIMA DE TRÁFICO LOCAL - Muello de Golondrinas&lt;/b>&lt;br/>Desnivel: +170m, -170m Track 10 km&lt;/br>Horarios salida: 10h&lt;/p></item>
-        <item>&lt;p>&lt;b>20 km (real: 19,63km). IME (PALAU  D\'ESPORTS SON MOIX) - Camí de la Vileta, 40&lt;/b>&lt;br/>Desnivel: +510m, - 560m Track 20 km&lt;br/>Horarios salida: 8h&lt;/p></item>
+        <item>&lt;p>&lt;b>2 km (real 1,6km). ESTACIÓN MARÍTIMA DE TRÁFICO LOCAL - Muelle de Golondrinas&lt;/b>&lt;br/>Desnivel: +00m, -00m&lt;br/>Horarios salida: 12h&lt;/p></item>
+        <item>&lt;p>&lt;b>10 km (real: 8,89km). ESTACIÓN MARÍTIMA DE TRÁFICO LOCAL - Muello de Golondrinas&lt;/b>&lt;br/>Desnivel: +170m, -170m&lt;/br>Horarios salida: 10h&lt;/p></item>
+        <item>&lt;p>&lt;b>20 km (real: 19,63km). IME (PALAU  D\'ESPORTS SON MOIX) - Camí de la Vileta, 40&lt;/b>&lt;br/>Desnivel: +510m, - 560m&lt;br/>Horarios salida: 8h&lt;/p></item>
     </string-array>
 </resources>

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.content.res.TypedArray
 import android.graphics.Rect
 import android.location.Location
+import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -62,11 +63,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    private lateinit var locationManager: LocationManager
+    private lateinit var locationListener: LocationListener
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mapView = inflater.inflate(R.layout.fragment_map, container, false)
 
         initToolbar()
-        initListeners()
         initCoordinates()
 
         tintUserLocationButton()
@@ -78,8 +87,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onStart() {
         super.onStart()
 
+        initListeners()
+
         if (isGPSAvailable()) {
-            initUserLocation()
+            initLocationClient()
         } else {
             isLocationActive = false
             tintUserLocationButton()
@@ -94,9 +105,26 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         mapView.mapToolbar.title = getString(R.string.toolbar_map)
     }
 
+
+
     private fun initListeners() {
         mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
         mapView.showMarkersBtn.setOnClickListener {switchInterestMarkers()}
+
+        locationListener  = object : LocationListener {
+            override fun onLocationChanged(location: Location?) {
+                userLocation = location
+                userLocation.let {
+                    updateUserLocation()
+                }
+            }
+
+            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
+
+            override fun onProviderEnabled(provider: String?) {}
+
+            override fun onProviderDisabled(provider: String?) {}
+        }
     }
 
     private fun initKmCards() {
@@ -178,7 +206,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 if (isLocationActive) {
                     hideUserLocation()
                 } else {
-                    showUserLocation()
+                    getUserLocation()
                 }
                 switchUserLocationButton()
             } else {
@@ -189,10 +217,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
     }
 
-    private fun initUserLocation() {
+    private fun initLocationClient() {
         context?.let {context ->
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
         }
+
         checkPermissions()
     }
 
@@ -211,14 +240,22 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun showUserLocation() {
-        userLocation?.let { location ->
-            createUserMarker(location)
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+        if (mapInitialized) {
+            if (userMarker != null) userMarker?.remove()
+            userLocation?.let { location ->
+                userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+            }
         }
     }
 
-    private fun createUserMarker(location: Location) {
-        userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+    private fun updateUserLocation() {
+        if (mapInitialized) {
+            if (userMarker != null) userMarker?.remove()
+            userLocation?.let { location ->
+                userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+            }
+        }
     }
 
     private fun hideUserLocation() {
@@ -335,7 +372,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         when (grantResults[0]) {
             PackageManager.PERMISSION_GRANTED -> {
                 onPermissionGranted()
-                getUserCurrentLocation()
+                initializePositionListener()
             }
             PackageManager.PERMISSION_DENIED -> {
                 onPermissionNotGranted()
@@ -348,7 +385,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION)
     }
 
-    private fun getUserCurrentLocation() {
+
+    private fun getUserLocation() {
         try {
             fusedLocationClient.lastLocation
                     .addOnSuccessListener { location: Location? ->
@@ -397,13 +435,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun onPermissionGranted() {
+        initializePositionListener()
         if (userLocation != null) {
-
             showUserLocation()
             isLocationActive = true
             tintUserLocationButton()
-        } else {
-            getUserCurrentLocation()
         }
     }
 
@@ -413,7 +449,16 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun isGPSAvailable() : Boolean {
-        var locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
+        locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    private fun initializePositionListener() {
+        try {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener)
+        } catch (securityException : SecurityException) {
+
+        }
+
     }
 }

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
@@ -39,9 +38,6 @@ class MagicLineFragment : BaseFragment() {
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var myNewsManager: LinearLayoutManager
 
-    //Programming section widgets
-    lateinit var progRecyclerView: RecyclerView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -67,7 +63,7 @@ class MagicLineFragment : BaseFragment() {
         super.onStart()
 
         subscribeToPosts()
-        //Adding buttons listeners
+
         initArrowsListeners(myNewsManager)
 
         initMoreInfoMLListener()

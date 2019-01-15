@@ -33,7 +33,7 @@
             android:layout_marginEnd="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_toolbar_map"
+            android:background="@drawable/ic_map_toolbar_markers"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>

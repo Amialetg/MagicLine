@@ -1,6 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context.LOCATION_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -31,9 +32,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.user_location_icon
 import com.obrasocialsjd.magicline.activities.main.adapters.CardKm
 import com.obrasocialsjd.magicline.activities.main.adapters.KmAdapter
-import com.obrasocialsjd.magicline.utils.MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
-import com.obrasocialsjd.magicline.utils.funNotAvailableDialog
-import com.obrasocialsjd.magicline.utils.gpsNotAvailableDialog
+import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.layout_map_km.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_map_top.view.*
@@ -233,12 +232,17 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun tintUserLocationButton() {
-        // TODO Compat
         if (isLocationActive){
-            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+            changeButtonColor(MAP_BUTTON_SELECTED)
         }else{
-            mapView.userLocationBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
+            changeButtonColor(MAP_BUTTON_UNSELECTED)
         }
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun changeButtonColor(colorRes : Int) {
+        mapView.userLocationBtn.supportBackgroundTintList = ContextCompat.getColorStateList(requireContext(), colorRes)
+
     }
 
     private fun showUserLocation() {
@@ -294,11 +298,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun tintMarkersButton() {
-        // TODO compat
         if (areMarkersActive){
-            mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+            changeButtonColor(MAP_BUTTON_SELECTED)
         }else{
-            mapView.showMarkersBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.grey)
+            changeButtonColor(MAP_BUTTON_UNSELECTED)
         }
     }
 

@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top_news"
-        android:layout_marginBottom="@dimen/margin_programming"
         android:text="@string/news_title" />
 
     <LinearLayout
@@ -22,6 +21,8 @@
             android:id="@+id/news_left_arrow"
             android:layout_width="@dimen/news_arrow_width"
             android:layout_height="match_parent"
+            android:paddingStart="6dp"
+            android:tint="@color/black"
             android:src="@drawable/ic_news_left_arrow" />
 
 
@@ -30,6 +31,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="12dp"
+            android:textAlignment="center"
             android:layout_weight="1" />
 
 
@@ -37,6 +42,8 @@
             android:id="@+id/news_right_arrow"
             android:layout_width="@dimen/news_arrow_width"
             android:layout_height="match_parent"
+            android:tint="@color/black"
+            android:paddingEnd="6dp"
             android:src="@drawable/ic_news_right_arrow" />
 
     </LinearLayout>

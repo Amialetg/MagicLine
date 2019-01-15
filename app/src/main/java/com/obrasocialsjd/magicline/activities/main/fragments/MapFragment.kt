@@ -203,19 +203,21 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun switchUserLocation() {
-        if (isGPSAvailable()) {
-            if (isPermissionGranted()) {
-                if (isLocationActive) {
-                    hideUserLocation()
+        if (mapInitialized) {
+            if (isGPSAvailable()) {
+                if (isPermissionGranted()) {
+                    if (isLocationActive) {
+                        hideUserLocation()
+                    } else {
+                        getUserLocation()
+                    }
+                    switchUserLocationButton()
                 } else {
-                    getUserLocation()
+                    requestPermissions()
                 }
-                switchUserLocationButton()
             } else {
-                requestPermissions()
+                activity?.gpsNotAvailableDialog()
             }
-        } else {
-            activity?.gpsNotAvailableDialog()
         }
     }
 

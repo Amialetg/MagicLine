@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.id.*
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
@@ -28,18 +27,17 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.fragment_magic_line.*
 import kotlinx.android.synthetic.main.layout_a_fons.*
 import kotlinx.android.synthetic.main.layout_countdown_bottom.*
-import kotlinx.android.synthetic.main.layout_countdown_top.*
+import kotlinx.android.synthetic.main.layout_countdown_top.view.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
+import kotlinx.android.synthetic.main.layout_news.view.*
 import java.util.*
 
 class MagicLineFragment : BaseFragment() {
 
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var myNewsAdapter: NewsAdapter
-
-    //Programming section widgets
-    lateinit var progRecyclerView: RecyclerView
+    private lateinit var myNewsManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,20 +48,26 @@ class MagicLineFragment : BaseFragment() {
     }
     //Setting the corresponding view
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_magic_line, container, false)
+        val view  = inflater.inflate(R.layout.fragment_magic_line, container, false)
+
+        //Init TextViews, etc
+        val txtArray = initWidgets(view)
+
+        initCountDown(txtArray)
+
+        initNewsRecycler(view)
+
+        return view
     }
 
     override fun onStart() {
         super.onStart()
 
-        //Init TextViews, etc
-        val txtArray = initWidgets()
+        subscribeToPosts()
 
-        initCountDown(txtArray)
+        initArrowsListeners(myNewsManager)
 
         initMoreInfoMLListener()
-
-        initNewsRecycler()
 
         initMesQueListeners()
 
@@ -101,8 +105,8 @@ class MagicLineFragment : BaseFragment() {
         }
     }
 
-    private fun initWidgets(): Array<TextView> {
-        return arrayOf(countdownDays, countdown_hores, countdownMin, countdownSec)
+    private fun initWidgets(view : View): Array<TextView> {
+        return arrayOf(view.countdownDays, view.countdown_hores, view.countdownMin, view.countdownSec)
     }
 
     private fun initCountDown(txtDies: Array<TextView>) {
@@ -112,29 +116,22 @@ class MagicLineFragment : BaseFragment() {
         MyCounter(diff, 1000, txtDies).start()
     }
 
-    private fun initNewsRecycler() {
-        val myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+    private fun initNewsRecycler(view : View) {
+        myNewsManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         myNewsAdapter = NewsAdapter(ArrayList())
 
-        newsRecyclerView.layoutManager = myNewsManager
-        newsRecyclerView.adapter = myNewsAdapter
-        newsRecyclerView.setPadding(0,0,0,50)
+        view.newsRecyclerView.layoutManager = myNewsManager
+        view.newsRecyclerView.adapter = myNewsAdapter
+        view.newsRecyclerView.setPadding(0,0,0,50)
 
         //Adding pager behaviour
         val snapHelper = PagerSnapHelper()
-        newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
+        view.newsRecyclerView.onFlingListener = null //<-- We add this line to avoid the app crashing when returning from the background
         snapHelper.attachToRecyclerView(newsRecyclerView)
-        newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
-
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
+            view.newsRecyclerView.addItemDecoration(CirclePagerIndicatorDecoration())
         }
-
-        //Adding buttons listeners
-        initArrowsListeners(myNewsManager)
-
-        subscribeToPosts()
     }
 
     private fun subscribeToPosts() {
@@ -184,7 +181,7 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
 
-        right_arrow_relative.setOnClickListener {
+        news_right_arrow.setOnClickListener {
             val totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
@@ -196,7 +193,7 @@ class MagicLineFragment : BaseFragment() {
             mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
         }
 
-        left_arrow_relative.setOnClickListener {
+        news_left_arrow.setOnClickListener {
             val totalItemCount = newsRecyclerView.adapter?.itemCount ?:0
 
             if (totalItemCount < 0) return@setOnClickListener

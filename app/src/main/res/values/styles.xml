@@ -270,12 +270,10 @@
     </style>
 
     <!-- MORE INFO MAGIC LINE-->
-    <style name="walk_title">
+    <style name="walkTitle">
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:paddingTop">18dp</item>
-        <item name="android:paddingHorizontal">24dp</item>
     </style>
 
     <style name="walkTextBold">

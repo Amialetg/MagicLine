@@ -2,5 +2,9 @@
 <resources>
     <declare-styleable name="RrssView">
         <attr name="background" format="reference"/>
+        <attr name="shareMode">
+            <enum name="default" value="0" />
+            <enum name="share_detail" value="1" />
+        </attr>
     </declare-styleable>
 </resources>

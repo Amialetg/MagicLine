@@ -21,8 +21,8 @@
         <item>-0.35080</item>
     </array>
     <string-array name="arrayMoreInfoML">
-        <item>&lt;p>&lt;b>5 km (real: 6,22 km). CIUTAT DE LES ARTS I LES CIÈNCIES&lt;/b>&lt;br/>Desnivell: +34m, -00m&lt;br/>Horaris sortida: 11 h&lt;/p></item>
-        <item>&lt;p>&lt;b>10 km (real: 11,71 km). HOSPITAL VALÈNCIA AL MAR&lt;/b>&lt;br/>&lt;br/>Desnivell: +40m, -05m&lt;/br>Horaris sortida: 10 h &lt;/p></item>
-        <item>&lt;p>&lt;b>20 km (real: 20,00 km). ALBORAYA - METRO ALBORAYA PERIS-ARAGÓ&lt;/b>&lt;br/>Desnivell: +45m, -10m&lt;br/>Horaris sortida: 8 h&lt;/p></item>
+        <item>&lt;p>&lt;b>5 km (real: 6,22 km). CIUTAT DE LES ARTS I LES CIÈNCIES&lt;/b>&lt;br/>Desnivel: +34m, -00m&lt;br/>Horarios salida: 11 h&lt;/p></item>
+        <item>&lt;p>&lt;b>10 km (real: 11,71 km). HOSPITAL VALENCIA AL MAR&lt;/b>&lt;br/>Desnivel: +40m, -05m&lt;/br>Horarios salida: 10 h &lt;/p></item>
+        <item>&lt;p>&lt;b>20 km (real: 20,00 km). ALBORAYA - METRO ALBORAYA PERIS-ARAGÓ&lt;/b>&lt;br/>Desnivel: +45m, -10m&lt;br/>Horarios salida: 8 h&lt;/p></item>
     </string-array>
 </resources>

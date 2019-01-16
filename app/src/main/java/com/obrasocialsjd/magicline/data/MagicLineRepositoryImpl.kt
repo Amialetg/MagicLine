@@ -89,7 +89,6 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
                 if (result.isSuccessful) {
                     var donations = result.body()?.donations
                     if (donations != null && donations.barcelona?.amount != null) {
-                        donationsDAO.nukeTable()
                         insertDonationsDBModelFromAPI(donations)
                     }
                 }

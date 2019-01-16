@@ -30,7 +30,6 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = dataSet[position].title
-//        holder.subtitle.setPadding(12, 12, 12, 12)
         holder.subtitle.text = dataSet[position].subtitle?.htmlToSpanned()
         holder.bind(dataSet[position])
     }

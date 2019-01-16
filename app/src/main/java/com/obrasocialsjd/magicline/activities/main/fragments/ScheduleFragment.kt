@@ -13,6 +13,9 @@ import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_schedule.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class ScheduleFragment : BaseFragment() {
 
@@ -27,12 +30,31 @@ class ScheduleFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         scheduleLayoutView = inflater.inflate(R.layout.fragment_schedule, container, false)
+        paintTheCurrentTime()
         return scheduleLayoutView
     }
 
     override fun onStart() {
         super.onStart()
         initScheduleRecycler()
+    }
+
+    /**
+     * Primero miramos el contador de días actual, si este se encuentra a 0(fecha caminataa). Entonces podemos mirar a la hora en la que nos encontramos actualmente, por rangos y
+     * cambiamos el selector, en caso de que el selector esté checked pintamos la hora también (...uno de los IDs scheduleCardHour)
+     **/
+
+    private fun paintTheCurrentTime(){
+
+        //know the current time
+        var currentDateTime= LocalDateTime.now()
+
+        var time= currentDateTime.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)).removeSuffix(" AM").removeSuffix(" PM")
+
+
+        println(time)
+
+
     }
 
     private fun getListeners() : List<View.OnClickListener> {
@@ -79,9 +101,6 @@ class ScheduleFragment : BaseFragment() {
 
     private fun initScheduleRecycler() {
         //pintar en el schedule la bolita de roja dependiendo si nos encontramos en la hora
-
-
-
         val myScheduleManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         val myScheduleAdapter = ScheduleAdapter(scheduleModel, getListeners())
 

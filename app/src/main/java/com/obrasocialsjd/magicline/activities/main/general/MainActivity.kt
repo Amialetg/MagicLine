@@ -198,14 +198,14 @@ class MainActivity : BaseActivity() {
 
     private fun getData() {
         scheduleModel = arrayOf(
-                ScheduleTextModel("9:30", "Salida"),
+                ScheduleTextModel("9:30", "Salida", 0),
                 ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(R.string.lorem_ipsum),
                         detailModel = DetailModel(
                                 title = getString(R.string.essentials_title),
                                 subtitle = getString(R.string.essentials_subtitle),
                                 textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb))),
-                ScheduleTextModel("12:30", "Tornar a caminar"),
+                                link = getString(R.string.essentials_viewOnWeb)),thisType = 1),
+                ScheduleTextModel("12:30", "Tornar a caminar", 2),
                 ScheduleCardModel(
                         "13:30",
                         "Espectacle",
@@ -216,8 +216,8 @@ class MainActivity : BaseActivity() {
                                 subtitle = getString(R.string.essentials_subtitle),
                                 textBody = getString(R.string.essentials_body),
                                 link = getString(R.string.essentials_viewOnWeb))
-                ),
-                ScheduleTextModel("15:00", "Caminar una mica més"),
+                , thisType = 1),
+                ScheduleTextModel("15:00", "Caminar una mica més",2),
                 ScheduleCardModel(
                         "16:30",
                         "Concerts",
@@ -228,7 +228,7 @@ class MainActivity : BaseActivity() {
                                 subtitle = getString(R.string.essentials_subtitle),
                                 textBody = getString(R.string.essentials_body),
                                 link = getString(R.string.essentials_viewOnWeb))
-                )
+                , thisType = 3)
         )
     }
 

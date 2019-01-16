@@ -105,9 +105,6 @@
     </style>
 
     <style name="NewsItemDesc" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -141,9 +138,6 @@
 
     <!-- More Info Fragment -->
     <style name="MoreInfoTitle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/moreinfo_title_color</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -152,9 +146,6 @@
     </style>
 
     <style name="MoreInfoSections" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -186,9 +177,6 @@
 
     <!-- Schedule fragment -->
     <style name="scheduleSeeMoreBtn" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/light_red</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/lato_regular</item>
@@ -196,9 +184,6 @@
     </style>
 
     <style name="scheduleCardTitle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -206,9 +191,6 @@
     </style>
 
     <style name="scheduleCardSubTitle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/lato_blackitalic</item>
@@ -216,9 +198,6 @@
     </style>
 
     <style name="scheduleCardDescription" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -226,9 +205,6 @@
     </style>
 
     <style name="scheduleHour" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/moreinfo_bars</item>
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">@font/lato_black</item>
@@ -249,10 +225,9 @@
     </style>
 
     <!-- Detail Fragment Body Text-->
-    <style name="AFonsTextBody" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="defaultTextBody" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/lato_light</item>
     </style>
 
     <style name="ViewOnWeb" parent="Theme.AppCompat.Light.NoActionBar">
@@ -295,7 +270,7 @@
     </style>
 
     <!-- MORE INFO MAGIC LINE-->
-    <style name="walk_title">
+    <style name="walkTitle">
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:textSize">15sp</item>
@@ -311,8 +286,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
+        <item name="android:justificationMode">inter_word</item>
     </style>
 
     <style name="boldTitleCaps" parent="Theme.AppCompat.Light.NoActionBar">

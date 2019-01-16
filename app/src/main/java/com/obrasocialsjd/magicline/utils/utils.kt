@@ -63,8 +63,8 @@ fun Activity.callIntent(url: String) {
 fun Activity.funNotAvailableDialog() {
     let {context ->
         val builder = AlertDialog.Builder(context)
-        builder.setMessage(R.string.fun_not_available_text)
-        builder.setNeutralButton(R.string.close){_,_->}
+        builder.setMessage(R.string.notAvailableText)
+        builder.setNeutralButton(R.string.closeText){ _, _->}
         val dialog = builder.create()
 
         dialog.show()
@@ -76,9 +76,8 @@ fun Activity.gpsNotAvailableDialog() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.gps_not_available_title)
         builder.setMessage(R.string.gps_not_available_text)
-        builder.setNeutralButton(R.string.close){_,_->}
+        builder.setNeutralButton(R.string.closeText){_,_->}
         val dialog = builder.create()
-
         dialog.show()
     }
 }

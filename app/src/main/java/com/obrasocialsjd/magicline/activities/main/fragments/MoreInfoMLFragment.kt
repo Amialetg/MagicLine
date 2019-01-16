@@ -13,10 +13,10 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.R.array.arrayMoreInfoML
 import com.obrasocialsjd.magicline.R.color.light_red
 import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
-import com.obrasocialsjd.magicline.R.string.*
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
@@ -41,7 +41,7 @@ class MoreInfoMLFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         moreInfoMLView = inflater.inflate(R.layout.fragment_more_info_ml, container, false)
 
-        var repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
+        val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(requireActivity().applicationContext))
         val factory = MoreInfoViewModelFactory(requireActivity().application, repository)
         moreInfoViewModel = ViewModelProviders.of(this, factory).get(MoreInfoViewModel::class.java)
         initToolbar()
@@ -62,7 +62,6 @@ class MoreInfoMLFragment : BaseFragment() {
             totalParticipants = participants.totalParticipants.toDouble()
             availableSpots = participants.spots
             val currentAvailablePlaces = availableSpots - totalParticipants
-
             currentParticipants.text = totalParticipants.addThousandsSeparator()
             configurePieChart(totalParticipants.toFloat(), currentAvailablePlaces.toFloat())
         })
@@ -77,14 +76,13 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        val text: String = getString(walk_text_1) + " "
-        val text2: String = "<b>" + getString(walk_text_2) + "</b>" + " "
-        val text3: String = getString(walk_text_3) + " "
-        val text4: String = "<b>" + getString(walk_text_4) + "</b>"
-        val walkInfo = moreInfoMLView.firstWalkText
-
-        var infoText = text + text2 + text3 + text4
-        walkInfo.text = infoText.htmlToSpanned()
+        val stringArray  = resources.getStringArray(arrayMoreInfoML)
+        var endString = ""
+        for (string in stringArray){
+            endString += string
+        }
+        moreInfoMLView.walkText.text = getString(R.string.walkText)
+        moreInfoMLView.firstWalkText.text = endString.htmlToSpanned()
     }
 
     private fun initRrss() {
@@ -97,15 +95,7 @@ class MoreInfoMLFragment : BaseFragment() {
         moreInfoMLView.rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
     }
 
-    private fun initListeners() {
-        moreInfoMLView.moreInfoWeb.setOnClickListener{
-            when (getFlavor()) {
-                BARCELONA -> {activity?.callIntent(getString(R.string.more_info_web_barcelona))}
-                MALLORCA -> {activity?.callIntent(getString(R.string.more_info_web_mallorca))}
-                VALENCIA -> {activity?.callIntent(getString(R.string.more_info_web_valencia))}
-            }
-        }
-    }
+    private fun initListeners() { moreInfoMLView.moreInfoWeb.setOnClickListener{ activity?.callIntent(getString(R.string.moreInfoWeb)) } }
 
     private fun createBarChart() {
         setUpPieChartData()
@@ -138,7 +128,7 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.setCenterTextSize(25.0f)
         pieChart.animateY(2000)
 
-        var typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)
+        val typeFace: Typeface? = ResourcesCompat.getFont(this.requireContext(), R.font.lato_light)
         pieChart.setCenterTextTypeface(typeFace)
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false

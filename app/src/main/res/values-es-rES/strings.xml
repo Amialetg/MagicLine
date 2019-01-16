@@ -46,7 +46,7 @@
     <string name="map_km">"KM caminata solidaria:"</string>
 
     <string name="gps_not_available_title">GPS no disponible</string>
-    <string name="gps_not_available_text">Por favor, habilita el sensor GPS</string>
+    <string name="gps_not_available_text">Por favor, activa el sensor GPS</string>
 
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>
@@ -193,5 +193,6 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="aboutTheAppBody"><![CDATA[<html> Aplicación desarrollada por <a href ="https://www.linkedin.com/in/hectorpascualh/">Hector Pascual</a> y <a href ="https://www.linkedin.com/in/albertrisco/">Albert Risco</a>, estudiantes de Enginyeria de Tecnologies i Serveis de Telecomunicació en la UPC, junto a Basetis, un equipo de apasionados por las tecnologías de la información que cree que debemos tener una responsabilidad social y ética en todos los ámbitos en los que intervienen. </html>]]> </string>
     <string name="title_toolbar_imprs">IMPRESCINDIBLES</string>
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
-
+    <string name="fun_not_available_text">Próximamente</string>
+    <string name="close">cerrar</string>
 </resources>

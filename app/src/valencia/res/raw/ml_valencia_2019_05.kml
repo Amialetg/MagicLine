@@ -6,7 +6,9 @@
 			<IconStyle>
 				<color>ffffffff</color>
 				<scale>1</scale>
-				<Icon><href>http://maps.google.com/mapfiles/kml/pal4/icon56.png</href></Icon>
+				<Icon>
+                  <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
+				</Icon>
 				<hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
 			</IconStyle>
 			<BalloonStyle>

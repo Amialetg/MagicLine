@@ -263,7 +263,6 @@
 
     <style name="ShareMLDetailContainer" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:layout_gravity">left</item>
-        <item name="android:background">@color/white</item>
     </style>
 
     <!-- Toolbar navigation top -->

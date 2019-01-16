@@ -222,9 +222,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun initLocationClient() {
-        context?.let {context ->
-            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-        }
+        initFusedLocationClient()
         checkPermissions()
     }
 
@@ -386,20 +384,23 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun getUserLocation() {
         try {
-            fusedLocationClient.lastLocation
-                    .addOnSuccessListener { location: Location? ->
-                        if (location != null) {
-                            userLocation = location
+            initFusedLocationClient()
+            if (isPermissionGranted()) {
+                fusedLocationClient.lastLocation
+                        .addOnSuccessListener { location: Location? ->
+                            if (location != null) {
+                                userLocation = location
 
-                            map.let {
-                                showUserLocation()
-                                isLocationActive = true
-                                tintUserLocationButton()
+                                map.let {
+                                    showUserLocation()
+                                    isLocationActive = true
+                                    tintUserLocationButton()
+                                }
+                            } else {
+                                map.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f)) }
                             }
-                        } else {
-                            map.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f)) }
                         }
-                    }
+            }
         } catch (exception : SecurityException) {}
 
     }
@@ -445,5 +446,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun isGPSAvailable() : Boolean {
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    private fun initFusedLocationClient() {
+        context?.let {context ->
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+        }
     }
 }

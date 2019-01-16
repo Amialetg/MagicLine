@@ -242,7 +242,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     @SuppressLint("RestrictedApi")
     private fun changeButtonColor(colorRes : Int) {
         mapView.userLocationBtn.supportBackgroundTintList = ContextCompat.getColorStateList(requireContext(), colorRes)
-
     }
 
     private fun showUserLocation() {

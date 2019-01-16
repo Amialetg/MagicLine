@@ -19,6 +19,10 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
+apply plugin: 'com.google.gms.google-services'
+
 def ML_API_USER = '"' + MLAPIUser + '"'
 def ML_API_PASSWORD = '"' + MLAPIPassword + '"'
 
@@ -110,4 +114,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
     //Scale an Image - Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+    // FIREBASE & CRASHLYTICS
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.8'
 }

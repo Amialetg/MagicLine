@@ -51,7 +51,7 @@
     <string name="map_km">Km caminada solidaria:</string>
 
     <string name="gps_not_available_title">GPS no disponible</string>
-    <string name="gps_not_available_text">Por favor, habilita el sensor GPS</string>
+    <string name="gps_not_available_text">Si us plau, activa el sensor GPS</string>
 
     <!--URL's-->
     <string name="url_facebook" translatable="false">https://www.facebook.com/magiclineSJD</string>

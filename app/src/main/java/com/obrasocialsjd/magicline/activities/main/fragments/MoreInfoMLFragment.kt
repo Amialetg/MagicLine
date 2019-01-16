@@ -20,7 +20,9 @@ import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
 import com.obrasocialsjd.magicline.models.MoreInfoMLModel
-import com.obrasocialsjd.magicline.utils.*
+import com.obrasocialsjd.magicline.utils.addThousandsSeparator
+import com.obrasocialsjd.magicline.utils.callIntent
+import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*

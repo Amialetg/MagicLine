@@ -1,5 +1,7 @@
 package com.obrasocialsjd.magicline.utils
 
+import com.obrasocialsjd.magicline.R
+
 /**
  * FLAVORS
  */
@@ -53,8 +55,7 @@ const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
 /**
  * MAP
  */
-const val KM
-        : String = "km"
+const val KM: String = "km"
 
 /**
  * ONESIGNAL
@@ -67,9 +68,6 @@ const val FROM: String = "From"
 const val INITIAL_POSITION : Int = 0
 
 
-
-
-
 /**
  * DONATION
  */
@@ -80,3 +78,10 @@ const val JS = "var style = document.createElement('style'); style.innerHTML = '
  */
 
 const val MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 13
+
+/**
+ * COLORS
+ */
+
+const val MAP_BUTTON_SELECTED = R.color.colorPrimary
+const val MAP_BUTTON_UNSELECTED = R.color.grey

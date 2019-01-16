@@ -1,0 +1,1710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>ML_2018_BCN_40___ML_2018_BCN_30___ML_2018_BCN_25_Llo___ML_2018_BCN_20___ML_2018_BCN_15___ML_2018_BCN_10-1212013247.gpx</name>
+    <Style id="icon-123-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-123-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/123-red-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-123">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-123-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-123-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1578-0F9D58-normal">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1578-0F9D58-highlight">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1578-0F9D58">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1578-0F9D58-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1578-0F9D58-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1578-7CB342-normal">
+      <IconStyle>
+        <color>ff42b37c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1578-7CB342-highlight">
+      <IconStyle>
+        <color>ff42b37c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1578-7CB342">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1578-7CB342-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1578-7CB342-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1578-7CB342-nodesc-normal">
+      <IconStyle>
+        <color>ff42b37c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1578-7CB342-nodesc-highlight">
+      <IconStyle>
+        <color>ff42b37c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1578-7CB342-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1578-7CB342-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1578-7CB342-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1636-C2185B-normal">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1636-C2185B-highlight">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1636-C2185B">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1636-C2185B-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1636-C2185B-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1636-C2185B-nodesc-normal">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1636-C2185B-nodesc-highlight">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1636-C2185B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1636-C2185B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1636-C2185B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1661-0288D1-normal">
+      <IconStyle>
+        <color>ff2535ED</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1661-0288D1-highlight">
+      <IconStyle>
+        <color>ff2535ED</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1661-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1661-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1661-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1703-01579B-nodesc-normal">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1703-01579B-nodesc-highlight">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1703-01579B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1703-01579B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1703-01579B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1709-9C27B0-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1709-9C27B0-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1709-9C27B0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1709-9C27B0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1709-9C27B0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1709-A52714-normal">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1709-A52714-highlight">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1709-A52714">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1709-A52714-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1709-A52714-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1733-E65100-nodesc-normal">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1733-E65100-nodesc-highlight">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1733-E65100-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1733-E65100-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1733-E65100-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1733-F57C00-nodesc-normal">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1733-F57C00-nodesc-highlight">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1733-F57C00-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1733-F57C00-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1733-F57C00-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ff2535ED</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ff2535ED</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-61-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-61-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/61-green-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-61">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-61-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-61-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>SORTIDA ML 40km</name>
+      <description>Tancament: 7.15h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.167861,41.460047,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SORTIDA ML 30km</name>
+      <description>Tancament: 9h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.166127,41.412327,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SORTIDA ML 25km</name>
+      <description>Tancament: 10h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.0356035,41.353095,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SORTIDA ML 20km</name>
+      <description>Tancament: 11h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.105219,41.414315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SORTIDA ML 15km</name>
+      <description>Tancament: 10.30h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.1024492,41.3847645,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SORTIDA ML 10km</name>
+      <description>Tancament: 12h</description>
+      <styleUrl>#icon-61</styleUrl>
+      <Point>
+        <coordinates>
+          2.1505819,41.3707569,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ARRIBADA ML - plaça de la Catedral</name>
+      <description>Tancament: 19h</description>
+      <styleUrl>#icon-123</styleUrl>
+      <Point>
+        <coordinates>
+          2.175164,41.384263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Espectacle Sonambulistes</name>
+      <description><![CDATA[17.10 a 18h<br>Fundació AIMS, Xamfrà, Fundació Vozes]]></description>
+      <styleUrl>#icon-1709-A52714</styleUrl>
+      <Point>
+        <coordinates>
+          2.1757919,41.3846656,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 40km</name>
+      <description><![CDATA[Speaker Enric Lucema<br>7.00 a 7.45h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1683139,41.4599733,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 30km</name>
+      <description><![CDATA[Speaker Emma<br>8.00 a 9.30h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1661198,41.4124754,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 25km</name>
+      <description><![CDATA[Speaker <br>Exposició La Mirada de l'altre<br>Taller de llanes<br>8.30 a 10.30 h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0356572,41.3533346,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 15km</name>
+      <description><![CDATA[Speaker Jordi Mercader<br>10h a 11.30h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1019131,41.3838063,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 10km</name>
+      <description><![CDATA[9.30 a 12.30h<br>Speaker Vanessa]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1502733,41.3707864,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Fes-te la foto </name>
+      <description><![CDATA[7.30 a 8.45h<br>Institut Roquetes]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1764007,41.4513444,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Gegants + S de solidaritat</name>
+      <description><![CDATA[8.30 a 11.30h<br>Escola Virolai]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1530414,41.4166151,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral  Fans de la Magic line</name>
+      <description><![CDATA[8.40 a 11.45 h<br>Escola de la Mercè]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.145137,41.41955,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mural col·laboratiu Jardí Vertical</name>
+      <description><![CDATA[13 a 17 h<br>Torrents d'Art i Katia]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1755773,41.3843255,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Exposició SJD</name>
+      <description>11 a 19h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1754941,41.3843939,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Mural Refugiarte</name>
+      <description><![CDATA[11.30-16.30h<br>Col.lectiu Refugiarte]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1631211,41.3623197,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Mural S de Solidaritat</name>
+      <description><![CDATA[12h a 17 h<br>Escola Anna Ravell]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.162877,41.3621426,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pic Nic Cultural - Escenari</name>
+      <description><![CDATA[Concert Joan Trenchs 11-12h<br>Rock and roll infantil amb The Git and Jalis 12 - 13h<br>Karaokeband 13 -15h <br>Màgia amb el Borja Pérez 15 - 16 h<br>Concert Joan Trenchs 16- 18h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1629736,41.3628472,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pic Nic Cultural - Jocs cooperatius</name>
+      <description><![CDATA[D'11 a 16.30h<br>Escola Ramon Fuster]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1631721,41.3627143,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Benvinguda al Castell + S de solidaritat</name>
+      <description><![CDATA[11 a 17.45h<br>Institut Jaume Balmes]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1619517,41.3603026,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Coral The New Zombies</name>
+      <description>12 a 13.30h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1572391,41.3621406,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Batucada</name>
+      <description><![CDATA[9.30 a 11.15<br>Batucada Sant Boi]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0324117,41.3416296,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Nordic Walking</name>
+      <description><![CDATA[8.30 i 9.30h<br>Fundació Caminoterapia]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0357698,41.3530668,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Sortida 20km</name>
+      <description>Speaker 9 a 10.30 h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0321515,41.3536386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Musicoteràpia</name>
+      <description><![CDATA[10 a 12.15h<br>Tallers de musicoteràpia del PSSJD]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0430118,41.3473565,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Museu de Sant Boi</name>
+      <styleUrl>#icon-1636-C2185B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.0459488,41.3470021,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Termes de Sant Boi</name>
+      <styleUrl>#icon-1636-C2185B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.0464906,41.3473968,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control La Muntanyeta</name>
+      <description>Tancament: 11.15h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.0336938,41.3425519,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Turó de Torre Baró</name>
+      <description>Tancament: 8.45h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1761271,41.451464,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Turó de la Peira</name>
+      <description>Tancament: 10.15h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1653554,41.4328152,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Turó de la Rovira</name>
+      <description>Tancament: 11.15h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1616539,41.4193124,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Turó del Carmel</name>
+      <description>Tancament: 11.30h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1539855,41.4188679,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Avituallament Font d'en Fargues]]></name>
+      <description>Tancament: 10.45h</description>
+      <styleUrl>#icon-1578-0F9D58</styleUrl>
+      <Point>
+        <coordinates>
+          2.1646607,41.4215248,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament Ronda de Dalt</name>
+      <description>Tancament: 12.05h</description>
+      <styleUrl>#icon-1578-0F9D58</styleUrl>
+      <Point>
+        <coordinates>
+          2.1396625,41.4200505,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament Tibidabo</name>
+      <description>Tancament: 13.30h</description>
+      <styleUrl>#icon-1578-7CB342</styleUrl>
+      <Point>
+        <coordinates>
+          2.119157,41.4217682,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament Hospital SJD</name>
+      <description>Tancament: 15.00h</description>
+      <styleUrl>#icon-1578-7CB342</styleUrl>
+      <Point>
+        <coordinates>
+          2.1023476,41.3849191,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Sant Pere Màrtir</name>
+      <description>Tancament: 14.35h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.0974016,41.393073,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Montjuïc</name>
+      <description>Tancament: 17.45h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1619999,41.3609669,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Mont Tàber</name>
+      <description>Tancament: 18.45h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1771437,41.3834189,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamitzación Arc de flors </name>
+      <description>Arc de flors de Mercabarna i Gremi de Floristes de Catalunya 11-18h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1768071,41.3836593,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament Bellvitge</name>
+      <description>10 a 14h</description>
+      <styleUrl>#icon-1578-7CB342</styleUrl>
+      <Point>
+        <coordinates>
+          2.1107697,41.3486895,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Control Tibidabo</name>
+      <description>De 9.50 a 13.30h</description>
+      <styleUrl>#icon-1661-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          2.1193474,41.4215912,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Stop motion</name>
+      <description><![CDATA[Artichoke<br>11 a 17h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1631882,41.3629961,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical amb el  DJ Pierre Griscelle</name>
+      <description><![CDATA[DJ Pierre Griscelle <br>14 a 17h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1517754,41.3706414,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral La barretuda</name>
+      <description><![CDATA[Cia patawa<br>11 a 15h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.118414,41.3863882,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Grups musicalsAcqustic</name>
+      <description>11.10 a 18h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1753573,41.3788856,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Batucada Sagresamba</name>
+      <description>11 a 13h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1462608,41.3692727,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral Familia de  fans</name>
+      <description><![CDATA[Art en acció <br>12 a15h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1772423,41.3809359,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Corresponsals</name>
+      <description><![CDATA[ITES  <br>10.30 a 15h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1607232,41.3596261,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical Magic and loss duo</name>
+      <description>música de 17 a 18h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1768681,41.3831708,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització LPaul</name>
+      <description>solista música (11- 18h)</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1677465,41.3666181,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical Christian Dorico
+</name>
+      <description>música de 12h a 17h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1763176,41.377034,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical Hernán Platt</name>
+      <description>música 11 a 15h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1067518,41.3834098,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Poble Espanyol</name>
+      <description>Obert tot el dia</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.146883,41.3691117,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Museu Nacional d'Art de Catalunya]]></name>
+      <description>De 10 a 15h</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1534491,41.3687896,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Fundació Joan Miró</name>
+      <description>Obert de 10 a 15h</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1602941,41.3684514,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament</name>
+      <styleUrl>#icon-1578-7CB342-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1518934,41.3704241,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització S solidaritat </name>
+      <description><![CDATA[Institut Roquetes<br>7.30 a 8.45h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1761942,41.451467,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització S solidaritat + globus Heli</name>
+      <description><![CDATA[Escola la Mercè<br>8.40 a11.45h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.147001,41.419962,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pic Nic - zona per a dinar</name>
+      <description><![CDATA[10.15 - 17.45<br>bales palla (tela) + palets]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1629709,41.3625412,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Arribada plaça Catedral</name>
+      <description>Speaker Santi Rovira</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1752635,41.3843396,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Escola Municipal de Música EMMCA</name>
+      <description>11 a 14h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1097183,41.3487539,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral Superfans </name>
+      <description><![CDATA[ETC <br>11 a 17h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1685687,41.3679723,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització S de Solidaritat</name>
+      <description>Institut Les Corts</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.12623,41.3819206,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Banda Esplugues</name>
+      <description>11 a13h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1229899,41.3846414,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Intervenció dansa </name>
+      <description><![CDATA[Bacantoh <br>12.45 h  passe de 8']]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1504933,41.3706414,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical Acordionista</name>
+      <description><![CDATA[Toni Rosselló<br>10 a 12.30h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.0530298,41.3474441,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament</name>
+      <description>10-12.30h</description>
+      <styleUrl>#icon-1578-7CB342</styleUrl>
+      <Point>
+        <coordinates>
+          2.0531827,41.3475297,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral Pallassos corresponsals</name>
+      <description><![CDATA[somni'ts teatre solidari <br>9 a 14h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1046435,41.3848206,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral Familia superfans</name>
+      <description><![CDATA[Art en acció <br>12 a15h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1505415,41.3728556,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització teatral fans </name>
+      <description><![CDATA[ETC <br>11 a16h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1434176,41.3752628,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Viu el Teatre, Mascotes del Tibidabo</name>
+      <description>11.30 a 13.30h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1191168,41.4216596,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Temple d'August]]></name>
+      <description><![CDATA[Visiteu les columnes del Temple d'August <br>11-18.45h]]></description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1771893,41.3833856,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Avituallament</name>
+      <description>10.25 - 15.40h</description>
+      <styleUrl>#icon-1578-7CB342</styleUrl>
+      <Point>
+        <coordinates>
+          2.1264178,41.3816428,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jardí Botànic</name>
+      <description><![CDATA[10-17h (l'accés es tancarà a les 16.30h)]]></description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1583897,41.3617963,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CaixaForum</name>
+      <description>10-20h</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1498764,41.371358,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Museu Olímpic i de l'Esport]]></name>
+      <description>10-14.30h</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1575046,41.366374,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Swing</name>
+      <description><![CDATA[BCNswing <br>11 a 12.30h]]></description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1504772,41.3709232,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització Grups musicals Acqustic</name>
+      <description>11h a 17.30h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.172761,41.3740713,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Dinamització musical Digu'ls-hi inquiets música]]></name>
+      <description>11h a 17h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1765536,41.3837076,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1691132,41.4608035,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1645668,41.4214545,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1194386,41.4213941,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1676809,41.4602165,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1664014,41.4126424,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1050271,41.4141973,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1050593,41.41432,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1028519,41.3851244,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.101846,41.3840155,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1021143,41.384901,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1514213,41.370726,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1510726,41.3712493,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1520972,41.3692968,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.146714,41.3689848,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1576655,41.3602301,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1576977,41.3613333,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1578801,41.3620178,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1623755,41.3616876,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1629226,41.3617118,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1750703,41.384406,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1756645,41.3842832,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Font</name>
+      <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1110916,41.3478921,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.1113491,41.3483673,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.0535421,41.3474411,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.045753,41.3470867,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.0467132,41.3470746,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WC</name>
+      <styleUrl>#icon-1733-E65100-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.0353514,41.3532762,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ermita de Bellvitge</name>
+      <description>Oberta durant la caminada</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.109831,41.3475699,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punt 121</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          2.166785,41.3640148,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Castell de Montjuïc</name>
+      <description>Gratuït a partir de les 15h</description>
+      <styleUrl>#icon-1636-C2185B</styleUrl>
+      <Point>
+        <coordinates>
+          2.1671712,41.3640872,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical grups Acqustic</name>
+      <description>11h- 18h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1573249,41.3599643,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical grups Acqustic</name>
+      <description>10.30h a 13h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1050459,41.4142717,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical grups Acqustic</name>
+      <description>10h a 14h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.1416527,41.3779155,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinamització musical grups Acqustic</name>
+      <description>11h a 15h</description>
+      <styleUrl>#icon-1709-9C27B0</styleUrl>
+      <Point>
+        <coordinates>
+          2.157011,41.3662049,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

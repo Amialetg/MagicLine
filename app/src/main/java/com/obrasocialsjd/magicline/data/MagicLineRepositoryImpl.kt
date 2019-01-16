@@ -89,6 +89,7 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
                 if (result.isSuccessful) {
                     var donations = result.body()?.donations
                     if (donations != null && donations.barcelona?.amount != null) {
+                        donationsDAO.nukeTable()
                         insertDonationsDBModelFromAPI(donations)
                     }
                 }
@@ -125,28 +126,28 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
             BARCELONA -> {
                 var markers = teamMarkers.barcelona
                 if (markers != null) {
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember4?.modalityText, markers.jsonMember4?.companies, markers.jsonMember4?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember5?.modalityText, markers.jsonMember5?.companies, markers.jsonMember5?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember6?.modalityText, markers.jsonMember6?.companies, markers.jsonMember6?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars, markers.jsonMember1?.total, markers.jsonMember1?.percentage ))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars, markers.jsonMember2?.total, markers.jsonMember2?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars, markers.jsonMember3?.total, markers.jsonMember3?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember4?.modalityText, markers.jsonMember4?.companies, markers.jsonMember4?.particulars, markers.jsonMember4?.total, markers.jsonMember4?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember5?.modalityText, markers.jsonMember5?.companies, markers.jsonMember5?.particulars, markers.jsonMember5?.total, markers.jsonMember5?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, BARCELONA, markers.jsonMember6?.modalityText, markers.jsonMember6?.companies, markers.jsonMember6?.particulars, markers.jsonMember6?.total, markers.jsonMember6?.percentage))
                 }
             }
             MALLORCA -> {
                 var markers = teamMarkers.mallorca
                 if (markers != null) {
-                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars, markers.jsonMember1?.total, markers.jsonMember1?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars, markers.jsonMember2?.total, markers.jsonMember2?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, MALLORCA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars, markers.jsonMember3?.total, markers.jsonMember3?.percentage))
                 }
             }
             VALENCIA -> {
                 var markers = teamMarkers.valencia
                 if (markers != null) {
-                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars))
-                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember1?.modalityText, markers.jsonMember1?.companies, markers.jsonMember1?.particulars, markers.jsonMember1?.total, markers.jsonMember1?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember2?.modalityText, markers.jsonMember2?.companies, markers.jsonMember2?.particulars, markers.jsonMember2?.total, markers.jsonMember2?.percentage))
+                    teamsMarkersDAO.insert(TeamsDBModel(0, VALENCIA, markers.jsonMember3?.modalityText, markers.jsonMember3?.companies, markers.jsonMember3?.particulars, markers.jsonMember3?.total, markers.jsonMember3?.percentage))
                 }
             }
         }

@@ -4,12 +4,11 @@ import androidx.room.ColumnInfo
 
 data class TotalParticipantsDBModel (
 
-        @ColumnInfo(name = "totalParticulars")
-        val totalParticulars: Int,
-
-        @ColumnInfo(name = "totalCompanies")
-        val totalCompanies: Int,
-
         @ColumnInfo(name = "total")
-        val totalParticipants: Int
+        val totalParticipants: Int,
+
+        @ColumnInfo(name = "spots")
+        val spots: Int
+
+
 )

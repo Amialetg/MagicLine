@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+	<Document>
+		<name>GPS Visualizer data</name>
+		<Style id="waypoint">
+			<IconStyle>
+				<color>ffffffff</color>
+				<scale>1</scale>
+				<Icon>
+                  <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
+				</Icon>
+				<hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
+			</IconStyle>
+			<BalloonStyle>
+				<text><![CDATA[<p align="left" style="white-space:nowrap;"><font size="+1"><b>$[name]</b></font></p> <p align="left">$[description]</p>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id="track">
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>3</width>
+			</LineStyle>
+		</Style>
+		<Style id="polygon">
+			<LineStyle>
+				<color>ffff0000</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ff0000</color>
+				<colorMode>normal</colorMode>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+		</Style>
+		<Placemark>
+          <name>Inici de la ruta Magic Line Valencia 2019, 5 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              -0.3505698,39.4545936,0
+            </coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Fi de la ruta Magic Line Valencia 2019, 5 Km</name>
+          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+          <Point>
+            <coordinates>
+              -0.3767986,39.4698891,0
+            </coordinates>
+          </Point>
+        </Placemark>
+		<Folder>
+			<name>Tracks</name>
+			<Placemark>
+				<name>Magic Line Valencia 2019, 05 Km</name>
+				<description>Length: 6.219 km (3.864 mi)</description>
+				<visibility>1</visibility>
+				<open>0</open>
+				<styleUrl>#track</styleUrl>
+				<Style>
+					<LineStyle>
+						<color>e5e60000</color>
+						<width>3</width>
+					</LineStyle>
+				</Style>
+				<LineString>
+					<extrude>0</extrude>
+					<tessellate>1</tessellate>
+					<altitudeMode>clampedToGround</altitudeMode>
+					<coordinates>
+						-0.3505698,39.4545936 -0.3529516,39.4561096 -0.3522006,39.4568994 -0.351573,39.4564845 -0.3514308,39.4566146 -0.3520611,39.4570347 -0.3519699,39.457043 -0.351758,39.4569436 -0.3516829,39.4569622 -0.3517795,39.4570637 -0.3517983,39.4571962 -0.3515622,39.4574406 -0.3516736,39.4575317 -0.3517527,39.4576311 -0.3517326,39.4577005 -0.3517285,39.457803 -0.3521242,39.4582978 -0.3524688,39.4586228 -0.3529731,39.4589065 -0.3536115,39.4591405 -0.3543571,39.4593601 -0.3545771,39.459534 -0.3554944,39.4598716 -0.3556741,39.4600414 -0.3560362,39.4601491 -0.3563098,39.4601304 -0.3571749,39.4604215 -0.3576295,39.4608947 -0.3579876,39.4614093 -0.3581539,39.4617944 -0.3583014,39.4620305 -0.3587225,39.4623742 -0.3588781,39.4625813 -0.3592616,39.4633309 -0.3595004,39.4632978 -0.3595781,39.4631756 -0.3597766,39.4631032 -0.3599858,39.4631011 -0.3601763,39.4631611 -0.3602889,39.4634655 -0.3601468,39.4636229 -0.3600153,39.4636788 -0.3607556,39.4649979 -0.3611285,39.4651863 -0.3617776,39.4663376 -0.3621048,39.4662175 -0.3652886,39.4709456 -0.3652434,39.4709809 -0.3664308,39.4724513 -0.3666257,39.4724888 -0.366722,39.4726159 -0.3669847,39.472977 -0.3662598,39.4733362 -0.368593,39.4762736 -0.3692956,39.4757216 -0.369553,39.4758742 -0.3691131,39.4762424 -0.3698292,39.4766853 -0.372911,39.4786353 -0.3732935,39.4785358 -0.375693,39.4799599 -0.3767747,39.4775749 -0.3768694,39.4773792 -0.3768757,39.4770282 -0.3767835,39.4765976 -0.3756766,39.476407 -0.3755308,39.476643 -0.3750824,39.4766119 -0.3750084,39.4761326 -0.3755186,39.4756693 -0.3756771,39.47533 -0.3755665,39.4751458 -0.3757335,39.474408 -0.3757288,39.4736785 -0.3759287,39.4734202 -0.3764826,39.473576 -0.376789,39.4734717 -0.3784175,39.4747509 -0.3789072,39.4744474 -0.3783403,39.4739295 -0.377835,39.4734612 -0.3769909,39.4722701 -0.3767851,39.4722577 -0.3767637,39.4710713 -0.3767986,39.4698891 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

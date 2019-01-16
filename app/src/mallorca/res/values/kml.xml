@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="arrayKml">
+        <item>@raw/ml_mallorca_2019_02</item>
+        <item>@raw/ml_mallorca_2019_10</item>
+        <item>@raw/ml_mallorca_2019_20</item>
+    </integer-array>
+    <integer-array name="arrayKm">
+        <item>2</item>
+        <item>10</item>
+        <item>20</item>
+    </integer-array>
+    <array name="arrayLatitude">
+        <item>39.56801</item>
+        <item>39.56430</item>
+        <item>39.58578</item>
+    </array>
+    <array name="arrayLongitude">
+        <item>2.63800</item>
+        <item>2.62792</item>
+        <item>2.60464</item>
+    </array>
+</resources>

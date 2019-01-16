@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.app.Activity
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
@@ -12,21 +10,25 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.utils.*
-import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
+import com.obrasocialsjd.magicline.utils.IS_MODAL
+import com.obrasocialsjd.magicline.utils.JS
 import kotlinx.android.synthetic.main.fragment_donations.view.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.*
+import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 
 class DonationsFragment: BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val css = "header, #results, body > div > h3 { display: none; }"
-        val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
-
      val v: View = inflater.inflate(R.layout.fragment_donations, container,  false)
 
-        val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
+        (activity as AppCompatActivity).setSupportActionBar(topToolbar)
+        v.topToolbar.title = getString(R.string.donation_var_title)
+        if(this.tag == IS_MODAL) v.topToolbar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_black_cross)
+        v.topToolbar.setNavigationOnClickListener { this.requireActivity().onBackPressed() }
 
         val settings = v.webviewDonation.settings
         settings.javaScriptEnabled = true //OJO
@@ -55,20 +57,20 @@ class DonationsFragment: BaseFragment(){
         v.webviewDonation.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 super.onPageStarted(view, url, favicon)
 
             }
 
             override fun onLoadResource(view: WebView?, url: String?) {
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 super.onLoadResource(view, url)
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
                 v.progressBar.visibility = View.GONE
-                v.webviewDonation.evaluateJavascript(js, null)
+                v.webviewDonation.evaluateJavascript(JS, null)
                 v.progressBar.invalidate()
                 super.onPageFinished(view, url)
             }

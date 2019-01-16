@@ -1,12 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
 /**
- * URLS
- */
-
-const val URL_IDEAS_GUIDE: String = "http://www.magiclinesjd.org/files/froala/74e5144938f7c849173fe0347e213fd8052d5731.pdf"
-
-/**
  * FLAVORS
  */
 const val BARCELONA: String = "Barcelona"
@@ -32,3 +26,57 @@ const val SPANISH_API : String = "spa"
 const val SPANISH_LOCALE : String = "es"
 
 const val EURO : String = "€"
+
+/**
+ * BOTTONAVIGATIONBAR ITEM POSITIONS
+ */
+
+const val HOME : Int = 0
+const val SCHEDULE : Int = 1
+const val DONATIONS : Int = 3
+const val OPTIONS : Int = 4
+
+/** VIEW MANAGEMENT TAGS**/
+const val SHOW_BOTTOM_BAR_TAG : String = "SHOW_BOTTOM_BAR"
+const val SHOW_SHARE_VIEW_TAG : String = "SHOW_SHARE_VIEW"
+const val IS_MODAL: String = "isModal"
+
+
+/**
+ * ROOM QUERIES
+ */
+
+const val TEAM_MARKERS_QUERY : String = "select SUM(total) as total,  " +
+        " SUM(total * 100 / percentage) as spots " +
+        "from teamsMarkers where city = :city"
+
+/**
+ * MAP
+ */
+const val KM
+        : String = "km"
+
+/**
+ * ONESIGNAL
+ */
+const val LOCATION: String = "location"
+const val LAST_NEWS: String = "ultimaNoticia"
+const val DONATION: String = "ferDonacio"
+const val EVENT: String = "detallsEsdeveniments"
+const val FROM: String = "From"
+const val INITIAL_POSITION : Int = 0
+
+
+
+
+
+/**
+ * DONATION
+ */
+const val JS = "var style = document.createElement('style'); style.innerHTML = 'header, #results, body > div > h3 { display: none; }'; document.head.appendChild(style);"
+
+/**
+ * PERMISSIONS CONSTANTS
+ */
+
+const val MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 13

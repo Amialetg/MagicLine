@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#ed3525</color>
     <color name="colorPrimaryDark">#4a4a4a</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ed3525</color>
 
     <color name="white">#ffffff</color>
 
@@ -36,9 +36,9 @@
     <color name="schedule_header_subtitle">#8f8f8f</color>
 
     <!-- toolbar appbar -->
-    <color name="grey_line">#979797</color>
+    <color name="grey_line" >#979797</color>
 
     <!-- temporary colours -->
-    <color name="lessGreyColor">#dcdcdc</color>
+    <color name="lessGreyColor">#59979797</color>
 
 </resources>

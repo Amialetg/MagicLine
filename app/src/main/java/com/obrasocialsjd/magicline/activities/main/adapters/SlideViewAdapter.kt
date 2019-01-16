@@ -1,8 +1,8 @@
-package com.voluntariat.android.magicline.activities.main.adapters
+package com.obrasocialsjd.magicline.activities.main.adapters
 
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
@@ -23,7 +23,4 @@ class SlideViewAdapter(private var dataSet : List<Int> = listOf()) : RecyclerVie
         Picasso.get().load(dataSet[position]).resize(0,350).centerInside().into(holder.image)
     }
     override fun getItemCount() = dataSet.size
-    fun loadItems (images: List<Int>) {
-        dataSet = images
-    }
 }

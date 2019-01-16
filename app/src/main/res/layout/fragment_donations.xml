@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_donations"
         android:layout_width="match_parent"
@@ -7,6 +7,11 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+    <include layout="@layout/toolbar_appbar_top" />
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <WebView
         android:id="@+id/webviewDonation"
         android:layout_width="match_parent"
@@ -19,5 +24,6 @@
         android:layout_gravity="center"
         android:layout_centerInParent="true"
         android:indeterminateTint="@color/light_red"/>
+</FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -23,6 +23,7 @@
     <string name="text_countdown_minuts">"MINUTOS"</string>
     <string name="text_countdown_segons">"SEGUNDOS"</string>
     <string name="text_rrss">"DIFUNDE LA MAGIC LINE SJD"</string>
+    <string name="text_rrss_detail">Comparte tu experiencia: </string>
     <string name="text_otros_valores">"OTROS VALORES"</string>
     <string name="nav_menu_home">"Inicio"</string>
     <string name="nav_menu_programacion">"Programación"</string>
@@ -180,4 +181,6 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
     <string name="notAvailableText">Próximamente</string>
     <string name="closeText">Cerrar</string>
+
+
 </resources>

@@ -26,7 +26,7 @@
     <string name="text_countdown_segons">SEGONS</string>
     <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
     <string name="text_otros_valores">ALTRES VALORS</string>
-    <string name="nav_menu_home">Home</string>
+    <string name="nav_menu_home">Inici</string>
     <string name="nav_menu_programacion">Programació</string>
     <string name="nav_menu_donativos">Donatius</string>
     <string name="nav_menu_options">Opcions</string>
@@ -44,7 +44,7 @@
     <string name="afons_imprescindibles">Imprescindibles ML</string>
 
     <!--MAPS -->
-    <string name="googleMapsApiKey">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
+    <string name="googleMapsApiKey" translatable="false">AIzaSyC3ng-Kqyhh5ji9-6eDgp0laXaFrUHfxvY</string>
     <string name="toolbarMap">Recorregut</string>
     <string name="st_boi" translatable="false">"ST.BOI"</string>
     <string name="map_km">Km caminada solidaria:</string>
@@ -178,7 +178,6 @@
     <string name="walkTitle">La caminada</string>
     <string name="walkText">El Recorregut Turons de Barcelona recorre els turons més emblemàtics de la ciutat. El recorregut Llobregat surt dels turons de Sant Boi de Llobregat i segueix el riu per enllaçar, a Montjuïc, amb el recorregut dels Turons de Barcelona. Tots contemplen un descans al Castell de Montjuïc i una festa final a la plaça de la Catedral de Barcelona. Quan us inscriviu cal que escolliu quants quilòmetres voldreu caminar.</string>
     <string name="moreInfoOn">Més info a:</string>
-
     <string name="moreInfoWeb">https://www.magiclinesjd.org/ca/participar_barcelona</string>
 
     <!-- ABOUT ML APP -->

@@ -4,9 +4,9 @@
     <string name="cityParticipants" translatable="false">110</string>
 
     <!-- MAGIC LINE INFO -->
-    <string name="walk_text">El recorrido de 20 km tendrá salida desde Alboraya y pasará por la emblemática huerta valenciana. El recorrido de 10 km tendrá salida desde el Hospital Valencia al Mar y recorrerà la Malvarosa, y el de 5 km desde la Ciudad de las Artes y las Ciencias para enlazar distintos museos de la ciudad. La llegada será a la Plaza del Ayuntamiento de Valencia, donde se llevará a cabo una fiesta final.</string>
+    <string name="walkText">El recorrido de 20 km tendrá salida desde Alboraya y pasará por la emblemática huerta valenciana. El recorrido de 10 km tendrá salida desde el Hospital Valencia al Mar y recorrerà la Malvarosa, y el de 5 km desde la Ciudad de las Artes y las Ciencias para enlazar distintos museos de la ciudad. La llegada será a la Plaza del Ayuntamiento de Valencia, donde se llevará a cabo una fiesta final.</string>
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos_valencia</string>
-    <string name="more_info_web">https://www.magiclinesjd.org/es/participar_valencia</string>
+    <string name="moreInfoWeb">https://www.magiclinesjd.org/es/participar_valencia</string>
     <string name="pdf_donations_collecting_guide">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Valencia_ES.pdf</string>
 
 </resources>

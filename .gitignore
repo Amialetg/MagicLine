@@ -1,5 +1,8 @@
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
+# Firebase files (flavors)
+/app/google-services.json
+/app/src/*/google-services.json
 
 # Built application files
 *.apk

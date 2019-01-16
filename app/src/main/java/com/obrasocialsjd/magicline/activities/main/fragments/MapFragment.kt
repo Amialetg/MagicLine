@@ -91,7 +91,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        mapView.mapToolbar.title = getString(R.string.toolbar_map)
+        mapView.mapToolbar.title = getString(R.string.toolbarMap)
     }
 
     private fun initListeners() {

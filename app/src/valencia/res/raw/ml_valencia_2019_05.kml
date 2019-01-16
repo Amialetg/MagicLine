@@ -6,9 +6,7 @@
 			<IconStyle>
 				<color>ffffffff</color>
 				<scale>1</scale>
-				<Icon>
-                  <href>https://raw.githubusercontent.com/google/material-design-icons/master/communication/drawable-xxhdpi/ic_location_on_black_24dp.png</href>
-				</Icon>
+				<Icon><href>http://maps.google.com/mapfiles/kml/pal4/icon56.png</href></Icon>
 				<hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
 			</IconStyle>
 			<BalloonStyle>
@@ -33,24 +31,6 @@
 				<outline>1</outline>
 			</PolyStyle>
 		</Style>
-		<Placemark>
-          <name>Inici de la ruta Magic Line Valencia 2019, 5 Km</name>
-          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
-          <Point>
-            <coordinates>
-              -0.3505698,39.4545936,0
-            </coordinates>
-          </Point>
-        </Placemark>
-        <Placemark>
-          <name>Fi de la ruta Magic Line Valencia 2019, 5 Km</name>
-          <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
-          <Point>
-            <coordinates>
-              -0.3767986,39.4698891,0
-            </coordinates>
-          </Point>
-        </Placemark>
 		<Folder>
 			<name>Tracks</name>
 			<Placemark>

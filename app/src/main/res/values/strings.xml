@@ -15,7 +15,7 @@
     <string name="mes_info" translatable="false">Més info</string>
 
     <!--Section News-->
-    <string name="newsTitle" translatable="false">NOTICIES</string>
+    <string name="newsTitle" translatable="false">NOTÍCIES</string>
 
     <!--Section Programming-->
     <string name="Programming_title" translatable="false">PROGRAMACIÓ</string>
@@ -87,7 +87,7 @@
     <string name="schedule_alldayopen_desc">In recent years people have realized the importance of proper diet and exercise, and the </string>
 
     <!-- Detail fragment -->
-    <string name="viewOnWeb">Veure la web</string>
+    <string name="viewOnWeb">Veure el web</string>
 
     <!-- Essentials Detail Fragment -->
     <string name="essentials_title">10 imprescindibles Magic Line SJD</string>

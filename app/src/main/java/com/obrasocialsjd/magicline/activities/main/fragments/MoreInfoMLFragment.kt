@@ -62,7 +62,7 @@ class MoreInfoMLFragment : BaseFragment() {
     private fun requestChartData() {
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
             totalParticipants = participants.totalParticipants.toDouble()
-            availableSpots = participants.spots
+            availableSpots = ((participants.spots + 99) / 100) * 100
             val currentAvailablePlaces = availableSpots - totalParticipants
             currentParticipants.text = totalParticipants.addThousandsSeparator()
             configurePieChart(totalParticipants.toFloat(), currentAvailablePlaces.toFloat())

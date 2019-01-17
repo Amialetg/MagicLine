@@ -125,15 +125,11 @@
     <!-- Principal a fons -->
     <style name="afons_cards_txt" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">9.5sp</item>
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginStart">5dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">middle</item>
-
     </style>
 
     <!-- More Info Fragment -->

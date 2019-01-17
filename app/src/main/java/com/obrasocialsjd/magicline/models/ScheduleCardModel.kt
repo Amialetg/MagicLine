@@ -6,5 +6,6 @@ data class ScheduleCardModel(
         val subtitle : String,
         val description : String,
         val detailModel : DetailModel,
-        val thisType : Int
+        val thisType : Int,
+        val isSelected: Boolean
 ): ScheduleGeneralModel(thisType)

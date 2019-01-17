@@ -1,5 +1,7 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
+import android.annotation.SuppressLint
+import android.content.res.TypedArray
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,15 +15,20 @@ import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
 import kotlinx.android.synthetic.main.fragment_schedule.*
+import kotlinx.android.synthetic.main.fragment_schedule.view.*
+import kotlinx.android.synthetic.main.model_schedule_card.*
+import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.util.*
 
 class ScheduleFragment : BaseFragment() {
 
     //recycler widgets
     private lateinit var scheduleModel: Array<ScheduleGeneralModel>
     private lateinit var scheduleLayoutView: View
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,31 +37,13 @@ class ScheduleFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         scheduleLayoutView = inflater.inflate(R.layout.fragment_schedule, container, false)
-        paintTheCurrentTime()
+        initScheduleRecycler(scheduleLayoutView)
+
         return scheduleLayoutView
     }
 
     override fun onStart() {
         super.onStart()
-        initScheduleRecycler()
-    }
-
-    /**
-     * Primero miramos el contador de días actual, si este se encuentra a 0(fecha caminataa). Entonces podemos mirar a la hora en la que nos encontramos actualmente, por rangos y
-     * cambiamos el selector, en caso de que el selector esté checked pintamos la hora también (...uno de los IDs scheduleCardHour)
-     **/
-
-    private fun paintTheCurrentTime(){
-
-        //know the current time
-        var currentDateTime= LocalDateTime.now()
-
-        var time= currentDateTime.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)).removeSuffix(" AM").removeSuffix(" PM")
-
-
-        println(time)
-
-
     }
 
     private fun getListeners() : List<View.OnClickListener> {
@@ -99,13 +88,13 @@ class ScheduleFragment : BaseFragment() {
         )
     }
 
-    private fun initScheduleRecycler() {
+    private fun initScheduleRecycler(view: View) {
         //pintar en el schedule la bolita de roja dependiendo si nos encontramos en la hora
         val myScheduleManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         val myScheduleAdapter = ScheduleAdapter(scheduleModel, getListeners())
 
-        scheduleRecyclerView.layoutManager = myScheduleManager
-        scheduleRecyclerView.adapter = myScheduleAdapter
+        view.scheduleRecyclerView.layoutManager = myScheduleManager
+        view.scheduleRecyclerView.adapter = myScheduleAdapter
     }
 
     companion object {

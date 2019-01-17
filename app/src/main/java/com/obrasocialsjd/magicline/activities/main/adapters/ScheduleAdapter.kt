@@ -1,8 +1,10 @@
 package com.obrasocialsjd.magicline.activities.main.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
@@ -45,7 +47,6 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_FIRST) -> TYPE_SCHEDULE_TITLE_FIRST
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON) -> TYPE_SCHEDULE_TITLE_COMMON
             (dataSet[position].type == TYPE_COMMON_CARD) -> TYPE_COMMON_CARD
-            //position == dataSet.size -1 -> 4
             else  -> TYPE_LAST_CARD
         }
     }
@@ -75,35 +76,49 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {//OJO
 
         when(getItemViewType(position)){
-            0-> {
-                val textViewHolder = holder as ViewHolderText
-                val textModel = dataSet[position] as ScheduleTextModel
-                textViewHolder.hour.text = textModel.hour
-                textViewHolder.text.text = textModel.text
+            TYPE_SCHEDULE_TITLE_FIRST-> {
+                setInfo(holder, position, false)
             }
-            1-> {
-                val cardModel = dataSet[position] as ScheduleCardModel
-                if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
-                holder.itemView.scheduleCardTitle.text = cardModel.title
-                holder.itemView.scheduleCardHour.text = cardModel.hour
-                holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle
-                holder.itemView.scheduleCardDescription.text = cardModel.description
+            TYPE_COMMON_CARD-> {
+                setInfo(holder, position, true)
             }
-            2-> {
-                val textViewHolder = holder as ViewHolderText
-                val textModel = dataSet[position] as ScheduleTextModel
-                textViewHolder.hour.text = textModel.hour
-                textViewHolder.text.text = textModel.text
+            TYPE_SCHEDULE_TITLE_COMMON-> {
+                setInfo(holder, position, false)
             }
             else -> {
-                val cardModel = dataSet[position] as ScheduleCardModel
-                if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
-                holder.itemView.scheduleCardTitle.text = cardModel.title
-                holder.itemView.scheduleCardHour.text = cardModel.hour
-                holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle
-                holder.itemView.scheduleCardDescription.text = cardModel.description
+                setInfo(holder, position, true)
             }
         }
+    }
+
+    private fun setInfo(holder: RecyclerView.ViewHolder, position: Int, isCard: Boolean) {
+        if(!isCard) {
+            val textViewHolder = holder as ViewHolderText
+            val textModel = dataSet[position] as ScheduleTextModel
+            textViewHolder.hour.text = textModel.hour
+            textViewHolder.text.text = textModel.text
+            if(textModel.isSelected){
+                textViewHolder.hour.setTextColor(Color.RED)
+//                textViewHolder.hour.setBackgroundResource(R.color.light_red)
+//                textViewHolder.hour.scheduleCardHour.setTextColor(ContextCompat.getColor(textViewHolder.itemView.context, R.color.light_red))
+                textViewHolder.itemView.isSelected = true
+            }
+        }else {
+            val cardModel = dataSet[position] as ScheduleCardModel
+            if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
+            holder.itemView.scheduleCardTitle.text = cardModel.title
+            holder.itemView.scheduleCardHour.text = cardModel.hour
+            holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle
+            holder.itemView.scheduleCardDescription.text = cardModel.description
+            if(cardModel.isSelected) {
+                holder.itemView.scheduleCardHour.setTextColor(Color.RED)
+//                holder.itemView.scheduleCardHour.setBackgroundResource(R.color.light_red)
+//                holder.itemView.scheduleCardHour.setTextColor(ContextCompat.getColor(holder.itemView.scheduleCardHour.context, R.color.light_red))
+                holder.itemView.isSelected = true
+            }
+
+        }
+
     }
 
     override fun getItemCount() = dataSet.size

@@ -8,5 +8,6 @@ import java.io.Serializable
 data class ScheduleTextModel(
         val hour : String,
         val text : String,
-        val thisType : Int
+        val thisType : Int,
+        val isSelected: Boolean
 ) : ScheduleGeneralModel(thisType), Serializable

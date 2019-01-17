@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -16,10 +15,12 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.SlideViewAdapter
 import com.obrasocialsjd.magicline.activities.main.adapters.SlideViewNewsImgAdapter
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
 import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.callIntent
+import com.obrasocialsjd.magicline.utils.shareApp
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.openUrl
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
@@ -118,22 +119,14 @@ class DetailFragment : BaseFragment() {
 
     private fun initWidgets() {
         detailLayoutView.viewOnWeb.setOnClickListener {
-            openNewTabWindow(detailModel.link, this.requireContext())
+            (activity as MainActivity).openUrl(detailModel.link)
         }
     }
 
     private fun initRrss() {
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-        detailLayoutView.rrssViewDetail.fbListener = { activity?.callIntent(urlFacebook) }
-        detailLayoutView.rrssViewDetail.instaListener = { activity?.callIntent(urlInstagram) }
-        detailLayoutView.rrssViewDetail.twitterListener = { activity?.callIntent(urlTwitter) }
-    }
-
-    private fun openNewTabWindow(url: String, context: Context) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        detailLayoutView.rrssViewDetail.fbListener = { openActivity(shareApp(getString(R.string.fb_pkg))) }
+        detailLayoutView.rrssViewDetail.instaListener = { openActivity(shareApp(getString(R.string.insta_pkg))) }
+        detailLayoutView.rrssViewDetail.twitterListener = {openActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     companion object {

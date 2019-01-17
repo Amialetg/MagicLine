@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
@@ -20,6 +21,10 @@ abstract class BaseFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         (activity as MainActivity).manageBottomBar(isModal)
+    }
+
+    fun openActivity(shareIntent: Intent){
+        startActivity(Intent.createChooser(shareIntent, "Share with"))
     }
 }
 

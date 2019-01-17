@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.R.id.*
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
@@ -73,13 +72,9 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-        rrssView.fbListener = { activity?.callIntent(urlFacebook) }
-        rrssView.instaListener = { activity?.callIntent(urlInstagram) }
-        rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
+        rrssView.fbListener = { openActivity(shareApp(getString(R.string.fb_pkg))) }
+        rrssView.instaListener = { openActivity(shareApp(getString(R.string.insta_pkg))) }
+        rrssView.twitterListener = { openActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     private fun initMesQueListeners() {
@@ -92,7 +87,7 @@ class MagicLineFragment : BaseFragment() {
             (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
         }
 
-        btnBrainStorm.setOnClickListener { (activity as MainActivity).callIntent(getString(R.string.pdf_donations_collecting_guide)) }
+        btnBrainStorm.setOnClickListener { (activity as MainActivity).openUrl(getString(R.string.pdf_donations_collecting_guide)) }
     }
 
     private fun initMoreInfoMLListener() {

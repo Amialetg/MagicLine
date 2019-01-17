@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
@@ -21,6 +22,7 @@ abstract class BaseFragment : Fragment() {
         super.onStart()
         (activity as MainActivity).manageBottomBar(isModal)
     }
+
 }
 
 

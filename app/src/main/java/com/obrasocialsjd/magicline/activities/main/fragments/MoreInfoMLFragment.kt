@@ -19,10 +19,7 @@ import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
-import com.obrasocialsjd.magicline.models.MoreInfoMLModel
-import com.obrasocialsjd.magicline.utils.addThousandsSeparator
-import com.obrasocialsjd.magicline.utils.callIntent
-import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
@@ -33,7 +30,6 @@ import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
 class MoreInfoMLFragment : BaseFragment() {
 
     private lateinit var moreInfoMLView: View
-    private lateinit var moreInfoMLDataModel: MoreInfoMLModel
     private lateinit var moreInfoViewModel : MoreInfoViewModel
 
     private var totalParticipants: Double = 0.0
@@ -88,16 +84,12 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        val urlFacebook = getString(R.string.url_facebook)
-        val urlInstagram = getString(R.string.url_instagram)
-        val urlTwitter = getString(R.string.url_twitter)
-
-        moreInfoMLView.rrssView.fbListener = { activity?.callIntent(urlFacebook) }
-        moreInfoMLView.rrssView.instaListener = { activity?.callIntent(urlInstagram) }
-        moreInfoMLView.rrssView.twitterListener = { activity?.callIntent(urlTwitter) }
+        moreInfoMLView.rrssView.fbListener = { activity?.openShareActivity(shareApp(getString(R.string.fb_pkg))) }
+        moreInfoMLView.rrssView.instaListener = { activity?.openShareActivity(shareApp(getString(R.string.insta_pkg))) }
+        moreInfoMLView.rrssView.twitterListener = { activity?.openShareActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
-    private fun initListeners() { moreInfoMLView.moreInfoWeb.setOnClickListener{ activity?.callIntent(getString(R.string.moreInfoWeb)) } }
+    private fun initListeners() { moreInfoMLView.moreInfoWeb.setOnClickListener{ activity?.openUrl(getString(R.string.moreInfoWeb)) } }
 
     private fun createBarChart() {
         setUpPieChartData()

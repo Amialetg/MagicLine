@@ -88,7 +88,8 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
                 result ->
                 if (result.isSuccessful) {
                     var donations = result.body()?.donations
-                    if (donations != null && donations.barcelona?.amount != null) {
+                    if (donations != null && donations.barcelona?.total != null) {
+                        donationsDAO.nukeTable()
                         insertDonationsDBModelFromAPI(donations)
                     }
                 }
@@ -100,9 +101,9 @@ class MagicLineRepositoryImpl(database: MagicLineDB?)
 
     private fun insertDonationsDBModelFromAPI(donations : Donations) {
         donationsDAO.insert(DonationsDBModel(0,
-                                                donations.valencia?.amount,
-                                                donations.barcelona?.amount,
-                                                donations.mallorca?.amount))
+                                                donations.valencia?.total,
+                                                donations.barcelona?.total,
+                                                donations.mallorca?.total))
     }
 
     override fun getTeamsMarkers(): LiveData<TotalParticipantsDBModel> {

@@ -23,9 +23,6 @@ abstract class BaseFragment : Fragment() {
         (activity as MainActivity).manageBottomBar(isModal)
     }
 
-    fun openActivity(shareIntent: Intent){
-        startActivity(Intent.createChooser(shareIntent, "Share with"))
-    }
 }
 
 

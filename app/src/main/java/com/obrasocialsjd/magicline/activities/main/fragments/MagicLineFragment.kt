@@ -72,9 +72,9 @@ class MagicLineFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        rrssView.fbListener = { openActivity(shareApp(getString(R.string.fb_pkg))) }
-        rrssView.instaListener = { openActivity(shareApp(getString(R.string.insta_pkg))) }
-        rrssView.twitterListener = { openActivity(shareApp(getString(R.string.twitter_pkg))) }
+        rrssView.fbListener = { activity?.openShareActivity(shareApp(getString(R.string.fb_pkg))) }
+        rrssView.instaListener = { activity?.openShareActivity(shareApp(getString(R.string.insta_pkg))) }
+        rrssView.twitterListener = { activity?.openShareActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     private fun initMesQueListeners() {

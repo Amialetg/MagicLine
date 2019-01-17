@@ -19,10 +19,7 @@ import com.obrasocialsjd.magicline.R.color.mesque_background
 import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.db.MagicLineDB
-import com.obrasocialsjd.magicline.utils.addThousandsSeparator
-import com.obrasocialsjd.magicline.utils.shareApp
-import com.obrasocialsjd.magicline.utils.openUrl
-import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.*
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModel
 import com.obrasocialsjd.magicline.viewModel.MoreInfoViewModelFactory
 import kotlinx.android.synthetic.main.fragment_more_info_ml.*
@@ -87,9 +84,9 @@ class MoreInfoMLFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        moreInfoMLView.rrssView.fbListener = { openActivity(shareApp(getString(R.string.fb_pkg))) }
-        moreInfoMLView.rrssView.instaListener = { openActivity(shareApp(getString(R.string.insta_pkg))) }
-        moreInfoMLView.rrssView.twitterListener = { openActivity(shareApp(getString(R.string.twitter_pkg))) }
+        moreInfoMLView.rrssView.fbListener = { activity?.openShareActivity(shareApp(getString(R.string.fb_pkg))) }
+        moreInfoMLView.rrssView.instaListener = { activity?.openShareActivity(shareApp(getString(R.string.insta_pkg))) }
+        moreInfoMLView.rrssView.twitterListener = { activity?.openShareActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     private fun initListeners() { moreInfoMLView.moreInfoWeb.setOnClickListener{ activity?.openUrl(getString(R.string.moreInfoWeb)) } }

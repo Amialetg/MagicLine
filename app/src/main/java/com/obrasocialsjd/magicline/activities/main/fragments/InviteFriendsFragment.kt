@@ -2,12 +2,14 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
+import com.obrasocialsjd.magicline.utils.openShareActivity
 import com.obrasocialsjd.magicline.utils.shareApp
 import kotlinx.android.synthetic.main.fragment_invite_friends.*
 import kotlinx.android.synthetic.main.fragment_invite_friends.view.*
@@ -39,26 +41,20 @@ class InviteFriendsFragment: BaseFragment() {
 
     private fun initRRSSListeners(){
 
-        try {
-
-        emailTextView.setOnClickListener{
-            openActivity(shareApp(getString(R.string.email_pkg)))
+        emailTextView.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.email_pkg)))
         }
-        fbTextView.setOnClickListener{
-            openActivity(shareApp(getString(R.string.fb_pkg)))
+        fbTextView.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.fb_pkg)))
         }
-        msnTextView.setOnClickListener{
-            openActivity(shareApp(getString(R.string.msn_pkg)))
+        msnTextView.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.msn_pkg)))
         }
-        telegramTextView.setOnClickListener{
-            openActivity(shareApp(getString(R.string.tel_pkg)))
+        telegramTextView.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.tel_pkg)))
         }
-        whatsTextView.setOnClickListener{
-            openActivity(shareApp(getString(R.string.whats_pkg)))
-        }
-
-        } catch (e: PackageManager.NameNotFoundException) {
-            Toast.makeText(this.context, getString(R.string.appNotInstalled), Toast.LENGTH_SHORT).show()
+        whatsTextView.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.whats_pkg)))
         }
 
     }

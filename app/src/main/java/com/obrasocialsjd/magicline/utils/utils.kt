@@ -116,3 +116,7 @@ fun shareApp(pkg: String): Intent {
 
     return waIntent
 }
+
+fun Activity.openShareActivity (intent : Intent) {
+    startActivity(Intent.createChooser(intent, "Share with"))
+}

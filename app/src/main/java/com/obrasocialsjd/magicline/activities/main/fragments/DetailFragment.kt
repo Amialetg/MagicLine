@@ -20,6 +20,7 @@ import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorD
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.shareApp
 import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.openShareActivity
 import com.obrasocialsjd.magicline.utils.openUrl
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
@@ -124,9 +125,9 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun initRrss() {
-        detailLayoutView.rrssViewDetail.fbListener = { openActivity(shareApp(getString(R.string.fb_pkg))) }
-        detailLayoutView.rrssViewDetail.instaListener = { openActivity(shareApp(getString(R.string.insta_pkg))) }
-        detailLayoutView.rrssViewDetail.twitterListener = {openActivity(shareApp(getString(R.string.twitter_pkg))) }
+        detailLayoutView.rrssViewDetail.fbListener = { activity?.openShareActivity(shareApp(getString(R.string.fb_pkg))) }
+        detailLayoutView.rrssViewDetail.instaListener = { activity?.openShareActivity(shareApp(getString(R.string.insta_pkg))) }
+        detailLayoutView.rrssViewDetail.twitterListener = { activity?.openShareActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     companion object {

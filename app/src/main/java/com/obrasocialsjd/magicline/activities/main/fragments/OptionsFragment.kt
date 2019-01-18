@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
+import com.obrasocialsjd.magicline.utils.TrackingUtil
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import com.obrasocialsjd.magicline.utils.SPANISH
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.layout_checkboxs_info.*
 
 
-class InfoFragment: BaseFragment() {
+class OptionsFragment: BaseFragment() {
 
     // 1--> SPANISH 2-->CATALAN
 
@@ -73,16 +74,13 @@ class InfoFragment: BaseFragment() {
         }
     }
 
-    fun refresh() {
-        this.requireActivity().recreate()
-
-    }
+    private fun refresh() { this.requireActivity().recreate() }
 
     private fun listener(){
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtil.Screens.InviteFriends)
         }
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)
@@ -98,20 +96,20 @@ class InfoFragment: BaseFragment() {
                     isBlack = false,
                     hasToolbarImg = true)
 
-            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelAboutMLApp))
+            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtil.Screens.AboutApp)
         }
     }
 
     private fun callIntent(url : String){
 
-        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.requireContext().startActivity(intent)
     }
 
     companion object {
         fun newInstance(): BaseFragment {
-            return InfoFragment()
+            return OptionsFragment()
         }
     }
 

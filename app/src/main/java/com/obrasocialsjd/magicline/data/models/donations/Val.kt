@@ -8,7 +8,7 @@ import com.obrasocialsjd.magicline.utils.VALENCIA
 @Entity(tableName = VALENCIA)
 data class Val(
 
-	@ColumnInfo(name = "amount")
-	@field:SerializedName("amount")
-	val amount: String? = null
+	@ColumnInfo(name = "total")
+	@field:SerializedName("total")
+	val total: String? = null
 )

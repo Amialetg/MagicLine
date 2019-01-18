@@ -2,11 +2,13 @@ package com.obrasocialsjd.magicline.utils
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.BuildConfig
@@ -54,7 +56,7 @@ fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useMo
     supportFragmentManager.executePendingTransactions()
 }
 
-fun Activity.callIntent(url: String) {
+fun Activity.openUrl(url: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     startActivity(intent)
@@ -100,4 +102,21 @@ fun String.addThousandsSeparator() : String {
 
 fun Double.addThousandsSeparator() : String {
     return NumberFormat.getInstance(Locale.getDefault()).format(this)
+}
+
+fun shareApp(pkg: String): Intent {
+
+    val waIntent = Intent(Intent.ACTION_SEND)
+    waIntent.type = "text/plain"
+    waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
+    var text = "\n" + " Let me recommend you this application\n" + "\n"
+    text += "https://play.google.com/store/apps/details?id=com.obrasocialsjd.magicline&hl=cat"
+    waIntent.setPackage(pkg)
+    waIntent.putExtra(Intent.EXTRA_TEXT, text)
+
+    return waIntent
+}
+
+fun Activity.openShareActivity (intent : Intent) {
+    startActivity(Intent.createChooser(intent, "Share with"))
 }

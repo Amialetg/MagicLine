@@ -25,6 +25,7 @@
     <string name="text_countdown_minuts">MINUTS</string>
     <string name="text_countdown_segons">SEGONS</string>
     <string name="text_rrss">DIFÓN LA MAGIC LINE SJD</string>
+    <string name="text_rrss_detail">Comparteix la teva experiència: </string>
     <string name="text_otros_valores">ALTRES VALORS</string>
     <string name="nav_menu_home">Inici</string>
     <string name="nav_menu_programacion">Programació</string>
@@ -146,11 +147,14 @@
 
     <!-- Packages social media -->
 
-    <string name="whats_pkg">com.whatsapp</string>
-    <string name="tel_pkg">org.telegram.messenger</string>
-    <string name="msn_pkg">com.facebook.orca</string>
-    <string name="fb_pkg">com.facebook.katana</string>
-    <string name="email_pkg">com.google.android.gm</string>
+    <string name="whats_pkg" translatable="false">com.whatsapp</string>
+    <string name="tel_pkg" translatable="false">org.telegram.messenger</string>
+    <string name="msn_pkg" translatable="false">com.facebook.orca</string>
+    <string name="fb_pkg" translatable="false">com.facebook.katana</string>
+    <string name="email_pkg" translatable="false">com.google.android.gm</string>
+    <string name="insta_pkg" translatable="false">com.instagram.android</string>
+    <string name="twitter_pkg" translatable="false">com.twitter.android</string>
+    <string name="appNotInstalled">Aplicació no instal·lada</string>
 
     <!-- Magic Line web -->
     <string name="magicLineWeb">http://www.magiclinesjd.org/es/participar_barcelona?gclid=EAIaIQobChMItYzO2vjk3QIVGJzVCh35FQ97EAAYASAAEgKnUPD_BwE</string>
@@ -181,7 +185,7 @@
     <string name="moreInfoWeb">https://www.magiclinesjd.org/ca/participar_barcelona</string>
 
     <!-- ABOUT ML APP -->
-    <string name="aboutTheAppTitle">Sobre L\'App</string>
+    <string name="aboutTheAppTitle">Sobre l\'App</string>
     <string name="aboutTheAppSubTitle">Compromís social</string>
     <string name="aboutTheAppLink">https://www.basetis.com/ca/</string>
     <string name="aboutTheAppBody"><![CDATA[<html> Aplicació desenvolupada per <a href ="https://www.linkedin.com/in/hectorpascualh/">Hector Pascual</a> i <a href ="https://www.linkedin.com/in/albertrisco/">Albert Risco</a>, estudiants de Enginyeria de Tecnologies i Serveis de Telecomunicació a la UPC, i BaseTIS, un equip d’apassionades per les tecnologies de la informació que creu que hem de tenir una responsabilitat social i ètica en tots els àmbits en què intervenim</html>]]></string>

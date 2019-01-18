@@ -33,8 +33,8 @@ android {
         applicationId "com.obrasocialsjd"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 11
-        versionName "2.9.2"
+        versionCode 12
+        versionName "2.9.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
@@ -50,15 +50,18 @@ android {
     productFlavors {
         valencia {
             applicationId "com.obrasocialsjd.magicline.valencia"
-
+            versionCode 14
+            versionName "2.9.4"
         }
         mallorca {
             applicationId "com.obrasocialsjd.magicline.mallorca"
-
+            versionCode 13
+            versionName "2.9.3"
         }
         barcelona {
             applicationId "com.obrasocialsjd.magicline"
-
+            versionCode 13
+            versionName "2.9.3"
         }
     }
     buildTypes {

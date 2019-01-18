@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,18 +13,19 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.R.drawable.ic_black_cross
-import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
-import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.htmlToSpanned
 import com.obrasocialsjd.magicline.activities.main.adapters.SlideViewAdapter
 import com.obrasocialsjd.magicline.activities.main.adapters.SlideViewNewsImgAdapter
+import com.obrasocialsjd.magicline.activities.main.general.MainActivity
+import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
+import com.obrasocialsjd.magicline.models.DetailModel
+import com.obrasocialsjd.magicline.utils.shareApp
+import com.obrasocialsjd.magicline.utils.htmlToSpanned
+import com.obrasocialsjd.magicline.utils.openShareActivity
+import com.obrasocialsjd.magicline.utils.openUrl
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
-import kotlinx.android.synthetic.main.layout_share.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.view.*
-import kotlin.collections.ArrayList
 
 class DetailFragment : BaseFragment() {
 
@@ -45,6 +45,7 @@ class DetailFragment : BaseFragment() {
         initToolbar()
         initContent()
         initWidgets()
+        initRrss()
         return detailLayoutView
     }
 
@@ -118,23 +119,15 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun initWidgets() {
-
         detailLayoutView.viewOnWeb.setOnClickListener {
-            openNewTabWindow(detailModel.link, this.requireContext())
-        }
-        detailLayoutView.fb_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, this.requireContext())
-        }
-        detailLayoutView.insta_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, this.requireContext())
-        }
-        detailLayoutView.twitter_button.setOnClickListener {
-            openNewTabWindow(detailModel.link, this.requireContext())
+            (activity as MainActivity).openUrl(detailModel.link)
         }
     }
 
-    private fun openNewTabWindow(url: String, context: Context) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    private fun initRrss() {
+        detailLayoutView.rrssViewDetail.fbListener = { activity?.openShareActivity(shareApp(getString(R.string.fb_pkg))) }
+        detailLayoutView.rrssViewDetail.instaListener = { activity?.openShareActivity(shareApp(getString(R.string.insta_pkg))) }
+        detailLayoutView.rrssViewDetail.twitterListener = { activity?.openShareActivity(shareApp(getString(R.string.twitter_pkg))) }
     }
 
     companion object {

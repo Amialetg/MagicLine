@@ -50,8 +50,7 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {//OJO
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
         return when(viewType) {
             TYPE_SCHEDULE_TITLE_FIRST -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text_first, parent, false)
@@ -73,7 +72,6 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {//OJO
-
         when(getItemViewType(position)) {
             TYPE_SCHEDULE_TITLE_FIRST-> {
                 setInfo(holder, position, false)

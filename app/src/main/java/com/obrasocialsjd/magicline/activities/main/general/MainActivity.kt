@@ -258,7 +258,7 @@ class MainActivity : BaseActivity() {
         val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * 1000))
 
         val currentTime = timeInMillis.toString().replace(":", ".")
-       // currentTime = "19.3" TODO : para hacer testing
+         //currentTime = "19.3" //TODO : para hacer testing
         hoursArray  = resources.obtainTypedArray(R.array.arraySchedule)
 
         var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/3600000
@@ -267,6 +267,7 @@ class MainActivity : BaseActivity() {
         for(index in 1 until hoursArray.length()) {
             val value = hoursArray.getFloat(index, Float.MAX_VALUE)
             auxiliar = value/3600000
+
             if(currentTime.toFloat() >= auxiliar) {
                 isTheOne = auxiliar
             }
@@ -274,13 +275,10 @@ class MainActivity : BaseActivity() {
         val cTime: Long = Calendar.getInstance().timeInMillis
         val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
         val diff: Long = dateLong - cTime
-       // diff = 0 TODO : para hacer testing
-        if(diff == 0L){
-            if(scheduleHour.toFloat() <= isTheOne &&  isTheOne == scheduleHour.toFloat() && currentTime.toFloat() >= scheduleHour.toFloat() && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/3600000) + 2) return true
-            return false
-        }else{
-            return false
-        }
+        //diff = 0 //TODO : para hacer testing
+
+        if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/3600000) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
+        return false
     }
 
     private fun clearBackStack() {

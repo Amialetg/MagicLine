@@ -11,4 +11,5 @@
     <dimen name="moreInfo">32dp</dimen>
     <dimen name="marginMoreInfo">12dp</dimen>
     <dimen name="widthPieChart">160dp</dimen>
+    <dimen name="height_layout">148dp</dimen>
 </resources>

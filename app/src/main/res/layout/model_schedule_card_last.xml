@@ -11,8 +11,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="2dp"
-            android:layout_height="@dimen/margin_top_circle"
+            android:layout_width="@dimen/layout_width_schedulecard"
+            android:layout_height="@dimen/margin_left_bar"
             android:layout_marginStart="@dimen/margin_left_bar"
             android:src="@color/moreinfo_bars" />
 
@@ -21,7 +21,7 @@
             android:layout_width="@dimen/width_circle"
             android:layout_height="@dimen/width_circle"
             android:layout_marginStart="@dimen/margin_left_circle"
-            android:layout_marginTop="@dimen/margin_top_circle"
+            android:layout_marginTop="@dimen/margin_left_bar"
             android:src="@drawable/circle_selector" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_left_hour"
-            android:layout_marginTop="@dimen/margin_top_hour"
+            android:layout_marginTop="@dimen/browser_actions_context_menu_min_padding"
             android:layout_toEndOf="@id/circle"
             tools:text="13:30" />
 

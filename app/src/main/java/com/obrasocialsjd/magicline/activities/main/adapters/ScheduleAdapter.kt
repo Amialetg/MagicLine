@@ -20,7 +20,6 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
     private val TYPE_COMMON_CARD : Int = 1
     private val TYPE_LAST_CARD : Int = 3
 
-
     class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
         val hour = itemView.scheduleHour
         val text = itemView.scheduleText
@@ -53,7 +52,7 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {//OJO
 
-        return when(viewType){
+        return when(viewType) {
             TYPE_SCHEDULE_TITLE_FIRST -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text_first, parent, false)
                 ViewHolderText(itemView)
@@ -75,7 +74,7 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {//OJO
 
-        when(getItemViewType(position)){
+        when(getItemViewType(position)) {
             TYPE_SCHEDULE_TITLE_FIRST-> {
                 setInfo(holder, position, false)
             }
@@ -99,8 +98,6 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
             textViewHolder.text.text = textModel.text
             if(textModel.isSelected){
                 textViewHolder.hour.setTextColor(Color.RED)
-//                textViewHolder.hour.setBackgroundResource(R.color.light_red)
-//                textViewHolder.hour.scheduleCardHour.setTextColor(ContextCompat.getColor(textViewHolder.itemView.context, R.color.light_red))
                 textViewHolder.itemView.isSelected = true
             }
         }else {
@@ -112,13 +109,9 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
             holder.itemView.scheduleCardDescription.text = cardModel.description
             if(cardModel.isSelected) {
                 holder.itemView.scheduleCardHour.setTextColor(Color.RED)
-//                holder.itemView.scheduleCardHour.setBackgroundResource(R.color.light_red)
-//                holder.itemView.scheduleCardHour.setTextColor(ContextCompat.getColor(holder.itemView.scheduleCardHour.context, R.color.light_red))
                 holder.itemView.isSelected = true
             }
-
         }
-
     }
 
     override fun getItemCount() = dataSet.size

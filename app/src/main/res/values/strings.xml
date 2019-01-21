@@ -139,6 +139,8 @@
     <!-- Share -->
     <string name="share">Comparteix la teva experiència:</string>
     <string name="inviteFriends">Convida als teus amics \n a l\'app.</string>
+    <string name="shareAppText">La #MagicLine de @solidaridadsjd ja té APP per a Android i Iphone. Facilita les donacions, les novetats de la mobilització i tots els horaris necessaris el dia de la caminada. Descarrega-te-la!</string>
+    <string name="storeLink" translatable="false"><![CDATA[<html><a href="https://play.google.com/store/apps/details?id=">https://play.google.com/store/apps/details?id=</a></html>]]></string>
     <string name="whatsapp" translatable="false">WhatsApp</string>
     <string name="telegram" translatable="false">Telegram</string>
     <string name="messenger" translatable="false">Messenger</string>

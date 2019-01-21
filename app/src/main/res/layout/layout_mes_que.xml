@@ -1,77 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="148dp"
+    android:layout_height="@dimen/height_layout"
+    android:background="@drawable/mes_que_border"
     android:orientation="vertical"
-    android:paddingTop="25dp"
-    android:background="@drawable/mes_que_border">
+    android:paddingTop="@dimen/back_arrow_width"
+    android:paddingBottom="@dimen/back_arrow_height">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/mesque_title"
-        android:fontFamily="@font/lato_regular"
-        android:textColor="@color/grey"
         style="@style/NewsTitle"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/letters_height"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/mesque_title"
+        android:textColor="@color/grey" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="19dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/end_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginEnd="@dimen/end_margin"
+        android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnDonateTeam"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_mes_que_not_pressed"
-                android:text="@string/mesque_dona"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                style="@style/btn_mes_que"
-                android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDonateTeam"
+            style="@style/btn_mes_que"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/cards_height"
+            android:layout_marginStart="@dimen/margin_top_text"
+            android:layout_marginEnd="@dimen/margin_top_text"
+            android:layout_weight="1"
+            android:background="@drawable/btn_mes_que_not_pressed"
+            android:paddingStart="@dimen/margin_left_sections"
+            android:paddingEnd="@dimen/margin_left_sections"
+            android:text="@string/mesque_dona" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRequestDonates"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:text="@string/mesque_demana"
-                android:background="@drawable/btn_mes_que_not_pressed"
-                style="@style/btn_mes_que"
-                />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRequestDonates"
+            style="@style/btn_mes_que"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/cards_height"
+            android:layout_marginStart="@dimen/margin_top_text"
+            android:layout_marginEnd="@dimen/margin_top_text"
+            android:layout_weight="1"
+            android:background="@drawable/btn_mes_que_not_pressed"
+            android:paddingStart="@dimen/margin_left_sections"
+            android:paddingEnd="@dimen/margin_left_sections"
+            android:text="@string/mesque_demana" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnBrainStorm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_mes_que_not_pressed"
-                android:text="@string/mesque_idees"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                style="@style/btn_mes_que"
-                />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBrainStorm"
+            style="@style/btn_mes_que"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/cards_height"
+            android:layout_marginStart="@dimen/margin_top_text"
+            android:layout_marginEnd="@dimen/margin_top_text"
+            android:layout_weight="1"
+            android:background="@drawable/btn_mes_que_not_pressed"
+            android:paddingStart="@dimen/margin_left_sections"
+            android:paddingEnd="@dimen/margin_left_sections"
+            android:text="@string/mesque_idees" />
 
     </LinearLayout>
 

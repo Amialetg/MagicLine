@@ -9,25 +9,24 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:paddingTop="6dp"
         android:layout_weight="43.2"
-        >
+        android:paddingTop="@dimen/top_padding"
+        android:paddingBottom="@dimen/margin_left_text">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="274.543€"
-            style="@style/recaudats_num"
             android:id="@+id/recaudats_num"
-            />
-        <TextView
+            style="@style/recaudats_num"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/recaudats_text"
+            android:layout_height="@dimen/aboutAppMargin"
+            tools:text="274.543€" />
+
+        <TextView
             style="@style/recaudats_text"
-            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_left_sections"
             android:layout_below="@id/recaudats_num"
-            />
+            android:text="@string/recaudats_text"
+            android:textAllCaps="true" />
 
     </RelativeLayout>
     
@@ -36,28 +35,27 @@
         android:layout_height="match_parent" 
         android:background="@color/white"
         />
-    
+
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:paddingTop="6dp"
         android:layout_weight="38.4"
-        >
+        android:paddingTop="@dimen/top_padding">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/recaudats_num"
             android:id="@+id/participants_num"
-            />
-        <TextView
+            style="@style/recaudats_num"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="@string/participants_text"
+            android:layout_height="@dimen/aboutAppMargin" />
+
+        <TextView
             style="@style/recaudats_text"
-            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_left_sections"
             android:layout_below="@id/participants_num"
-            
+            android:text="@string/participants_text"
+            android:textAllCaps="true"
+
             />
 
     </RelativeLayout>
@@ -74,15 +72,14 @@
         android:layout_height="match_parent"
         android:layout_weight="17.9"
         >
-        
+
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_plus"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true"
             android:id="@+id/ic_plus"
-            />
+            android:layout_width="@dimen/back_arrow_height"
+            android:layout_height="@dimen/back_arrow_width"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_left_sections"
+            android:src="@drawable/ic_plus" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

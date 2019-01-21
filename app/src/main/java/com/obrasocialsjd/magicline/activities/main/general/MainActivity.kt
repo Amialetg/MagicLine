@@ -1,13 +1,11 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.TypedArray
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -24,9 +22,6 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import java.util.*
 
 class MainActivity : BaseActivity() {
@@ -36,6 +31,7 @@ class MainActivity : BaseActivity() {
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -251,22 +247,22 @@ class MainActivity : BaseActivity() {
 
     private fun isTheMagicLineDateAndHour (hour :String): Boolean{
 
-        val scheduleHour = hour.toString().replace(":", ".")
+        val scheduleHour = hour.toString().replace(COLON, PERIOD)
 
-        val now = System.currentTimeMillis() / 1000
+        val now = System.currentTimeMillis() / MILLIS
 
-        val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * 1000))
+        val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * MILLIS))
 
-        val currentTime = timeInMillis.toString().replace(":", ".")
-         //currentTime = "19.3" //TODO : para hacer testing
+        val currentTime = timeInMillis.toString().replace(COLON, PERIOD)
+        //currentTime = "12.0" //TODO : para hacer testing - Cambiar currentTime type a VAR
         hoursArray  = resources.obtainTypedArray(R.array.arraySchedule)
 
-        var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/3600000
+        var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/MILLISECONDS
         var auxiliar = 0.0f
 
         for(index in 1 until hoursArray.length()) {
             val value = hoursArray.getFloat(index, Float.MAX_VALUE)
-            auxiliar = value/3600000
+            auxiliar = value/MILLISECONDS
 
             if(currentTime.toFloat() >= auxiliar) {
                 isTheOne = auxiliar
@@ -275,9 +271,9 @@ class MainActivity : BaseActivity() {
         val cTime: Long = Calendar.getInstance().timeInMillis
         val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
         val diff: Long = dateLong - cTime
-        //diff = 0 //TODO : para hacer testing
+      //  diff = 0 //TODO : para hacer testing - Cambiar diff type a VAR
 
-        if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/3600000) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
+        if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/MILLISECONDS) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
         return false
     }
 

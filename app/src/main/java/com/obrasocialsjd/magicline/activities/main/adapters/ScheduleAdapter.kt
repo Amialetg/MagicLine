@@ -4,21 +4,16 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
+import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
 class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private var listeners: List<View.OnClickListener>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-
-    private val TYPE_SCHEDULE_TITLE_FIRST : Int = 0
-    private val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
-    private val TYPE_COMMON_CARD : Int = 1
-    private val TYPE_LAST_CARD : Int = 3
 
     class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
         val hour = itemView.scheduleHour

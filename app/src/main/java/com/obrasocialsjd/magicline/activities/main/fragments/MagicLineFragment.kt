@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
+import com.obrasocialsjd.magicline.utils.TrackingUtil
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecoration
 import com.obrasocialsjd.magicline.data.MagicLineRepositoryImpl
 import com.obrasocialsjd.magicline.data.models.donations.DonationsDBModel
@@ -80,11 +81,11 @@ class MagicLineFragment : BaseFragment() {
     private fun initMesQueListeners() {
 
         btnDonateTeam.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(DonationsFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), DonationsFragment.newInstance(), analyticsScreen = TrackingUtil.Screens.Donations)
         }
 
         btnRequestDonates.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(InviteFriendsFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtil.Screens.InviteFriends)
         }
 
         btnBrainStorm.setOnClickListener { (activity as MainActivity).openUrl(getString(R.string.pdf_donations_collecting_guide)) }
@@ -92,7 +93,7 @@ class MagicLineFragment : BaseFragment() {
 
     private fun initMoreInfoMLListener() {
         moreInfoML.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(fragment = MoreInfoMLFragment.newInstance())
+            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(),fragment = MoreInfoMLFragment.newInstance(), analyticsScreen = TrackingUtil.Screens.MagicLineInfo)
         }
     }
 
@@ -153,7 +154,11 @@ class MagicLineFragment : BaseFragment() {
     private fun toNewsModel(list: List<PostsItem>): List<NewsModel> {
         val news : MutableList<NewsModel> = mutableListOf()
         val onClickListener: (NewsModel) -> Unit = { newsModel ->
-            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(newsModel.detailModel))
+            (activity as AppCompatActivity).transitionWithModalAnimation(
+                    requireContext(),
+                    fragment = DetailFragment.newInstance(newsModel.detailModel),
+                    analyticsScreen = TrackingUtil.Screens.NewsDetail
+            )
         }
 
         for (item in list) {
@@ -233,15 +238,15 @@ class MagicLineFragment : BaseFragment() {
                 hasToolbarImg = false)
 
         info_essentials_button.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelEssential))
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), DetailFragment.newInstance(dataModelEssential), analyticsScreen = TrackingUtil.Screens.Detail)
         }
 
         info_donations_destiny_button.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelDestiny))
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), DetailFragment.newInstance(dataModelDestiny), analyticsScreen = TrackingUtil.Screens.Detail)
         }
 
         info_sjd_button.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(DetailFragment.newInstance(dataModelSantJoan))
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), DetailFragment.newInstance(dataModelSantJoan), analyticsScreen = TrackingUtil.Screens.Detail)
         }
     }
 

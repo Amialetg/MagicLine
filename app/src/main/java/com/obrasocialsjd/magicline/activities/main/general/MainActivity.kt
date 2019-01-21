@@ -2,14 +2,13 @@ package com.obrasocialsjd.magicline.activities.main.general
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.NewsAdapter
 import com.obrasocialsjd.magicline.activities.main.fragments.*
@@ -26,6 +25,7 @@ import java.util.ArrayList
 
 class MainActivity : BaseActivity() {
 
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     private lateinit var currentFragment: Fragment
     private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
     private lateinit var mMagicLineViewModel: MagicLineViewModel
@@ -35,6 +35,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+        // Obtain the FirebaseAnalytics instance.
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
         val factory = MagicLineViewModelFactory(this.application, repository)
@@ -49,8 +51,9 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
-            transitionWithModalAnimation(fragment = MagicLineFragment(),
-                    useModalAnimation = false, addToBackStack = false)
+            transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
+                    useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
+            TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
             if (intent.hasExtra("From")) {
                 navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
             }
@@ -75,7 +78,7 @@ class MainActivity : BaseActivity() {
         bottomBarView.setTextSize(9.0f)
     }
 
-    fun initNavigation() {
+    private fun initNavigation() {
         //Behaviour when clicked on a item different from map
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
@@ -86,7 +89,7 @@ class MainActivity : BaseActivity() {
         }
 
         bottomBarFloatingButton.setOnClickListener {
-            var mapButton = bottomBarView.menu.getItem(2)
+            val mapButton = bottomBarView.menu.getItem(2)
 
             if (!mapButton.isChecked) {
                 bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
@@ -96,8 +99,8 @@ class MainActivity : BaseActivity() {
                 //but the fragment that is shown is the map fragment
                 mapButton.isChecked = true
 
-                transitionWithModalAnimation(fragment = MapFragment(), useModalAnimation = false,
-                        addToBackStack = false)
+                transitionWithModalAnimation(context = applicationContext, fragment = MapFragment(), useModalAnimation = false,
+                        addToBackStack = false, analyticsScreen = TrackingUtil.Screens.Map)
             }
         }
     }
@@ -113,28 +116,32 @@ class MainActivity : BaseActivity() {
             // Those are fragments of the main view, so we don't need the back-stack
             clearBackStack()
             val newFragment: BaseFragment
+            var analyticsScreen: TrackingUtil.Screens = TrackingUtil.Screens.MagicLine
+
             when (item.itemId) {
                 R.id.magicline_menu_id -> {
                     newFragment = MagicLineFragment()
-                    Log.d("Main Activity", "magic line")
+                    analyticsScreen = TrackingUtil.Screens.MagicLine
                 }
                 R.id.donations_menu_id -> {
                     newFragment = DonationsFragment()
-                    Log.d("Main Activity", "donations")
+                    analyticsScreen = TrackingUtil.Screens.Donations
                 }
                 R.id.info_menu_id -> {
-                    newFragment = InfoFragment()
-                    Log.d("Main Activity", "info")
+                    newFragment = OptionsFragment()
+                    analyticsScreen = TrackingUtil.Screens.Options
                 }
-                R.id.schedule_menu_id -> newFragment = ScheduleFragment.newInstance(scheduleModel)
+                R.id.schedule_menu_id -> {
+                    newFragment = ScheduleFragment.newInstance(scheduleModel)
+                    analyticsScreen = TrackingUtil.Screens.Schedule
+                    TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+                }
                 R.id.none -> return
                 else -> newFragment = MagicLineFragment()
             }
 
-
-
-            transitionWithModalAnimation(fragment = newFragment, useModalAnimation = false,
-                    addToBackStack = false)
+            transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
+                    addToBackStack = false, analyticsScreen = analyticsScreen)
             currentFragment = newFragment
         }
     }
@@ -151,16 +158,15 @@ class MainActivity : BaseActivity() {
             LAST_NEWS -> { getNotificationNews() }
             DONATION -> {
                 bottomBarView.menu.getItem(DONATIONS).isChecked = true
-                this.transitionWithModalAnimation(DonationsFragment())
+                this.transitionWithModalAnimation(context = applicationContext, fragment = DonationsFragment(), analyticsScreen = TrackingUtil.Screens.Donations)
             }
             EVENT -> {
                 bottomBarView.menu.getItem(SCHEDULE).isChecked = true
-
-                this.transitionWithModalAnimation(ScheduleFragment.newInstance(scheduleModel))
+                this.transitionWithModalAnimation(context = applicationContext, fragment = ScheduleFragment.newInstance(scheduleModel), analyticsScreen = TrackingUtil.Screens.Schedule)
             }
             else -> {
                 bottomBarView.menu.getItem(HOME).isChecked = true
-                if (openDefault) this.transitionWithModalAnimation(MagicLineFragment())
+                if (openDefault) this.transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(), analyticsScreen = TrackingUtil.Screens.MagicLine)
             }
         }
     }
@@ -191,8 +197,12 @@ class MainActivity : BaseActivity() {
                     detailModel = detailModel,
                     listener = onClickListener
             ))
-        this.transitionWithModalAnimation(DetailFragment.newInstance(detailModel))
 
+        this.transitionWithModalAnimation(
+                context = applicationContext,
+                fragment = DetailFragment.newInstance(detailModel),
+                analyticsScreen = TrackingUtil.Screens.NewsDetail
+        )
         return news
     }
 

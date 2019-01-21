@@ -1,14 +1,13 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.BuildConfig
@@ -29,7 +28,10 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true) {
+fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtil.Screens) {
+    // Analytics
+    TrackingUtil(context).track(analyticsScreen)
+
     val transaction = this.supportFragmentManager.beginTransaction()
 
     // Adds button bar management (show/hide) bundle's argument

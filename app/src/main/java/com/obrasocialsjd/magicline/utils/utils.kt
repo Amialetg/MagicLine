@@ -104,16 +104,14 @@ fun Double.addThousandsSeparator() : String {
     return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }
 
-fun shareApp(pkg: String): Intent {
+fun shareApp(pkg: String, shareText: String = "", storeLink: String = ""): Intent {
 
     val waIntent = Intent(Intent.ACTION_SEND)
     waIntent.type = "text/plain"
     waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
-    var text = "\n" + " Let me recommend you this application\n" + "\n"
-    text += "https://play.google.com/store/apps/details?id=com.obrasocialsjd.magicline&hl=cat"
-    waIntent.setPackage(pkg)
+    val text = "\n" +  shareText + "\n\n" + storeLink  + BuildConfig.APPLICATION_ID
+    if (pkg.isNotEmpty()) waIntent.setPackage(pkg)
     waIntent.putExtra(Intent.EXTRA_TEXT, text)
-
     return waIntent
 }
 

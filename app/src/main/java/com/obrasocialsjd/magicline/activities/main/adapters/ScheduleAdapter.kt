@@ -21,11 +21,7 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
     }
 
     class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val scheduleCardHour = itemView.scheduleCardHour
-        val scheduleCardTitle = itemView.scheduleCardTitle
         val subtitle = itemView.scheduleCardSubtitle
-        val scheduleCardDescription = itemView.scheduleCardDescription
-        val seeMoreBtn = itemView.seeMoreBtn
 
         fun bind(cardModel: ScheduleCardModel, listener: View.OnClickListener) {
             itemView.scheduleCardHour.text = cardModel.hour

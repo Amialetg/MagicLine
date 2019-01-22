@@ -195,6 +195,9 @@
     <string name="donation_url">https://www.magiclinesjd.org/ca/equips/</string>
     <string name="notAvailableText">Properament</string>
     <string name="closeText">Tancar</string>
+    <string name="noWifi">Sense connexió a Internet</string>
+
+
 
 
 </resources>

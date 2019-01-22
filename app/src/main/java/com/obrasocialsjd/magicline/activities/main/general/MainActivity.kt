@@ -1,7 +1,10 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
+import android.location.LocationManager
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -33,8 +36,6 @@ class MainActivity : BaseActivity() {
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -58,8 +59,8 @@ class MainActivity : BaseActivity() {
             transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
             TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
-            if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
+            if (intent.hasExtra(FROM)) {
+                navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
             }
         }
 
@@ -116,33 +117,34 @@ class MainActivity : BaseActivity() {
 
     private fun selectFragment(item: MenuItem) {
 
+
         if (!item.isChecked) {
             // Those are fragments of the main view, so we don't need the back-stack
             clearBackStack()
             val newFragment: BaseFragment
             var analyticsScreen: TrackingUtil.Screens = TrackingUtil.Screens.MagicLine
-
-            when (item.itemId) {
-                R.id.magicline_menu_id -> {
-                    newFragment = MagicLineFragment()
-                    analyticsScreen = TrackingUtil.Screens.MagicLine
+            
+                when (item.itemId) {
+                    R.id.magicline_menu_id -> {
+                        newFragment = MagicLineFragment()
+                        analyticsScreen = TrackingUtil.Screens.MagicLine
+                    }
+                    R.id.donations_menu_id -> {
+                        newFragment = DonationsFragment()
+                        analyticsScreen = TrackingUtil.Screens.Donations
+                    }
+                    R.id.info_menu_id -> {
+                        newFragment = OptionsFragment()
+                        analyticsScreen = TrackingUtil.Screens.Options
+                    }
+                    R.id.schedule_menu_id -> {
+                        newFragment = ScheduleFragment.newInstance(scheduleModel)
+                        analyticsScreen = TrackingUtil.Screens.Schedule
+                        TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+                    }
+                    R.id.none -> return
+                    else -> newFragment = MagicLineFragment()
                 }
-                R.id.donations_menu_id -> {
-                    newFragment = DonationsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Donations
-                }
-                R.id.info_menu_id -> {
-                    newFragment = OptionsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Options
-                }
-                R.id.schedule_menu_id -> {
-                    newFragment = ScheduleFragment.newInstance(scheduleModel)
-                    analyticsScreen = TrackingUtil.Screens.Schedule
-                    TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
-                }
-                R.id.none -> return
-                else -> newFragment = MagicLineFragment()
-            }
 
             transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
                     addToBackStack = false, analyticsScreen = analyticsScreen)

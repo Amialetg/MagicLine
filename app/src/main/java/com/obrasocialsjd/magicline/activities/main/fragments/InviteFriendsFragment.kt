@@ -1,12 +1,9 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.utils.openShareActivity
@@ -40,21 +37,23 @@ class InviteFriendsFragment: BaseFragment() {
     }
 
     private fun initRRSSListeners(){
+        val shareText: String = getString(R.string.shareAppText)
+        val storeLink: String = getString(R.string.storeLink)
 
-        emailTextView.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.email_pkg)))
+        emailCell.setOnClickListener {
+            activity?.openShareActivity(shareApp("", shareText, storeLink))
         }
-        fbTextView.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.fb_pkg)))
+        fbCell.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.fb_pkg), shareText, storeLink))
         }
-        msnTextView.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.msn_pkg)))
+        msnCell.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.msn_pkg), shareText, storeLink))
         }
-        telegramTextView.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.tel_pkg)))
+        telegramCell.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.tel_pkg), shareText, storeLink))
         }
-        whatsTextView.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.whats_pkg)))
+        whatsCell.setOnClickListener {
+            activity?.openShareActivity(shareApp(getString(R.string.whats_pkg), shareText, storeLink))
         }
 
     }

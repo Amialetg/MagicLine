@@ -3,9 +3,10 @@ package com.obrasocialsjd.magicline.data.models.posts
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity(tableName = "postImages")
-data class PostImageItem(
+data class PostImageItem (
 
 	@ColumnInfo(name = "img")
 	@field:SerializedName("img")
@@ -22,4 +23,4 @@ data class PostImageItem(
 	@ColumnInfo(name = "id")
 	@field:SerializedName("id")
 	val id: String? = null
-)
+): Serializable

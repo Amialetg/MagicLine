@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.adapters.ScheduleAdapter
+import com.obrasocialsjd.magicline.utils.TrackingUtil
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.utils.transitionWithModalAnimation
@@ -52,37 +53,43 @@ class ScheduleFragment : BaseFragment() {
                 View.OnClickListener{},
                 View.OnClickListener {
                     (activity as AppCompatActivity).transitionWithModalAnimation(
+                            context = requireContext(),
                             fragment = DetailFragment.newInstance(dataModel = DetailModel(
                                     title = getString(R.string.essentials_title),
                                     subtitle = getString(R.string.essentials_subtitle),
                                     textBody = getString(R.string.essentials_body),
                                     link = getString(R.string.essentials_viewOnWeb))),
                             useModalAnimation = true,
-                            addToBackStack = true
+                            addToBackStack = true,
+                            analyticsScreen = TrackingUtil.Screens.Detail
                     )
                 },
                 View.OnClickListener{},
                 View.OnClickListener {
                     (activity as AppCompatActivity).transitionWithModalAnimation(
+                            context = requireContext(),
                             fragment = DetailFragment.newInstance(dataModel = DetailModel(
                                     title = getString(R.string.essentials_title),
                                     subtitle = getString(R.string.essentials_subtitle),
                                     textBody = getString(R.string.essentials_body),
                                     link = getString(R.string.essentials_viewOnWeb))),
                             useModalAnimation = true,
-                            addToBackStack = true
+                            addToBackStack = true,
+                            analyticsScreen = TrackingUtil.Screens.Detail
                     )
                 },
                 View.OnClickListener{},
                 View.OnClickListener {
                     (activity as AppCompatActivity).transitionWithModalAnimation(
+                            context = requireContext(),
                             fragment = DetailFragment.newInstance(dataModel = DetailModel(
                                     title = getString(R.string.essentials_title),
                                     subtitle = getString(R.string.essentials_subtitle),
                                     textBody = getString(R.string.essentials_body),
                                     link = getString(R.string.essentials_viewOnWeb))),
                             useModalAnimation = true,
-                            addToBackStack = true
+                            addToBackStack = true,
+                            analyticsScreen = TrackingUtil.Screens.Detail
                     )
                 }
         )

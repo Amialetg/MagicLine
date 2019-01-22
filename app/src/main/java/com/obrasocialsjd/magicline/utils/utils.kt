@@ -1,14 +1,13 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.BuildConfig
@@ -29,7 +28,10 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun AppCompatActivity.transitionWithModalAnimation(fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true) {
+fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtil.Screens) {
+    // Analytics
+    TrackingUtil(context).track(analyticsScreen)
+
     val transaction = this.supportFragmentManager.beginTransaction()
 
     // Adds button bar management (show/hide) bundle's argument
@@ -104,16 +106,14 @@ fun Double.addThousandsSeparator() : String {
     return NumberFormat.getInstance(Locale.getDefault()).format(this)
 }
 
-fun shareApp(pkg: String): Intent {
+fun shareApp(pkg: String, shareText: String = "", storeLink: String = ""): Intent {
 
     val waIntent = Intent(Intent.ACTION_SEND)
     waIntent.type = "text/plain"
     waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
-    var text = "\n" + " Let me recommend you this application\n" + "\n"
-    text += "https://play.google.com/store/apps/details?id=com.obrasocialsjd.magicline&hl=cat"
-    waIntent.setPackage(pkg)
+    val text = "\n" +  shareText + "\n\n" + storeLink  + BuildConfig.APPLICATION_ID
+    if (pkg.isNotEmpty()) waIntent.setPackage(pkg)
     waIntent.putExtra(Intent.EXTRA_TEXT, text)
-
     return waIntent
 }
 

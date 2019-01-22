@@ -44,10 +44,11 @@
         </FrameLayout>
 
         <LinearLayout
+            android:id="@+id/emailCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/inviteBtnMargin"
+            android:padding="@dimen/inviteBtnMargin"
             android:orientation="horizontal">
 
             <ImageView
@@ -57,7 +58,6 @@
                 android:src="@drawable/msn_icon" />
 
             <TextView
-                android:id="@+id/emailTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/socialNetwork"
@@ -72,10 +72,11 @@
             android:background="@color/lessGreyColor"/>
 
         <LinearLayout
+            android:id="@+id/fbCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/inviteBtnMargin"
+            android:padding="@dimen/inviteBtnMargin"
             android:orientation="horizontal">
 
             <ImageView
@@ -85,7 +86,6 @@
                 android:src="@drawable/facebook_icon" />
 
             <TextView
-                android:id="@+id/fbTextView"
                 style="@style/socialNetwork"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,10 +100,11 @@
             android:background="@color/lessGreyColor" />
 
         <LinearLayout
+            android:id="@+id/msnCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/inviteBtnMargin"
+            android:padding="@dimen/inviteBtnMargin"
             android:orientation="horizontal">
 
             <ImageView
@@ -113,7 +114,6 @@
                 android:src="@drawable/messenger_icon" />
 
             <TextView
-                android:id="@+id/msnTextView"
                 style="@style/socialNetwork"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,10 +128,11 @@
             android:background="@color/lessGreyColor" />
 
         <LinearLayout
+            android:id="@+id/telegramCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/inviteBtnMargin"
+            android:padding="@dimen/inviteBtnMargin"
             android:orientation="horizontal">
 
             <ImageView
@@ -141,7 +142,6 @@
                 android:src="@drawable/telegram_icon" />
 
             <TextView
-                android:id="@+id/telegramTextView"
                 style="@style/socialNetwork"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,10 +156,11 @@
             android:background="@color/lessGreyColor" />
 
         <LinearLayout
+            android:id="@+id/whatsCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/inviteBtnMargin"
+            android:padding="@dimen/inviteBtnMargin"
             android:orientation="horizontal">
 
             <ImageView
@@ -169,7 +170,6 @@
                 android:src="@drawable/whats_icon" />
 
             <TextView
-                android:id="@+id/whatsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

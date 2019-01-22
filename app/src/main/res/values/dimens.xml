@@ -12,4 +12,10 @@
     <dimen name="marginMoreInfo">12dp</dimen>
     <dimen name="widthPieChart">160dp</dimen>
     <dimen name="layout_width_schedulecard">2dp</dimen>
+    <dimen name="height_layout">148dp</dimen>
+    <dimen name="letters_height">21dp</dimen>
+    <dimen name="end_margin">9dp</dimen>
+    <dimen name="top_margin">19dp</dimen>
+    <dimen name="cards_height">56dp</dimen>
+    <dimen name="top_padding">6dp</dimen>
 </resources>

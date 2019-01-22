@@ -31,7 +31,7 @@ class InviteFriendsFragment: BaseFragment() {
 
     private fun initToolbar() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
-        inviteFriendsView.crossBtn.setBackgroundResource(R.drawable.ic_black_cross)
+        inviteFriendsView.crossBtn.setBackgroundResource(R.drawable.ic_white_cross)
         inviteFriendsView.crossBtn.setOnClickListener { this.requireActivity().onBackPressed() }
         inviteFriendsView.textViewHeader.setText(R.string.inviteFriends)
     }

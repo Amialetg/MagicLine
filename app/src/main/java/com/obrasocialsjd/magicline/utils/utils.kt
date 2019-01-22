@@ -28,9 +28,9 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
     }
 }
 
-fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtil.Screens) {
+fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtils.Screens) {
     // Analytics
-    TrackingUtil(context).track(analyticsScreen)
+    TrackingUtils(context).track(analyticsScreen)
 
     val transaction = this.supportFragmentManager.beginTransaction()
 

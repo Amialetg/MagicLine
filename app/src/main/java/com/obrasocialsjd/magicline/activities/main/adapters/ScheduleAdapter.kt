@@ -13,7 +13,7 @@ import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
-class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private var listeners: List<View.OnClickListener>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
         val hour = itemView.scheduleHour
@@ -23,12 +23,12 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
     class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val subtitle = itemView.scheduleCardSubtitle
 
-        fun bind(cardModel: ScheduleCardModel, listener: View.OnClickListener) {
-            itemView.scheduleCardHour.text = cardModel.hour
-            itemView.scheduleCardTitle.text = cardModel.title
-            itemView.scheduleCardSubtitle.text = cardModel.subtitle
-            itemView.scheduleCardDescription.text = cardModel.description
-            itemView.seeMoreBtn.setOnClickListener(listener)
+        fun bind(scheduleCardModel: ScheduleCardModel) {
+            itemView.scheduleCardHour.text = scheduleCardModel.hour
+            itemView.scheduleCardTitle.text = scheduleCardModel.title
+            itemView.scheduleCardSubtitle.text = scheduleCardModel.subtitle
+            itemView.scheduleCardDescription.text = scheduleCardModel.description
+            itemView.seeMoreBtn.setOnClickListener{ scheduleCardModel.listener.invoke(scheduleCardModel.detailModel) }
         }
     }
 
@@ -91,7 +91,7 @@ class ScheduleAdapter(private var dataSet: Array<ScheduleGeneralModel>, private 
             }
         }else {
             val cardModel = dataSet[position] as ScheduleCardModel
-            if(holder is ViewHolderCard) holder.bind(cardModel, listeners[position])
+            if(holder is ViewHolderCard) holder.bind(cardModel)
             holder.itemView.scheduleCardTitle.text = cardModel.title
             holder.itemView.scheduleCardHour.text = cardModel.hour
             holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle

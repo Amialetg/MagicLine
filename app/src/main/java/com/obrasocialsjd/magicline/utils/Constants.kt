@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
+import android.content.Context
 import com.obrasocialsjd.magicline.R
 
 /**
@@ -102,3 +103,15 @@ const val TYPE_SCHEDULE_TITLE_FIRST : Int = 0
 const val TYPE_COMMON_CARD : Int = 1
 const val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
 const val TYPE_LAST_CARD : Int = 3
+
+enum class Fragment {
+    Detail,
+    Donations,
+    ShareApp,
+    MagicLine,
+    Map,
+    MoreInfo,
+    AboutApp,
+    Options,
+    Schedule
+}

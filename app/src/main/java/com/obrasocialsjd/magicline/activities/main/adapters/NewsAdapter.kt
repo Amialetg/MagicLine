@@ -35,7 +35,5 @@ class NewsAdapter(private var dataSet : List<NewsModel> = listOf()) : RecyclerVi
     }
     override fun getItemCount() = dataSet.size
 
-    fun loadItems (news: List<NewsModel>) {
-        dataSet = news
-    }
+    fun loadItems (news: List<NewsModel>) { dataSet = news }
 }

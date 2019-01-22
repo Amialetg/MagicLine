@@ -5,7 +5,7 @@ import android.content.Context
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.obrasocialsjd.magicline.BuildConfig
 
-class TrackingUtil(val context: Context) {
+class TrackingUtils(val context: Context) {
     enum class Screens {
         MagicLine,
         NewsDetail,
@@ -16,7 +16,8 @@ class TrackingUtil(val context: Context) {
         Options,
         Schedule,
         Map,
-        InviteFriends
+        InviteFriends,
+        ScheduleDetail
     }
 
     fun track(screen: Screens) {

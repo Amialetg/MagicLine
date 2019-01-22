@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="magicLineDate" translatable="false">1550962800000</string>
+    <array name="arraySchedule">
+        <item>33480000</item>
+        <item>37080000</item>
+        <item>44280000</item>
+        <item>47880000 </item>
+        <item>54000000</item>
+        <item>58680000</item>
+    </array>
 </resources>

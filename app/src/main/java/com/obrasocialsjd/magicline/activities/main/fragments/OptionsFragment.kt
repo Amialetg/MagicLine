@@ -59,7 +59,6 @@ class OptionsFragment: BaseFragment() {
                 refresh()
             }
         }
-
         checkbox_catalan_text.setOnCheckedChangeListener { checkbox_catalan_text, isChecked ->
 
             if(checkbox_catalan_text.isChecked){

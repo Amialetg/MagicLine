@@ -2,40 +2,62 @@ package com.obrasocialsjd.magicline.utils
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.util.Log
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
+import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
 fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List<ScheduleGeneralModel> {
-    val arraySchedule: TypedArray = context.resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
+    val arraySchedulePhoto: TypedArray = context.resources.obtainTypedArray(R.array.arraySchedulePhotos)
     val arrayScheduleHour: Array<String> = context.resources.getStringArray(R.array.arrayScheduleHours)
     val arrayScheduleTitle: Array<String> = context.resources.getStringArray(R.array.arrayScheduleTitle)
     val arrayScheduleSubtitle: Array<String> = context.resources.getStringArray(R.array.arrayScheduleSubTitle)
     val arrayScheduleBody: Array<String> = context.resources.getStringArray(R.array.arrayScheduleBody)
     var listSchedule: ArrayList<ScheduleGeneralModel> = arrayListOf()
+    val listEspectable: List<Int> = listOf(R.drawable.espectacle_carrer, R.drawable.espectacle_carrer2)
+    val listMuseum: List<Int> = listOf(R.drawable.museus_oberts)
+    val listPicnic: List<Int> = listOf(R.drawable.picnic_castell, R.drawable.picnic_castell2)
+    var listToolbarImg: List<Int> = listOf()
+    var array = arrayOf<Any>()
+
+    for (i in 0 until arraySchedulePhoto.length()){
+//       listToolbarImg = listOf(arraySchedulePhoto.getInt(0, Int.MAX_VALUE))
+        var id = arraySchedulePhoto.getResourceId(i, 0)
+        if (id != 0) {
+            array[i] = context.resources.getIntArray(id)
+        }
+
+//        listToolbarImg = context.resources.getIntArray(arraySchedulePhoto.getResourceId(i, 0)) as List<Int>
+    }
+
+    listToolbarImg = array as List<Int>
 
     arrayScheduleTitle.withIndex().forEach { (i, item) ->
         val scheduleGeneralModel:ScheduleGeneralModel
         var type: Int
 
-        if (arrayScheduleSubtitle[i].isNotEmpty()){
+        if (arrayScheduleSubtitle[i].isNotEmpty() || arrayScheduleBody[i].isNotEmpty()){
             type = when {
                 i!= arrayScheduleTitle.size-1 -> TYPE_COMMON_CARD
                 else -> TYPE_LAST_CARD
             }
             if (i == arrayScheduleTitle.size-1) { type = TYPE_LAST_CARD }
+//            if (item.contains("Espe")) { listToolbarImg = listEspectable }
+//            if (item.contains("Museu")) { listToolbarImg = listMuseum }
+//            if (item.contains("Picni")) { listToolbarImg = listPicnic }
             scheduleGeneralModel = ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],
-                    detailModel = DetailModel(title = arrayScheduleTitle[i], subtitle = arrayScheduleSubtitle[i], textBody = arrayScheduleBody[i], link = context.getString(R.string.essentials_viewOnWeb)),
+                    detailModel = DetailModel(listToolbarImg = listToolbarImg, title = arrayScheduleTitle[i], subtitle = arrayScheduleSubtitle[i], textBody = arrayScheduleBody[i], link = context.getString(R.string.essentials_viewOnWeb)),
                     thisType = type,
                     isSelected = isTheMagicLineDateAndHour(context, arrayScheduleHour[i]),
                     listener = onClickListener
             )
 
-        }else {
+        } else {
             type = when {
                 i!= TYPE_SCHEDULE_TITLE_FIRST -> TYPE_SCHEDULE_TITLE_COMMON
                 else -> TYPE_SCHEDULE_TITLE_FIRST

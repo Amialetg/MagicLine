@@ -15,6 +15,7 @@ const val MALLORCA: String = "Mallorca"
 
 const val PREF_SETTINGS: String = "Settings"
 const val PREF_LANGUAGE : String = "My_Lang"
+const val PREF_USER_LOCATION : String = "PREF_USER_LOCATION"
 
 /**
  * LOCALE

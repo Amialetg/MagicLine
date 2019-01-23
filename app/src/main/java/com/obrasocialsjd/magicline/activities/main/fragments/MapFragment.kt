@@ -216,7 +216,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                     requestPermissions()
                 }
             } else {
-                activity?.gpsNotAvailableDialog()
+                activity?.notAvailableDialog()
             }
         }
     }

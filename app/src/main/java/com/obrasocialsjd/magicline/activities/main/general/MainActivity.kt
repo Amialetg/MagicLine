@@ -89,7 +89,9 @@ class MainActivity : BaseActivity() {
             bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
 
             selectFragment(item)
-            true
+
+
+        true
         }
 
         bottomBarFloatingButton.setOnClickListener {
@@ -136,9 +138,18 @@ class MainActivity : BaseActivity() {
                     analyticsScreen = TrackingUtil.Screens.Options
                 }
                 R.id.schedule_menu_id -> {
-                    newFragment = ScheduleFragment.newInstance(scheduleModel)
-                    analyticsScreen = TrackingUtil.Screens.Schedule
-                    TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+
+                    if(getFlavor() != VALENCIA && getFlavor() != BARCELONA) {
+                        newFragment = ScheduleFragment.newInstance(scheduleModel)
+                        analyticsScreen = TrackingUtil.Screens.Schedule
+                        TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+                    }else {
+                        notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
+                        //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
+                        bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
+
+                        return
+                    }
                 }
                 R.id.none -> return
                 else -> newFragment = MagicLineFragment()

@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
 import android.os.Bundle
@@ -23,6 +24,10 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 import java.util.*
+import android.widget.Toast
+import android.net.ConnectivityManager
+
+
 
 class MainActivity : BaseActivity() {
 
@@ -33,13 +38,10 @@ class MainActivity : BaseActivity() {
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
@@ -55,11 +57,12 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
+            isConnected()
             transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
             TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
-            if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
+            if (intent.hasExtra(FROM)) {
+                navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
             }
         }
 
@@ -121,28 +124,28 @@ class MainActivity : BaseActivity() {
             clearBackStack()
             val newFragment: BaseFragment
             var analyticsScreen: TrackingUtil.Screens = TrackingUtil.Screens.MagicLine
-
-            when (item.itemId) {
-                R.id.magicline_menu_id -> {
-                    newFragment = MagicLineFragment()
-                    analyticsScreen = TrackingUtil.Screens.MagicLine
+            
+                when (item.itemId) {
+                    R.id.magicline_menu_id -> {
+                        newFragment = MagicLineFragment()
+                        analyticsScreen = TrackingUtil.Screens.MagicLine
+                    }
+                    R.id.donations_menu_id -> {
+                        newFragment = DonationsFragment()
+                        analyticsScreen = TrackingUtil.Screens.Donations
+                    }
+                    R.id.info_menu_id -> {
+                        newFragment = OptionsFragment()
+                        analyticsScreen = TrackingUtil.Screens.Options
+                    }
+                    R.id.schedule_menu_id -> {
+                        newFragment = ScheduleFragment.newInstance(scheduleModel)
+                        analyticsScreen = TrackingUtil.Screens.Schedule
+                        TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+                    }
+                    R.id.none -> return
+                    else -> newFragment = MagicLineFragment()
                 }
-                R.id.donations_menu_id -> {
-                    newFragment = DonationsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Donations
-                }
-                R.id.info_menu_id -> {
-                    newFragment = OptionsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Options
-                }
-                R.id.schedule_menu_id -> {
-                    newFragment = ScheduleFragment.newInstance(scheduleModel)
-                    analyticsScreen = TrackingUtil.Screens.Schedule
-                    TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
-                }
-                R.id.none -> return
-                else -> newFragment = MagicLineFragment()
-            }
 
             transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
                     addToBackStack = false, analyticsScreen = analyticsScreen)
@@ -304,5 +307,18 @@ class MainActivity : BaseActivity() {
             bottomBarView.visibility = View.VISIBLE
             bottomBarFloatingButton.show()
         }
+    }
+
+    fun isConnected(): Boolean {
+        val conMgr = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = conMgr.activeNetworkInfo
+
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
+           // Toast.makeText(this, "No Internet connection", Toast.LENGTH_LONG).show()
+            notAvailableDialog(R.string.noWifiTitle, R.string.noWifiBody)
+
+            return false
+        }
+        return true
     }
 }

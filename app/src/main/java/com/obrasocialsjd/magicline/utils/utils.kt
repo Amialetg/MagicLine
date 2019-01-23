@@ -3,9 +3,12 @@ package com.obrasocialsjd.magicline.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Message
 import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
@@ -58,7 +61,7 @@ fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: B
     supportFragmentManager.executePendingTransactions()
 }
 
-fun Activity.openUrl(url: String) {
+fun Activity.openUrl(url: String) {9
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     startActivity(intent)
@@ -75,11 +78,11 @@ fun Activity.funNotAvailableDialog() {
     }
 }
 
-fun Activity.gpsNotAvailableDialog() {
+fun Activity.notAvailableDialog(title : Int= R.string.gps_not_available_title, message: Int = R.string.gps_not_available_text) {
     let {context ->
         val builder = AlertDialog.Builder(context)
-        builder.setTitle(R.string.gps_not_available_title)
-        builder.setMessage(R.string.gps_not_available_text)
+        builder.setTitle(title)
+        builder.setMessage(message)
         builder.setNeutralButton(R.string.closeText){_,_->}
         val dialog = builder.create()
         dialog.show()

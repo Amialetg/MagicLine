@@ -18,11 +18,15 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
     val arrayScheduleBody: Array<String> = context.resources.getStringArray(R.array.arrayScheduleBody)
     var listSchedule: ArrayList<ScheduleGeneralModel> = arrayListOf()
 
-    for ((i, item) in arrayScheduleTitle.withIndex()){
-        var scheduleGeneralModel:ScheduleGeneralModel
-        var type:Int = TYPE_COMMON_CARD
+    arrayScheduleTitle.withIndex().forEach { (i, item) ->
+        val scheduleGeneralModel:ScheduleGeneralModel
+        var type: Int
 
         if (arrayScheduleSubtitle[i].isNotEmpty()){
+            type = when {
+                i!= arrayScheduleTitle.size-1 -> TYPE_COMMON_CARD
+                else -> TYPE_LAST_CARD
+            }
             if (i == arrayScheduleTitle.size-1) { type = TYPE_LAST_CARD }
             scheduleGeneralModel = ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],
                     detailModel = DetailModel(title = arrayScheduleTitle[i], subtitle = arrayScheduleSubtitle[i], textBody = arrayScheduleBody[i], link = context.getString(R.string.essentials_viewOnWeb)),
@@ -32,16 +36,12 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
             )
 
         }else {
-            if (i!= TYPE_SCHEDULE_TITLE_FIRST){
-                type = TYPE_SCHEDULE_TITLE_COMMON
-
-            } else {
-                type = TYPE_SCHEDULE_TITLE_FIRST
+            type = when {
+                i!= TYPE_SCHEDULE_TITLE_FIRST -> TYPE_SCHEDULE_TITLE_COMMON
+                else -> TYPE_SCHEDULE_TITLE_FIRST
             }
             if (i == arrayScheduleTitle.size-1) { type = TYPE_LAST_CARD }
 
-//            type = when {i != TYPE_SCHEDULE_TITLE_FIRST -> TYPE_SCHEDULE_TITLE_COMMON else -> TYPE_SCHEDULE_TITLE_FIRST }
-//            type = when {i != arrayScheduleTitle.size -> TYPE_SCHEDULE_TITLE_COMMON else -> TYPE_LAST_CARD }
             scheduleGeneralModel = ScheduleTextModel(arrayScheduleHour[i], arrayScheduleTitle[i], type, isTheMagicLineDateAndHour(context, hour = arrayScheduleHour[i]))
         }
         listSchedule.add(scheduleGeneralModel)

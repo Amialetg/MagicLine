@@ -29,8 +29,7 @@
                 android:layout_width="@dimen/crossBtn"
                 android:layout_height="@dimen/crossBtn"
                 android:layout_margin="16dp"
-                android:layout_gravity="top|start"
-                android:backgroundTint="@color/white" />
+                android:layout_gravity="top|start" />
 
             <TextView
                 android:id="@+id/textViewHeader"

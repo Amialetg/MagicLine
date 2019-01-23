@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
 import android.os.Bundle
@@ -23,6 +24,9 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 import java.util.*
+import android.net.ConnectivityManager
+import android.provider.Settings.Global.getString
+
 
 class MainActivity : BaseActivity() {
 
@@ -33,13 +37,10 @@ class MainActivity : BaseActivity() {
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
@@ -55,11 +56,12 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
+            isConnected()
             transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
             TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
-            if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
+            if (intent.hasExtra(FROM)) {
+                navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
             }
         }
 
@@ -87,11 +89,8 @@ class MainActivity : BaseActivity() {
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
             bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-
             selectFragment(item)
-
-
-        true
+            true
         }
 
         bottomBarFloatingButton.setOnClickListener {
@@ -139,11 +138,11 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.schedule_menu_id -> {
 
-                    if(getFlavor() != VALENCIA && getFlavor() != BARCELONA) {
+                    if (getFlavor() != VALENCIA && getFlavor() != BARCELONA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
                         analyticsScreen = TrackingUtil.Screens.Schedule
                         TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
-                    }else {
+                    } else {
                         notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
                         //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
                         bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
@@ -155,11 +154,11 @@ class MainActivity : BaseActivity() {
                 else -> newFragment = MagicLineFragment()
             }
 
-            transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
-                    addToBackStack = false, analyticsScreen = analyticsScreen)
-            currentFragment = newFragment
-        }
+        transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
+                addToBackStack = false, analyticsScreen = analyticsScreen)
+        currentFragment = newFragment
     }
+}
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -315,5 +314,18 @@ class MainActivity : BaseActivity() {
             bottomBarView.visibility = View.VISIBLE
             bottomBarFloatingButton.show()
         }
+    }
+
+    fun isConnected(): Boolean {
+        val conMgr = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = conMgr.activeNetworkInfo
+
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
+           // Toast.makeText(this, "No Internet connection", Toast.LENGTH_LONG).show()
+            notAvailableDialog(R.string.noWifiTitle, R.string.noWifiBody)
+
+            return false
+        }
+        return true
     }
 }

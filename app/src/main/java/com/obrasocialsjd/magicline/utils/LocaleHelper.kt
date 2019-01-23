@@ -41,6 +41,7 @@ fun getLanguagePreferences(context: Context) :String {
     return preferences.getString(PREF_LANGUAGE, "")
 }
 
+
 fun getCurrency() : String {
     //return Currency.getInstance(Locale.getDefault()).symbol
     return EURO
@@ -68,4 +69,17 @@ fun updatePreferencesLanguage(context: Context, localeTag: String) {
 
     editor.putString(PREF_LANGUAGE, localeTag)
     editor.apply()
+}
+
+fun updateUserLocationPreferences(context: Context, isUserLocationActive : Boolean) {
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
+    val editor = preferences.edit()
+
+    editor.putBoolean(PREF_USER_LOCATION, isUserLocationActive)
+    editor.apply()
+}
+
+fun getUserLocationPreferences(context:Context) : Boolean {
+    val preferences = context.getSharedPreferences(PREF_SETTINGS, Activity.MODE_PRIVATE)
+    return preferences.getBoolean(PREF_USER_LOCATION, false)
 }

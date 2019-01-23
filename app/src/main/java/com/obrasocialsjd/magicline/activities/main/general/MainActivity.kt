@@ -22,7 +22,6 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
-import java.util.*
 
 class MainActivity : BaseActivity() {
 
@@ -206,7 +205,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun getData() {
-        hoursArray = resources.obtainTypedArray(R.array.arraySchedule)
+        hoursArray = resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
         val onClickListener: (DetailModel) -> Unit = { detailModel ->
             this.transitionWithModalAnimation(
                     context = this,

@@ -23,7 +23,7 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             itemView.scheduleCardHour.text = scheduleCardModel.hour
             itemView.scheduleCardTitle.text = scheduleCardModel.title
             itemView.scheduleCardSubtitle.text = scheduleCardModel.subtitle
-            itemView.scheduleCardDescription.text = scheduleCardModel.description
+            itemView.scheduleCardDescription.text = scheduleCardModel.body
             itemView.seeMoreBtn.setOnClickListener{ scheduleCardModel.listener.invoke(scheduleCardModel.detailModel) }
         }
     }
@@ -91,7 +91,7 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             holder.itemView.scheduleCardTitle.text = cardModel.title
             holder.itemView.scheduleCardHour.text = cardModel.hour
             holder.itemView.scheduleCardSubtitle.text = cardModel.subtitle
-            holder.itemView.scheduleCardDescription.text = cardModel.description
+            holder.itemView.scheduleCardDescription.text = cardModel.body
             if(cardModel.isSelected) {
                 holder.itemView.scheduleCardHour.setTextColor(Color.RED)
                 holder.itemView.isSelected = true

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrayScheduleHours">
+        <item>9:30</item>
+        <item>10:30</item>
+        <item>11:30</item>
+        <item>12:30</item>
+        <item>14:00</item>
+        <item>15:30</item>
+        <item>15:30</item>
+    </string-array>
+    <string-array name="arrayScheduleTitle">
+        <item>Espectacles de carrer</item>
+        <item>Fes atenció!</item>
+        <item>Museus oberts</item>
+        <item>Picnic al Castell de Montjuïc</item>
+        <item>Música i activitats</item>
+        <item>Festa final a la plaça de la Catedral</item>
+        <item>Festa final a la plaça de la Catedral</item>
+    </string-array>
+    <string-array name="arrayScheduleSubTitle">
+        <item></item>
+        <item>Ensenyant el passaturons tens museus gratuïts.</item>
+        <item></item>
+        <item>per fer del dinar una festa.</item>
+        <item>#MagicLiners, celebrem a l’arribada mesos d’implicació solidària.</item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <string-array name="arrayScheduleBody">
+        <item></item>
+        <item>A les sortides i durant la caminada trobaràs propostes d’animació per fer el recorregut urbà més amè.</item>
+        <item>El dia de la caminada podràs accedir al Caixa Forum de Barcelona, al Poble Espanyol, al MNAC, a la Fundació Joan Miró, al Museu Olímpic i de l\'Esport, al Jardí Botànic del Museu de Ciències Naturals de Barcelona, al Museu de Sant Boi de Llobregat i les seves Termes romanes i, fora del recorregut, al Museu de les Aigües de Barcelona.</item>
+        <item></item>
+        <item>El fossar del Castell de Montjuïc t’espera per l’aturada del migdia amb activitats i un punt d’avituallament. Recorda que des de l’organització aportem aliment complementari, cadascú ha de portar el seu menjar de casa. Properament publicarem els horaris.</item>
+        <item></item>
+        <item>A la plaça de la Catedral de Barcelona t’hi esperen concerts i activitats, per celebrar el teu recorregut com a #magicliner i conèixer més en detall el destí dels fons aconseguits amb la mobilització ciutadana per Sant Joan de Déu. Properament publicarem els horaris.</item>
+    </string-array>
+</resources>

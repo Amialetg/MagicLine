@@ -16,16 +16,17 @@
         <item>Picnic al Castell de Montjuïc</item>
         <item>Música i activitats</item>
         <item>Festa final a la plaça de la Catedral</item>
-        <item>Festa final a la plaça de la Catedral</item>
+        <item>#MagicLiners</item>
+        <!--<item></item>-->
     </string-array>
     <string-array name="arrayScheduleSubTitle">
         <item></item>
         <item>Ensenyant el passaturons tens museus gratuïts.</item>
         <item></item>
-        <item>per fer del dinar una festa.</item>
-        <item>#MagicLiners, celebrem a l’arribada mesos d’implicació solidària.</item>
         <item></item>
+        <item>Per fer del dinar una festa.</item>
         <item></item>
+        <item>Celebrem a l’arribada mesos d’implicació solidària.</item>
     </string-array>
     <string-array name="arrayScheduleBody">
         <item></item>

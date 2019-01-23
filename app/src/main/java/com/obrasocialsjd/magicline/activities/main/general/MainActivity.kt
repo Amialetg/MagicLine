@@ -24,9 +24,8 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 import java.util.*
-import android.widget.Toast
 import android.net.ConnectivityManager
-
+import android.provider.Settings.Global.getString
 
 
 class MainActivity : BaseActivity() {
@@ -90,7 +89,6 @@ class MainActivity : BaseActivity() {
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
             bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-
             selectFragment(item)
             true
         }
@@ -124,34 +122,43 @@ class MainActivity : BaseActivity() {
             clearBackStack()
             val newFragment: BaseFragment
             var analyticsScreen: TrackingUtil.Screens = TrackingUtil.Screens.MagicLine
-            
-                when (item.itemId) {
-                    R.id.magicline_menu_id -> {
-                        newFragment = MagicLineFragment()
-                        analyticsScreen = TrackingUtil.Screens.MagicLine
-                    }
-                    R.id.donations_menu_id -> {
-                        newFragment = DonationsFragment()
-                        analyticsScreen = TrackingUtil.Screens.Donations
-                    }
-                    R.id.info_menu_id -> {
-                        newFragment = OptionsFragment()
-                        analyticsScreen = TrackingUtil.Screens.Options
-                    }
-                    R.id.schedule_menu_id -> {
+
+            when (item.itemId) {
+                R.id.magicline_menu_id -> {
+                    newFragment = MagicLineFragment()
+                    analyticsScreen = TrackingUtil.Screens.MagicLine
+                }
+                R.id.donations_menu_id -> {
+                    newFragment = DonationsFragment()
+                    analyticsScreen = TrackingUtil.Screens.Donations
+                }
+                R.id.info_menu_id -> {
+                    newFragment = OptionsFragment()
+                    analyticsScreen = TrackingUtil.Screens.Options
+                }
+                R.id.schedule_menu_id -> {
+
+                    if (getFlavor() != VALENCIA && getFlavor() != BARCELONA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
                         analyticsScreen = TrackingUtil.Screens.Schedule
                         TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
-                    }
-                    R.id.none -> return
-                    else -> newFragment = MagicLineFragment()
-                }
+                    } else {
+                        notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
+                        //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
+                        bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
 
-            transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
-                    addToBackStack = false, analyticsScreen = analyticsScreen)
-            currentFragment = newFragment
-        }
+                        return
+                    }
+                }
+                R.id.none -> return
+                else -> newFragment = MagicLineFragment()
+            }
+
+        transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
+                addToBackStack = false, analyticsScreen = analyticsScreen)
+        currentFragment = newFragment
     }
+}
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)

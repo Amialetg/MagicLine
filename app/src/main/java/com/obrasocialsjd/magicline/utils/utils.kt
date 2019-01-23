@@ -13,9 +13,12 @@ import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.BuildConfig
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
+import com.obrasocialsjd.magicline.activities.main.fragments.MagicLineFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,7 +37,6 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
 fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtil.Screens) {
     // Analytics
     TrackingUtil(context).track(analyticsScreen)
-
     val transaction = this.supportFragmentManager.beginTransaction()
 
     // Adds button bar management (show/hide) bundle's argument

@@ -194,13 +194,9 @@
     <string name="donation_url">https://www.magiclinesjd.org/ca/equips/</string>
     <string name="notAvailableText">Properament</string>
     <string name="closeText">Tancar</string>
+    <string name="notAvailableBody">La programació encara no està disponible</string>
     <string name="noWifiTitle">Error de connexió</string>
     <string name="noWifiBody">No tens connexió a Internet. Es carregaràn les últimes dades disponibles</string>
     <string name="noWifiWebview">No es pot carregar el contingut. Comprova la teva connexió a internet i actualitza la pàgina</string>
-
-
-
-
-
 </resources>
 

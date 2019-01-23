@@ -175,7 +175,11 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos/</string>
     <string name="notAvailableText">Próximamente</string>
     <string name="closeText">Cerrar</string>
-    <string name="noWifi">Sin conexión a Internet</string>
+    <string name="noWifiTitle">Sin conexión a Internet</string>
+    <string name="noWifiBody">Sin conexión a Internet</string>
+    <string name="noWifiWebview">No se puede cargar el contenido. Comprueba tu conexión a internet y actualiza la página</string>
+
+
 
 
 </resources>

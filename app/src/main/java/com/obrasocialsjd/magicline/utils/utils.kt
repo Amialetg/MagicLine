@@ -3,6 +3,7 @@ package com.obrasocialsjd.magicline.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -121,10 +122,4 @@ fun shareApp(pkg: String, shareText: String = "", storeLink: String = ""): Inten
 
 fun Activity.openShareActivity (intent : Intent) {
     startActivity(Intent.createChooser(intent, "Share with"))
-}
-
-fun Activity.isWifiAvailable() : Boolean {
-
-    var wifiManager = getApplicationContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
-    return wifiManager.isWifiEnabled//.isProviderEnabled(LocationManager.GPS_PROVIDER)
 }

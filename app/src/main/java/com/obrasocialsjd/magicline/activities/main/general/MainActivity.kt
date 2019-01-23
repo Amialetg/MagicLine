@@ -3,8 +3,6 @@ package com.obrasocialsjd.magicline.activities.main.general
 import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
-import android.location.LocationManager
-import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -26,6 +24,10 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 import java.util.*
+import android.widget.Toast
+import android.net.ConnectivityManager
+
+
 
 class MainActivity : BaseActivity() {
 
@@ -40,7 +42,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
@@ -56,6 +57,7 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
+            isConnected()
             transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
             TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
@@ -116,7 +118,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun selectFragment(item: MenuItem) {
-
 
         if (!item.isChecked) {
             // Those are fragments of the main view, so we don't need the back-stack
@@ -306,5 +307,18 @@ class MainActivity : BaseActivity() {
             bottomBarView.visibility = View.VISIBLE
             bottomBarFloatingButton.show()
         }
+    }
+
+    fun isConnected(): Boolean {
+        val conMgr = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = conMgr.activeNetworkInfo
+
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
+           // Toast.makeText(this, "No Internet connection", Toast.LENGTH_LONG).show()
+            notAvailableDialog(R.string.noWifiTitle, R.string.noWifiBody)
+
+            return false
+        }
+        return true
     }
 }

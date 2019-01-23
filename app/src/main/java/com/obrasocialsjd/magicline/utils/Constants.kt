@@ -104,6 +104,10 @@ const val TYPE_COMMON_CARD : Int = 1
 const val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
 const val TYPE_LAST_CARD : Int = 3
 
+/**
+ * * FRAGMENT NAME
+ */
+
 enum class Fragment {
     Detail,
     Donations,

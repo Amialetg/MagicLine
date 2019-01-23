@@ -105,7 +105,7 @@ class MagicLineFragment : BaseFragment() {
         val currentTime: Long = Calendar.getInstance().timeInMillis
         val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
         val diff: Long = dateLong - currentTime
-        MyCounter(diff, 1000, txtDies).start()
+        MyCounter(diff, MILLIS, txtDies).start()
     }
 
     private fun initNewsRecycler() {

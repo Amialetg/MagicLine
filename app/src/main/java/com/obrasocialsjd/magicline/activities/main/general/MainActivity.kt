@@ -28,12 +28,10 @@ class MainActivity : BaseActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     private lateinit var currentFragment: Fragment
-    private var scheduleModel: List<ScheduleGeneralModel> = emptyList()
+    private lateinit var scheduleModel: List<ScheduleGeneralModel>
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,6 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
-
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
         val factory = MagicLineViewModelFactory(this.application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
@@ -49,7 +46,6 @@ class MainActivity : BaseActivity() {
         //Prepare the mapFAB
         bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
         bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-
         getData()
 
         initBottomBar()
@@ -210,14 +206,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun getData() {
-
-        val now = System.currentTimeMillis() / 1000
-
-        // Convert from machine to human readable hour
-        val currentTime = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * 1000))
-
-        val mySystemHour = currentTime.toString().replace(":", ".")
-
+        hoursArray = resources.obtainTypedArray(R.array.arraySchedule)
         val onClickListener: (DetailModel) -> Unit = { detailModel ->
             this.transitionWithModalAnimation(
                     context = this,
@@ -225,83 +214,10 @@ class MainActivity : BaseActivity() {
                     analyticsScreen = TrackingUtils.Screens.ScheduleDetail
             )
         }
-
-        scheduleModel = listOf(
-                ScheduleTextModel("9:30", "Salida", 0, isTheMagicLineDateAndHour("9:30")),
-                ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(R.string.lorem_ipsum),
-                        detailModel = DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb)
-                        ),
-                        thisType = 1,
-                        isSelected = isTheMagicLineDateAndHour("10:30"),
-                        listener = onClickListener
-                ),
-                ScheduleTextModel("12:30", "Tornar a caminar", 2, isTheMagicLineDateAndHour("12:30")),
-                ScheduleCardModel(
-                        "13:30",
-                        "Espectacle",
-                        "Equipaments culturals obren les portes",
-                        "In recent years people have realized the importance of proper diet and exercise, and recent surveys",
-                        DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb)),
-                        thisType = 1,
-                        isSelected = isTheMagicLineDateAndHour("13:30"),
-                        listener = onClickListener
-                ),
-                ScheduleTextModel("15:00", "Caminar una mica més",2, isTheMagicLineDateAndHour("15:00")), // DEBERÍA DE HABER SIDO TRUE
-                ScheduleCardModel(
-                        "16:30",
-                        "Concerts",
-                        "Equipaments culturals obren les portes",
-                        "In recent years people",
-                        detailModel = DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb)),
-                        thisType = 3,
-                        isSelected = isTheMagicLineDateAndHour("16:30"),
-                        listener = onClickListener )
-        )
+        scheduleModel = getListeners(this, onClickListener = onClickListener)
     }
 
-    private fun isTheMagicLineDateAndHour (hour :String): Boolean{
 
-        val scheduleHour = hour.toString().replace(COLON, PERIOD)
-
-        val now = System.currentTimeMillis() / MILLIS
-
-        val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * MILLIS))
-
-        val currentTime = timeInMillis.toString().replace(COLON, PERIOD)
-        //currentTime = "12.0" //TODO : para hacer testing - Cambiar currentTime type a VAR
-        hoursArray  = resources.obtainTypedArray(R.array.arraySchedule)
-
-        var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/MILLISECONDS
-        var auxiliar = 0.0f
-
-        for(index in 1 until hoursArray.length()) {
-            val value = hoursArray.getFloat(index, Float.MAX_VALUE)
-            auxiliar = value/MILLISECONDS
-
-            if(currentTime.toFloat() >= auxiliar) {
-                isTheOne = auxiliar
-            }
-        }
-        val cTime: Long = Calendar.getInstance().timeInMillis
-        val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
-        val diff: Long = dateLong - cTime
-      //  diff = 0 //TODO : para hacer testing - Cambiar diff type a VAR
-
-        if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/MILLISECONDS) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
-        return false
-    }
 
     private fun clearBackStack() {
         while (supportFragmentManager.backStackEntryCount != 0) {

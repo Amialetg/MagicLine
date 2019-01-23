@@ -35,53 +35,52 @@ class ScheduleFragment : BaseFragment() {
         return scheduleLayoutView
     }
 
-    private fun getListeners() : List<View.OnClickListener> {
-        //todo: mejorar la maner de añadir los listeners
-        return listOf(
-                View.OnClickListener{},
-                View.OnClickListener {
-                    (activity as AppCompatActivity).transitionWithModalAnimation(
-                            context = requireContext(),
-                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
-                                    title = getString(R.string.essentials_title),
-                                    subtitle = getString(R.string.essentials_subtitle),
-                                    textBody = getString(R.string.essentials_body),
-                                    link = getString(R.string.essentials_viewOnWeb))),
-                            useModalAnimation = true,
-                            addToBackStack = true,
-                            analyticsScreen = TrackingUtils.Screens.Detail
-                    )
-                },
-                View.OnClickListener{},
-                View.OnClickListener {
-                    (activity as AppCompatActivity).transitionWithModalAnimation(
-                            context = requireContext(),
-                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
-                                    title = getString(R.string.essentials_title),
-                                    subtitle = getString(R.string.essentials_subtitle),
-                                    textBody = getString(R.string.essentials_body),
-                                    link = getString(R.string.essentials_viewOnWeb))),
-                            useModalAnimation = true,
-                            addToBackStack = true,
-                            analyticsScreen = TrackingUtils.Screens.Detail
-                    )
-                },
-                View.OnClickListener{},
-                View.OnClickListener {
-                    (activity as AppCompatActivity).transitionWithModalAnimation(
-                            context = requireContext(),
-                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
-                                    title = getString(R.string.essentials_title),
-                                    subtitle = getString(R.string.essentials_subtitle),
-                                    textBody = getString(R.string.essentials_body),
-                                    link = getString(R.string.essentials_viewOnWeb))),
-                            useModalAnimation = true,
-                            addToBackStack = true,
-                            analyticsScreen = TrackingUtils.Screens.Detail
-                    )
-                }
-        )
-    }
+//    private fun getListeners() : List<View.OnClickListener> {
+//        return listOf(
+//                View.OnClickListener{},
+//                View.OnClickListener {
+//                    (activity as AppCompatActivity).transitionWithModalAnimation(
+//                            context = requireContext(),
+//                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
+//                                    title = getString(R.string.essentials_title),
+//                                    subtitle = getString(R.string.essentials_subtitle),
+//                                    textBody = getString(R.string.essentials_body),
+//                                    link = getString(R.string.essentials_viewOnWeb))),
+//                            useModalAnimation = true,
+//                            addToBackStack = true,
+//                            analyticsScreen = TrackingUtils.Screens.Detail
+//                    )
+//                },
+//                View.OnClickListener{},
+//                View.OnClickListener {
+//                    (activity as AppCompatActivity).transitionWithModalAnimation(
+//                            context = requireContext(),
+//                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
+//                                    title = getString(R.string.essentials_title),
+//                                    subtitle = getString(R.string.essentials_subtitle),
+//                                    textBody = getString(R.string.essentials_body),
+//                                    link = getString(R.string.essentials_viewOnWeb))),
+//                            useModalAnimation = true,
+//                            addToBackStack = true,
+//                            analyticsScreen = TrackingUtils.Screens.Detail
+//                    )
+//                },
+//                View.OnClickListener{},
+//                View.OnClickListener {
+//                    (activity as AppCompatActivity).transitionWithModalAnimation(
+//                            context = requireContext(),
+//                            fragment = DetailFragment.newInstance(dataModel = DetailModel(
+//                                    title = getString(R.string.essentials_title),
+//                                    subtitle = getString(R.string.essentials_subtitle),
+//                                    textBody = getString(R.string.essentials_body),
+//                                    link = getString(R.string.essentials_viewOnWeb))),
+//                            useModalAnimation = true,
+//                            addToBackStack = true,
+//                            analyticsScreen = TrackingUtils.Screens.Detail
+//                    )
+//                }
+//        )
+//    }
 
     private fun initScheduleRecycler(view: View) {
         val myScheduleManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)

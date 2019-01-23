@@ -15,13 +15,9 @@ import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
 class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val hour = itemView.scheduleHour
-        val text = itemView.scheduleText
-    }
+    class ViewHolderText(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     class ViewHolderCard(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val subtitle = itemView.scheduleCardSubtitle
 
         fun bind(scheduleCardModel: ScheduleCardModel) {
             itemView.scheduleCardHour.text = scheduleCardModel.hour
@@ -83,10 +79,10 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
         if(!isCard) {
             val textViewHolder = holder as ViewHolderText
             val textModel = dataSet[position] as ScheduleTextModel
-            textViewHolder.hour.text = textModel.hour
-            textViewHolder.text.text = textModel.text
+            textViewHolder.itemView.scheduleHour.text = textModel.hour
+            textViewHolder.itemView.scheduleText.text = textModel.text
             if(textModel.isSelected){
-                textViewHolder.hour.setTextColor(Color.RED)
+                textViewHolder.itemView.scheduleHour.setTextColor(Color.RED)
                 textViewHolder.itemView.isSelected = true
             }
         }else {

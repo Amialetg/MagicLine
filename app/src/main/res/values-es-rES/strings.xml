@@ -91,16 +91,16 @@
     <string name="essentials_title">"10 imprescindibles Magic Line SJD"</string>
     <string name="essentials_subtitle">"Mobilización ciudadana a favor de las persones"</string>
     <string name="essentials_body"><![CDATA[<html>
-\t 1. <b> MUCHO MÁS QUE UNA CAMINATA.</b> Las acciones solidarias de los equipos se convierten en ayudas para personas en situación vulnerable atendidas en centros de San Juan de Dios y otras entidades cercanas.<br/><br/>
-\t 2. <b>OTRO PUNTO DE VISTA DE LA CIUDAD.</b>  Levanta la cabeza, la Magic Line SJD te acerca a la montaña, los parques naturales y urbanos, y a las calles y plazas de la ciudad.<br/><br/>
-\t 3. <b>A QUIÉN AYUDAS TE AYUDA.</b>  Ofrecemos puntos de avituallamiento, alimento complementario para la caminata, que te facilitarán personas atendidas en nuestros centros.<br/><br/>
-\t 4. <b>VOLUNTARIADO.</b>  Cientos de personas y empresas aportan su tiempo y servicios para hacer posible el evento.<br/><br/>
-\t 5. <b>CULTURA INCLUSIVA.</b>  Durante el recorrido te encontrarás propuestas de música y teatro de calle, así como los museos de Montjuïc abiertos para ti y tu equipo. ¡Disfruta de la compañía!<br/><br/>
-\t 6. <b>PICNIC EN EL CASTILLO.</b>  En el foso del castillo de Montjuïc tienes una zona para comer, con música y actividades para los más pequeños.<br/><br/>
-\t 7. <b>FIESTA SOLIDARIA A LA LLEGADA.</b>  En la plaza de la Catedral te espera la celebración de esta enorme movilización.<br/><br/>
-\t 8. <b>PRODUCTOS MAGIC LINE SJD.</b>  Un recuerdo de la movilización solidaria que no es sólo para ti.<br/><br/>
-\t 9. <b>EXPLICA TU EXPERIENCIA</b>  de #magicliner en las redes sociales. Que todo el mundo sepa que eres parte de la #MagicLine de @solidaridadsjd<br/><br/>
-\t 10.<b>GRACIAS, GRACIAS, GRACIAS.</b>  ¡Somos miles de personas solidarias llenando la ciudad! ¡Juntas somos menos vulnerables!</html>]]></string>
+\t <b>1. MUCHO MÁS QUE UNA CAMINATA.</b> Las acciones solidarias de los equipos se convierten en ayudas para personas en situación vulnerable atendidas en centros de San Juan de Dios y otras entidades cercanas.<br/><br/>
+\t <b>2. OTRO PUNTO DE VISTA DE LA CIUDAD.</b>  Levanta la cabeza, la Magic Line SJD te acerca a la montaña, los parques naturales y urbanos, y a las calles y plazas de la ciudad.<br/><br/>
+\t <b>3. A QUIÉN AYUDAS TE AYUDA.</b>  Ofrecemos puntos de avituallamiento, alimento complementario para la caminata, que te facilitarán personas atendidas en nuestros centros.<br/><br/>
+\t <b>4. VOLUNTARIADO.</b>  Cientos de personas y empresas aportan su tiempo y servicios para hacer posible el evento.<br/><br/>
+\t <b>5. CULTURA INCLUSIVA.</b>  Durante el recorrido te encontrarás propuestas de música y teatro de calle, así como los museos de Montjuïc abiertos para ti y tu equipo. ¡Disfruta de la compañía!<br/><br/>
+\t <b>6. PICNIC EN EL CASTILLO.</b>  En el foso del castillo de Montjuïc tienes una zona para comer, con música y actividades para los más pequeños.<br/><br/>
+\t <b>7. FIESTA SOLIDARIA A LA LLEGADA.</b>  En la plaza de la Catedral te espera la celebración de esta enorme movilización.<br/><br/>
+\t <b>8. PRODUCTOS MAGIC LINE SJD.</b>  Un recuerdo de la movilización solidaria que no es sólo para ti.<br/><br/>
+\t <b>9. EXPLICA TU EXPERIENCIA</b>  de #magicliner en las redes sociales. Que todo el mundo sepa que eres parte de la #MagicLine de @solidaridadsjd<br/><br/>
+\t <b>10. GRACIAS, GRACIAS, GRACIAS.</b>  ¡Somos miles de personas solidarias llenando la ciudad! ¡Juntas somos menos vulnerables!</html>]]></string>
     <string name="essentials_viewOnWeb">"https://www.magiclinesjd.org/es"</string>
 
     <!-- Donations Destiny Detail Fragment -->

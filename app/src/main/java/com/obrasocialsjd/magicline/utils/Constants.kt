@@ -92,6 +92,7 @@ const val MAP_BUTTON_UNSELECTED = R.color.grey
 
 const val MILLISECONDS : Long = 3600000
 const val MILLIS : Long = 1000
+const val ZERO : String = "00"
 
 const val COLON : String = ":"
 const val PERIOD : String = "."
@@ -102,3 +103,4 @@ const val TYPE_SCHEDULE_TITLE_FIRST : Int = 0
 const val TYPE_COMMON_CARD : Int = 1
 const val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
 const val TYPE_LAST_CARD : Int = 3
+

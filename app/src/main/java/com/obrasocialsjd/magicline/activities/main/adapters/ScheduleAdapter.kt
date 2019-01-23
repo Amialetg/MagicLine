@@ -9,7 +9,10 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
-import com.obrasocialsjd.magicline.utils.*
+import com.obrasocialsjd.magicline.utils.TYPE_COMMON_CARD
+import com.obrasocialsjd.magicline.utils.TYPE_LAST_CARD
+import com.obrasocialsjd.magicline.utils.TYPE_SCHEDULE_TITLE_COMMON
+import com.obrasocialsjd.magicline.utils.TYPE_SCHEDULE_TITLE_FIRST
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
@@ -33,7 +36,8 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_FIRST) -> TYPE_SCHEDULE_TITLE_FIRST
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON) -> TYPE_SCHEDULE_TITLE_COMMON
             (dataSet[position].type == TYPE_COMMON_CARD) -> TYPE_COMMON_CARD
-            else  -> TYPE_LAST_CARD
+            (dataSet[position].type == TYPE_LAST_CARD) -> TYPE_LAST_CARD
+            else  -> TYPE_COMMON_CARD
         }
     }
 
@@ -51,9 +55,13 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
                 ViewHolderCard(itemView)
             }
-            else -> {
+            TYPE_LAST_CARD -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_last, parent, false)
-                ViewHolderText(itemView)
+                ViewHolderCard(itemView)
+            } else -> {
+                // DEFAULT TYPE_COMMON_CARD
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
+                ViewHolderCard(itemView)
             }
         }
     }
@@ -69,7 +77,11 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             TYPE_SCHEDULE_TITLE_COMMON-> {
                 setInfo(holder, position, false)
             }
-            else -> {
+            TYPE_LAST_CARD -> {
+                setInfo(holder, position, true)
+            }
+            else  -> {
+                // DEFAULT TYPE COMMON CARD
                 setInfo(holder, position, true)
             }
         }

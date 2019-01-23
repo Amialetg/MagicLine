@@ -8,7 +8,6 @@ import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List<ScheduleGeneralModel> {
     val arraySchedule: TypedArray = context.resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
@@ -22,80 +21,33 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
         val scheduleGeneralModel:ScheduleGeneralModel
         var type: Int
 
-        if (arrayScheduleSubtitle[i].isNotEmpty()){
-            type = when {
-                i!= arrayScheduleTitle.size-1 -> TYPE_COMMON_CARD
-                else -> TYPE_LAST_CARD
-            }
-            if (i == arrayScheduleTitle.size-1) { type = TYPE_LAST_CARD }
-            scheduleGeneralModel = ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],
+        val isLast = i == arrayScheduleTitle.size -1
+        val isFirst  = i == 0
+        val isCard = arrayScheduleBody[i].isNotEmpty()
+
+        type = when (true) {
+            isLast && isCard     -> TYPE_LAST_CARD
+            isFirst && !isCard   -> TYPE_SCHEDULE_TITLE_FIRST
+            !isFirst && !isCard  -> TYPE_SCHEDULE_TITLE_COMMON
+            !isFirst && isCard   -> TYPE_COMMON_CARD
+            else -> TYPE_SCHEDULE_TITLE_COMMON
+        }
+
+        scheduleGeneralModel = if (isCard) {
+            ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],
                     detailModel = DetailModel(title = arrayScheduleTitle[i], subtitle = arrayScheduleSubtitle[i], textBody = arrayScheduleBody[i], link = context.getString(R.string.essentials_viewOnWeb)),
                     thisType = type,
                     isSelected = isTheMagicLineDateAndHour(context, arrayScheduleHour[i]),
                     listener = onClickListener
             )
-
         }else {
-            type = when {
-                i!= TYPE_SCHEDULE_TITLE_FIRST -> TYPE_SCHEDULE_TITLE_COMMON
-                else -> TYPE_SCHEDULE_TITLE_FIRST
-            }
-            if (i == arrayScheduleTitle.size-1) { type = TYPE_LAST_CARD }
-
-            scheduleGeneralModel = ScheduleTextModel(arrayScheduleHour[i], arrayScheduleTitle[i], type, isTheMagicLineDateAndHour(context, hour = arrayScheduleHour[i]))
+            ScheduleTextModel(arrayScheduleHour[i], arrayScheduleTitle[i], type, isTheMagicLineDateAndHour(context, hour = arrayScheduleHour[i]))
         }
+
         listSchedule.add(scheduleGeneralModel)
     }
+
     return listSchedule
-//    when (getFlavor()) {
-//        BARCELONA -> {
-//            return listOf(
-//                ScheduleTextModel(arrayScheduleHour[0], arrayScheduleTitle[0], 0, isTheMagicLineDateAndHour(context, hour = arrayScheduleHour[0])),
-//                ScheduleCardModel(arrayScheduleHour[1], arrayScheduleTitle[1], arrayScheduleSubtitle[1], arrayScheduleBody[1],
-//                        detailModel = DetailModel(
-//                                title = arrayScheduleTitle[1],
-//                                subtitle = arrayScheduleSubtitle[1],
-//                                textBody = arrayScheduleBody[1],
-//                                link = context.getString(R.string.essentials_viewOnWeb)
-//                        ),
-//                        type = 1,
-//                        isSelected = isTheMagicLineDateAndHour(context, arrayScheduleHour[1]),
-//                        listener = onClickListener
-//                ),
-//                ScheduleTextModel(arrayScheduleHour[3], arrayScheduleTitle[3], 2, isTheMagicLineDateAndHour(context,arrayScheduleHour[3])),
-//                ScheduleCardModel(
-//                        arrayScheduleHour[4],
-//                        "Espectacle",
-//                        "Equipaments culturals obren les portes",
-//                        "In recent years people have realized the importance of proper diet and exercise, and recent surveys",
-//                        DetailModel(
-//                                title = context.getString(R.string.essentials_title),
-//                                subtitle = context.getString(R.string.essentials_subtitle),
-//                                textBody = context.getString(R.string.essentials_body),
-//                                link = context.getString(R.string.essentials_viewOnWeb)),
-//                        type = 1,
-//                        isSelected = isTheMagicLineDateAndHour(context, arrayScheduleHour[4]),
-//                        listener = onClickListener
-//                ),
-//                ScheduleTextModel(arrayScheduleHour[5], "Caminar una mica més", 2, isTheMagicLineDateAndHour(context, arrayScheduleHour[5])), // DEBERÍA DE HABER SIDO TRUE
-//                ScheduleCardModel(
-//                        arrayScheduleHour[6],
-//                        "Concerts",
-//                        "Equipaments culturals obren les portes",
-//                        "In recent years people",
-//                        detailModel = DetailModel(
-//                                title = context.getString(R.string.essentials_title),
-//                                subtitle = context.getString(R.string.essentials_subtitle),
-//                                textBody = context.getString(R.string.essentials_body),
-//                                link = context.getString(R.string.essentials_viewOnWeb)),
-//                        type = 3,
-//                        isSelected = isTheMagicLineDateAndHour(context, arrayScheduleHour[6]),
-//                        listener = onClickListener)
-//        )}
-//        VALENCIA -> return listOf()
-//        MALLORCA -> return listOf()
-//        else -> { return emptyList() }
-//    }
 }
 
 fun isTheMagicLineDateAndHour (context: Context, hour :String): Boolean{

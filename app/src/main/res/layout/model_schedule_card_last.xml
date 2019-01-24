@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/countdown_timer_height"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_top_line"
     android:orientation="horizontal">
 
     <RelativeLayout
@@ -38,15 +39,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_card"
-        android:layout_marginTop="@dimen/margin_top_card"
-        android:layout_marginRight="15dp"
-        android:elevation="@dimen/elevation_card"
-        app:cardCornerRadius="@dimen/radius_corner_card">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/radius_corner_card"
+        style="@style/scheduleCard">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingStart="16dp"
             android:paddingTop="@dimen/padding_right_card"
             android:paddingEnd="16dp">
@@ -88,6 +88,6 @@
                 android:elevation="0dp"
                 android:text="@string/schedule_button_text" />
 
-        </RelativeLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

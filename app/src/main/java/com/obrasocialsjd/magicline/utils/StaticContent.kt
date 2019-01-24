@@ -2,11 +2,13 @@ package com.obrasocialsjd.magicline.utils
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.util.Log
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
+import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,7 +22,7 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
 
     arrayScheduleTitle.withIndex().forEach { (i) ->
         val listToolbarImg: MutableList<Int> = mutableListOf()
-        val scheduleGeneralModel:ScheduleGeneralModel
+        var scheduleGeneralModel:ScheduleGeneralModel
         val type: Int
 
         val isLast = i == arrayScheduleTitle.size -1
@@ -45,7 +47,6 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
                 }
             }
         }
-
         scheduleGeneralModel = if (isCard) {
             ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],
                     detailModel = DetailModel(listToolbarImg = listToolbarImg, title = arrayScheduleTitle[i], subtitle = arrayScheduleSubtitle[i], textBody = arrayScheduleBody[i], link = context.getString(R.string.essentials_viewOnWeb)),
@@ -56,7 +57,6 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
         } else {
             ScheduleTextModel(arrayScheduleHour[i], arrayScheduleTitle[i], type, isTheMagicLineDateAndHour(context, hour = arrayScheduleHour[i]))
         }
-
         listSchedule.add(scheduleGeneralModel)
     }
 

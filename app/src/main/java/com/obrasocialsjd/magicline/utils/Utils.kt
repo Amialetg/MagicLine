@@ -63,7 +63,7 @@ fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: B
     supportFragmentManager.executePendingTransactions()
 }
 
-fun Activity.openUrl(url: String) {9
+fun Activity.openUrl(url: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     startActivity(intent)

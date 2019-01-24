@@ -137,7 +137,7 @@ class MainActivity : BaseActivity() {
                     if (getFlavor() != VALENCIA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
                         analyticsScreen = TrackingUtils.Screens.Schedule
-                        TrackingUtils(applicationContext).track(TrackingUtils.Screens.Schedule)
+                        TrackingUtils(this).track(TrackingUtils.Screens.Schedule)
                     } else {
                         notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
                         //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
@@ -154,7 +154,6 @@ class MainActivity : BaseActivity() {
             currentFragment = newFragment
         }
     }
-
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)

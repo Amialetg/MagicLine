@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.utils
 
-import android.content.Context
 import com.obrasocialsjd.magicline.R
 
 /**

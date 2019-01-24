@@ -93,14 +93,11 @@
     </style>
 
     <style name="NewsItemTitle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
 
@@ -109,7 +106,7 @@
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:maxLines">3</item>
+        <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
     <!-- Principal - Més que-->

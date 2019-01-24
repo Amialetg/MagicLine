@@ -53,12 +53,12 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
+            isConnected()
             transitionWithModalAnimation(context = this, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtils.Screens.MagicLine)
             TrackingUtils(this).track(TrackingUtils.Screens.MagicLine)
             if (intent.hasExtra(FROM)) {
                 navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
-                isConnected()
             }
         }
 

@@ -65,8 +65,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var locationManager: LocationManager
     private lateinit var locationListener: LocationListener
 
+    private val LOCATION_ACTIVE = "LOCATION_ACTIVE"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
     }
 
@@ -76,26 +79,27 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         initToolbar()
         initCoordinates()
 
-        tintUserLocationButton()
-        tintMarkersButton()
-
         return mapView
     }
 
     override fun onStart() {
         super.onStart()
 
-        initListeners()
+        tintUserLocationButton()
+        tintMarkersButton()
 
-        if (isGPSAvailable()) {
-            initLocationClient()
-        } else {
-            isLocationActive = false
-            tintUserLocationButton()
+        context?.let {
+            isLocationActive = getUserLocationPreferences(it)
         }
+
+        initListeners()
 
         val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
+
+        if (mapInitialized) {
+            onStartUserLocation()
+        }
     }
 
     private fun initToolbar() {
@@ -111,7 +115,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             override fun onLocationChanged(location: Location?) {
                 userLocation = location
                 userLocation.let {
-                    updateUserLocation()
+                    if (isLocationActive) showUserLocation()
                 }
             }
 
@@ -165,6 +169,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             addKML()
 
             addMapElements()
+
+            onStartUserLocation()
             mapInitialized = true
         }
     }
@@ -216,7 +222,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                     requestPermissions()
                 }
             } else {
-                activity?.gpsNotAvailableDialog()
+                activity?.notAvailableDialog()
             }
         }
     }
@@ -241,24 +247,18 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     @SuppressLint("RestrictedApi")
     private fun changeButtonColor(colorRes : Int) {
-        mapView.userLocationBtn.supportBackgroundTintList = ContextCompat.getColorStateList(requireContext(), colorRes)
-    }
-
-    private fun showUserLocation() {
-        if (mapInitialized) {
-            if (userMarker != null) userMarker?.remove()
-            userLocation?.let { location ->
-                userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
-            }
+        context?.let { context ->
+            mapView.userLocationBtn.supportBackgroundTintList = ContextCompat.getColorStateList(context, colorRes)
         }
     }
 
-    private fun updateUserLocation() {
+    private fun showUserLocation(moveCamera: Boolean = false) {
         if (mapInitialized) {
+            tintUserLocationButton()
             if (userMarker != null) userMarker?.remove()
             userLocation?.let { location ->
                 userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
+                if (moveCamera) map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
             }
         }
     }
@@ -267,7 +267,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         userMarker?.remove()
         userMarker = null
         kmAdapter.let {map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f)) }
+    }
 
+    private fun isUserMarkerVisible() : Boolean {
+        userMarker?.let { userMarker ->
+            return userMarker.isVisible
+        }
+
+        return false
     }
 
     private fun setInterestMarkersVisibility(forceShow : Boolean = false) {
@@ -369,6 +376,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (grantResults[0]) {
             PackageManager.PERMISSION_GRANTED -> {
+                isLocationActive = true
                 onPermissionGranted()
                 initializePositionListener()
             }
@@ -391,9 +399,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                                 userLocation = location
 
                                 map.let {
-                                    showUserLocation()
-                                    isLocationActive = true
-                                    tintUserLocationButton()
+                                    if (isLocationActive) showUserLocation(true)
                                 }
                             } else {
                                 map.let { map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[0], 17.0f)) }
@@ -431,10 +437,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun onPermissionGranted() {
         initializePositionListener()
         if (userLocation != null) {
-            showUserLocation()
-            isLocationActive = true
-            tintUserLocationButton()
+            if (isLocationActive) showUserLocation(true)
         }
+
     }
 
     private fun onPermissionNotGranted() {
@@ -443,13 +448,32 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun isGPSAvailable() : Boolean {
-        locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
     private fun initFusedLocationClient() {
         context?.let {context ->
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
         }
+    }
+
+    private fun onStartUserLocation() {
+        if (isPermissionGranted()) {
+            if (isGPSAvailable()) {
+                initLocationClient()
+            } else {
+                isLocationActive = false
+                tintUserLocationButton()
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        context?.let { updateUserLocationPreferences(it, isLocationActive) }
     }
 }

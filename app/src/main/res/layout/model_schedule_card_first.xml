@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/countdown_timer_height"
+    android:layout_marginTop="@dimen/margin_top_line"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="@dimen/width_relative"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/layout_width_schedulecard"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_left_bar"
+            android:layout_marginTop="@dimen/margin_top_line"
+            android:src="@color/moreinfo_bars" />
+
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="@dimen/width_circle"
+            android:layout_height="@dimen/width_circle"
+            android:layout_marginStart="@dimen/margin_left_circle"
+            android:layout_marginTop="@dimen/margin_left_bar"
+            android:src="@drawable/circle_selector" />
+
+        <TextView
+            android:id="@+id/scheduleCardHour"
+            style="@style/scheduleHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_left_hour"
+            android:layout_marginTop="@dimen/browser_actions_context_menu_min_padding"
+            android:layout_toEndOf="@id/circle"
+            tools:text="13:30" />
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_card"
+        android:layout_marginTop="@dimen/margin_top_card"
+        android:layout_marginRight="15dp"
+        android:elevation="@dimen/elevation_card"
+        app:cardCornerRadius="@dimen/radius_corner_card">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingTop="@dimen/padding_right_card"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/scheduleCardTitle"
+                style="@style/scheduleCardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                tools:text="Picnik" />
+
+            <TextView
+                android:id="@+id/scheduleCardSubtitle"
+                style="@style/scheduleCardSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scheduleCardTitle"
+                android:layout_marginBottom="8dp"
+                tools:text="Equipaments culturals obren Les portes" />
+
+            <TextView
+                android:id="@+id/scheduleCardDescription"
+                style="@style/scheduleCardDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scheduleCardSubtitle"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                tools:text="@string/lorem_ipsum" />
+
+            <Button
+                android:id="@+id/seeMoreBtn"
+                style="@style/scheduleSeeMoreBtn"
+                android:layout_width="@dimen/width_schedule_button"
+                android:layout_height="@dimen/height_schedule_button"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/btn_see_more_not_pressed"
+                android:elevation="0dp"
+                android:text="@string/schedule_button_text" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

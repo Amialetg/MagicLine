@@ -9,10 +9,7 @@ import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.ScheduleCardModel
 import com.obrasocialsjd.magicline.models.ScheduleGeneralModel
 import com.obrasocialsjd.magicline.models.ScheduleTextModel
-import com.obrasocialsjd.magicline.utils.TYPE_COMMON_CARD
-import com.obrasocialsjd.magicline.utils.TYPE_LAST_CARD
-import com.obrasocialsjd.magicline.utils.TYPE_SCHEDULE_TITLE_COMMON
-import com.obrasocialsjd.magicline.utils.TYPE_SCHEDULE_TITLE_FIRST
+import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.model_schedule_card.view.*
 import kotlinx.android.synthetic.main.model_schedule_text.view.*
 
@@ -37,6 +34,7 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON) -> TYPE_SCHEDULE_TITLE_COMMON
             (dataSet[position].type == TYPE_COMMON_CARD) -> TYPE_COMMON_CARD
             (dataSet[position].type == TYPE_LAST_CARD) -> TYPE_LAST_CARD
+            (dataSet[position].type == TYPE_FIRST_CARD) -> TYPE_FIRST_CARD
             else  -> TYPE_COMMON_CARD
         }
     }
@@ -58,6 +56,10 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             TYPE_LAST_CARD -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_last, parent, false)
                 ViewHolderCard(itemView)
+            }
+            TYPE_FIRST_CARD -> {
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_first, parent, false)
+                ViewHolderCard(itemView)
             } else -> {
                 // DEFAULT TYPE_COMMON_CARD
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
@@ -78,6 +80,9 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
                 setInfo(holder, position, false)
             }
             TYPE_LAST_CARD -> {
+                setInfo(holder, position, true)
+            }
+            TYPE_FIRST_CARD -> {
                 setInfo(holder, position, true)
             }
             else  -> {

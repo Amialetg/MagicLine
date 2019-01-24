@@ -30,6 +30,7 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
         type = when (true) {
             isLast && isCard     -> TYPE_LAST_CARD
             isFirst && !isCard   -> TYPE_SCHEDULE_TITLE_FIRST
+            isFirst && isCard    -> TYPE_FIRST_CARD
             !isFirst && !isCard  -> TYPE_SCHEDULE_TITLE_COMMON
             !isFirst && isCard   -> TYPE_COMMON_CARD
             else -> TYPE_SCHEDULE_TITLE_COMMON

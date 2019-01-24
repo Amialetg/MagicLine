@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Folder><name>Magic_Line_Valencia_2019__05_Km.gpx</name>
+  <Placemark>
+	<name>Punt 4</name>
+	<description></description>
+      <Point><coordinates>-0.3520993,39.5002443,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Avituallamiento 2</name>
+	<description></description>
+      <Point><coordinates>-0.3308539,39.4609656,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Fuente Pública</name>
+	<description></description>
+      <Point><coordinates>-0.3558975,39.4600106,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Contenedores</name>
+	<description></description>
+      <Point><coordinates>-0.3597477,39.4630554,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Avituallamiento 3</name>
+	<description></description>
+      <Point><coordinates>-0.3490864,39.4557237,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3609297,39.4660264,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>WC</name>
+	<description></description>
+      <Point><coordinates>-0.3556833,39.4603793,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3309572,39.4609396,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Baños</name>
+	<description></description>
+      <Point><coordinates>-0.3308159,39.4766971,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización Salida 10 km</name>
+	<description></description>
+      <Point><coordinates>-0.3308308,39.4765278,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización Salida 5 km</name>
+	<description></description>
+      <Point><coordinates>-0.3499704,39.4555438,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3760525,39.4791111,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3754185,39.4763903,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3765952,39.4735872,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Control llegada Plaza Ayuntamiento</name>
+	<description></description>
+      <Point><coordinates>-0.3766377,39.4698776,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamización</name>
+	<description></description>
+      <Point><coordinates>-0.3767702,39.4720867,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Mercado Central </name>
+	<description></description>
+      <Point><coordinates>-0.3783926,39.4738625,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>La Lonja de la Seda</name>
+	<description>Horario: De 10:00 a 14:00 hrs </description>
+      <Point><coordinates>-0.378178,39.4745344,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Catedral de Valencia</name>
+	<description></description>
+      <Point><coordinates>-0.3755201,39.4752567,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Baños</name>
+	<description></description>
+      <Point><coordinates>-0.3309467,39.4610058,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Agua</name>
+	<description></description>
+      <Point><coordinates>-0.3308837,39.4610338,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Punto de Control </name>
+	<description></description>
+      <Point><coordinates>-0.3308127,39.4610114,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Torres de Serrano</name>
+	<description>Horario: De 10:00 a 14:00 hrs</description>
+      <Point><coordinates>-0.3759529,39.4792051,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Contenedores </name>
+	<description></description>
+      <Point><coordinates>-0.3523385,39.5012041,0</coordinates></Point>
+  </Placemark>
+</Folder>
+<Folder><name>Magic_Line_Valencia_2019__10_Km.gpx</name>
+  <Placemark>
+	<name>Dinamització Sortida 20km</name>
+	<description>Horari: 8 h</description>
+      <Point><coordinates>-0.3524607,39.5003105,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Dinamització</name>
+	<description></description>
+      <Point><coordinates>-0.3250977,39.501469,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Control Ermita dels Peixets</name>
+	<description></description>
+      <Point><coordinates>-0.3246495,39.5014437,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Museu</name>
+	<description>Horari: </description>
+      <Point><coordinates>-0.3759287,39.4734202,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Avituallament</name>
+	<description>Horchatería Daniel</description>
+      <Point><coordinates>-0.3764171,39.4698747,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Festa d'arribada</name>
+	<description>Activitats i horaris:</description>
+      <Point><coordinates>-0.3765405,39.4697174,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>WC</name>
+	<description></description>
+      <Point><coordinates>-0.3763366,39.4696511,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Alerta!</name>
+	<description>Seguiu la sèquia / Seguid la acequia</description>
+      <Point><coordinates>-0.3394556,39.5043624,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Aigua / Agua</name>
+	<description></description>
+      <Point><coordinates>-0.3245536,39.5011414,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Metro</name>
+	<description></description>
+      <Point><coordinates>-0.352321,39.5008012,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Avituallamiento</name>
+	<description></description>
+      <Point><coordinates>-0.3250094,39.5011566,0</coordinates></Point>
+  </Placemark>
+</Folder>
+<Folder><name>Magic_Line_Valencia_2019__20_Km.gpx</name>
+  <Placemark>
+	<name>Punto de Control </name>
+	<description></description>
+      <Point><coordinates>-0.3761104,39.4791234,0</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

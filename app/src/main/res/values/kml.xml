@@ -4,8 +4,8 @@
         <item>@raw/ml_bcn_10km</item>
         <item>@raw/ml_bcn_15km</item>
         <item>@raw/ml_bcn_20km</item>
-        <item>@raw/ml_bcn_30km</item>
         <item>@raw/ml_bcn_30km_ll</item>
+        <item>@raw/ml_bcn_30km</item>
         <item>@raw/ml_bcn_40km</item>
     </integer-array>
     <integer-array name="arrayKm">

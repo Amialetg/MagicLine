@@ -65,6 +65,7 @@
                 style="@style/scheduleCardSubTitle"
                 android:layout_marginBottom="8dp"
                 android:layout_below="@id/scheduleCardTitle" />
+            
 
             <TextView
                 android:id="@+id/scheduleCardDescription"

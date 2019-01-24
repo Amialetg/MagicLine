@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="arrayScheduleHours">
+    <string-array name="arrayScheduleHour">
         <item>9:30</item>
         <item>10:30</item>
         <item>11:30</item>
@@ -37,4 +37,31 @@
         <item></item>
         <item>A la plaça de la Catedral de Barcelona t’hi esperen concerts i activitats, per celebrar el teu recorregut com a #magicliner i conèixer més en detall el destí dels fons aconseguits amb la mobilització ciutadana per Sant Joan de Déu. Properament publicarem els horaris.</item>
     </string-array>
+
+    <integer-array name="arraySchedulePhoto">
+        <item>@array/photosElement1</item>
+        <item>@array/photosElement2</item>
+        <item>@array/photosElement3</item>
+        <item>@array/photosElement4</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+
+    </integer-array>
+
+    <integer-array name="photosElement1">
+        <item>@drawable/espectacle_carrer</item>
+        <item>@drawable/espectacle_carrer2</item>
+    </integer-array>
+    <integer-array name="photosElement2">
+        <item>@drawable/museus_oberts</item>
+    </integer-array>
+    <integer-array name="photosElement3">
+        <item>@drawable/picnic_castell</item>
+        <item>@drawable/picnic_castell2</item>
+    </integer-array>
+    <integer-array name="photosElement4">
+        <item>@drawable/festa_solidaria</item>
+    </integer-array>
+
 </resources>

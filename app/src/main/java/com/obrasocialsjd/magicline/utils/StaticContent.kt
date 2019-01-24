@@ -25,17 +25,17 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
     var listToolbarImg: List<Int> = listOf()
     var array = arrayOf<Any>()
 
-    for (i in 0 until arraySchedulePhoto.length()){
-//       listToolbarImg = listOf(arraySchedulePhoto.getInt(0, Int.MAX_VALUE))
-        var id = arraySchedulePhoto.getResourceId(i, 0)
-        if (id != 0) {
-            array[i] = context.resources.getIntArray(id)
-        }
+//    for (i in 0 until arraySchedulePhoto.length()){
+////       listToolbarImg = listOf(arraySchedulePhoto.getInt(0, Int.MAX_VALUE))
+//        var id = arraySchedulePhoto.getResourceId(i, 0)
+//        if (id != 0) {
+//            array[i] = context.resources.getIntArray(id)
+//        }
+//
+////        listToolbarImg = context.resources.getIntArray(arraySchedulePhoto.getResourceId(i, 0)) as List<Int>
+//    }
 
-//        listToolbarImg = context.resources.getIntArray(arraySchedulePhoto.getResourceId(i, 0)) as List<Int>
-    }
-
-    listToolbarImg = array as List<Int>
+//    listToolbarImg = array as List<Int>
 
     arrayScheduleTitle.withIndex().forEach { (i, item) ->
         val scheduleGeneralModel:ScheduleGeneralModel

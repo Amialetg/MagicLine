@@ -95,17 +95,16 @@
     <string name="essentials_subtitle">Mobilització ciudadana en favor de les persones</string>
     <string name="essentials_body">
         <![CDATA[<html>
-        \t 1. <b>MOLT MÉS QUE UNA CAMINADA.</b> Les accions solidàries dels equips es converteixen en ajudes per persones en situació vulnerable ateses a centres de Sant Joan de Déu i altres entitats properes.<br/><br/>
-
-\t 2.<b>UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b>  Aixequeu el cap, la Magic Line SJD us acosta a muntanya, parcs naturals i urbans, carrers i places de la ciutat.<br/><br/>
-\t 3.<b>QUI AJUDES T’AJUDA.</b>  Us oferim punts d\’avituallament, aliment complementari per la caminada, que us facilitaran persones ateses als nostres centres.<br/><br/>
-\t 4.<b>VOLUNTARIAT.</b>  Centenars de persones i empreses aporten el seu temps i serveis per a fer possible l\’esdeveniment.<br/><br/>
-\t 5.<b>CULTURA INCLUSIVA.</b>  Durant el recorregut us trobareu propostes de música i teatre de carrer, així com els museus de Montjuïc oberts per a vosaltres. Gaudiu de la companyia!<br/><br/>
-\t 6.<b>PICNIC AL CASTELL.</b>  Al fossar del castell de Montjuïc hi teniu una zona per a dinar, amb música i activitats per als més petits.<br/><br/>
-\t 7.<b>FESTA SOLIDÀRIA A L\’ARRIBADA.</b>  A la plaça de la Catedral us hi espera una celebració d’aquesta enorme mobilització.<br/><br/>
-\t 8.<b>PRODUCTES MAGIC LINE SJD.</b>  Un record de la mobilització solidària que no és només per a tu.<br/><br/>
-\t 9.<b>EXPLICA LA TEVA EXPERIÈNCIA</b>  de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
-\t 10.<b>GRÀCIES, GRÀCIES, GRÀCIES.</b>  Som milers de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
+\t <b>1. MOLT MÉS QUE UNA CAMINADA.</b> Les accions solidàries dels equips es converteixen en ajudes per persones en situació vulnerable ateses a centres de Sant Joan de Déu i altres entitats properes.<br/><br/>
+\t <b>2. UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b>  Aixequeu el cap, la Magic Line SJD us acosta a muntanya, parcs naturals i urbans, carrers i places de la ciutat.<br/><br/>
+\t <b>3. QUI AJUDES T’AJUDA.</b>  Us oferim punts d\’avituallament, aliment complementari per la caminada, que us facilitaran persones ateses als nostres centres.<br/><br/>
+\t <b>4. VOLUNTARIAT.</b>  Centenars de persones i empreses aporten el seu temps i serveis per a fer possible l\’esdeveniment.<br/><br/>
+\t <b>5. CULTURA INCLUSIVA.</b>  Durant el recorregut us trobareu propostes de música i teatre de carrer, així com els museus de Montjuïc oberts per a vosaltres. Gaudiu de la companyia!<br/><br/>
+\t <b>6. PICNIC AL CASTELL.</b>  Al fossar del castell de Montjuïc hi teniu una zona per a dinar, amb música i activitats per als més petits.<br/><br/>
+\t <b>7. FESTA SOLIDÀRIA A L\’ARRIBADA.</b>  A la plaça de la Catedral us hi espera una celebració d’aquesta enorme mobilització.<br/><br/>
+\t <b>8. PRODUCTES MAGIC LINE SJD.</b>  Un record de la mobilització solidària que no és només per a tu.<br/><br/>
+\t <b>9. EXPLICA LA TEVA EXPERIÈNCIA</b>  de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
+\t <b>10. GRÀCIES, GRÀCIES, GRÀCIES.</b>  Som milers de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
         </string>
     <string name="essentials_viewOnWeb">https://www.magiclinesjd.org/ca/</string>
 
@@ -195,7 +194,9 @@
     <string name="donation_url">https://www.magiclinesjd.org/ca/equips/</string>
     <string name="notAvailableText">Properament</string>
     <string name="closeText">Tancar</string>
-
-
+    <string name="notAvailableBody">La programació encara no està disponible</string>
+    <string name="noWifiTitle">Error de connexió</string>
+    <string name="noWifiBody">No tens connexió a Internet. Es carregaràn les últimes dades disponibles</string>
+    <string name="noWifiWebview">No es pot carregar el contingut. Comprova la teva connexió a internet i actualitza la pàgina</string>
 </resources>
 

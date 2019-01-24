@@ -1,5 +1,6 @@
 package com.obrasocialsjd.magicline.activities.main.general
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
 import android.os.Bundle
@@ -22,6 +23,9 @@ import com.obrasocialsjd.magicline.viewModel.MagicLineViewModel
 import com.obrasocialsjd.magicline.viewModel.MagicLineViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
+import java.util.*
+import android.net.ConnectivityManager
+import android.provider.Settings.Global.getString
 
 class MainActivity : BaseActivity() {
 
@@ -36,7 +40,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
         val factory = MagicLineViewModelFactory(this.application, repository)
@@ -50,11 +53,12 @@ class MainActivity : BaseActivity() {
         initBottomBar()
 
         if (savedInstanceState == null) {
+            isConnected()
             transitionWithModalAnimation(context = this, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtils.Screens.MagicLine)
             TrackingUtils(this).track(TrackingUtils.Screens.MagicLine)
-            if (intent.hasExtra("From")) {
-                navigateFromIntentExtra(intent.extras?.get("From") as Serializable?, false)
+            if (intent.hasExtra(FROM)) {
+                navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
             }
         }
 
@@ -82,7 +86,6 @@ class MainActivity : BaseActivity() {
         bottomBarView.setOnNavigationItemSelectedListener { item ->
             bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
             bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-
             selectFragment(item)
             true
         }
@@ -131,9 +134,17 @@ class MainActivity : BaseActivity() {
                     analyticsScreen = TrackingUtils.Screens.Options
                 }
                 R.id.schedule_menu_id -> {
-                    newFragment = ScheduleFragment.newInstance(scheduleModel)
-                    analyticsScreen = TrackingUtils.Screens.Schedule
-                    TrackingUtils(applicationContext).track(TrackingUtils.Screens.Schedule)
+
+                    if (getFlavor() != VALENCIA) {
+                        newFragment = ScheduleFragment.newInstance(scheduleModel)
+                        analyticsScreen = TrackingUtils.Screens.Schedule
+                        TrackingUtils(this).track(TrackingUtils.Screens.Schedule)
+                    } else {
+                        notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
+                        //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
+                        bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
+                        return
+                    }
                 }
                 R.id.none -> return
                 else -> newFragment = MagicLineFragment()
@@ -232,5 +243,18 @@ class MainActivity : BaseActivity() {
             bottomBarView.visibility = View.VISIBLE
             bottomBarFloatingButton.show()
         }
+    }
+
+    fun isConnected(): Boolean {
+        val conMgr = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = conMgr.activeNetworkInfo
+
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
+           // Toast.makeText(this, "No Internet connection", Toast.LENGTH_LONG).show()
+            notAvailableDialog(R.string.noWifiTitle, R.string.noWifiBody)
+
+            return false
+        }
+        return true
     }
 }

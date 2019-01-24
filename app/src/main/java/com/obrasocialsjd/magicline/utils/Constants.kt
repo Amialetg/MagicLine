@@ -1,6 +1,5 @@
 package com.obrasocialsjd.magicline.utils
 
-import android.content.Context
 import com.obrasocialsjd.magicline.R
 
 /**
@@ -16,6 +15,7 @@ const val MALLORCA: String = "Mallorca"
 
 const val PREF_SETTINGS: String = "Settings"
 const val PREF_LANGUAGE : String = "My_Lang"
+const val PREF_USER_LOCATION : String = "PREF_USER_LOCATION"
 
 /**
  * LOCALE
@@ -93,6 +93,7 @@ const val MAP_BUTTON_UNSELECTED = R.color.grey
 
 const val MILLISECONDS : Long = 3600000
 const val MILLIS : Long = 1000
+const val ZERO : String = "00"
 
 const val COLON : String = ":"
 const val PERIOD : String = "."

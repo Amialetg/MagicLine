@@ -3,16 +3,22 @@ package com.obrasocialsjd.magicline.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Message
 import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.BuildConfig
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
+import com.obrasocialsjd.magicline.activities.main.fragments.MagicLineFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +37,6 @@ fun <T> callback(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> 
 fun AppCompatActivity.transitionWithModalAnimation(context: Context, fragment: BaseFragment, useModalAnimation: Boolean = true, addToBackStack: Boolean = true, analyticsScreen : TrackingUtils.Screens) {
     // Analytics
     TrackingUtils(context).track(analyticsScreen)
-
     val transaction = this.supportFragmentManager.beginTransaction()
 
     // Adds button bar management (show/hide) bundle's argument
@@ -75,11 +80,11 @@ fun Activity.funNotAvailableDialog() {
     }
 }
 
-fun Activity.gpsNotAvailableDialog() {
+fun Activity.notAvailableDialog(title : Int= R.string.gps_not_available_title, message: Int = R.string.gps_not_available_text) {
     let {context ->
         val builder = AlertDialog.Builder(context)
-        builder.setTitle(R.string.gps_not_available_title)
-        builder.setMessage(R.string.gps_not_available_text)
+        builder.setTitle(title)
+        builder.setMessage(message)
         builder.setNeutralButton(R.string.closeText){_,_->}
         val dialog = builder.create()
         dialog.show()

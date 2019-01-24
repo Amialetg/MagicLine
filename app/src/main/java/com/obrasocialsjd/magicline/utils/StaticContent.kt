@@ -1,7 +1,6 @@
 package com.obrasocialsjd.magicline.utils
 
 import android.content.Context
-import android.content.res.Resources
 import android.content.res.TypedArray
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.models.DetailModel
@@ -17,12 +16,12 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
     val arrayScheduleTitle: Array<String> = context.resources.getStringArray(R.array.arrayScheduleTitle)
     val arrayScheduleSubtitle: Array<String> = context.resources.getStringArray(R.array.arrayScheduleSubTitle)
     val arrayScheduleBody: Array<String> = context.resources.getStringArray(R.array.arrayScheduleBody)
-    var listSchedule: ArrayList<ScheduleGeneralModel> = arrayListOf()
-    var listToolbarImg: Array<Int> = arrayOf()
+    val listSchedule: ArrayList<ScheduleGeneralModel> = arrayListOf()
 
-    arrayScheduleTitle.withIndex().forEach { (i, item) ->
+    arrayScheduleTitle.withIndex().forEach { (i) ->
+        val listToolbarImg: MutableList<Int> = mutableListOf()
         val scheduleGeneralModel:ScheduleGeneralModel
-        var type: Int
+        val type: Int
 
         val isLast = i == arrayScheduleTitle.size -1
         val isFirst  = i == 0
@@ -36,14 +35,15 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
             else -> TYPE_SCHEDULE_TITLE_COMMON
         }
         //get id of each photosArray
-        val id = arraySchedulePhoto.getResourceId(arraySchedulePhoto.getIndex(i), -1)
-//        val array: TypedArray = context.resources.obtainTypedArray(id)
-        val arrayInt = context.resources.obtainTypedArray(id)
-        for (item in 0 until arrayInt.length()){
-            listToolbarImg[i] = arrayInt.getResourceId(item, -1)
+        val id = arraySchedulePhoto.getResourceId(i, 0)
+        if (id != 0) {
+            val arrayDrawableId = context.resources.obtainTypedArray(id) ?: null
+            arrayDrawableId?.let {
+                for (item in 0 until arrayDrawableId.length()) {
+                    listToolbarImg.add(arrayDrawableId.getResourceId(item, 0))
+                }
+            }
         }
-
-        listToolbarImg as List<Int>
 
         scheduleGeneralModel = if (isCard) {
             ScheduleCardModel(arrayScheduleHour[i], arrayScheduleTitle[i], arrayScheduleSubtitle[i], arrayScheduleBody[i],

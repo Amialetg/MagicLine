@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_top_line"
+    android:layout_marginTop="@dimen/margin_top_line"
     android:orientation="horizontal">
 
     <RelativeLayout
@@ -13,8 +13,9 @@
 
         <ImageView
             android:layout_width="@dimen/layout_width_schedulecard"
-            android:layout_height="@dimen/margin_left_bar"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin_left_bar"
+            android:layout_marginTop="@dimen/margin_top_line"
             android:src="@color/moreinfo_bars" />
 
         <ImageView

@@ -10,5 +10,7 @@ data class ScheduleCardModel(
         val detailModel : DetailModel,
         val thisType : Int,
         val isSelected: Boolean,
+        @Transient
         val listener: (DetailModel) -> Unit
+
 ): ScheduleGeneralModel(thisType), Serializable

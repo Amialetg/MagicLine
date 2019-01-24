@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.R.drawable.about_us
 import com.obrasocialsjd.magicline.R.string.*
-import com.obrasocialsjd.magicline.utils.TrackingUtil
+import com.obrasocialsjd.magicline.utils.TrackingUtils
 import com.obrasocialsjd.magicline.models.DetailModel
 import com.obrasocialsjd.magicline.utils.PREF_LANGUAGE
 import com.obrasocialsjd.magicline.utils.SPANISH
@@ -79,7 +79,7 @@ class OptionsFragment: BaseFragment() {
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtil.Screens.InviteFriends)
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtils.Screens.InviteFriends)
         }
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)
@@ -95,7 +95,7 @@ class OptionsFragment: BaseFragment() {
                     isBlack = false,
                     hasToolbarImg = true)
 
-            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtil.Screens.AboutApp)
+            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtils.Screens.AboutApp)
         }
     }
 

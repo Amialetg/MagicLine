@@ -27,12 +27,11 @@ import java.util.*
 import android.net.ConnectivityManager
 import android.provider.Settings.Global.getString
 
-
 class MainActivity : BaseActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     private lateinit var currentFragment: Fragment
-    private var scheduleModel: Array<ScheduleGeneralModel> = arrayOf()
+    private lateinit var scheduleModel: List<ScheduleGeneralModel>
     private lateinit var mMagicLineViewModel: MagicLineViewModel
     private lateinit var myNewsAdapter: NewsAdapter
     private lateinit var hoursArray: TypedArray
@@ -42,7 +41,6 @@ class MainActivity : BaseActivity() {
 
         setContentView(R.layout.activity_main)
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
-
         val repository = MagicLineRepositoryImpl(MagicLineDB.getDatabase(this.applicationContext))
         val factory = MagicLineViewModelFactory(this.application, repository)
         mMagicLineViewModel = ViewModelProviders.of(this, factory).get(MagicLineViewModel::class.java)
@@ -50,16 +48,15 @@ class MainActivity : BaseActivity() {
         //Prepare the mapFAB
         bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.selected_indicator_color))
         bottomBarFloatingButton.supportBackgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-
         getData()
 
         initBottomBar()
 
         if (savedInstanceState == null) {
             isConnected()
-            transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(),
-                    useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtil.Screens.MagicLine)
-            TrackingUtil(applicationContext).track(TrackingUtil.Screens.MagicLine)
+            transitionWithModalAnimation(context = this, fragment = MagicLineFragment(),
+                    useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtils.Screens.MagicLine)
+            TrackingUtils(this).track(TrackingUtils.Screens.MagicLine)
             if (intent.hasExtra(FROM)) {
                 navigateFromIntentExtra(intent.extras?.get(FROM) as Serializable?, false)
             }
@@ -104,8 +101,8 @@ class MainActivity : BaseActivity() {
                 //but the fragment that is shown is the map fragment
                 mapButton.isChecked = true
 
-                transitionWithModalAnimation(context = applicationContext, fragment = MapFragment(), useModalAnimation = false,
-                        addToBackStack = false, analyticsScreen = TrackingUtil.Screens.Map)
+                transitionWithModalAnimation(context = this, fragment = MapFragment(), useModalAnimation = false,
+                        addToBackStack = false, analyticsScreen = TrackingUtils.Screens.Map)
             }
         }
     }
@@ -121,32 +118,30 @@ class MainActivity : BaseActivity() {
             // Those are fragments of the main view, so we don't need the back-stack
             clearBackStack()
             val newFragment: BaseFragment
-            var analyticsScreen: TrackingUtil.Screens = TrackingUtil.Screens.MagicLine
+            var analyticsScreen: TrackingUtils.Screens = TrackingUtils.Screens.MagicLine
 
             when (item.itemId) {
                 R.id.magicline_menu_id -> {
                     newFragment = MagicLineFragment()
-                    analyticsScreen = TrackingUtil.Screens.MagicLine
+                    analyticsScreen = TrackingUtils.Screens.MagicLine
                 }
                 R.id.donations_menu_id -> {
                     newFragment = DonationsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Donations
+                    analyticsScreen = TrackingUtils.Screens.Donations
                 }
                 R.id.info_menu_id -> {
                     newFragment = OptionsFragment()
-                    analyticsScreen = TrackingUtil.Screens.Options
+                    analyticsScreen = TrackingUtils.Screens.Options
                 }
                 R.id.schedule_menu_id -> {
-
-                    if (getFlavor() != VALENCIA && getFlavor() != BARCELONA) {
+                    if (getFlavor() != VALENCIA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
-                        analyticsScreen = TrackingUtil.Screens.Schedule
-                        TrackingUtil(applicationContext).track(TrackingUtil.Screens.Schedule)
+                        analyticsScreen = TrackingUtils.Screens.Schedule
+                        TrackingUtils(applicationContext).track(TrackingUtils.Screens.Schedule)
                     } else {
                         notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
                         //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
                         bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
-
                         return
                     }
                 }
@@ -154,11 +149,12 @@ class MainActivity : BaseActivity() {
                 else -> newFragment = MagicLineFragment()
             }
 
-        transitionWithModalAnimation(context = applicationContext, fragment = newFragment, useModalAnimation = false,
-                addToBackStack = false, analyticsScreen = analyticsScreen)
-        currentFragment = newFragment
+            transitionWithModalAnimation(context = this, fragment = newFragment, useModalAnimation = false,
+                    addToBackStack = false, analyticsScreen = analyticsScreen)
+            currentFragment = newFragment
+        }
     }
-}
+
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -172,23 +168,22 @@ class MainActivity : BaseActivity() {
             LAST_NEWS -> { getNotificationNews() }
             DONATION -> {
                 bottomBarView.menu.getItem(DONATIONS).isChecked = true
-                this.transitionWithModalAnimation(context = applicationContext, fragment = DonationsFragment(), analyticsScreen = TrackingUtil.Screens.Donations)
+                this.transitionWithModalAnimation(context = this, fragment = DonationsFragment(), analyticsScreen = TrackingUtils.Screens.Donations)
             }
             EVENT -> {
                 bottomBarView.menu.getItem(SCHEDULE).isChecked = true
-                this.transitionWithModalAnimation(context = applicationContext, fragment = ScheduleFragment.newInstance(scheduleModel), analyticsScreen = TrackingUtil.Screens.Schedule)
+                this.transitionWithModalAnimation(context = this, fragment = ScheduleFragment.newInstance(scheduleModel), analyticsScreen = TrackingUtils.Screens.Schedule)
             }
             else -> {
                 bottomBarView.menu.getItem(HOME).isChecked = true
-                if (openDefault) this.transitionWithModalAnimation(context = applicationContext, fragment = MagicLineFragment(), analyticsScreen = TrackingUtil.Screens.MagicLine)
+                if (openDefault) this.transitionWithModalAnimation(context = this, fragment = MagicLineFragment(), analyticsScreen = TrackingUtils.Screens.MagicLine)
             }
         }
     }
 
     private fun getNotificationNews(){
-        myNewsAdapter = NewsAdapter(ArrayList())
-
-        mMagicLineViewModel.getPosts(getAPILang(context = applicationContext)).observe(this, androidx.lifecycle.Observer {
+        myNewsAdapter = NewsAdapter(emptyList())
+        mMagicLineViewModel.getPosts(getAPILang(context = this)).observe(this, androidx.lifecycle.Observer {
             myNewsAdapter.loadItems(toNewsModel(it))
             myNewsAdapter.notifyDataSetChanged()})
     }
@@ -213,92 +208,26 @@ class MainActivity : BaseActivity() {
             ))
 
         this.transitionWithModalAnimation(
-                context = applicationContext,
+                context = this,
                 fragment = DetailFragment.newInstance(detailModel),
-                analyticsScreen = TrackingUtil.Screens.NewsDetail
+                analyticsScreen = TrackingUtils.Screens.NewsDetail
         )
         return news
     }
 
     private fun getData() {
-
-        val now = System.currentTimeMillis() / 1000
-
-        // Convert from machine to human readable hour
-        val currentTime = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * 1000))
-
-        val mySystemHour = currentTime.toString().replace(":", ".")
-
-        scheduleModel = arrayOf(
-                ScheduleTextModel("9:30", "Salida", 0, isTheMagicLineDateAndHour("9:30")),
-                ScheduleCardModel("10:30", "Picnik", "Equipaments culturals obren les portes", getString(R.string.lorem_ipsum),
-                        detailModel = DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb)
-                        ),
-                        thisType = 1,
-                        isSelected = isTheMagicLineDateAndHour("10:30")
-                ),
-                ScheduleTextModel("12:30", "Tornar a caminar", 2, isTheMagicLineDateAndHour("12:30")),
-                ScheduleCardModel(
-                        "13:30",
-                        "Espectacle",
-                        "Equipaments culturals obren les portes",
-                        "In recent years people have realized the importance of proper diet and exercise, and recent surveys",
-                        DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb))
-                , thisType = 1, isSelected = isTheMagicLineDateAndHour("13:30")),
-                ScheduleTextModel("15:00", "Caminar una mica més",2, isTheMagicLineDateAndHour("15:00")), // DEBERÍA DE HABER SIDO TRUE
-                ScheduleCardModel(
-                        "16:30",
-                        "Concerts",
-                        "Equipaments culturals obren les portes",
-                        "In recent years people",
-                        detailModel = DetailModel(
-                                title = getString(R.string.essentials_title),
-                                subtitle = getString(R.string.essentials_subtitle),
-                                textBody = getString(R.string.essentials_body),
-                                link = getString(R.string.essentials_viewOnWeb))
-                , thisType = 3, isSelected = isTheMagicLineDateAndHour("16:30"))
-        )
-    }
-
-    private fun isTheMagicLineDateAndHour (hour :String): Boolean{
-
-        val scheduleHour = hour.toString().replace(COLON, PERIOD)
-
-        val now = System.currentTimeMillis() / MILLIS
-
-        val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * MILLIS))
-
-        val currentTime = timeInMillis.toString().replace(COLON, PERIOD)
-        //currentTime = "12.0" //TODO : para hacer testing - Cambiar currentTime type a VAR
-        hoursArray  = resources.obtainTypedArray(R.array.arraySchedule)
-
-        var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/MILLISECONDS
-        var auxiliar = 0.0f
-
-        for(index in 1 until hoursArray.length()) {
-            val value = hoursArray.getFloat(index, Float.MAX_VALUE)
-            auxiliar = value/MILLISECONDS
-
-            if(currentTime.toFloat() >= auxiliar) {
-                isTheOne = auxiliar
-            }
+        hoursArray = resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
+        val onClickListener: (DetailModel) -> Unit = { detailModel ->
+            this.transitionWithModalAnimation(
+                    context = this,
+                    fragment = DetailFragment.newInstance(detailModel),
+                    analyticsScreen = TrackingUtils.Screens.ScheduleDetail
+            )
         }
-        val cTime: Long = Calendar.getInstance().timeInMillis
-        val dateLong: Long = resources.getString(R.string.magicLineDate).toLong()
-        val diff: Long = dateLong - cTime
-      //  diff = 0 //TODO : para hacer testing - Cambiar diff type a VAR
-
-        if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/MILLISECONDS) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
-        return false
+        scheduleModel = getListeners(this, onClickListener = onClickListener)
     }
+
+
 
     private fun clearBackStack() {
         while (supportFragmentManager.backStackEntryCount != 0) {

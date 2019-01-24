@@ -75,8 +75,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/scheduleCardSubtitle"
                 android:layout_marginBottom="8dp"
-                android:ellipsize="end"
-                android:maxLines="3"
                 tools:text="@string/lorem_ipsum" />
 
             <Button

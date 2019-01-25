@@ -8,5 +8,6 @@
     <string name="donation_url">https://www.magiclinesjd.org/ca/equips_valencia</string>
     <string name="moreInfoWeb">https://www.magiclinesjd.org/ca/participar_valencia</string>
     <string name="pdf_donations_collecting_guide">http://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Valencia.pdf</string>
+    <string name="schedule_header_total_duration" translatable="false">(Total ruta 5h)</string>
 
 </resources>

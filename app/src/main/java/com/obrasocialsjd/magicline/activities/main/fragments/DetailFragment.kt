@@ -1,7 +1,5 @@
 package com.obrasocialsjd.magicline.activities.main.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -18,10 +16,7 @@ import com.obrasocialsjd.magicline.activities.main.adapters.SlideViewNewsImgAdap
 import com.obrasocialsjd.magicline.activities.main.general.MainActivity
 import com.obrasocialsjd.magicline.activities.main.otherui.CirclePagerIndicatorDecorationForDetailPage
 import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.shareApp
-import com.obrasocialsjd.magicline.utils.htmlToSpanned
-import com.obrasocialsjd.magicline.utils.openShareActivity
-import com.obrasocialsjd.magicline.utils.openUrl
+import com.obrasocialsjd.magicline.utils.*
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
@@ -36,7 +31,7 @@ class DetailFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        detailModel = arguments?.get("detailFragment") as DetailModel
+        detailModel = arguments?.get(Fragment.Detail.toString()) as DetailModel
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -134,7 +129,7 @@ class DetailFragment : BaseFragment() {
         fun newInstance(dataModel: DetailModel): BaseFragment {
             val myFragment = DetailFragment()
             val args = Bundle()
-            args.putSerializable("detailFragment", dataModel)
+            args.putSerializable(Fragment.Detail.toString(), dataModel)
             myFragment.arguments = args
             return myFragment
         }

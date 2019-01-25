@@ -75,8 +75,8 @@
     <string name="moreinfo_idioma" translatable="false">Idioma</string>
     <string name="moreinfo_amigos" translatable="false">Convida als teus amics</string>
     <string name="moreinfo_sj">San Joan de Deu</string>
-    <string name="castellano">castellà</string>
-    <string name="catalan">català</string>
+    <string name="castellano">Castellà</string>
+    <string name="catalan">Català</string>
 
     <!-- schedule fragment -->
     <string name="schedule_title">Programació</string>
@@ -198,5 +198,7 @@
     <string name="noWifiTitle">Error de connexió</string>
     <string name="noWifiBody">No tens connexió a Internet. Es carregaràn les últimes dades disponibles</string>
     <string name="noWifiWebview">No es pot carregar el contingut. Comprova la teva connexió a internet i actualitza la pàgina</string>
+    <string name="scheduleDetailTitle">ACTIVITATS</string>
+
 </resources>
 

@@ -188,13 +188,6 @@
                     android:layout_marginBottom="@dimen/marginMoreInfo">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/moreInfoOn"
-                        style="@style/defaultTextBody" />
-
-                    <TextView
                         android:id="@+id/moreInfoWeb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

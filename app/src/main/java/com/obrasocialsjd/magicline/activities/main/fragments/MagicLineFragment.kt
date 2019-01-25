@@ -185,15 +185,19 @@ class MagicLineFragment : BaseFragment() {
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
 
         right_arrow_relative.setOnClickListener {
-            val totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
+            var totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
 
-            val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
+            var lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
             if (lastVisibleItemIndex >= totalItemCount) return@setOnClickListener
+            if(lastVisibleItemIndex >= totalItemCount - 1){
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, 0)
+            }else{
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
 
-            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
+            }
         }
 
         left_arrow_relative.setOnClickListener {
@@ -203,9 +207,14 @@ class MagicLineFragment : BaseFragment() {
 
             val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
-            if (lastVisibleItemIndex <= 0) return@setOnClickListener
+          //  if (lastVisibleItemIndex <= 0) return@setOnClickListener
 
-            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
+            if(lastVisibleItemIndex <= 0){
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, newsRecyclerView.adapter?.itemCount ?:0)
+            }else{
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
+
+            }
         }
     }
 

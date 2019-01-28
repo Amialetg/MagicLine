@@ -198,5 +198,10 @@
     <string name="noWifiTitle">Error de connexió</string>
     <string name="noWifiBody">No tens connexió a Internet. Es carregaràn les últimes dades disponibles</string>
     <string name="noWifiWebview">No es pot carregar el contingut. Comprova la teva connexió a internet i actualitza la pàgina</string>
+    <string name="scheduleDetailTitle">ACTIVITATS</string>
+
+    <!-- SHARE DONATIONS -->
+    <string name="shareDonationsTitle">Demana donatius als teus amics</string>
+    <string name="shareDonationsText"> <![CDATA[<html>Ens hem apuntat a la #MagicLine de @solidaridadsjd! Ajuda’ns a assolir el nostre repte solidari per les persones en situació vulnerable. Ens fas un donatiu? <br/> <br/> http://www.magiclinesjd.org/ca/donatius</html>]]></string>
 </resources>
 

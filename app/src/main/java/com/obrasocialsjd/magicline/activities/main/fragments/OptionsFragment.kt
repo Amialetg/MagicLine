@@ -79,7 +79,7 @@ class OptionsFragment: BaseFragment() {
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
-            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtils.Screens.InviteFriends)
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), ShareFragment.newInstance(false), analyticsScreen = TrackingUtils.Screens.InviteFriends)
         }
         webMagicLineTextView.setOnClickListener{
             callIntent(urlMagicLine)

@@ -16,16 +16,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.maps.android.data.kml.KmlLayer
 import com.obrasocialsjd.magicline.R
@@ -52,7 +50,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var arrayListCoordinates = arrayListOf<LatLng>()
     private var userLocation: Location? = null
     private var isLocationActive: Boolean = false
-    private var areMarkersActive: Boolean = false
+    private var areMarkersActive: Boolean = true
     private lateinit var arrayKml: TypedArray
     private lateinit var kmAdapter: KmAdapter
 
@@ -85,8 +83,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onStart() {
         super.onStart()
 
-        tintUserLocationButton()
-        tintMarkersButton()
+        tintUserLocationMarkers()
 
         context?.let {
             isLocationActive = getUserLocationPreferences(it)
@@ -202,8 +199,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun addMapElements() {
         // TODO: Uncomment when kml markers are updated to 2019
-        //initInterestPlaces()
-        //setInterestMarkersVisibility(true)
+        initInterestPlaces()
+        setInterestMarkersVisibility(true)
 
         addCurrentModalityLayerToMap()
     }
@@ -234,27 +231,35 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun switchUserLocationButton() {
         isLocationActive = !isLocationActive
-        tintUserLocationButton()
+        tintUserLocationMarkers()
     }
 
-    private fun tintUserLocationButton() {
+    private fun tintUserLocationMarkers() {
         if (isLocationActive){
-            changeButtonColor(MAP_BUTTON_SELECTED)
-        }else{
-            changeButtonColor(MAP_BUTTON_UNSELECTED)
+            changeButtonColor(MAP_BUTTON_SELECTED, mapView.userLocationBtn)
+        }
+        else {
+            changeButtonColor(MAP_BUTTON_UNSELECTED, mapView.userLocationBtn)
+        }
+        if (areMarkersActive){
+            changeButtonColor(MAP_BUTTON_SELECTED, mapView.showMarkersBtn)
+        }
+        else {
+            changeButtonColor(MAP_BUTTON_UNSELECTED, mapView.showMarkersBtn)
         }
     }
 
     @SuppressLint("RestrictedApi")
-    private fun changeButtonColor(colorRes : Int) {
+    private fun changeButtonColor(colorRes : Int, mapViewObject: AppCompatImageButton) {
         context?.let { context ->
-            mapView.userLocationBtn.supportBackgroundTintList = ContextCompat.getColorStateList(context, colorRes)
+            mapViewObject.supportBackgroundTintList = ContextCompat.getColorStateList(context, colorRes)
+
         }
     }
 
     private fun showUserLocation(moveCamera: Boolean = false) {
         if (mapInitialized) {
-            tintUserLocationButton()
+            tintUserLocationMarkers()
             if (userMarker != null) userMarker?.remove()
             userLocation?.let { location ->
                 userMarker = setMarker("", "", location.latitude, location.longitude, user_location_icon)
@@ -289,27 +294,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 // adds the current route (deleted with map.clear)
                 false
             }
-            tintMarkersButton()
+            tintUserLocationMarkers()
         }
     }
 
     private fun switchInterestMarkers() {
-        activity?.funNotAvailableDialog()
-        // TODO: Uncomment when kml markers are updated to 2019
-        //setInterestMarkersVisibility()
+        setInterestMarkersVisibility()
     }
 
     private fun initInterestPlaces() {
         kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
     }
 
-    private fun tintMarkersButton() {
-        if (areMarkersActive){
-            changeButtonColor(MAP_BUTTON_SELECTED)
-        }else{
-            changeButtonColor(MAP_BUTTON_UNSELECTED)
-        }
-    }
+
 
     private fun addCurrentModalityLayerToMap() {
         try {
@@ -444,7 +441,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun onPermissionNotGranted() {
         isLocationActive = false
-        tintUserLocationButton()
+        tintUserLocationMarkers()
     }
 
     private fun isGPSAvailable() : Boolean {
@@ -464,7 +461,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 initLocationClient()
             } else {
                 isLocationActive = false
-                tintUserLocationButton()
+                tintUserLocationMarkers()
             }
         } else {
             requestPermissions()

@@ -130,7 +130,7 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
 
     <!-- Share -->
     <string name="share">"Comparte tu experiencia:"</string>
-    <string name="inviteFriends">"Invita a tus amigos \na la app."</string>
+    <string name="inviteFriends">"Invita a tus amigos \na la app"</string>
     <string name="shareAppText">La #MagicLine de @solidaridadsjd ya tiene APP para Android y iPhone. Facilita las donaciones, las novedades de movilización y todos los horarios necesarios de la caminada. Descárgatela!</string>
 
     <string name="whatsapp" translatable="false">WhatsApp</string>

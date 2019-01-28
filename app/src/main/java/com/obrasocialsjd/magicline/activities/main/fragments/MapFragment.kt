@@ -84,7 +84,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onStart()
 
         tintUserLocationMarkers()
-        tintUserLocationMarkers()
 
         context?.let {
             isLocationActive = getUserLocationPreferences(it)
@@ -238,12 +237,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun tintUserLocationMarkers() {
         if (isLocationActive){
             changeButtonColor(MAP_BUTTON_SELECTED, mapView.userLocationBtn)
-        }else{
+        }
+        else {
             changeButtonColor(MAP_BUTTON_UNSELECTED, mapView.userLocationBtn)
         }
         if (areMarkersActive){
             changeButtonColor(MAP_BUTTON_SELECTED, mapView.showMarkersBtn)
-        }else{
+        }
+        else {
             changeButtonColor(MAP_BUTTON_UNSELECTED, mapView.showMarkersBtn)
         }
     }
@@ -298,8 +299,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun switchInterestMarkers() {
-        //activity?.funNotAvailableDialog()
-        // TODO: Uncomment when kml markers are updated to 2019
         setInterestMarkersVisibility()
     }
 

@@ -207,8 +207,6 @@ class MagicLineFragment : BaseFragment() {
 
             val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
-          //  if (lastVisibleItemIndex <= 0) return@setOnClickListener
-
             if(lastVisibleItemIndex <= 0){
                 mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, newsRecyclerView.adapter?.itemCount ?:0)
             }else{

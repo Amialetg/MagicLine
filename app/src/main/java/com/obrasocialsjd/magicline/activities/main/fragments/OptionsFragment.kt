@@ -103,8 +103,8 @@ class OptionsFragment: BaseFragment() {
                     link = getString(aboutTheAppLink),
                     listToolbarImg = listOf(about_us),
                     isBlack = false,
-                    hasToolbarImg = false
-                   // titleToolbar = " "
+                    hasToolbarImg = true,
+                    titleToolbar = " "
             )
 
             (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtils.Screens.AboutApp)

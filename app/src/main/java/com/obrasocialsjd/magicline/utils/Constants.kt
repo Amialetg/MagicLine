@@ -97,6 +97,7 @@ const val ZERO : String = "00"
 
 const val COLON : String = ":"
 const val PERIOD : String = "."
+
 /**
  * SCHEDULE ADAPTER
  */
@@ -106,6 +107,12 @@ const val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
 const val TYPE_LAST_CARD : Int = 3
 const val TYPE_FIRST_CARD : Int = 4
 
+/**
+ * VARIABLES
+ */
+
+const val SHARE_DONATIONS = "shareDonations"
+const val STORE_LINK = "https://play.google.com/store/apps/details?id="
 /**
  * * FRAGMENT NAME
  */

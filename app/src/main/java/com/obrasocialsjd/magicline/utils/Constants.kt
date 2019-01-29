@@ -113,6 +113,7 @@ const val TYPE_FIRST_CARD : Int = 4
 
 const val SHARE_DONATIONS = "shareDonations"
 const val STORE_LINK = "https://play.google.com/store/apps/details?id="
+const val SPOTS = "13000"
 /**
  * * FRAGMENT NAME
  */

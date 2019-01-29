@@ -118,7 +118,7 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.isHighlightPerTapEnabled = false
         pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
-        pieChart.centerText = availableSpots.toString().addThousandsSeparator().replace(",", ".") + "\n" + getString(R.string.vacancy)
+        pieChart.centerText = SPOTS.addThousandsSeparator().replace(",", ".") + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
         pieChart.animateY(2000)
 

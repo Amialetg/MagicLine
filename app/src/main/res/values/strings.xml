@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">MagicLine</string>
-    <string name="principal_top_toolbar" translatable="false">MagicLine</string>
+    <string name="principal_top_toolbar" translatable="false">#MagicLine</string>
     <string name="OValues1" translatable="false">Utilizació d\'envasos ecològics</string>
     <string name="OValues2" translatable="false">Punts de reciclatge</string>
     <string name="OValues3" translatable="false">Respecte amb el medi ambient</string>
@@ -34,7 +34,7 @@
 
     <!--Section mes que-->
     <string name="mesque_title">més que una caminada</string>
-    <string name="mesque_dona">dóna a un equip</string>
+    <string name="mesque_dona">dóna a \n un equip</string>
     <string name="mesque_demana">demana donatius</string>
     <string name="mesque_idees">idees de captació</string>
 
@@ -200,7 +200,7 @@
     <string name="scheduleDetailTitle">ACTIVITATS</string>
 
     <!-- SHARE DONATIONS -->
-    <string name="shareDonationsTitle">Demana donatius als teus amics</string>
+    <string name="shareDonationsTitle">Demana donatius \n als teus amics</string>
     <string name="shareDonationsText">Ens hem apuntat a la #MagicLine de @solidaridadsjd! Ajuda’ns a assolir el nostre repte solidari per les persones en situació vulnerable. Ens fas un donatiu? <br/> <br/> http://www.magiclinesjd.org/ca/donatius</string>
 </resources>
 

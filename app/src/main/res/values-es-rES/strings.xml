@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">"MagicLine"</string>
-    <string name="principal_top_toolbar">"MagicLine"</string>
+    <string name="principal_top_toolbar">"#MagicLine"</string>
     <string name="OValues1">"Utilización de envases ecológicos"</string>
     <string name="OValues2">"Puntos de reciclaje"</string>
     <string name="OValues3">"Respeto al medioambiente"</string>
@@ -32,7 +32,7 @@
 
     <!-- Section mes que -->
     <string name="mesque_title">"más que una caminata"</string>
-    <string name="mesque_dona">"dona a un equipo"</string>
+    <string name="mesque_dona">"dona a \n un equipo"</string>
     <string name="mesque_demana">"pide donativos"</string>
     <string name="mesque_idees">"ideas de captación"</string>
 
@@ -182,6 +182,6 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="scheduleDetailTitle">ACTIVIDADES</string>
 
     <!-- SHARE DONATIONS -->
-    <string name="shareDonationsTitle">Pide donativos a tus amigos</string>
+    <string name="shareDonationsTitle">Pide donativos \n a tus amigos</string>
     <string name="shareDonationsText">Nos hemos apuntado a la #MagicLine de @solidaridadsjd! Ayúdanos a conseguir nuestro reto solidario para las personas en situación vulnerable. ¿Nos haces un donativo? <br/> <br/> http://www.magiclinesjd.org/es/donativos </string>
 </resources>

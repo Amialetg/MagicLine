@@ -75,8 +75,8 @@
     <string name="moreinfo_idioma" translatable="false">Idioma</string>
     <string name="moreinfo_amigos" translatable="false">Convida als teus amics</string>
     <string name="moreinfo_sj">San Joan de Deu</string>
-    <string name="castellano">castellà</string>
-    <string name="catalan">català</string>
+    <string name="castellano">Castellà</string>
+    <string name="catalan">Català</string>
 
     <!-- schedule fragment -->
     <string name="schedule_title">Programació</string>
@@ -137,7 +137,7 @@
 
     <!-- Share -->
     <string name="share">Comparteix la teva experiència:</string>
-    <string name="inviteFriends">Convida als teus amics \n a l\'app.</string>
+    <string name="inviteFriends">Convida als teus amics \n a l\'app</string>
     <string name="shareAppText">La #MagicLine de @solidaridadsjd ja té APP per a Android i Iphone. Facilita les donacions, les novetats de la mobilització i tots els horaris necessaris el dia de la caminada. Descarrega-te-la!</string>
     <string name="whatsapp" translatable="false">WhatsApp</string>
     <string name="telegram" translatable="false">Telegram</string>

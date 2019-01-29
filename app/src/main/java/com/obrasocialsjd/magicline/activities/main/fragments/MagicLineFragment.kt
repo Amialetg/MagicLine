@@ -185,15 +185,19 @@ class MagicLineFragment : BaseFragment() {
     private fun initArrowsListeners(mLayoutManager: LinearLayoutManager) {
 
         right_arrow_relative.setOnClickListener {
-            val totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
+            var totalItemCount = newsRecyclerView.adapter?.itemCount ?: 0
 
             if (totalItemCount < 0) return@setOnClickListener
 
-            val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
+            var lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
             if (lastVisibleItemIndex >= totalItemCount) return@setOnClickListener
-
-            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
+            if(lastVisibleItemIndex >= totalItemCount - 1) {
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, 0)
+            }
+            else {
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
+            }
         }
 
         left_arrow_relative.setOnClickListener {
@@ -203,9 +207,12 @@ class MagicLineFragment : BaseFragment() {
 
             val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
-            if (lastVisibleItemIndex <= 0) return@setOnClickListener
-
-            mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
+            if(lastVisibleItemIndex <= 0) {
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, newsRecyclerView.adapter?.itemCount ?:0)
+            }
+            else {
+                mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
+            }
         }
     }
 
@@ -226,7 +233,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.donations_body),
                 link = getString(R.string.donations_viewOnWeb),
                 isBlack = true,
-                listToolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2, R.drawable.sliderimage3, R.drawable.laboratori),
+                listToolbarImg = listOf(R.drawable.destidelfons, R.drawable.sliderimage2),
                 hasToolbarImg = false)
         val dataModelSantJoan = DetailModel(
                 title = getString(R.string.sjd_title),
@@ -234,7 +241,7 @@ class MagicLineFragment : BaseFragment() {
                 textBody = getString(R.string.sjd_body),
                 link = getString(R.string.sjd_viewOnWeb),
                 isBlack = true,
-                listToolbarImg = listOf(R.drawable.sliderimage3, R.drawable.sliderimage2, R.drawable.laboratori, R.drawable.destidelfons),
+                listToolbarImg = listOf(R.drawable.sliderimage3, R.drawable.laboratori),
                 hasToolbarImg = false)
 
         info_essentials_button.setOnClickListener {

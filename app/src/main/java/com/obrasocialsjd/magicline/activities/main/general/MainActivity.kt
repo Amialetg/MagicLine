@@ -3,6 +3,7 @@ package com.obrasocialsjd.magicline.activities.main.general
 import android.content.Context
 import android.content.Intent
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -54,6 +55,7 @@ class MainActivity : BaseActivity() {
 
         if (savedInstanceState == null) {
             isConnected()
+            bottomBarView.setTextTintList(HOME, ContextCompat.getColorStateList(this, R.color.light_red))
             transitionWithModalAnimation(context = this, fragment = MagicLineFragment(),
                     useModalAnimation = false, addToBackStack = false, analyticsScreen = TrackingUtils.Screens.MagicLine)
             TrackingUtils(this).track(TrackingUtils.Screens.MagicLine)
@@ -119,25 +121,29 @@ class MainActivity : BaseActivity() {
             clearBackStack()
             val newFragment: BaseFragment
             var analyticsScreen: TrackingUtils.Screens = TrackingUtils.Screens.MagicLine
-
+            bottomBarView.itemTextColor = ContextCompat.getColorStateList(this, R.color.moreinfo_background)
             when (item.itemId) {
                 R.id.magicline_menu_id -> {
                     newFragment = MagicLineFragment()
                     analyticsScreen = TrackingUtils.Screens.MagicLine
+                    bottomBarView.setTextTintList(HOME, ContextCompat.getColorStateList(this, R.color.light_red))
                 }
                 R.id.donations_menu_id -> {
                     newFragment = DonationsFragment()
                     analyticsScreen = TrackingUtils.Screens.Donations
+                    bottomBarView.setTextTintList(DONATIONS, ContextCompat.getColorStateList(this, R.color.light_red))
                 }
                 R.id.info_menu_id -> {
                     newFragment = OptionsFragment()
                     analyticsScreen = TrackingUtils.Screens.Options
+                    bottomBarView.setTextTintList(OPTIONS, ContextCompat.getColorStateList(this, R.color.light_red))
                 }
                 R.id.schedule_menu_id -> {
                     if (getFlavor() != VALENCIA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
                         analyticsScreen = TrackingUtils.Screens.Schedule
                         TrackingUtils(this).track(TrackingUtils.Screens.Schedule)
+                        bottomBarView.setTextTintList(SCHEDULE, ContextCompat.getColorStateList(this, R.color.light_red))
                     } else {
                         notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
                         //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
@@ -146,7 +152,11 @@ class MainActivity : BaseActivity() {
                     }
                 }
                 R.id.none -> return
-                else -> newFragment = MagicLineFragment()
+                else -> {
+                    newFragment = MagicLineFragment()
+                    bottomBarView.setTextTintList(HOME, ContextCompat.getColorStateList(this, R.color.light_red))
+
+                }
             }
 
             transitionWithModalAnimation(context = this, fragment = newFragment, useModalAnimation = false,

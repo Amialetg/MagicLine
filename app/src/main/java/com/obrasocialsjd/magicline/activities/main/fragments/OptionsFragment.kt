@@ -3,6 +3,7 @@ package com.obrasocialsjd.magicline.activities.main.fragments
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -41,17 +42,21 @@ class OptionsFragment: BaseFragment() {
     private fun initLanguageSettings(){
         val prefs : SharedPreferences = this.requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE )
 
-        if(prefs.getString(PREF_LANGUAGE, "") != SPANISH){
+        if (prefs.getString(PREF_LANGUAGE, "") != SPANISH) {
             checkbox_catalan_text.isChecked = true
-        }else{
+            checkbox_catalan_text.setTypeface(null, Typeface.BOLD)
+
+        } else {
             checkbox_spanish_text.isChecked = true
+            checkbox_spanish_text.setTypeface(null, Typeface.BOLD)
         }
         checkbox_spanish_text.setOnCheckedChangeListener { checkbox_spanish_text, isChecked ->
 
-            if(checkbox_spanish_text.isChecked){
+            if (checkbox_spanish_text.isChecked) {
 
-                if (checkbox_catalan_text.isChecked){
+                if (checkbox_catalan_text.isChecked) {
                     checkbox_catalan_text.isChecked = false
+                    checkbox_catalan_text.setTypeface(null, Typeface.NORMAL)
                 }
                 val editor = prefs.edit()
                 editor.putString(PREF_LANGUAGE, SPANISH)
@@ -61,9 +66,10 @@ class OptionsFragment: BaseFragment() {
         }
         checkbox_catalan_text.setOnCheckedChangeListener { checkbox_catalan_text, isChecked ->
 
-            if(checkbox_catalan_text.isChecked){
-                if (checkbox_spanish_text.isChecked){
+            if (checkbox_catalan_text.isChecked) {
+                if (checkbox_spanish_text.isChecked) {
                     checkbox_spanish_text.isChecked = false
+                    checkbox_spanish_text.setTypeface(null, Typeface.NORMAL)
                 }
                 val editor = prefs.edit()
                 editor.putString(PREF_LANGUAGE, "_")
@@ -75,16 +81,16 @@ class OptionsFragment: BaseFragment() {
 
     private fun refresh() { this.requireActivity().recreate() }
 
-    private fun listener(){
+    private fun listener() {
         val urlMagicLine= getString(R.string.magicLineWeb)
 
         moreInfoFriendsTextView.setOnClickListener{
             (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), ShareFragment.newInstance(false), analyticsScreen = TrackingUtils.Screens.InviteFriends)
         }
-        webMagicLineTextView.setOnClickListener{
+        webMagicLineTextView.setOnClickListener {
             callIntent(urlMagicLine)
         }
-        aboutMLTextView.setOnClickListener{
+        aboutMLTextView.setOnClickListener {
 
             val dataModelAboutMLApp = DetailModel(
                     title = getString(aboutTheAppTitle),
@@ -93,13 +99,15 @@ class OptionsFragment: BaseFragment() {
                     link = getString(aboutTheAppLink),
                     listToolbarImg = listOf(about_us),
                     isBlack = false,
-                    hasToolbarImg = true)
+                    hasToolbarImg = true,
+                    titleToolbar = " "
+            )
 
             (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtils.Screens.AboutApp)
         }
     }
 
-    private fun callIntent(url : String){
+    private fun callIntent(url : String) {
 
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

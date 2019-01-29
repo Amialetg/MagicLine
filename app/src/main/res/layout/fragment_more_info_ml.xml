@@ -185,14 +185,8 @@
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/moreInfo"
                     android:paddingEnd="@dimen/moreInfo"
+                    android:gravity="center"
                     android:layout_marginBottom="@dimen/marginMoreInfo">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/moreInfoOn"
-                        style="@style/defaultTextBody" />
 
                     <TextView
                         android:id="@+id/moreInfoWeb"
@@ -204,6 +198,7 @@
                         android:paddingEnd="15dp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:layout_marginTop="15dp"
                         android:text="@string/mlSjd"
                         android:textAlignment="center"
                         style="@style/ViewOnWeb" />

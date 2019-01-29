@@ -32,6 +32,7 @@ import kotlinx.android.synthetic.main.layout_countdown_top.*
 import kotlinx.android.synthetic.main.layout_mes_que.*
 import kotlinx.android.synthetic.main.layout_news.*
 import java.util.*
+import kotlin.math.roundToInt
 
 class MagicLineFragment : BaseFragment() {
 
@@ -140,13 +141,15 @@ class MagicLineFragment : BaseFragment() {
 
         mMagicLineViewModel.getDonations().observe(this, androidx.lifecycle.Observer { donation ->
             if (donation != null) {
-                recaudats_num.text = getDonationsByCity(donation).addCurrency()
+                var value = getDonationsByCity(donation).toInt()
+
+                recaudats_num.text = value.toDouble().addCurrency().replace(",", ".")
             }
         })
 
         mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
             participants?.let {
-                participants_num.text = it.totalParticipants.toString().addThousandsSeparator()
+                participants_num.text = it.totalParticipants.toString().addThousandsSeparator().replace(",", ".")
             }
         })
     }

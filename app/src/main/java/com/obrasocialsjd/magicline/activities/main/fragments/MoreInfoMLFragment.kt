@@ -60,7 +60,7 @@ class MoreInfoMLFragment : BaseFragment() {
             totalParticipants = participants.totalParticipants.toDouble()
             availableSpots = ((participants.spots + 99) / 100) * 100
             val currentAvailablePlaces = availableSpots - totalParticipants
-            currentParticipants.text = totalParticipants.addThousandsSeparator()
+            currentParticipants.text = totalParticipants.addThousandsSeparator().replace(",", ".")
             configurePieChart(totalParticipants.toFloat(), currentAvailablePlaces.toFloat())
         })
     }
@@ -118,7 +118,7 @@ class MoreInfoMLFragment : BaseFragment() {
         pieChart.isHighlightPerTapEnabled = false
         pieChart.isRotationEnabled = false
         pieChart.holeRadius = 80f
-        pieChart.centerText = availableSpots.toString().addThousandsSeparator() + "\n" + getString(R.string.vacancy)
+        pieChart.centerText = availableSpots.toString().addThousandsSeparator().replace(",", ".") + "\n" + getString(R.string.vacancy)
         pieChart.setCenterTextSize(25.0f)
         pieChart.animateY(2000)
 

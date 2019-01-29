@@ -72,8 +72,8 @@
     <string name="moreinfo_idioma">"Idioma"</string>
     <string name="moreinfo_amigos">"Invita a tus amigos"</string>
     <string name="moreinfo_sj">"Sant Joan de Déu"</string>
-    <string name="castellano">"castellano"</string>
-    <string name="catalan">"catalán"</string>
+    <string name="castellano">"Castellano"</string>
+    <string name="catalan">"Catalán"</string>
 
     <!-- schedule fragment -->
     <string name="schedule_title">"Programación"</string>
@@ -130,7 +130,7 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
 
     <!-- Share -->
     <string name="share">"Comparte tu experiencia:"</string>
-    <string name="inviteFriends">"Invita a tus amigos \na la app."</string>
+    <string name="inviteFriends">"Invita a tus amigos \na la app"</string>
     <string name="shareAppText">La #MagicLine de @solidaridadsjd ya tiene APP para Android y iPhone. Facilita las donaciones, las novedades de movilización y todos los horarios necesarios de la caminada. Descárgatela!</string>
 
     <string name="whatsapp" translatable="false">WhatsApp</string>
@@ -179,4 +179,6 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="noWifiTitle">Error de conexión</string>
     <string name="noWifiBody">No tienes conexión a Internet. Se cargarán los últimos datos disponibles</string>
     <string name="noWifiWebview">No se puede cargar el contenido. Comprueba tu conexión a internet y actualiza la página</string>
+    <string name="scheduleDetailTitle">ACTIVIDADES</string>
+
 </resources>

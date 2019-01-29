@@ -181,4 +181,7 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="noWifiWebview">No se puede cargar el contenido. Comprueba tu conexión a internet y actualiza la página</string>
     <string name="scheduleDetailTitle">ACTIVIDADES</string>
 
+    <!-- SHARE DONATIONS -->
+    <string name="shareDonationsTitle">Pide donativos a tus amigos</string>
+    <string name="shareDonationsText">Nos hemos apuntado a la #MagicLine de @solidaridadsjd! Ayúdanos a conseguir nuestro reto solidario para las personas en situación vulnerable. ¿Nos haces un donativo? <br/> <br/> http://www.magiclinesjd.org/es/donativos </string>
 </resources>

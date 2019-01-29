@@ -86,7 +86,7 @@ class MagicLineFragment : BaseFragment() {
         }
 
         btnRequestDonates.setOnClickListener {
-            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), InviteFriendsFragment.newInstance(), analyticsScreen = TrackingUtils.Screens.InviteFriends)
+            (activity as AppCompatActivity).transitionWithModalAnimation(requireContext(), ShareFragment.newInstance(true), analyticsScreen = TrackingUtils.Screens.InviteFriends)
         }
 
         btnBrainStorm.setOnClickListener { (activity as MainActivity).openUrl(getString(R.string.pdf_donations_collecting_guide)) }

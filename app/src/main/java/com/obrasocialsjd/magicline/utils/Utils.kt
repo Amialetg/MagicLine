@@ -107,13 +107,19 @@ fun Double.addThousandsSeparator() : String {
     return decimalFormat.format(this)
 }
 
-fun shareApp(pkg: String, shareText: String = "", storeLink: String = ""): Intent {
-
+fun shareApp(pkg: String, shareText: String = "", isShareDonations: Boolean = false): Intent {
+    val storeLink = STORE_LINK
     val waIntent = Intent(Intent.ACTION_SEND)
     waIntent.type = "text/plain"
     waIntent.putExtra(Intent.EXTRA_SUBJECT, "Magic Line")
-    val text = "\n" +  shareText + "\n\n" + storeLink  + BuildConfig.APPLICATION_ID
+    var text = "\n" +  shareText + "\n\n"
+
+    if (!isShareDonations){
+        text = text + storeLink  + BuildConfig.APPLICATION_ID
+    }
+
     if (pkg.isNotEmpty()) waIntent.setPackage(pkg)
+    
     waIntent.putExtra(Intent.EXTRA_TEXT, text)
     return waIntent
 }

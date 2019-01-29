@@ -192,11 +192,11 @@ class MagicLineFragment : BaseFragment() {
             var lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
             if (lastVisibleItemIndex >= totalItemCount) return@setOnClickListener
-            if(lastVisibleItemIndex >= totalItemCount - 1){
+            if(lastVisibleItemIndex >= totalItemCount - 1) {
                 mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, 0)
-            }else{
+            }
+            else {
                 mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex + 1)
-
             }
         }
 
@@ -207,11 +207,11 @@ class MagicLineFragment : BaseFragment() {
 
             val lastVisibleItemIndex = mLayoutManager.findLastVisibleItemPosition()
 
-            if(lastVisibleItemIndex <= 0){
+            if(lastVisibleItemIndex <= 0) {
                 mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, newsRecyclerView.adapter?.itemCount ?:0)
-            }else{
+            }
+            else {
                 mLayoutManager.smoothScrollToPosition(newsRecyclerView, null, lastVisibleItemIndex - 1)
-
             }
         }
     }

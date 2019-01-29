@@ -29,17 +29,14 @@ class ShareFragment: BaseFragment() {
         initToolbar()
         initRRSSListeners()
         return shareView
-
     }
 
     override fun onResume() {
         super.onResume()
+
         if (isShareDonations) {
             shareView.textViewHeader.text = getText(R.string.shareDonationsTitle)
             shareText = getString(R.string.shareDonationsText)
-        } else {
-            shareView.textViewHeader.text = getText(R.string.inviteFriends)
-            shareText = getString(R.string.shareAppText)
         }
     }
 
@@ -47,26 +44,27 @@ class ShareFragment: BaseFragment() {
         (activity as AppCompatActivity).setSupportActionBar(topToolbar)
         shareView.crossBtn.setBackgroundResource(R.drawable.ic_white_cross)
         shareView.crossBtn.setOnClickListener { this.requireActivity().onBackPressed() }
+
+        shareView.textViewHeader.text = getText(R.string.inviteFriends)
+        shareText = getString(R.string.shareAppText)
     }
 
     private fun initRRSSListeners(){
 
-        val storeLink: String = getString(R.string.storeLink)
-
         shareView.emailCell.setOnClickListener {
-            activity?.openShareActivity(shareApp("", shareText, storeLink))
+            activity?.openShareActivity(shareApp("", shareText, isShareDonations))
         }
         shareView.fbCell.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.fb_pkg), shareText, storeLink))
+            activity?.openShareActivity(shareApp(getString(R.string.fb_pkg), shareText, isShareDonations))
         }
         shareView.msnCell.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.msn_pkg), shareText, storeLink))
+            activity?.openShareActivity(shareApp(getString(R.string.msn_pkg), shareText, isShareDonations))
         }
         shareView.telegramCell.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.tel_pkg), shareText, storeLink))
+            activity?.openShareActivity(shareApp(getString(R.string.tel_pkg), shareText, isShareDonations))
         }
         shareView.whatsCell.setOnClickListener {
-            activity?.openShareActivity(shareApp(getString(R.string.whats_pkg), shareText, storeLink))
+            activity?.openShareActivity(shareApp(getString(R.string.whats_pkg), shareText, isShareDonations))
         }
 
     }
@@ -75,9 +73,9 @@ class ShareFragment: BaseFragment() {
         fun newInstance(shareDonations: Boolean): BaseFragment {
             val myFragment = ShareFragment()
             val args = Bundle()
-            args.putSerializable(SHARE_DONATIONS, shareDonations)
+            args.putBoolean(SHARE_DONATIONS, shareDonations)
             myFragment.arguments = args
-            return ShareFragment()
+            return myFragment
         }
     }
 }

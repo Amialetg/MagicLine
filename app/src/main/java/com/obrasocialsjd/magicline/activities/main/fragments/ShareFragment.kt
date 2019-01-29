@@ -6,20 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.obrasocialsjd.magicline.R
-import com.obrasocialsjd.magicline.models.DetailModel
-import com.obrasocialsjd.magicline.utils.Fragment
 import com.obrasocialsjd.magicline.utils.SHARE_DONATIONS
 import com.obrasocialsjd.magicline.utils.openShareActivity
 import com.obrasocialsjd.magicline.utils.shareApp
-import kotlinx.android.synthetic.main.fragment_share.*
 import kotlinx.android.synthetic.main.fragment_share.view.*
-import kotlinx.android.synthetic.main.layout_share.*
 import kotlinx.android.synthetic.main.toolbar_appbar_top.*
 
 
 class ShareFragment: BaseFragment() {
     private lateinit var shareView: View
-    private var isShareDonations: Boolean = true
+    private var isShareDonations : Boolean = false
     private lateinit var shareText: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +34,13 @@ class ShareFragment: BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        if (isShareDonations) { shareView.textViewHeader.text = getText(R.string.shareDonationsTitle) } else { shareView.textViewHeader.text = getText(R.string.inviteFriends) }
+        if (isShareDonations) {
+            shareView.textViewHeader.text = getText(R.string.shareDonationsTitle)
+            shareText = getString(R.string.shareDonationsText)
+        } else {
+            shareView.textViewHeader.text = getText(R.string.inviteFriends)
+            shareText = getString(R.string.shareAppText)
+        }
     }
 
     private fun initToolbar() {
@@ -48,8 +50,7 @@ class ShareFragment: BaseFragment() {
     }
 
     private fun initRRSSListeners(){
-        shareText = if (isShareDonations) getString(R.string.shareDonationsText)
-        else getString(R.string.shareAppText)
+
         val storeLink: String = getString(R.string.storeLink)
 
         shareView.emailCell.setOnClickListener {
@@ -71,10 +72,10 @@ class ShareFragment: BaseFragment() {
     }
 
     companion object {
-        fun newInstance(shareDonation: Boolean): BaseFragment {
+        fun newInstance(shareDonations: Boolean): BaseFragment {
             val myFragment = ShareFragment()
             val args = Bundle()
-            args.putSerializable(SHARE_DONATIONS, shareDonation)
+            args.putSerializable(SHARE_DONATIONS, shareDonations)
             myFragment.arguments = args
             return ShareFragment()
         }

@@ -9,7 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_rrss_detail" />
+        android:text="@string/text_rrss_detail"
+        style="@style/ShareExp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

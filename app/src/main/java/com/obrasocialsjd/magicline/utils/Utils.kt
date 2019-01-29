@@ -3,26 +3,21 @@ package com.obrasocialsjd.magicline.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import android.net.Uri
-import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
-import android.os.Message
 import android.text.Html
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.obrasocialsjd.magicline.BuildConfig
 import com.obrasocialsjd.magicline.R
 import com.obrasocialsjd.magicline.activities.main.fragments.BaseFragment
-import com.obrasocialsjd.magicline.activities.main.fragments.MagicLineFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.NumberFormat
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.util.*
 
 fun getFlavor() = BuildConfig.FLAVOR.capitalize()
@@ -108,7 +103,8 @@ fun String.addThousandsSeparator() : String {
 }
 
 fun Double.addThousandsSeparator() : String {
-    return NumberFormat.getInstance(Locale.getDefault()).format(this)
+    val decimalFormat = DecimalFormat("###,###,###", DecimalFormatSymbols.getInstance(Locale.getDefault()))
+    return decimalFormat.format(this)
 }
 
 fun shareApp(pkg: String, shareText: String = "", isShareDonations: Boolean = false): Intent {

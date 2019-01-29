@@ -19,7 +19,7 @@ class SlideViewNewsImgAdapter(private var dataSet: List<PostImageItem> ) : Recyc
 
     override fun onBindViewHolder(holder: SlideViewNewsImgAdapter.ViewHolder, position: Int) {
         val uri: String? = dataSet[position].img
-        Picasso.get().load(uri).placeholder(R.drawable.placeholder).resize(0,350).centerInside().into(holder.image)
+        Picasso.get().load(uri).placeholder(R.drawable.placeholder).fit().into(holder.image)
 
     }
 

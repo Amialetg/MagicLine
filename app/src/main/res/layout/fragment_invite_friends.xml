@@ -27,9 +27,9 @@
             <ImageButton
                 android:id="@+id/crossBtn"
                 android:layout_width="@dimen/crossBtn"
-                android:layout_height="@dimen/crossBtn"
-                android:layout_margin="16dp"
-                android:layout_gravity="top|start" />
+                android:layout_height="@dimen/margin_bottom_checkbox"
+                android:layout_gravity="top|start"
+                android:layout_margin="@dimen/browser_actions_context_menu_min_padding" />
 
             <TextView
                 android:id="@+id/textViewHeader"

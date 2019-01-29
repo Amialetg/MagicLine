@@ -91,11 +91,11 @@ class OptionsFragment: BaseFragment() {
                     subtitle = getString(aboutTheAppSubTitle),
                     textBody = getString(aboutTheAppBody),
                     link = getString(aboutTheAppLink),
-                    listToolbarImg = listOf(about_us),
+                    listToolbarImg = listOf(),
                     isBlack = false,
-                    hasToolbarImg = true)
+                    hasToolbarImg = false)
 
-            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = DetailFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtils.Screens.AboutApp)
+            (activity as AppCompatActivity).transitionWithModalAnimation(context = requireContext(), fragment = AboutUsFragment.newInstance(dataModelAboutMLApp), analyticsScreen = TrackingUtils.Screens.AboutApp)
         }
     }
 

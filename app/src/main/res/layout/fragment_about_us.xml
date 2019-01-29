@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgAboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/about_us"
+                android:layout_gravity="center_vertical"/>
+
+            <ImageButton
+                android:id="@+id/crossBtnAboutUs"
+                android:layout_width="@dimen/crossBtn"
+                android:layout_height="@dimen/margin_bottom_checkbox"
+                android:layout_gravity="top|start"
+                android:layout_margin="@dimen/browser_actions_context_menu_min_padding" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/detailTitleAboutUs"
+            style="@style/AFonsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_left_card"
+            android:layout_marginStart="@dimen/news_arrow_width"
+            android:layout_marginEnd="@dimen/news_arrow_width"/>
+
+        <TextView
+            android:id="@+id/detailSubtitleAboutUs"
+            style="@style/AFonsSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_arrow_width"
+            android:layout_marginEnd="@dimen/news_arrow_width"/>
+
+        <TextView
+            android:id="@+id/detailBodyAboutUs"
+            style="@style/defaultTextBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_arrow_width"
+            android:layout_marginEnd="@dimen/news_arrow_width"/>
+
+        <TextView
+            android:id="@+id/viewOnWebAboutUs"
+            style="@style/ViewOnWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_arrow_width"
+            android:layout_marginTop="@dimen/news_arrow_width"
+            android:layout_marginEnd="@dimen/news_arrow_width"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_border"
+            android:paddingStart="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="5dp"
+            android:text="@string/viewOnWeb"
+            android:textAlignment="center" />
+
+        <com.obrasocialsjd.magicline.activities.main.otherui.RrssView
+            android:id="@+id/rrssViewDetailAboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp">
+        </com.obrasocialsjd.magicline.activities.main.otherui.RrssView>
+    </LinearLayout>
+</ScrollView>

@@ -36,6 +36,9 @@
     <dimen name="news_arrow_height">14dp</dimen>
     <dimen name="news_arrow_box_width">40dp</dimen>
     <dimen name="news_item_height">69dp</dimen>
+    <!--Arrows -->
+    <dimen name="arrow_width">22dp</dimen>
+    <dimen name="arrow_height">10dp</dimen>
 
     <!-- Section other values -->
     <dimen name="margin_top_values">26dp</dimen>

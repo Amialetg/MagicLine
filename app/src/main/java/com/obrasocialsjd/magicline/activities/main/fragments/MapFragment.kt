@@ -321,9 +321,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         val lat: TypedArray = resources.obtainTypedArray(R.array.arrayLatitude)
         val lon: TypedArray = resources.obtainTypedArray(R.array.arrayLongitude)
         if(getFlavor() == BARCELONA) {
-            val isStBoi = LatLng(lat.getFloat(3, Float.MAX_VALUE).toDouble(), lon.getFloat(3, Float.MAX_VALUE).toDouble())
-            val is40km = LatLng(lat.getFloat(5, Float.MAX_VALUE).toDouble(), lon.getFloat(5, Float.MAX_VALUE).toDouble())
-            val is10km = LatLng(lat.getFloat(0, Float.MAX_VALUE).toDouble(), lon.getFloat(0, Float.MAX_VALUE).toDouble())
+            val isStBoi = LatLng(lat.getFloat(INDEX_STBOI, Float.MAX_VALUE).toDouble(), lon.getFloat(INDEX_STBOI, Float.MAX_VALUE).toDouble())
+            val is40km = LatLng(lat.getFloat(INDEX_40KM, Float.MAX_VALUE).toDouble(), lon.getFloat(INDEX_40KM, Float.MAX_VALUE).toDouble())
+            val is10km = LatLng(lat.getFloat(INDEX_10KM, Float.MAX_VALUE).toDouble(), lon.getFloat(INDEX_10KM, Float.MAX_VALUE).toDouble())
 
             val array = arrayListCoordinates[it.selectedPosition]
             when(array){

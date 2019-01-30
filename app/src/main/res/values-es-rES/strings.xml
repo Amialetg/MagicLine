@@ -154,13 +154,13 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
     <string name="lorem_ipsum" translatable="false">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
     <!-- MAGIC LINE INFO -->
-    <string name="ml" translatable="false">Magic Line</string>
+    <string name="ml" translatable="false">#MagicLine</string>
     <string name="mlSjd" translatable="false">Magic Line SJD</string>
     <string name="infoML">La Magic Line es más que una caminata, es un compromiso con quienes más lo necesitan. Por ello, para participar hay que ponerse un reto económico y organizar actividades solidarias para conseguirlo.</string>
     <string name="counter">Marcador</string>
     <string name="participants">Participantes inscritos</string>
     <string name="vacancy">plazas</string>
-    <string name="vacancyKm">Plazas por traom</string>
+    <string name="vacancyKm">Plazas por tramo</string>
     <string name="walkTitle">La caminata</string>
     <string name="walkText">El recorrido Colinas de Barcelona recorre las colinas más emblemáticas de la ciudad. El recorrido Llobregat sale de Sant Boi de Llobregat y sigue el río para enlazar, en Montjuïc, con el recorrido de las Colinas de Barcelona. Todos contemplan un descanso en el Castillo de Montjuïc y una fiesta final en la plaza de la Catedral de Barcelona. Cuando os inscribáis, deberéis elegir cuantos kilómetros deseáis caminar.</string>
     <string name="moreInfoOn">Més info a:</string>

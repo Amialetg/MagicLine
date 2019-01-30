@@ -94,6 +94,7 @@ class MainActivity : BaseActivity() {
 
         bottomBarFloatingButton.setOnClickListener {
             val mapButton = bottomBarView.menu.getItem(2)
+            bottomBarView.itemTextColor = ContextCompat.getColorStateList(this, R.color.moreinfo_background)
 
             if (!mapButton.isChecked) {
                 bottomBarFloatingButton.setColorFilter(ContextCompat.getColor(this, R.color.white))
@@ -151,11 +152,12 @@ class MainActivity : BaseActivity() {
                         return
                     }
                 }
-                R.id.none -> return
+                R.id.none -> {
+                    return
+                }
                 else -> {
                     newFragment = MagicLineFragment()
                     bottomBarView.setTextTintList(HOME, ContextCompat.getColorStateList(this, R.color.light_red))
-
                 }
             }
 

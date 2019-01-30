@@ -172,13 +172,13 @@
 
 
     <!-- MAGIC LINE INFO -->
-    <string name="ml" translatable="false">Magic Line</string>
+    <string name="ml" translatable="false">#MagicLine</string>
     <string name="mlSjd" translatable="false">Magic Line SJD</string>
     <string name="infoML">La Magic Line és més que una caminada, és un compromís amb els qui més ho necessiten. Per això, per participar-hi cal posar-se un repte econòmic i organitzar activitats solidàries per aconseguir-lo.</string>
     <string name="counter">Marcador</string>
     <string name="participants">Participants inscrits</string>
-    <string name="vacancy">plaçes</string>
-    <string name="vacancyKm">Plaçes per tram</string>
+    <string name="vacancy">places</string>
+    <string name="vacancyKm">Places per tram</string>
     <string name="walkTitle">La caminada</string>
     <string name="walkText">El Recorregut Turons de Barcelona recorre els turons més emblemàtics de la ciutat. El recorregut Llobregat surt dels turons de Sant Boi de Llobregat i segueix el riu per enllaçar, a Montjuïc, amb el recorregut dels Turons de Barcelona. Tots contemplen un descans al Castell de Montjuïc i una festa final a la plaça de la Catedral de Barcelona. Quan us inscriviu cal que escolliu quants quilòmetres voldreu caminar.</string>
     <string name="moreInfoOn">Més info a:</string>

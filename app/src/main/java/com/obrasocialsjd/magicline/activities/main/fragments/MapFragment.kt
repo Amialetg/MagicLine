@@ -271,7 +271,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private fun hideUserLocation() {
         userMarker?.remove()
         userMarker = null
-        kmAdapter.let {map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f)) }
+        kmAdapter.let {
+            ZoomDependingLocation(it)
+        }
     }
 
     private fun isUserMarkerVisible() : Boolean {
@@ -306,15 +308,33 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         kmlMarkers  = KmlLayer(map, R.raw.ml_placemarkers, requireContext())
     }
 
-
-
     private fun addCurrentModalityLayerToMap() {
         try {
             kmAdapter.let {
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+                ZoomDependingLocation(it)
                 if (!arrayKmlLayers[it.selectedPosition].isLayerOnMap) arrayKmlLayers[it.selectedPosition].addLayerToMap()
             }
         } catch (multitouch: IndexOutOfBoundsException) { }
+    }
+
+    private fun ZoomDependingLocation(it: KmAdapter){
+        val lat: TypedArray = resources.obtainTypedArray(R.array.arrayLatitude)
+        val lon: TypedArray = resources.obtainTypedArray(R.array.arrayLongitude)
+        if(getFlavor() == BARCELONA) {
+            val isStBoi = LatLng(lat.getFloat(3, Float.MAX_VALUE).toDouble(), lon.getFloat(3, Float.MAX_VALUE).toDouble())
+            val is40km = LatLng(lat.getFloat(5, Float.MAX_VALUE).toDouble(), lon.getFloat(5, Float.MAX_VALUE).toDouble())
+            val is10km = LatLng(lat.getFloat(0, Float.MAX_VALUE).toDouble(), lon.getFloat(0, Float.MAX_VALUE).toDouble())
+
+            val array = arrayListCoordinates[it.selectedPosition]
+            when(array){
+                isStBoi, is40km -> map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 11.5f))
+                is10km -> map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 14.0f))
+                else -> map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+            }
+        }
+        else {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayListCoordinates[it.selectedPosition], 12.5f))
+        }
     }
 
     private fun removeOtherModalityLayerForMap() {
@@ -350,7 +370,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             with(outRect) {
                 when {
                     parent.getChildAdapterPosition(view) == 4 -> {
-                        right = spaceHeight*2
+                        right = spaceHeight
                         left = spaceHeight
                     }
                     parent.getChildAdapterPosition(view) == 0 -> {

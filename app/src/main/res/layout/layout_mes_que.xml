@@ -4,6 +4,7 @@
     android:layout_height="@dimen/height_layout"
     android:background="@drawable/mes_que_border"
     android:orientation="vertical"
+    android:gravity="center"
     android:paddingTop="@dimen/back_arrow_width"
     android:paddingBottom="@dimen/back_arrow_height">
 

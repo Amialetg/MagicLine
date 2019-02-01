@@ -176,20 +176,27 @@ class MainActivity : BaseActivity() {
     private fun navigateFromIntentExtra(extra: Serializable?, openDefault: Boolean = true) {
 
         when (extra) {
-            LAST_NEWS -> { getNotificationNews() }
+            LAST_NEWS -> {
+                getNotificationNews()
+            }
             DONATION -> {
-                bottomBarView.menu.getItem(DONATIONS).isChecked = true
-                this.transitionWithModalAnimation(context = this, fragment = DonationsFragment(), analyticsScreen = TrackingUtils.Screens.Donations)
+                paintBottomBar(DONATIONS)
+                this.transitionWithModalAnimation(context = this, fragment = DonationsFragment(), analyticsScreen = TrackingUtils.Screens.Donations, useModalAnimation = false)
             }
             EVENT -> {
-                bottomBarView.menu.getItem(SCHEDULE).isChecked = true
-                this.transitionWithModalAnimation(context = this, fragment = ScheduleFragment.newInstance(scheduleModel), analyticsScreen = TrackingUtils.Screens.Schedule)
+                paintBottomBar(SCHEDULE)
+                this.transitionWithModalAnimation(context = this, fragment = ScheduleFragment.newInstance(scheduleModel), analyticsScreen = TrackingUtils.Screens.Schedule, useModalAnimation = false)
             }
             else -> {
-                bottomBarView.menu.getItem(HOME).isChecked = true
-                if (openDefault) this.transitionWithModalAnimation(context = this, fragment = MagicLineFragment(), analyticsScreen = TrackingUtils.Screens.MagicLine)
+                paintBottomBar(HOME)
+                if (openDefault) this.transitionWithModalAnimation(context = this, fragment = MagicLineFragment(), analyticsScreen = TrackingUtils.Screens.MagicLine, useModalAnimation = false)
             }
         }
+    }
+    private fun paintBottomBar(component: Int) {
+        bottomBarView.itemTextColor = ContextCompat.getColorStateList(this, R.color.moreinfo_background)
+        bottomBarView.setTextTintList(component, ContextCompat.getColorStateList(this, R.color.light_red))
+        bottomBarView.menu.getItem(component).isChecked = true
     }
 
     private fun getNotificationNews(){

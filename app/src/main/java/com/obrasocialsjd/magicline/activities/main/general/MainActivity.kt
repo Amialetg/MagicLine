@@ -27,6 +27,7 @@ import java.io.Serializable
 import java.util.*
 import android.net.ConnectivityManager
 import android.provider.Settings.Global.getString
+import kotlinx.android.synthetic.main.model_schedule_card.*
 
 class MainActivity : BaseActivity() {
 
@@ -140,17 +141,17 @@ class MainActivity : BaseActivity() {
                     bottomBarView.setTextTintList(OPTIONS, ContextCompat.getColorStateList(this, R.color.light_red))
                 }
                 R.id.schedule_menu_id -> {
-                    if (getFlavor() != VALENCIA) {
+//                    if (getFlavor() != VALENCIA) {
                         newFragment = ScheduleFragment.newInstance(scheduleModel)
                         analyticsScreen = TrackingUtils.Screens.Schedule
                         TrackingUtils(this).track(TrackingUtils.Screens.Schedule)
                         bottomBarView.setTextTintList(SCHEDULE, ContextCompat.getColorStateList(this, R.color.light_red))
-                    } else {
-                        notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
-                        //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
-                        bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
-                        return
-                    }
+//                    } else {
+//                        notAvailableDialog(R.string.notAvailableText, R.string.notAvailableBody)
+//                        //bottomBarView.getBottomNavigationItemView(0).setIconTintList(ContextCompat.getColorStateList(this, R.color.colorPrimary))
+//                        bottomBarView.getBottomNavigationItemView(1).setIconTintList(ContextCompat.getColorStateList(this, R.color.moreinfo_background))
+//                        return
+//                    }
                 }
                 R.id.none -> {
                     return
@@ -235,6 +236,7 @@ class MainActivity : BaseActivity() {
 
     private fun getData() {
         hoursArray = resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
+
         val onClickListener: (DetailModel) -> Unit = { detailModel ->
             this.transitionWithModalAnimation(
                     context = this,
@@ -242,6 +244,7 @@ class MainActivity : BaseActivity() {
                     analyticsScreen = TrackingUtils.Screens.ScheduleDetail
             )
         }
+
         scheduleModel = getListeners(this, onClickListener = onClickListener)
     }
 

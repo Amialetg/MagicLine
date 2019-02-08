@@ -22,4 +22,31 @@
 \t <b> 10. GRACIAS, GRACIAS, GRACIAS.</b> Somos cientos de personas solidarias llenando la ciudad! Juntas somos menos vulnerables!
  </html>]]>
         </string>
+    <!--SCHEDULE EVENTS-->
+    <!--TITLE-->
+    <string name="arrayTitleOne">Concierto</string>
+    <string name="arrayTitleTwo">Espectáculo</string>
+    <string name="arrayTitleThree">Concierto</string>
+    <string name="arrayTitleFour">Música</string>
+    <string name="arrayTitleFive">Espectáculo</string>
+    <string name="arrayTitleSix">Espectáculo</string>
+    <string name="arrayTitleSeven">Fiesta Final</string>
+    <!--SUBTITLE-->
+    <string name="arraySubtitleOne">Lucia Antonini</string>
+    <string name="arraySubtitleTwo">Richard Kobena y Payaso Hospital</string>
+    <string name="arraySubtitleThree">Barretjazz Ensamble</string>
+    <string name="arraySubtitleFour">Sinfonicio</string>
+    <string name="arraySubtitleFive">Grupo de Danza Valenciana Falla Blasco Ibáñez</string>
+    <string name="arraySubtitleSix">Borumbaia Timbals</string>
+    <string name="arraySubtitleSeven">PAULI, VISA KNOWING, TENEMOS LAS CANELA Y TAKIRI ART COMPANY</string>
+
+    <!--BODY-->
+    <string name="arrayBodyOne">Ermita del Peixet</string>
+    <string name="arrayBodyTwo">Tinglado 2 de la Marina Real de Valencia</string>
+    <string name="arrayBodyThree">Rio de Valencia paralelo al Palau de la Musica</string>
+    <string name="arrayBodyFour">Torres de Serrano</string>
+    <string name="arrayBodyFive">Plaza de la Virgen</string>
+    <string name="arrayBodySix">C/ Maria Cristina cruce con C/ San Vicente</string>
+    <string name="arrayBodySeven">Fiesta Final Plaza del Ayuntamiento de Valencia</string>
+
 </resources>

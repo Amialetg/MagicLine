@@ -22,5 +22,33 @@
 \t <b>9. EXPLICA LA TEVA EXPERIÈNCIA</b> de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
 \t <b>10. GRÀCIES, GRÀCIES, GRÀCIES.</b> Som centenars de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
         </string>
+    <!--SCHEDULE EVENTS-->
+    <!--TITLE-->
+    <string name="arrayTitleOne">Concert</string>
+    <string name="arrayTitleTwo">Espectacle</string>
+    <string name="arrayTitleThree">Concert</string>
+    <string name="arrayTitleFour">Música</string>
+    <string name="arrayTitleFive">Espectacle</string>
+    <string name="arrayTitleSix">Espectacle</string>
+    <string name="arrayTitleSeven">Festa Final</string>
+    <!--SUBTITLE-->
+    <string name="arraySubtitleOne">Lucia Antonini</string>
+    <string name="arraySubtitleTwo">Richard Kobena y Payaso Hospital</string>
+    <string name="arraySubtitleThree">Barretjazz Ensamble</string>
+    <string name="arraySubtitleFour">Sinfonicio</string>
+    <string name="arraySubtitleFive">Grupo de Danza Valenciana Falla Blasco Ibáñez</string>
+    <string name="arraySubtitleSix">Borumbaia Timbals</string>
+    <string name="arraySubtitleSeven">PAULI, VISA KNOWING, TENEMOS LAS CANELA Y TAKIRI ART COMPANY</string>
+
+    <!--BODY-->
+    <string name="arrayBodyOne">Ermita del Peixet</string>
+    <string name="arrayBodyTwo">Tinglado 2 de la Marina Real de Valencia</string>
+    <string name="arrayBodyThree">Riu de València paral·lel al Palau de la Música</string>
+    <string name="arrayBodyFour">Torres de Serrano</string>
+    <string name="arrayBodyFive">Plaça de la Virgen</string>
+    <string name="arrayBodySix">C/ Maria Cristina encreuament amb C/ San Vicente</string>
+    <string name="arrayBodySeven">Festa Final Plaça de l\'ajuntament de Valencia</string>
+
+
 
 </resources>

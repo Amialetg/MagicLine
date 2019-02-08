@@ -9,5 +9,18 @@
     <string name="moreInfoWeb">https://www.magiclinesjd.org/ca/participar_valencia</string>
     <string name="pdf_donations_collecting_guide">http://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Valencia.pdf</string>
     <string name="schedule_header_total_duration" translatable="false">(Total ruta 5h)</string>
+    <string name="essentials_body">
+        <![CDATA[<html>
+\t <b>1. MOLT MÉS QUE UNA CAMINADA.</b> Les accions solidàries dels equips es converteixen en ajudes per a persones en situació vulnerable ateses als centres de Sant Joan de Déu i altres entitats properes de la ciutat.<br/><br/>
+\t <b>2. UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b> Alceu el cap, la Magic Line SJD us acosta a l\'horta, al mar, als parcs urbans, als carrers i les places de la ciutat. Respecteu l\'entorn! Us recordem que el recorregut de 5 km està adaptat per a persones amb mobilitat reduïda.<br/><br/>
+\t <b>3. QUI AJUDES T’AJUDA.</b> Us oferim punts d\’avituallament, aliment complementari per la caminada, que us facilitaran treballadors i treballadores, voluntaris i voluntàries i persones usuàries dels nostres centres.<br/><br/>
+\t <b>4. VOLUNTARIAT.</b> Gràcies a les persones, entitats i empreses aporten el seu temps i serveis per a fer possible l\’esdeveniment.<br/><br/>
+\t <b>5. CULTURA INCLUSIVA.</b> Durant el recorregut us trobareu propostes culturals al carrer, així com els monuments històrics oberts. Gaudiu de la companyia!<br/><br/>
+\t <b>6. PICNIC AL PORT.</b> A la Marina Real hi teniu una zona per a fer una parada, amb música i dinamització per als més xicotets, a partir de les 10.30h.<br/><br/>
+\t <b>7. FESTA SOLIDÀRIA A L\’ARRIBADA.</b> A partir de les 12h a la plaça de l\’Ajuntament us hi espera una celebració amb diverses actuacions per a tots els públics.<br/><br/>
+\t <b>8. PRODUCTES MAGIC LINE SJD.</b> Un record de la caminada, que no és només per a tu. A l\’arribada hi trobareu una botiga de producte solidari.<br/><br/>
+\t <b>9. EXPLICA LA TEVA EXPERIÈNCIA</b> de #magicliner a les xarxes socials. Que tothom sàpiga que ets part de la #MagicLine de @solidaridadsjd<br/><br/>
+\t <b>10. GRÀCIES, GRÀCIES, GRÀCIES.</b> Som centenars de persones solidàries omplint la ciutat! Juntes som menys vulnerables!</html>]]>
+        </string>
 
 </resources>

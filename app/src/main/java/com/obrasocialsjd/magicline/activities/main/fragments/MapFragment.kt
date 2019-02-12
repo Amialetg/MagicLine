@@ -153,7 +153,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun initializePositionListener() {
         try {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener)
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener)
         } catch (securityException : SecurityException) { }
     }
 
@@ -220,6 +220,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 }
             } else {
                 activity?.notAvailableDialog()
+
             }
         }
     }
@@ -466,7 +467,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun isGPSAvailable() : Boolean {
         locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 
     private fun initFusedLocationClient() {
@@ -493,4 +494,5 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
         context?.let { updateUserLocationPreferences(it, isLocationActive) }
     }
+
 }

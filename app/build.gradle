@@ -51,8 +51,8 @@ android {
     productFlavors {
         valencia {
             applicationId "com.obrasocialsjd.magicline.valencia"
-            versionCode 16
-            versionName "1.1"
+            versionCode 17
+            versionName "1.2"
         }
         mallorca {
             applicationId "com.obrasocialsjd.magicline.mallorca"
@@ -61,8 +61,8 @@ android {
         }
         barcelona {
             applicationId "com.obrasocialsjd.magicline"
-            versionCode 16
-            versionName "3.1"
+            versionCode 17
+            versionName "3.2"
         }
     }
     buildTypes {

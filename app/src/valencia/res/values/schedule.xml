@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrayScheduleHour">
+        <item>9:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>11:30</item>
+        <item>11:30</item>
+        <item>12:00</item>
+
+    </string-array>
+    <string-array name="arrayScheduleTitle">
+        <item>@string/arrayTitleOne</item>
+        <item>@string/arrayTitleTwo</item>
+        <item>@string/arrayTitleThree</item>
+        <item>@string/arrayTitleFour</item>
+        <item>@string/arrayTitleFive</item>
+        <item>@string/arrayTitleSix</item>
+        <item>@string/arrayTitleSeven</item>
+    </string-array>
+    <string-array name="arrayScheduleSubTitle">
+        <item>@string/arraySubtitleOne</item>
+        <item>@string/arraySubtitleTwo</item>
+        <item>@string/arraySubtitleThree</item>
+        <item>@string/arraySubtitleFour</item>
+        <item>@string/arraySubtitleFive</item>
+        <item>@string/arraySubtitleSix</item>
+        <item>@string/arraySubtitleSeven</item>
+    </string-array>
+    <string-array name="arrayScheduleBody">
+        <item>@string/arrayBodyOne</item>
+        <item>@string/arrayBodyTwo</item>
+        <item>@string/arrayBodyThree</item>
+        <item>@string/arrayBodyFour</item>
+        <item>@string/arrayBodyFive</item>
+        <item>@string/arrayBodySix</item>
+        <item>@string/arrayBodySeven</item>
+    </string-array>
+
+    <!--<integer-array name="arraySchedulePhoto">-->
+        <!--<item>@array/photosElement1</item>-->
+        <!--<item>@array/photosElement2</item>-->
+        <!--<item>@array/photosElement3</item>-->
+        <!--<item>@array/photosElement4</item>-->
+    <!--</integer-array>-->
+    <!--<integer-array name="photosElement1">-->
+        <!--<item>@drawable/espectacle_carrer</item>-->
+        <!--<item>@drawable/espectacle_carrer2</item>-->
+    <!--</integer-array>-->
+    <!--<integer-array name="photosElement2">-->
+        <!--<item>@drawable/museus_oberts</item>-->
+    <!--</integer-array>-->
+    <!--<integer-array name="photosElement3">-->
+        <!--<item>@drawable/picnic_castell</item>-->
+        <!--<item>@drawable/picnic_castell2</item>-->
+    <!--</integer-array>-->
+    <!--<integer-array name="photosElement4">-->
+        <!--<item>@drawable/festa_solidaria</item>-->
+    <!--</integer-array>-->
+
+</resources>

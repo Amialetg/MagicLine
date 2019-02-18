@@ -77,12 +77,10 @@
 
     <!-- schedule fragment -->
     <string name="schedule_title">"Programación"</string>
-    <string name="schedule_card_description">"En los últimos años, las personas se han dado cuenta de la importancia de una dieta adecuada y el ejercicio, y las encuestas recientes muestran que "</string>
     <string name="schedule_button_text">"Ver más"</string>
     <string name="schedule_header_name">"Actividades durante todo el día"</string>
     <string name="schedule_header_total_duration">(Total ruta 6h)</string>
     <string name="schedule_alldayopen_act">"Museos Abiertos"</string>
-    <string name="schedule_alldayopen_desc">"En los últimos años, las personas se han dado cuenta de la importancia de una dieta adecuada y el ejercicio, y las encuestas recientes muestran que "</string>
 
     <!-- Detail fragment -->
     <string name="viewOnWeb">"Ver la web"</string>

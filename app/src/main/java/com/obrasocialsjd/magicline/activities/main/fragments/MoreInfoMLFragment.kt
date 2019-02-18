@@ -57,7 +57,11 @@ class MoreInfoMLFragment : BaseFragment() {
 
     private fun requestChartData() {
         moreInfoViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
-            totalParticipants = participants.totalParticipants.toDouble()
+            totalParticipants =  if (participants.totalParticipants.toDouble() < 12950) {
+                participants.totalParticipants.toDouble()}
+            else {
+                13000.0
+            }
             availableSpots = ((participants.spots + 99) / 100) * 100
             val currentAvailablePlaces = availableSpots - totalParticipants
             currentParticipants.text = totalParticipants.addThousandsSeparator().replace(",", ".")

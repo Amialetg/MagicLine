@@ -148,7 +148,12 @@ class MagicLineFragment : BaseFragment() {
 
         mMagicLineViewModel.getTotalParticipants().observe(this, androidx.lifecycle.Observer { participants ->
             participants?.let {
-                participants_num.text = it.totalParticipants.toString().addThousandsSeparator().replace(",", ".")
+                //TODO: si el número de participantes es superior a 12950 se harcodea a 13000 - ya que sino difiere con la web
+                if (it.totalParticipants > 12950) {
+                    participants_num.text = SPOTS.addThousandsSeparator().replace(",", ".")
+                } else {
+                    participants_num.text = it.totalParticipants.toString().addThousandsSeparator().replace(",", ".")
+                }
             }
         })
     }

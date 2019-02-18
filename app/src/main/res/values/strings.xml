@@ -80,7 +80,6 @@
 
     <!-- schedule fragment -->
     <string name="schedule_title">Programació</string>
-    <string name="schedule_card_description">Ensenyant el passaturons tens museus gratuïts.</string>
     <string name="schedule_button_text">Veure més</string>
     <string name="schedule_header_name">activitats durant tot el dia</string>
     <string name="schedule_alldayopen_act">Museus Oberts</string>

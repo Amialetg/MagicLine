@@ -62,6 +62,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var locationManager: LocationManager
     private lateinit var locationListener: LocationListener
+    private var firstTime = true
 
     private val LOCATION_ACTIVE = "LOCATION_ACTIVE"
 
@@ -106,7 +107,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private fun initListeners() {
         mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
-        mapView.showMarkersBtn.setOnClickListener {switchInterestMarkers()}
+        mapView.showMarkersBtn.setOnClickListener {
+            switchInterestMarkers()
+            firstTime = false
+        }
 
         locationListener  = object : LocationListener {
             override fun onLocationChanged(location: Location?) {
@@ -236,7 +240,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun tintUserLocationMarkers() {
-        if (isLocationActive){
+        if (isLocationActive && !firstTime){
             changeButtonColor(MAP_BUTTON_SELECTED, mapView.userLocationBtn)
         }
         else {

@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
@@ -106,10 +107,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun initListeners() {
-        mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
-        mapView.showMarkersBtn.setOnClickListener {
-            switchInterestMarkers()
-            firstTime = false
+        if( GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this.context) != 9 ) {
+            mapView.userLocationBtn.setOnClickListener {switchUserLocation()}
+            mapView.showMarkersBtn.setOnClickListener {
+                switchInterestMarkers()
+                firstTime = false
+            }
+        } else {
+            mapView.userLocationBtn.isEnabled = false
+            mapView.showMarkersBtn.isEnabled = false
+            areMarkersActive = false
+            tintUserLocationMarkers()
+            mapView.userLocationBtn.alpha = 0.5f
+            mapView.showMarkersBtn.alpha = 0.5f
         }
 
         locationListener  = object : LocationListener {

@@ -186,19 +186,33 @@ La Magic Line SJD permite financiar programas de apoyo a <b>niños, adultos y pe
 
     <!--SCHEDULE EVENTS-->
     <!--TITLE-->
+    <string name="arrayTitleZero">Salida</string>
     <string name="arrayTitleOne">Espectáculos de calle</string>
     <string name="arrayTitleTwo">Museos abiertos</string>
+    <string name="arrayTitleTwo2">Taller</string>
+    <string name="arrayTitleTwo3">Clase con mucho Swing</string>
     <string name="arrayTitleThree">Picnic en el Castillo de Montjuïc</string>
+    <string name="arrayTitleThree2">Volver a caminar</string>
+    <string name="arrayTitleThree3">Espectáculo Musical</string>
+    <string name="arrayTitleThree4">Concierto</string>
     <string name="arrayTitleFour">Fiesta final en la plaza de la Catedral</string>
     <!--SUBTITLE-->
     <string name="arraySubtitleOne">Presta atención!</string>
     <string name="arraySubtitleTwo">Enseñando el passaturons tienes museos gratuitos.</string>
+    <string name="arraySubtitleTwo2">Basket Beat Barcelona</string>
+    <string name="arraySubtitleTwo3">Swingmaniacs</string>
     <string name="arraySubtitleThree">Música y actividades para hacer de la comida una fiesta.</string>
+    <string name="arraySubtitleThree3">The Pinker Tones</string>
+    <string name="arraySubtitleThree4">Taki Sound</string>
     <string name="arraySubtitleFour">#MagicLiners, celebramos la llegada meses de implicación solidaria.</string>
     <!--BODY-->
     <string name="arrayBodyOne">En las salidas y durante la caminata encontrarás propuestas de animación para hacer el recorrido urbano más ameno.</string>
     <string name="arrayBodyTwo">El día de la caminata podrás acceder al Caixa Forum de Barcelona, ​​en el Pueblo Español, en el MNAC, la Fundación Joan Miró, el Museo Olímpico y del \ Deporte, en el Jardín Botánico del Museo de Ciencias Naturales de Barcelona, ​​en el Museo de Sant Boi de Llobregat y sus Termas romanas y, fuera del recorrido, en el Museo de las Aguas de Barcelona.</string>
+    <string name="arrayBodyTwo2">Desde las 12h. hasta las 15h. taller de percusión con pelotas de básquet en la plaza de la Catedrál de Barcelona.</string>
+    <string name="arrayBodyTwo3">Clase abierta de Swing-Charleston en la plaza de la Catedral de Barcelona.</string>
     <string name="arrayBodyThree">El foso del Castillo de Montjuïc te espera por el paro del mediodía con actividades y un punto de avituallamiento. Recuerda que desde la organización aportamos alimento complementario, cada uno debe llevar su comida de casa. Próximamente publicaremos los horarios.</string>
+    <string name="arrayBodyThree3">Concierto familiar de la mano de Mr. Furia y Profesor Manso en la plaza de la Catedral de Barcelona.</string>
+    <string name="arrayBodyThree4">Música del centro de la tierra en la plaza de la Catedral de Barcelona.</string>
     <string name="arrayBodyFour">En la plaza de la Catedral de Barcelona te esperan conciertos y actividades, para celebrar tu recorrido como #magicliner y conocer más en detalle el destino de los fondos conseguidos con la movilización ciudadana para San Juan de Dios. Próximamente publicaremos los horarios.</string>
 
 </resources>

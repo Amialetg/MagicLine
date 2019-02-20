@@ -204,19 +204,34 @@
 
     <!--SCHEDULE EVENTS-->
     <!--TITLE-->
+    <string name="arrayTitleZero">Sortida</string>
     <string name="arrayTitleOne">Espectacles de carrer</string>
     <string name="arrayTitleTwo">Museus oberts</string>
+    <string name="arrayTitleTwo2">Taller</string>
+    <string name="arrayTitleTwo3">Classe amb molt Swing</string>
     <string name="arrayTitleThree">Picnic al Castell de Montjuïc</string>
+    <string name="arrayTitleThree2">Tornar a caminar</string>
+    <string name="arrayTitleThree3">Espectale Musical</string>
+    <string name="arrayTitleThree4">Concert</string>
     <string name="arrayTitleFour">Festa final a la plaça de la Catedral</string>
+
     <!--SUBTITLE-->
     <string name="arraySubtitleOne">Fes atenció!</string>
     <string name="arraySubtitleTwo">Ensenyant el passaturons tens museus gratuïts.</string>
+    <string name="arraySubtitleTwo2">Basket Beat Barcelona</string>
+    <string name="arraySubtitleTwo3">Swingmaniacs</string>
     <string name="arraySubtitleThree">Música i activitats per fer del dinar una festa.</string>
+    <string name="arraySubtitleThree3">The Pinker Tones</string>
+    <string name="arraySubtitleThree4">Taki Sound</string>
     <string name="arraySubtitleFour">#MagicLiners, celebrem a l’arribada mesos d’implicació solidària.</string>
     <!--BODY-->
     <string name="arrayBodyOne">A les sortides i durant la caminada trobaràs propostes d’animació per fer el recorregut urbà més amè.</string>
     <string name="arrayBodyTwo">El dia de la caminada podràs accedir al Caixa Forum de Barcelona, al Poble Espanyol, al MNAC, a la Fundació Joan Miró, al Museu Olímpic i de l\'Esport, al Jardí Botànic del Museu de Ciències Naturals de Barcelona, al Museu de Sant Boi de Llobregat i les seves Termes romanes i, fora del recorregut, al Museu de les Aigües de Barcelona.</string>
+    <string name="arrayBodyTwo2">Des de les 12h. fins a les 15h. taller de percussió amb pilotes de bàsquet a la plaça de la Catedral de Barcelona.</string>
+    <string name="arrayBodyTwo3">Classe oberta de Swing-Charleston a la plaça de la Catedral de Barcelona.</string>
     <string name="arrayBodyThree">El fossar del Castell de Montjuïc t’espera per l’aturada del migdia amb activitats i un punt d’avituallament. Recorda que des de l’organització aportem aliment complementari, cadascú ha de portar el seu menjar de casa. Properament publicarem els horaris.</string>
+    <string name="arrayBodyThree3">Concert familiar de la mà de Mr. Furia i Professor Manso a la plaça de la Catedral de Barcelona.</string>
+    <string name="arrayBodyThree4">Música del centre de la terra a la plaça de la Catedral de Barcelona.</string>
     <string name="arrayBodyFour">A la plaça de la Catedral de Barcelona t’hi esperen concerts i activitats, per celebrar el teu recorregut com a #magicliner i conèixer més en detall el destí dels fons aconseguits amb la mobilització ciutadana per Sant Joan de Déu. Properament publicarem els horaris.</string>
 
 

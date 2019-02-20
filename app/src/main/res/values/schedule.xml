@@ -2,28 +2,66 @@
 <resources>
     <string-array name="arrayScheduleHour">
         <item>9:30</item>
+        <item>10:15</item>
         <item>10:30</item>
-        <item>11:30</item>
+        <item>12:00</item>
         <item>12:30</item>
+        <item>13:30</item>
+        <item>15:30</item>
+        <item>16:30</item>
+        <item>17:30</item>
+        <item>19:30</item>
     </string-array>
     <string-array name="arrayScheduleTitle">
+        <item>@string/arrayTitleZero</item>
         <item>@string/arrayTitleOne</item>
         <item>@string/arrayTitleTwo</item>
+        <item>@string/arrayTitleTwo2</item>
+        <item>@string/arrayTitleTwo3</item>
         <item>@string/arrayTitleThree</item>
+        <item>@string/arrayTitleThree2</item>
+        <item>@string/arrayTitleThree3</item>
+        <item>@string/arrayTitleThree4</item>
         <item>@string/arrayTitleFour</item>
     </string-array>
     <string-array name="arrayScheduleSubTitle">
+        <item>x</item>
         <item>@string/arraySubtitleOne</item>
         <item>@string/arraySubtitleTwo</item>
+        <item>@string/arraySubtitleTwo2</item>
+        <item>@string/arraySubtitleTwo3</item>
         <item>@string/arraySubtitleThree</item>
+        <item>x</item>
+        <item>@string/arraySubtitleThree3</item>
+        <item>@string/arraySubtitleThree4</item>
         <item>@string/arraySubtitleFour</item>
     </string-array>
     <string-array name="arrayScheduleBody">
+        <item>x</item>
         <item>@string/arrayBodyOne</item>
         <item>@string/arrayBodyTwo</item>
+        <item>@string/arrayBodyTwo2</item>
+        <item>@string/arrayBodyTwo3</item>
         <item>@string/arrayBodyThree</item>
+        <item>x</item>
+        <item>@string/arrayBodyThree3</item>
+        <item>@string/arrayBodyThree4</item>
         <item>@string/arrayBodyFour</item>
     </string-array>
+
+    <string-array name="arrayhasPhoto">
+        <item>x</item>
+        <item>yes</item>
+        <item>yes</item>
+        <item>x</item>
+        <item>x</item>
+        <item>yes</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>yes</item>
+    </string-array>
+
 
     <integer-array name="arraySchedulePhoto">
         <item>@array/photosElement1</item>

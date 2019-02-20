@@ -28,6 +28,16 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             if(getFlavor() == VALENCIA){
                 itemView.seeMoreBtn.visibility = View.INVISIBLE
             }
+
+        }
+    }
+    class ViewHolderCardNoButton(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun bind(scheduleCardModel: ScheduleCardModel) {
+            itemView.scheduleCardHour.text = scheduleCardModel.hour
+            itemView.scheduleCardTitle.text = scheduleCardModel.title
+            itemView.scheduleCardSubtitle.text = scheduleCardModel.subtitle
+            itemView.scheduleCardDescription.text = scheduleCardModel.body
         }
     }
 
@@ -38,6 +48,8 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             (dataSet[position].type == TYPE_COMMON_CARD) -> TYPE_COMMON_CARD
             (dataSet[position].type == TYPE_LAST_CARD) -> TYPE_LAST_CARD
             (dataSet[position].type == TYPE_FIRST_CARD) -> TYPE_FIRST_CARD
+            (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON) -> TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON
+
             else  -> TYPE_COMMON_CARD
         }
     }
@@ -63,6 +75,10 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             TYPE_FIRST_CARD -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_first, parent, false)
                 ViewHolderCard(itemView)
+            }
+            TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON -> {
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_nobutton, parent, false)
+                ViewHolderCardNoButton(itemView)
             } else -> {
                 // DEFAULT TYPE_COMMON_CARD
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
@@ -86,6 +102,9 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
                 setInfo(holder, position, true)
             }
             TYPE_FIRST_CARD -> {
+                setInfo(holder, position, true)
+            }
+            TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON -> {
                 setInfo(holder, position, true)
             }
             else  -> {

@@ -65,8 +65,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var locationListener: LocationListener
     private var firstTime = true
 
-    private val LOCATION_ACTIVE = "LOCATION_ACTIVE"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -234,7 +232,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 }
             } else {
                 activity?.notAvailableDialog()
-
             }
         }
     }

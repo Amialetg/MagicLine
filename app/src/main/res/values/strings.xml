@@ -35,8 +35,8 @@
     <!--Section mes que-->
     <string name="mesque_title">més que una caminada</string>
     <string name="mesque_dona">dóna a \n un equip</string>
-    <string name="mesque_demana">demana donatius</string>
-    <string name="mesque_idees">idees de captació</string>
+    <string name="mesque_demana">demana \n donatius</string>
+    <string name="mesque_idees">idees de \n captació</string>
 
     <string name="pdf_donations_collecting_guide">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Barcelona.pdf</string>
 

@@ -27,7 +27,7 @@ class MyCounter(millis:Long, interval:Long, var texts: Array<TextView>): CountDo
 
         //Format to have: "03" instead of "3"
         val nf = DecimalFormat("#00")
-        texts[0].text = days.toString()
+        texts[0].text = nf.format(days).toString()
         texts[1].text = nf.format(hours).toString()
         texts[2].text = nf.format(min).toString()
         texts[3].text = nf.format(sec).toString()

@@ -10,12 +10,7 @@
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
-      <LabelStyle>
-        <scale>0</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>$[name]</h3>]]></text>
-      </BalloonStyle>
+    
     </Style>
     <Style id="icon-123-nodesc-highlight">
       <IconStyle>
@@ -25,12 +20,7 @@
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
-      <LabelStyle>
-        <scale>1.1</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>$[name]</h3>]]></text>
-      </BalloonStyle>
+  
     </Style>
     <StyleMap id="icon-123-nodesc">
       <Pair>
@@ -50,12 +40,7 @@
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
-      <LabelStyle>
-        <scale>0</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>$[name]</h3>]]></text>
-      </BalloonStyle>
+     
     </Style>
     <Style id="icon-61-nodesc-highlight">
       <IconStyle>
@@ -65,12 +50,7 @@
         </Icon>
         <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
       </IconStyle>
-      <LabelStyle>
-        <scale>1.1</scale>
-      </LabelStyle>
-      <BalloonStyle>
-        <text><![CDATA[<h3>$[name]</h3>]]></text>
-      </BalloonStyle>
+
     </Style>
     <StyleMap id="icon-61-nodesc">
       <Pair>
@@ -105,7 +85,7 @@
       </Pair>
     </StyleMap>
     <Placemark>
-      <name>Inici de la ruta Magic Line Barcelona 2019, 20 Km.gpx</name>
+      <name>Inici de la ruta Magic Line Barcelona 2019, 20 Km</name>
       <styleUrl>#icon-61-nodesc</styleUrl>
       <Point>
         <coordinates>
@@ -114,7 +94,7 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>Fi de la ruta Magic Line Barcelona 2019, 20 Km.gpx</name>
+      <name>Fi de la ruta Magic Line Barcelona 2019, 20 Km</name>
       <styleUrl>#icon-123-nodesc</styleUrl>
       <Point>
         <coordinates>

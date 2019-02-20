@@ -176,7 +176,8 @@ class MagicLineFragment : BaseFragment() {
                     listToolbarImg = emptyList(),
                     listPostImg = item.postImages,
                     hasToolbarImg = false,
-                    link = item.post.url.toString()
+                    link = item.post.url.toString(),
+                    titleToolbar = getString(R.string.newsTitle)
             )
 
             news.add(NewsModel(

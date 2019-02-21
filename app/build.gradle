@@ -61,8 +61,8 @@ android {
         }
         barcelona {
             applicationId "com.obrasocialsjd.magicline"
-            versionCode 20
-            versionName "3.3.2"
+            versionCode 21
+            versionName "3.3.3"
         }
     }
     buildTypes {

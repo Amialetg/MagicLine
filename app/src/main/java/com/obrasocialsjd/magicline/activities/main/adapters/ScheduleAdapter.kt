@@ -25,10 +25,6 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             itemView.scheduleCardSubtitle.text = scheduleCardModel.subtitle
             itemView.scheduleCardDescription.text = scheduleCardModel.body
             itemView.seeMoreBtn.setOnClickListener{ scheduleCardModel.listener.invoke(scheduleCardModel.detailModel) }
-            if(getFlavor() == VALENCIA){
-                itemView.seeMoreBtn.visibility = View.INVISIBLE
-            }
-
         }
     }
     class ViewHolderCardNoButton(itemView: View) : RecyclerView.ViewHolder(itemView) {

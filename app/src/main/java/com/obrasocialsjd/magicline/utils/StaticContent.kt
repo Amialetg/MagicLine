@@ -28,20 +28,19 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
         var scheduleGeneralModel:ScheduleGeneralModel
         val type: Int
 
-        val isLast = i == arrayScheduleTitle.size -1
+        val isLast = i == arrayScheduleTitle.size - 1
         val isFirst  = i == 0
         val isCard = arrayScheduleBody[i].length > 1
         val hasPhoto = arrayScheduleHasPhotos[i].length > 1
 
 
-
         type = when (true) {
-            hasPhoto -> TYPE_COMMON_CARD
-            !isFirst && isCard   -> TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON
-            isLast && isCard     -> TYPE_LAST_CARD
-            isFirst && !isCard   -> TYPE_SCHEDULE_TITLE_FIRST// the last one
-            isFirst && isCard    -> TYPE_FIRST_CARD
-            !isFirst && !isCard  -> TYPE_SCHEDULE_TITLE_COMMON
+            hasPhoto && !isFirst && isCard && !isLast -> TYPE_COMMON_CARD
+            !isFirst && isCard && !hasPhoto-> TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON
+            isLast && isCard && hasPhoto -> TYPE_LAST_CARD
+            isFirst && !isCard && !hasPhoto -> TYPE_SCHEDULE_TITLE_FIRST// the last one
+            isFirst && isCard && !hasPhoto -> TYPE_FIRST_CARD
+            !isFirst && !isCard && !hasPhoto -> TYPE_SCHEDULE_TITLE_COMMON
 
             else -> TYPE_SCHEDULE_TITLE_COMMON
         }
@@ -75,7 +74,7 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
     return listSchedule
 }
 
-fun isTheMagicLineDateAndHour (context: Context, hour :String): Boolean{
+fun isTheMagicLineDateAndHour (context: Context, hour :String): Boolean {
     val hoursArray = context.resources.obtainTypedArray(R.array.arrayScheduleHoursTimeStamp)
     val scheduleHour = hour.toString().replace(COLON, PERIOD)
 
@@ -83,8 +82,8 @@ fun isTheMagicLineDateAndHour (context: Context, hour :String): Boolean{
 
     val timeInMillis = java.text.SimpleDateFormat("HH:mm").format(java.util.Date(now * MILLIS))
 
-    val currentTime = timeInMillis.toString().replace(COLON, PERIOD)
-    //currentTime = "12.0" //TODO : para hacer testing - Cambiar currentTime type a VAR
+    var currentTime = timeInMillis.toString().replace(COLON, PERIOD)
+   //currentTime = "9.30" //TODO : para hacer testing - Cambiar currentTime type a VAR
 
     var isTheOne = hoursArray.getFloat(0, Float.MAX_VALUE)/MILLISECONDS
     var auxiliar = 0.0f
@@ -99,8 +98,8 @@ fun isTheMagicLineDateAndHour (context: Context, hour :String): Boolean{
     }
     val cTime: Long = Calendar.getInstance().timeInMillis
     val dateLong: Long = context.resources.getString(R.string.magicLineDate).toLong()
-    val diff: Long = dateLong - cTime
-    //  diff = 0 //TODO : para hacer testing - Cambiar diff type a VAR
+    var diff: Long = dateLong - cTime
+     // diff = 0 //TODO : para hacer testing - Cambiar diff type a VAR
 
     if(scheduleHour.toFloat() <= isTheOne && currentTime.toFloat() <= (hoursArray.getFloat(hoursArray.length()-1, Float.MAX_VALUE)/MILLISECONDS) + 2 && diff == 0L && scheduleHour.toFloat() <= currentTime.toFloat() && isTheOne == scheduleHour.toFloat()) return true
     return false

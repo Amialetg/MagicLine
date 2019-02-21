@@ -38,6 +38,15 @@
         <item>@string/arrayBodySeven</item>
     </string-array>
 
+    <string-array name="arrayhasPhoto">
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+    </string-array>
     <!--<integer-array name="arraySchedulePhoto">-->
         <!--<item>@array/photosElement1</item>-->
         <!--<item>@array/photosElement2</item>-->

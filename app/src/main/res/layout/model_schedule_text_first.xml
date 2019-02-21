@@ -42,7 +42,7 @@
             android:layout_toEndOf="@id/scheduleHour"
             tools:text="Tornar a caminar"
             style="@style/scheduleCardTitle"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="@dimen/margin_left_text"/>
 
     </RelativeLayout>

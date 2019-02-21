@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/lorem_ipsum"
-                style="@style/scheduleCardDescription"
+                style="@style/scheduleCardDescription2"
                 android:layout_marginBottom="8dp"
                 android:layout_below="@id/scheduleCardSubtitle" />
 

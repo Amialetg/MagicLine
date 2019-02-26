@@ -398,10 +398,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (grantResults[0]) {
             PackageManager.PERMISSION_GRANTED -> {

@@ -88,7 +88,7 @@ class CirclePagerIndicatorDecorationForDetailPage : RecyclerView.ItemDecoration(
     }
 
     private fun drawInactiveIndicators(c: Canvas, indicatorStartX: Float, indicatorPosY: Float, itemCount: Int) {
-        mPaint.setColor(colorInactive)
+        mPaint.color = colorInactive
 
         // width of item indicator including padding
         val itemWidth = mIndicatorItemLength + mIndicatorItemPadding

@@ -8,7 +8,7 @@ import java.util.*
 
 fun Context.updateBaseContextLocale(language: String? = null): Context {
     if (!language.isNullOrEmpty()) {
-        var lang = language!!.split("_")
+        var lang = language.split("_")
         var locale = Locale(lang[0], lang[1])
         Locale.setDefault(locale)
         return updateResourcesLocale(this, locale)

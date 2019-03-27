@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrayScheduleHour">
+        <item>9:30</item>
+        <item>10:00</item>
+        <item>11:30</item>
+        <item>12:30</item>
+        <item>13:15</item>
+        <item>14:45</item>
+        <item>15:30</item>
+
+
+    </string-array>
+    <string-array name="arrayScheduleTitle">
+        <item>@string/arrayTitleZero</item>
+        <item>@string/arrayTitleOne</item>
+        <item>@string/arrayTitleTwo</item>
+        <item>@string/arrayTitleThree</item>
+        <item>@string/arrayTitleFour</item>
+        <item>@string/arrayTitleFive</item>
+        <item>@string/arrayTitleSix</item>
+
+
+    </string-array>
+    <string-array name="arrayScheduleSubTitle">
+        <item>x</item>
+        <item>@string/arraySubtitleOne</item>
+        <item>@string/arraySubtitleTwo</item>
+        <item>@string/arraySubtitleThree</item>
+        <item>@string/arraySubtitleFour</item>
+        <item>@string/arraySubtitleFive</item>
+        <item>x</item>
+
+
+    </string-array>
+    <string-array name="arrayScheduleBody">
+        <item>x</item>
+        <item>@string/arrayBodyOne</item>
+        <item>@string/arrayBodyTwo</item>
+        <item>@string/arrayBodyThree</item>
+        <item>@string/arrayBodyFour</item>
+        <item>@string/arrayBodyFive</item>
+        <item>x</item>
+
+    </string-array>
+
+    <string-array name="arrayhasPhoto">
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+        <item>x</item>
+
+    </string-array>
+</resources>

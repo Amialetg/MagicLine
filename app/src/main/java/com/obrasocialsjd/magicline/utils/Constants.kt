@@ -107,6 +107,8 @@ const val TYPE_SCHEDULE_TITLE_COMMON : Int = 2
 const val TYPE_LAST_CARD : Int = 3
 const val TYPE_FIRST_CARD : Int = 4
 const val TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON : Int = 5
+const val TYPE_SCHEDULE_TITLE_COMMON_LAST : Int = 6
+
 
 
 /**

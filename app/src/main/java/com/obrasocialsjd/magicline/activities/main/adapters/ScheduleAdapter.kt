@@ -45,8 +45,9 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             (dataSet[position].type == TYPE_LAST_CARD) -> TYPE_LAST_CARD
             (dataSet[position].type == TYPE_FIRST_CARD) -> TYPE_FIRST_CARD
             (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON) -> TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON
+            (dataSet[position].type == TYPE_SCHEDULE_TITLE_COMMON_LAST) -> TYPE_SCHEDULE_TITLE_COMMON_LAST
 
-            else  -> TYPE_COMMON_CARD
+            else  -> TYPE_SCHEDULE_TITLE_COMMON_LAST
         }
     }
 
@@ -75,10 +76,15 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON -> {
                 val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card_nobutton, parent, false)
                 ViewHolderCardNoButton(itemView)
+            }
+            TYPE_SCHEDULE_TITLE_COMMON_LAST ->{
+                // DEFAULT TYPE_COMMON_TEXT_LAST
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text_last, parent, false)
+                ViewHolderText(itemView)
             } else -> {
-                // DEFAULT TYPE_COMMON_CARD
-                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_card, parent, false)
-                ViewHolderCard(itemView)
+                // DEFAULT
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.model_schedule_text_last, parent, false)
+                ViewHolderText(itemView)
             }
         }
     }
@@ -102,6 +108,9 @@ class ScheduleAdapter(private var dataSet: List<ScheduleGeneralModel>): Recycler
             }
             TYPE_SCHEDULE_TITLE_COMMON_NO_BUTTON -> {
                 setInfo(holder, position, true)
+            }
+            TYPE_SCHEDULE_TITLE_COMMON_LAST-> {
+                setInfo(holder, position, false)
             }
             else  -> {
                 // DEFAULT TYPE COMMON CARD

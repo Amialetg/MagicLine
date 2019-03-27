@@ -10,4 +10,30 @@
     <string name="pdf_donations_collecting_guide">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Mallorca_mail.pdf</string>
     <string name="schedule_header_total_duration" translatable="false">(Total ruta 4h)</string>
 
+    <!--SCHEDULE EVENTS-->
+    <!--TITLE-->
+    <string name="arrayTitleZero">Sortida</string>
+    <string name="arrayTitleOne">Picnik</string>
+    <string name="arrayTitleTwo">Festa</string>
+    <string name="arrayTitleThree">Concert</string>
+    <string name="arrayTitleFour">Música</string>
+    <string name="arrayTitleFive">Concert</string>
+    <string name="arrayTitleSix">Fi de la Festa</string>
+
+
+    <!--SUBTITLE-->
+    <string name="arraySubtitleOne">Parc del Castell de Bellver</string>
+    <string name="arraySubtitleTwo">Parc de la Mar</string>
+    <string name="arraySubtitleThree">Parc de la Mar</string>
+    <string name="arraySubtitleFour">Parc de la Mar</string>
+    <string name="arraySubtitleFive">Parc de la Mar</string>
+
+
+    <!--BODY-->
+    <string name="arrayBodyOne">Obertura de la zona de picnic fins a les 14:00h.</string>
+    <string name="arrayBodyTwo">Obertura de la festa d\'arribada. Animacions i jocs infantils, food trucks i botiga solidaria.</string>
+    <string name="arrayBodyThree">Concert del duo acústic Get Up.</string>
+    <string name="arrayBodyFour">Espectacle musical a càrreg de Vistalegre.</string>
+    <string name="arrayBodyFive">Concert del grup de pop mediterrani Joan Xanguito.</string>
+
 </resources>

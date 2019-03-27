@@ -40,9 +40,9 @@ fun getListeners(context: Context, onClickListener: (DetailModel) -> Unit): List
             isLast && isCard && hasPhoto -> TYPE_LAST_CARD
             isFirst && !isCard && !hasPhoto -> TYPE_SCHEDULE_TITLE_FIRST// the last one
             isFirst && isCard && !hasPhoto -> TYPE_FIRST_CARD
-            !isFirst && !isCard && !hasPhoto -> TYPE_SCHEDULE_TITLE_COMMON
+            !isFirst && !isCard && !hasPhoto && !isLast -> TYPE_SCHEDULE_TITLE_COMMON
 
-            else -> TYPE_SCHEDULE_TITLE_COMMON
+            else -> TYPE_SCHEDULE_TITLE_COMMON_LAST
         }
         //get id of each photosArray
         if(hasPhoto) {

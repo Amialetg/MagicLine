@@ -8,4 +8,30 @@
     <string name="donation_url">https://www.magiclinesjd.org/es/equipos_mallorca</string>
     <string name="moreInfoWeb">https://www.magiclinesjd.org/es/participar_mallorca</string>
     <string name="pdf_donations_collecting_guide">https://www.magiclinesjd.org/files/tiny/Guia%20idees_2019_Mallorca_ES.pdf</string>
+
+    <!--SCHEDULE EVENTS-->
+    <!--TITLE-->
+    <string name="arrayTitleZero">Salida</string>
+    <string name="arrayTitleOne">Picnick</string>
+    <string name="arrayTitleTwo">Fiesta</string>
+    <string name="arrayTitleThree">Concierto</string>
+    <string name="arrayTitleFour">Música</string>
+    <string name="arrayTitleFive">Concierto</string>
+    <string name="arrayTitleSix">Fin de la Fiesta</string>
+
+    <!--SUBTITLE-->
+    <string name="arraySubtitleOne">Parque del Castillo de Bellver</string>
+    <string name="arraySubtitleTwo">Parque de la Mar</string>
+    <string name="arraySubtitleThree">Parque de la Mar</string>
+    <string name="arraySubtitleFour">Parque de la Mar</string>
+    <string name="arraySubtitleFive">Parque de la Mar</string>
+
+
+    <!--BODY-->
+    <string name="arrayBodyOne">Apertura de la zona de picnic hasta las 14:00h.</string>
+    <string name="arrayBodyTwo">Apertura de la fiesta de llegada. Animaciones y juegos infantiles, food trucks y tienda solidaria.</string>
+    <string name="arrayBodyThree">Concierto del dúo acústico Get Up</string>
+    <string name="arrayBodyFour">Espectáculo musical a cargo de Vistalegre.</string>
+    <string name="arrayBodyFive">Concierto del grupo de pop mediterraneo Joan Xanguito.</string>
+
 </resources>

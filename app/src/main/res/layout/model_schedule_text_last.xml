@@ -21,7 +21,6 @@
             android:layout_height="@dimen/width_circle"
             android:layout_marginStart="@dimen/margin_left_circle"
             android:layout_marginTop="@dimen/margin_left_bar"
-            android:contentDescription="@string/todo"
             android:src="@drawable/circle_selector" />
 
         <TextView

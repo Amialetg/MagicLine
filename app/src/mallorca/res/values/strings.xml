@@ -36,4 +36,20 @@
     <string name="arrayBodyFour">Espectacle musical a càrreg de Vistalegre.</string>
     <string name="arrayBodyFive">Concert del grup de pop mediterrani Joan Xanguito.</string>
 
+    <!-- Essentials Detail Fragment -->
+    <string name="essentials_title">"10 imprescindibles Magic Line SJD"</string>
+    <string name="essentials_subtitle">"Mobilización ciudadana a favor de las persones"</string>
+    <string name="essentials_body"><![CDATA[<html>
+\t <b>1. MOLT MÉS QUE UNA CAMINADA.</b> Els diners captats pels equips es converteixen en ajudes per a persones en situació vulnerable ateses als centres de Sant Joan de Déu de Palma i a altres entitats properes de la ciutat.<br/><br/>
+\t <b>2. UN ALTRE PUNT DE VISTA DE LA CIUTAT.</b> Alceu el cap, la Magic Line SJD vos acosta a la muntanya, al mar, als parcs urbans, als carrers i a les places de la ciutat. Respecteu l’entorn! Vos recordem que el recorregut de 2 km està adaptat per a persones amb mobilitat reduïda.<br/><br/>
+\t <b>3. QUI AJUDES T’AJUDA.</b> Vos oferim punts d’avituallament, aliment complementari per la caminada, que vos facilitaran treballadors i treballadores, voluntariat i persones usuàries dels nostres centres.<br/><br/>
+\t <b>4. VOLUNTARIAT.</b> La Magic Line és possible gràcies a les persones voluntàries que aporten temps i coneixements.<br/><br/>
+\t <b>5. CULTURA INCLUSIVA.</b> Durant el recorregut vos trobareu propostes de música i teatre de carrer. Gaudiu de la companyia.<br/><br/>
+\t <b>6. BERENAR AL CASTELL.</b> Al Parc del Castell de Bellver hi teniu una zona per per fer una parada per berenar, amb activitats de 10h a 14h.<br/><br/>
+\t <b>7. FESTA SOLIDÀRIA A L’ARRIBADA.</b> A partir de les 11.30h al Parc de la Mar de Palma hi teniu una celebració amb actuacions i activitats per a tots els públics. Deixa’t endur pels ritmes solidaris!<br/><br/>
+\t <b>8. PRODUCTES MAGIC LINE SJD.</b> Adquirint un record de la caminada seguiràs ajudant altres persones. Trobaràs una botiga de producte solidari a l’arribada.<br/><br/>
+\t <b>9. EXPLICA LA TEVA EXPERIÈNCIA</b> de #magicliner a les xarxes socials.Les fotos penjades amb el hashtag #MagicLine, sortiran a les nostres xarxes.<br/><br/>
+\t <b>10. GRÀCIES, GRÀCIES, GRÀCIES.</b>  Som milers de persones solidàries omplint la ciutat! Juntes som menys vulnerables!
+</html>]]></string>
+
 </resources>

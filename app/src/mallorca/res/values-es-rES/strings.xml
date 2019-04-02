@@ -34,4 +34,20 @@
     <string name="arrayBodyFour">Espectáculo musical a cargo de Vistalegre.</string>
     <string name="arrayBodyFive">Concierto del grupo de pop mediterraneo Joan Xanguito.</string>
 
+    <!-- Essentials Detail Fragment -->
+    <!--<string name="essentials_title">"10 imprescindibles Magic Line SJD"</string>-->
+    <!--<string name="essentials_subtitle">"Mobilización ciudadana a favor de las persones"</string>-->
+    <string name="essentials_body"><![CDATA[<html>
+\t <b>1. MUCHO MÁS QUE UNA CAMINATA.</b> El dinero recaudado por los equipos se convierte en ayudas para personas en situación vulnerable, atendidas en los centros de San Juan de Dios Palma y otras entidades cercanas a la Ciudad.<br/><br/>
+\t <b>2. OTRO PUNTO DE VISTA SOBRE LA CIUDAD.</b> Alzad la cabeza, Magic Line SJD os acerca a la montaña, al mar, a los parques urbanos, a las calles y a las plazas de la Ciudad. ¡Respetad el entorno! Os recordamos que el recorrido de 2km está adaptado para personas con movilidad reducida.<br/><br/>
+\t <b>3. A QUIÉN AYUDAS, TE AYUDA.</b> Os ofrecemos puntos de avituallamiento, y alimento complementario para la caminata, que os facilitarán trabajadores y trabajadoras, voluntariado y personas usuarias de nuestros centros. <br/><br/>
+\t <b>4. VOLUNTARIADO.</b> La Magic Line es posible gracias a las personas voluntarias que aportan tiempo y conocimiento.<br/><br/>
+\t <b>5. CULTURA INCLUSIVA.</b> Durante el recorrido os encontraréis con propuestas de música y teatro de calle. Disfrutad de la compañía.<br/><br/>
+\t <b>6. MERIENDA EN EL CASTILLO.</b> En el Parque del Castillo de Bellver hay una zona para merendar durante una parada, con actividades de 10 a 14h.<br/><br/>
+\t <b>7. FIESTA SOLIDARIA A LA LLEGADA.</b> A partir de las 13:30, en el Parque de la Mar de Palma, tendrá lugar una celebración con actuaciones y actividades para todos los públicos. ¡Déjate llevar por los ritmos solidarios!<br/><br/>
+\t <b>8. PRODUCTOS MAGIC LINE.</b> Si adquieres un recuerdo de la caminata seguirás ayudando a otras personas. Encontrarás una tienda de productos solidarios en la llegada. <br/><br/>
+\t <b>9. EXPLICA TU EXPERIENCIA DE</b> #magicliner en las redes sociales. Las fotos colgadas con el hashtag #MagicLine, saldrán en nuestras redes.<br/><br/>
+\t <b>10. GRACIAS, GRACIAS, GRACIAS.</b>  ¡Somos miles de personas solidarias llenando la ciudad! ¡Juntas somos menos vulnerables!
+</html>]]></string>
+
 </resources>

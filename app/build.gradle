@@ -56,8 +56,8 @@ android {
         }
         mallorca {
             applicationId "com.obrasocialsjd.magicline.mallorca"
-            versionCode 14
-            versionName "1.0.1"
+            versionCode 15
+            versionName "1.0.2"
         }
         barcelona {
             applicationId "com.obrasocialsjd.magicline"
